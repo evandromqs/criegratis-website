@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Search, Menu, X, Wrench, Grid2X2, Flame, Play, Pause, Star } from "lucide-react";
+import { Search, Menu, X, Wrench, Grid2X2, Compass, Play, Pause, Star } from "lucide-react";
 import Logo from "./Logo";
 import SearchModal from "./SearchModal";
 import ThemeToggle from "./ThemeToggle";
@@ -45,11 +45,11 @@ export default function Header() {
       activeBg: "bg-cyan-50/80 dark:bg-cyan-950/40 text-[#06B6D4] dark:text-[#22D3EE]",
     },
     {
-      href: "/mais-usadas",
-      label: "Mais Usadas",
-      icon: Flame,
-      iconColor: "text-[#F59E0B] dark:text-[#FBBF24]",
-      activeBg: "bg-amber-50/80 dark:bg-amber-950/40 text-[#F59E0B] dark:text-[#FBBF24]",
+      href: "/roadmap",
+      label: "Roadmap",
+      icon: Compass,
+      iconColor: "text-[#8B5CF6] dark:text-[#A78BFA]",
+      activeBg: "bg-purple-50/80 dark:bg-purple-950/40 text-[#8B5CF6] dark:text-[#A78BFA]",
     },
   ];
 

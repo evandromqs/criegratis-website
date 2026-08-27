@@ -238,10 +238,10 @@ export default function HomePage() {
                   Explorar ferramentas
                 </Link>
                 <Link
-                  href="/#populares"
+                  href="/roadmap"
                   className="inline-flex items-center justify-center rounded-xl border border-[#E2E8F0] dark:border-[#334155] bg-white dark:bg-[#1E293B] px-6 py-3.5 sm:py-3 text-sm font-semibold text-[#0F172A] dark:text-white shadow-2xs hover:bg-[#F8FAFC] dark:hover:bg-[#0F172A] hover:border-[#CBD5E1] dark:hover:border-[#475569] active:scale-[0.98] transition-all cursor-pointer min-h-[44px]"
                 >
-                  Mais usadas
+                  Ver Roadmap
                 </Link>
               </div>
             </div>
