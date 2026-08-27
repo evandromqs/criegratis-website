@@ -100,21 +100,23 @@ export default function Header() {
 
         {/* Action: Search Button + PWA Button + Theme Toggle */}
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-          {/* Botão de Busca */}
-          <button
-            onClick={() => setSearchModalOpen(true)}
-            type="button"
-            className="group relative flex items-center justify-center gap-2.5 rounded-xl border border-[#E2E8F0] dark:border-[#334155] bg-[#F8FAFC] dark:bg-[#1E293B] p-2.5 sm:px-3.5 sm:py-2 text-xs sm:text-sm text-[#64748B] dark:text-[#94A3B8] shadow-2xs hover:border-[#2563EB] dark:hover:border-[#38BDF8] hover:bg-white dark:hover:bg-[#0F172A] hover:text-[#0F172A] dark:hover:text-[#F1F5F9] transition-all duration-150 cursor-pointer"
-            aria-label="Buscar ferramenta"
-          >
-            <Search className="h-4 w-4 text-[#64748B] dark:text-[#94A3B8] group-hover:text-[#2563EB] dark:group-hover:text-[#38BDF8] transition-colors duration-150 shrink-0" />
-            
-            <span className="hidden sm:inline font-medium">Buscar ferramenta...</span>
-            
-            <kbd className="hidden lg:inline-flex items-center rounded-md bg-white dark:bg-[#0F172A] px-1.5 py-0.5 text-[10px] font-semibold text-[#64748B] dark:text-[#94A3B8] border border-[#E2E8F0] dark:border-[#334155] group-hover:border-[#2563EB]/40 group-hover:text-[#2563EB] dark:group-hover:text-[#38BDF8] transition-colors duration-150">
-              Ctrl K
-            </kbd>
-          </button>
+          {/* Botão de Busca (Oculto na Home pois já existe barra de busca destacada no Hero) */}
+          {pathname !== "/" && (
+            <button
+              onClick={() => setSearchModalOpen(true)}
+              type="button"
+              className="group relative flex items-center justify-center gap-2.5 rounded-xl border border-[#E2E8F0] dark:border-[#334155] bg-[#F8FAFC] dark:bg-[#1E293B] p-2.5 sm:px-3.5 sm:py-2 text-xs sm:text-sm text-[#64748B] dark:text-[#94A3B8] shadow-2xs hover:border-[#2563EB] dark:hover:border-[#38BDF8] hover:bg-white dark:hover:bg-[#0F172A] hover:text-[#0F172A] dark:hover:text-[#F1F5F9] transition-all duration-150 cursor-pointer"
+              aria-label="Buscar ferramenta"
+            >
+              <Search className="h-4 w-4 text-[#64748B] dark:text-[#94A3B8] group-hover:text-[#2563EB] dark:group-hover:text-[#38BDF8] transition-colors duration-150 shrink-0" />
+              
+              <span className="hidden sm:inline font-medium">Buscar ferramenta...</span>
+              
+              <kbd className="hidden lg:inline-flex items-center rounded-md bg-white dark:bg-[#0F172A] px-1.5 py-0.5 text-[10px] font-semibold text-[#64748B] dark:text-[#94A3B8] border border-[#E2E8F0] dark:border-[#334155] group-hover:border-[#2563EB]/40 group-hover:text-[#2563EB] dark:group-hover:text-[#38BDF8] transition-colors duration-150">
+                Ctrl K
+              </kbd>
+            </button>
+          )}
 
           {/* Botão PWA no Desktop */}
           <div className="hidden lg:block">
