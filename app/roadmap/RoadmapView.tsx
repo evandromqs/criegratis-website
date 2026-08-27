@@ -298,21 +298,12 @@ export const ROADMAP_ITEMS: RoadmapToolItem[] = [
   },
   {
     id: 26,
-    name: "Girar Páginas de PDF",
+    name: "Girar e Organizar Páginas de PDF",
     category: "pdf",
     categoryLabel: "PDFs & Docs",
     status: "planned",
     phase: "Fase 3 (v1.2)",
-    description: "Rotaciona páginas de PDF em 90°, 180° ou 270° diretamente no navegador.",
-  },
-  {
-    id: 26,
-    name: "Remover Páginas de PDF",
-    category: "pdf",
-    categoryLabel: "PDFs & Docs",
-    status: "planned",
-    phase: "Fase 3 (v1.2)",
-    description: "Exclui páginas indesejadas de um arquivo PDF com facilidade.",
+    description: "Rotaciona e exclui páginas indesejadas de arquivos PDF diretamente no navegador.",
   },
   {
     id: 27,
