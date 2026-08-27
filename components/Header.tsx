@@ -80,11 +80,11 @@ export default function Header() {
           {isLoaded && favorites.length > 0 && (
             <Link
               href="/#favoritos"
-              className="flex items-center gap-1.5 rounded-xl px-3.5 py-2 text-sm font-bold bg-amber-50/80 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border border-amber-200/80 dark:border-amber-900/60 hover:bg-amber-100 transition-all duration-150 shadow-2xs"
+              className="flex items-center gap-2 rounded-xl px-3.5 py-2 text-sm font-semibold text-[#475569] dark:text-[#94A3B8] hover:bg-amber-50/70 dark:hover:bg-amber-950/30 hover:text-amber-700 dark:hover:text-amber-300 transition-all duration-150"
             >
-              <Star className="h-4 w-4 fill-amber-400 text-amber-500" />
+              <Star className="h-4 w-4 fill-amber-400 text-amber-500 shrink-0" />
               <span>Favoritas</span>
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-amber-500 text-white text-[10px] font-black">
+              <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 px-1.5 text-[11px] font-bold border border-amber-200/70 dark:border-amber-800/60">
                 {favorites.length}
               </span>
             </Link>
@@ -195,13 +195,13 @@ export default function Header() {
               <Link
                 href="/#favoritos"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between rounded-xl p-3 text-sm font-bold bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-900/60"
+                className="flex items-center justify-between rounded-xl p-3 text-sm font-semibold text-[#0F172A] dark:text-[#F1F5F9] hover:bg-amber-50/70 dark:hover:bg-amber-950/30 transition-colors"
               >
                 <div className="flex items-center gap-3">
                   <Star className="h-5 w-5 fill-amber-400 text-amber-500" />
                   <span>Suas Ferramentas Favoritas</span>
                 </div>
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500 text-white text-xs font-black">
+                <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 border border-amber-200/70 dark:border-amber-800/60 px-2 text-xs font-bold">
                   {favorites.length}
                 </span>
               </Link>
