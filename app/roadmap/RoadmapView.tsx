@@ -18,6 +18,7 @@ import {
   FileSpreadsheet,
   Share2,
   Lock,
+  Flame,
 } from "lucide-react";
 
 export interface RoadmapToolItem {
@@ -135,103 +136,132 @@ export const ROADMAP_ITEMS: RoadmapToolItem[] = [
     href: "/formatar-json",
   },
 
-  // --- FASE 2: EM DESENVOLVIMENTO ATIVO (11 a 20) ---
+  // --- FASE 2: LANÇADO & DISPONÍVEL (11 a 21) ---
   {
     id: 11,
-    name: "Gerador e Validador de CPF",
-    category: "desenvolvedor",
-    categoryLabel: "Desenvolvedor",
-    status: "in_progress",
+    name: "Converter Imagem para PDF (JPG/PNG para PDF)",
+    category: "pdf",
+    categoryLabel: "PDFs & Docs",
+    status: "available",
     phase: "Fase 2 (v1.1)",
-    description: "Gera CPFs válidos com pontuação para testes e valida dígitos verificadores.",
-    badge: "Prioridade Alta",
+    description: "Junta fotos e documentos escaneados em um único arquivo PDF organizado direto no navegador.",
+    href: "/imagem-para-pdf",
+    badge: "Novo",
   },
   {
     id: 12,
-    name: "Gerador de Link de WhatsApp",
-    category: "social",
-    categoryLabel: "Redes & Links",
-    status: "in_progress",
+    name: "Gerador e Validador de CPF",
+    category: "desenvolvedor",
+    categoryLabel: "Desenvolvedor",
+    status: "available",
     phase: "Fase 2 (v1.1)",
-    description: "Cria links diretos wa.me com número e mensagem pré-formatada pronta para envio.",
-    badge: "Prioridade Alta",
+    description: "Gera CPFs válidos com pontuação para testes e valida dígitos verificadores.",
+    href: "/gerador-validador-cpf",
+    badge: "Novo",
   },
   {
     id: 13,
-    name: "Conversor Maiúsculas e Minúsculas",
-    category: "texto",
-    categoryLabel: "Texto",
-    status: "in_progress",
+    name: "Gerador de Link de WhatsApp",
+    category: "social",
+    categoryLabel: "Redes & Links",
+    status: "available",
     phase: "Fase 2 (v1.1)",
-    description: "Transforma textos em MAIÚSCULAS, minúsculas, Primeira Letra, camelCase e snake_case.",
+    description: "Cria links diretos wa.me com número e mensagem pré-formatada pronta para envio.",
+    href: "/gerador-link-whatsapp",
+    badge: "Novo",
   },
   {
     id: 14,
-    name: "Juntar PDF (Merge PDF)",
-    category: "pdf",
-    categoryLabel: "PDFs & Docs",
-    status: "in_progress",
+    name: "Conversor Maiúsculas e Minúsculas",
+    category: "texto",
+    categoryLabel: "Texto",
+    status: "available",
     phase: "Fase 2 (v1.1)",
-    description: "Combina múltiplos arquivos PDF em um único documento arrastando e soltando.",
+    description: "Transforma textos em MAIÚSCULAS, minúsculas, Primeira Letra, camelCase e snake_case.",
+    href: "/converter-maiusculas-minusculas",
+    badge: "Novo",
   },
   {
     id: 15,
-    name: "Calculadora de Juros Compostos",
-    category: "calculadoras",
-    categoryLabel: "Calculadoras",
-    status: "in_progress",
+    name: "Juntar PDF (Merge PDF)",
+    category: "pdf",
+    categoryLabel: "PDFs & Docs",
+    status: "available",
     phase: "Fase 2 (v1.1)",
-    description: "Simulação financeira de rendimentos e aportes mensais com gráfico interativo.",
+    description: "Combina múltiplos arquivos PDF em um único documento arrastando e soltando.",
+    href: "/juntar-pdf",
+    badge: "Novo",
   },
   {
     id: 16,
-    name: "Converter WebP para PNG / JPG",
-    category: "imagens",
-    categoryLabel: "Imagens",
-    status: "in_progress",
+    name: "Calculadora de Juros Compostos",
+    category: "calculadoras",
+    categoryLabel: "Calculadoras",
+    status: "available",
     phase: "Fase 2 (v1.1)",
-    description: "Transforma imagens WebP da web em JPG ou PNG tradicionais em 1 clique.",
+    description: "Simulação financeira de rendimentos e aportes mensais com gráfico interativo.",
+    href: "/calculadora-juros-compostos",
+    badge: "Novo",
   },
   {
     id: 17,
-    name: "Cortar Imagem (Crop Tool)",
+    name: "Converter WebP para PNG / JPG",
     category: "imagens",
     categoryLabel: "Imagens",
-    status: "in_progress",
+    status: "available",
     phase: "Fase 2 (v1.1)",
-    description: "Recorte retangular, quadrado (1:1) e formatos para Stories e redes sociais.",
+    description: "Transforma imagens WebP da web em JPG ou PNG tradicionais em 1 clique.",
+    href: "/webp-para-png-jpg",
+    badge: "Novo",
   },
   {
     id: 18,
-    name: "Calculadora de Regra de Três",
-    category: "calculadoras",
-    categoryLabel: "Calculadoras",
-    status: "in_progress",
+    name: "Cortar Imagem (Crop Tool)",
+    category: "imagens",
+    categoryLabel: "Imagens",
+    status: "available",
     phase: "Fase 2 (v1.1)",
-    description: "Cálculo instantâneo de proporções diretas e inversamente proporcionais.",
+    description: "Recorte retangular, quadrado (1:1) e formatos para Stories e redes sociais.",
+    href: "/cortar-imagem",
+    badge: "Novo",
   },
   {
     id: 19,
-    name: "Gerador de UUID / GUID (v4)",
-    category: "desenvolvedor",
-    categoryLabel: "Desenvolvedor",
-    status: "in_progress",
+    name: "Calculadora de Regra de Três",
+    category: "calculadoras",
+    categoryLabel: "Calculadoras",
+    status: "available",
     phase: "Fase 2 (v1.1)",
-    description: "Geração individual ou em lote de identificadores únicos universais criptografados.",
+    description: "Cálculo instantâneo de proporções diretas e inversamente proporcionais.",
+    href: "/calculadora-regra-de-tres",
+    badge: "Novo",
   },
   {
     id: 20,
+    name: "Gerador de UUID / GUID (v4)",
+    category: "desenvolvedor",
+    categoryLabel: "Desenvolvedor",
+    status: "available",
+    phase: "Fase 2 (v1.1)",
+    description: "Geração individual ou em lote de identificadores únicos universais criptografados.",
+    href: "/gerar-uuid",
+    badge: "Novo",
+  },
+  {
+    id: 21,
     name: "Base64 Encoder / Decoder de Texto",
     category: "desenvolvedor",
     categoryLabel: "Desenvolvedor",
-    status: "in_progress",
+    status: "available",
     phase: "Fase 2 (v1.1)",
     description: "Codifica e decodifica textos em formato Base64 instantaneamente no navegador.",
+    href: "/base64-codificador-decodificador",
+    badge: "Novo",
   },
 
-  // --- FASE 3: IMAGENS & PDFS NO NAVEGADOR (21 a 40) ---
+  // --- FASE 3: IMAGENS & PDFS NO NAVEGADOR (22 a 40) ---
   {
-    id: 21,
+    id: 22,
     name: "Gerador e Validador de CNPJ",
     category: "desenvolvedor",
     categoryLabel: "Desenvolvedor",
@@ -240,7 +270,7 @@ export const ROADMAP_ITEMS: RoadmapToolItem[] = [
     description: "Gera números de CNPJ fictícios válidos para testes e valida documentos de empresas.",
   },
   {
-    id: 22,
+    id: 23,
     name: "Dividir / Extrair Páginas de PDF",
     category: "pdf",
     categoryLabel: "PDFs & Docs",
@@ -249,16 +279,16 @@ export const ROADMAP_ITEMS: RoadmapToolItem[] = [
     description: "Separa páginas individuais ou intervalos específicos de um PDF.",
   },
   {
-    id: 23,
-    name: "Imagens para PDF (JPG/PNG para PDF)",
-    category: "pdf",
-    categoryLabel: "PDFs & Docs",
+    id: 24,
+    name: "Compactador e Descompactador ZIP no Navegador",
+    category: "desenvolvedor",
+    categoryLabel: "Desenvolvedor",
     status: "planned",
     phase: "Fase 3 (v1.2)",
-    description: "Junta fotos e documentos escaneados em um único arquivo PDF organizado.",
+    description: "Cria e extrai arquivos .zip com múltiplos documentos sem enviar nada à nuvem.",
   },
   {
-    id: 24,
+    id: 25,
     name: "PDF para Imagens (JPG/PNG)",
     category: "pdf",
     categoryLabel: "PDFs & Docs",
@@ -267,7 +297,7 @@ export const ROADMAP_ITEMS: RoadmapToolItem[] = [
     description: "Converte cada página de um arquivo PDF em imagem de alta qualidade para download.",
   },
   {
-    id: 25,
+    id: 26,
     name: "Girar Páginas de PDF",
     category: "pdf",
     categoryLabel: "PDFs & Docs",
@@ -976,13 +1006,28 @@ export default function RoadmapView() {
     { id: "qr-code", label: "QR Code", icon: QrCode },
   ];
 
+  // Contadores dinâmicos
+  const counts = useMemo(() => {
+    const available = ROADMAP_ITEMS.filter((i) => i.status === "available").length;
+    const inProgress = ROADMAP_ITEMS.filter((i) => i.status === "in_progress").length;
+    const planned = ROADMAP_ITEMS.filter((i) => i.status === "planned").length;
+    return {
+      total: ROADMAP_ITEMS.length,
+      available,
+      inProgress,
+      planned,
+    };
+  }, []);
+
   const filteredTools = useMemo(() => {
     return ROADMAP_ITEMS.filter((item) => {
+      const q = searchQuery.toLowerCase().trim();
       const matchesSearch =
-        searchQuery === "" ||
-        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.categoryLabel.toLowerCase().includes(searchQuery.toLowerCase());
+        q === "" ||
+        item.name.toLowerCase().includes(q) ||
+        item.description.toLowerCase().includes(q) ||
+        item.categoryLabel.toLowerCase().includes(q) ||
+        item.phase.toLowerCase().includes(q);
 
       const matchesCategory =
         selectedCategory === "all" || item.category === selectedCategory;
@@ -994,140 +1039,212 @@ export default function RoadmapView() {
     });
   }, [searchQuery, selectedCategory, selectedStatus]);
 
-  // Agrupamento por Fase
+  // Definição rica de cada Fase do Roadmap
   const phases = [
     {
       id: "Fase 1 (MVP)",
-      title: "Fase 1: MVP Oficial (Lançado)",
-      badge: "Disponível Hoje",
-      badgeColor: "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400 border-emerald-200 dark:border-emerald-900/50",
-      description: "As primeiras 10 ferramentas essenciais desenvolvidas com 100% de processamento local no navegador.",
+      phaseNumber: "1",
+      title: "Fase 1 • MVP Oficial",
+      subtitle: "10 Ferramentas Lançadas & Disponíveis",
+      badge: "🟢 Lançado • 100% Funcional",
+      badgeClass:
+        "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800/80",
+      accentBorder: "border-emerald-200 dark:border-emerald-900/60",
+      accentBg: "from-emerald-500/10 via-transparent to-transparent",
+      description:
+        "As primeiras ferramentas essenciais construídas com arquitetura 100% client-side (Canvas API, QR Code, gerador de senhas e formatador JSON).",
     },
     {
       id: "Fase 2 (v1.1)",
-      title: "Fase 2: Expansão Imediata (v1.1)",
-      badge: "Em Desenvolvimento Ativo",
-      badgeColor: "bg-amber-50 text-amber-700 dark:bg-amber-950/60 dark:text-amber-400 border-amber-200 dark:border-amber-900/50",
-      description: "Próximas 10 ferramentas de altíssima demanda (CPF/CNPJ, Link WhatsApp, Juntar PDF, etc.).",
+      phaseNumber: "2",
+      title: "Fase 2 • Expansão Imediata (v1.1)",
+      subtitle: "11 Ferramentas Lançadas & Disponíveis",
+      badge: "🟢 Lançado • 100% Funcional",
+      badgeClass:
+        "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800/80",
+      accentBorder: "border-emerald-200 dark:border-emerald-900/60",
+      accentBg: "from-emerald-500/10 via-transparent to-transparent",
+      description:
+        "Utilitários essenciais construídos: Converter Imagem para PDF, Gerador/Validador de CPF, Link do WhatsApp, Juntar PDF, Juros Compostos, WebP, Crop, Regra de 3, UUID e Base64.",
     },
     {
       id: "Fase 3 (v1.2)",
-      title: "Fase 3: Suíte de PDFs & Imagens (v1.2)",
-      badge: "Planejado",
-      badgeColor: "bg-blue-50 text-[#2563EB] dark:bg-blue-950/60 dark:text-[#38BDF8] border-blue-200 dark:border-blue-900/50",
-      description: "Manipulação completa de documentos PDF e novos utilitários visuais com Canvas.",
+      phaseNumber: "3",
+      title: "Fase 3 • Suíte de PDFs & Imagens (v1.2)",
+      subtitle: "19 Ferramentas Planejadas",
+      badge: "🔵 Próximo no Radar",
+      badgeClass:
+        "bg-sky-100 text-sky-800 dark:bg-sky-950/80 dark:text-sky-300 border-sky-300 dark:border-sky-800/80",
+      accentBorder: "border-sky-200 dark:border-sky-900/60",
+      accentBg: "from-sky-500/10 via-transparent to-transparent",
+      description:
+        "Manipulação avançada de documentos PDF no navegador (Dividir, Girar, Extrair, Proteger) e utilitários visuais de edição com Canvas HTML5.",
     },
     {
       id: "Fase 4 (v1.3)",
-      title: "Fase 4: Produtividade de Texto & Dados Dev (v1.3)",
-      badge: "Planejado",
-      badgeColor: "bg-purple-50 text-purple-700 dark:bg-purple-950/60 dark:text-purple-400 border-purple-200 dark:border-purple-900/50",
-      description: "Conversores estruturais (JSON/CSV), diff checking e ferramentas de manipulação de texto.",
+      phaseNumber: "4",
+      title: "Fase 4 • Produtividade de Texto & Dados Dev (v1.3)",
+      subtitle: "20 Ferramentas Planejadas",
+      badge: "🟣 Planejado",
+      badgeClass:
+        "bg-purple-100 text-purple-800 dark:bg-purple-950/80 dark:text-purple-300 border-purple-300 dark:border-purple-800/80",
+      accentBorder: "border-purple-200 dark:border-purple-900/60",
+      accentBg: "from-purple-500/10 via-transparent to-transparent",
+      description:
+        "Conversores estruturais (JSON ↔ CSV, JSON ↔ YAML), testador de Regex, formatadores de SQL/XML, diff checker de textos e decodificador JWT.",
     },
     {
       id: "Fase 5 (v1.4)",
-      title: "Fase 5: Calculadoras Financeiras & Marketing (v1.4)",
-      badge: "No Radar",
-      badgeColor: "bg-indigo-50 text-indigo-700 dark:bg-indigo-950/60 dark:text-indigo-400 border-indigo-200 dark:border-indigo-900/50",
-      description: "Cálculos trabalhistas (CLT, rescisão), conversor de unidades e utilitários de SEO.",
+      phaseNumber: "5",
+      title: "Fase 5 • Calculadoras & Finanças do Dia a Dia (v1.4)",
+      subtitle: "20 Ferramentas Planejadas",
+      badge: "🔵 Planejado",
+      badgeClass:
+        "bg-indigo-100 text-indigo-800 dark:bg-indigo-950/80 dark:text-indigo-300 border-indigo-300 dark:border-indigo-800/80",
+      accentBorder: "border-indigo-200 dark:border-indigo-900/60",
+      accentBg: "from-indigo-500/10 via-transparent to-transparent",
+      description:
+        "Cálculos trabalhistas (Salário Líquido CLT, rescisão, ponto), combustível (Álcool vs Gasolina), IMC, conversor de unidades e ferramentas de SEO.",
     },
     {
       id: "Fase 6 (v2.0)",
-      title: "Fase 6: Criptografia, Redes & Atingindo 100 Ferramentas (v2.0)",
-      badge: "Meta Final",
-      badgeColor: "bg-rose-50 text-rose-700 dark:bg-rose-950/60 dark:text-rose-400 border-rose-200 dark:border-rose-900/50",
-      description: "Hashes Web Crypto, sorteadores e o marco de 100 ferramentas gratuitas.",
+      phaseNumber: "6",
+      title: "Fase 6 • Criptografia, Redes & Marco Histórico 100 (v2.0)",
+      subtitle: "20 Ferramentas Planejadas",
+      badge: "🔴 Meta Final de 100 Ferramentas",
+      badgeClass:
+        "bg-rose-100 text-rose-800 dark:bg-rose-950/80 dark:text-rose-300 border-rose-300 dark:border-rose-800/80",
+      accentBorder: "border-rose-200 dark:border-rose-900/60",
+      accentBg: "from-rose-500/10 via-transparent to-transparent",
+      description:
+        "Criptografia Web Crypto API (SHA-256/512, MD5, HMAC), QR Codes de Wi-Fi e vCard, sorteadores, e a central definitiva unificada CrieGrátis Studio 100.",
     },
   ];
 
   return (
-    <div className="space-y-8">
-      {/* Barra de Filtros e Busca */}
-      <div className="rounded-3xl border border-[#E2E8F0] dark:border-[#1E293B] bg-white dark:bg-[#1E293B]/70 p-6 shadow-sm space-y-6">
-        <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-          {/* Input de Busca */}
-          <div className="relative w-full md:max-w-md">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#64748B] dark:text-[#94A3B8]" />
+    <div className="space-y-8 sm:space-y-10">
+      {/* Barra de Filtros, Busca e Navegação por Status */}
+      <div className="rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 p-5 sm:p-7 shadow-xs backdrop-blur-md space-y-5">
+        <div className="flex flex-col lg:flex-row gap-4 items-stretch lg:items-center justify-between">
+          {/* Input de Busca com Botão de Limpar */}
+          <div className="relative flex-1 max-w-xl">
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 dark:text-slate-500" />
             <input
               type="text"
-              placeholder="Buscar pelo nome ou descrição no roadmap..."
+              placeholder="Buscar ferramentas por nome, categoria ou fase..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-xl border border-[#E2E8F0] dark:border-[#334155] bg-[#F8FAFC] dark:bg-[#0F172A] pl-10 pr-4 py-2.5 text-sm text-[#0F172A] dark:text-white placeholder-[#94A3B8] focus:border-[#2563EB] dark:focus:border-[#38BDF8] focus:outline-hidden transition-all"
+              className="w-full rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-950/80 pl-10 pr-10 py-2.5 sm:py-3 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:border-blue-500 dark:focus:border-blue-400 focus:bg-white dark:focus:bg-slate-900 focus:outline-hidden transition-all shadow-2xs"
             />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+                title="Limpar busca"
+              >
+                ✕
+              </button>
+            )}
           </div>
 
-          {/* Filtro por Status */}
-          <div className="flex items-center gap-2 w-full md:w-auto overflow-x-auto pb-1 md:pb-0">
+          {/* Filtros por Status (Segmented Tabs Modernos) */}
+          <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 lg:pb-0 scrollbar-none">
             <button
               onClick={() => setSelectedStatus("all")}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
+              className={`px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
                 selectedStatus === "all"
-                  ? "bg-[#2563EB] dark:bg-[#38BDF8] text-white dark:text-[#0F172A] shadow-xs"
-                  : "border border-[#E2E8F0] dark:border-[#334155] bg-[#F8FAFC] dark:bg-[#0F172A] text-[#64748B] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white"
+                  ? "bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xs"
+                  : "border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
               }`}
             >
-              Todos os Status ({ROADMAP_ITEMS.length})
+              Todos ({counts.total})
             </button>
+
             <button
               onClick={() => setSelectedStatus("available")}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
+              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
                 selectedStatus === "available"
                   ? "bg-emerald-600 text-white shadow-xs"
-                  : "border border-[#E2E8F0] dark:border-[#334155] bg-[#F8FAFC] dark:bg-[#0F172A] text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/40"
+                  : "border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/50"
               }`}
             >
-              Disponíveis (10)
+              <CheckCircle2 className="h-3.5 w-3.5" />
+              <span>Prontas ({counts.available})</span>
             </button>
+
             <button
               onClick={() => setSelectedStatus("in_progress")}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
+              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
                 selectedStatus === "in_progress"
                   ? "bg-amber-600 text-white shadow-xs"
-                  : "border border-[#E2E8F0] dark:border-[#334155] bg-[#F8FAFC] dark:bg-[#0F172A] text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/40"
+                  : "border border-amber-200 dark:border-amber-900/60 bg-amber-50/50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400 hover:bg-amber-100 dark:hover:bg-amber-900/50"
               }`}
             >
-              Em Produção (10)
+              <Clock className="h-3.5 w-3.5" />
+              <span>Em Produção ({counts.inProgress})</span>
             </button>
+
             <button
               onClick={() => setSelectedStatus("planned")}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
+              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
                 selectedStatus === "planned"
-                  ? "bg-purple-600 text-white shadow-xs"
-                  : "border border-[#E2E8F0] dark:border-[#334155] bg-[#F8FAFC] dark:bg-[#0F172A] text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-950/40"
+                  ? "bg-blue-600 text-white shadow-xs"
+                  : "border border-blue-200 dark:border-blue-900/60 bg-blue-50/50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/50"
               }`}
             >
-              Planejadas (80)
+              <Sparkles className="h-3.5 w-3.5" />
+              <span>Planejadas ({counts.planned})</span>
             </button>
           </div>
         </div>
 
-        {/* Categorias (Pills Horizontais) */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-thin">
-          {categories.map((cat) => {
-            const Icon = cat.icon;
-            const isSelected = selectedCategory === cat.id;
+        {/* Categorias (Pills Horizontais com Ícones) */}
+        <div className="pt-2 border-t border-slate-100 dark:border-slate-800/80">
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-thin">
+            {categories.map((cat) => {
+              const Icon = cat.icon;
+              const isSelected = selectedCategory === cat.id;
 
-            return (
-              <button
-                key={cat.id}
-                onClick={() => setSelectedCategory(cat.id)}
-                className={`flex items-center gap-1.5 rounded-xl px-3.5 py-2 text-xs font-semibold whitespace-nowrap transition-all ${
-                  isSelected
-                    ? "bg-[#0F172A] dark:bg-white text-white dark:text-[#0F172A] shadow-xs"
-                    : "border border-[#E2E8F0] dark:border-[#334155] bg-[#F8FAFC] dark:bg-[#0F172A] text-[#64748B] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white"
-                }`}
-              >
-                <Icon className="h-3.5 w-3.5" />
-                <span>{cat.label}</span>
-              </button>
-            );
-          })}
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setSelectedCategory(cat.id)}
+                  className={`flex items-center gap-1.5 rounded-xl px-3.5 py-2 text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                    isSelected
+                      ? "bg-blue-600 dark:bg-blue-500 text-white dark:text-slate-950 shadow-xs font-bold"
+                      : "border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
+                  }`}
+                >
+                  <Icon className="h-3.5 w-3.5 shrink-0" />
+                  <span>{cat.label}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
+
+        {/* Contador de Resultados Filtrados */}
+        {(searchQuery || selectedCategory !== "all" || selectedStatus !== "all") && (
+          <div className="flex items-center justify-between pt-2 text-xs text-slate-500 dark:text-slate-400">
+            <span>
+              Exibindo <strong>{filteredTools.length}</strong> de <strong>{counts.total}</strong> ferramentas encontradas
+            </span>
+            <button
+              onClick={() => {
+                setSearchQuery("");
+                setSelectedCategory("all");
+                setSelectedStatus("all");
+              }}
+              className="text-blue-600 dark:text-blue-400 font-semibold hover:underline cursor-pointer"
+            >
+              Redefinir Filtros
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Exibição dos Itens Agrupados por Fase */}
-      <div className="space-y-12">
+      <div className="space-y-12 sm:space-y-16">
         {phases.map((phase) => {
           const phaseItems = filteredTools.filter(
             (item) => item.phase === phase.id
@@ -1136,34 +1253,45 @@ export default function RoadmapView() {
           if (phaseItems.length === 0) return null;
 
           return (
-            <section key={phase.id} className="space-y-4">
-              {/* Header da Fase */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#E2E8F0] dark:border-[#1E293B] pb-3">
-                <div className="space-y-1">
-                  <div className="flex items-center gap-3">
-                    <h2 className="text-xl font-bold text-[#0F172A] dark:text-white">
-                      {phase.title}
-                    </h2>
-                    <span
-                      className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[11px] font-bold ${phase.badgeColor}`}
-                    >
-                      {phase.badge}
+            <section key={phase.id} className="space-y-5">
+              {/* Header da Fase com Estilo Visual de Linha do Tempo */}
+              <div
+                className={`relative overflow-hidden rounded-3xl border ${phase.accentBorder} bg-gradient-to-r ${phase.accentBg} bg-white dark:bg-slate-900/80 p-5 sm:p-6 shadow-xs`}
+              >
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div className="space-y-1.5">
+                    <div className="flex flex-wrap items-center gap-2.5">
+                      <span className="flex h-7 w-7 items-center justify-center rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 text-xs font-black">
+                        {phase.phaseNumber}
+                      </span>
+                      <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+                        {phase.title}
+                      </h2>
+                      <span
+                        className={`inline-flex items-center rounded-full border px-3 py-0.5 text-xs font-bold shadow-2xs ${phase.badgeClass}`}
+                      >
+                        {phase.badge}
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
+                      {phase.description}
+                    </p>
+                  </div>
+
+                  <div className="shrink-0 self-start md:self-auto">
+                    <span className="inline-flex items-center gap-1.5 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 px-3 py-1.5 text-xs font-bold text-slate-700 dark:text-slate-300">
+                      <span>{phaseItems.length} ferramenta{phaseItems.length > 1 ? "s" : ""}</span>
                     </span>
                   </div>
-                  <p className="text-xs sm:text-sm text-[#64748B] dark:text-[#94A3B8]">
-                    {phase.description}
-                  </p>
                 </div>
-                <span className="text-xs font-semibold text-[#64748B] dark:text-[#94A3B8] shrink-0">
-                  {phaseItems.length} ferramenta{phaseItems.length > 1 ? "s" : ""}
-                </span>
               </div>
 
-              {/* Grid de Cards das Ferramentas */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {/* Grid de Cards das Ferramentas da Fase */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
                 {phaseItems.map((tool) => {
                   const isAvailable = tool.status === "available";
                   const isInProgress = tool.status === "in_progress";
+                  const isHighPriority = tool.badge === "Prioridade Alta";
 
                   const CardWrapper = isAvailable && tool.href ? Link : "div";
 
@@ -1171,63 +1299,80 @@ export default function RoadmapView() {
                     <CardWrapper
                       key={tool.id}
                       href={tool.href || "#"}
-                      className={`group relative rounded-2xl border p-5 transition-all duration-200 flex flex-col justify-between ${
+                      className={`group relative rounded-3xl border p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between ${
                         isAvailable
-                          ? "border-emerald-200 dark:border-emerald-900/60 bg-gradient-to-b from-emerald-50/30 to-white dark:from-emerald-950/20 dark:to-[#1E293B] hover:border-emerald-500 hover:shadow-md cursor-pointer"
+                          ? "border-emerald-200/90 dark:border-emerald-900/60 bg-gradient-to-b from-emerald-50/40 via-white to-white dark:from-emerald-950/20 dark:via-slate-900/90 dark:to-slate-900 shadow-2xs hover:border-emerald-500 dark:hover:border-emerald-500 hover:shadow-md cursor-pointer hover:-translate-y-0.5"
                           : isInProgress
-                          ? "border-amber-200 dark:border-amber-900/50 bg-gradient-to-b from-amber-50/30 to-white dark:from-amber-950/20 dark:to-[#1E293B]"
-                          : "border-[#E2E8F0] dark:border-[#1E293B] bg-white dark:bg-[#1E293B]/60 opacity-90"
+                          ? "border-amber-200/90 dark:border-amber-900/60 bg-gradient-to-b from-amber-50/40 via-white to-white dark:from-amber-950/20 dark:via-slate-900/90 dark:to-slate-900 shadow-2xs hover:border-amber-400 dark:hover:border-amber-500/70"
+                          : "border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/70 shadow-2xs hover:border-slate-300 dark:hover:border-slate-700"
                       }`}
                     >
-                      <div className="space-y-2.5">
+                      <div className="space-y-3">
+                        {/* Header do Card: Número + Badge + Categoria */}
                         <div className="flex items-center justify-between gap-2">
-                          <span className="text-[11px] font-mono font-bold text-[#94A3B8] dark:text-[#64748B]">
+                          <span className="font-mono text-xs font-bold text-slate-400 dark:text-slate-500">
                             #{String(tool.id).padStart(2, "0")}
                           </span>
 
-                          <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-1.5">
                             {tool.badge && (
-                              <span className="rounded-full bg-blue-100 dark:bg-blue-900/50 px-2 py-0.5 text-[10px] font-bold text-[#2563EB] dark:text-[#38BDF8]">
-                                {tool.badge}
+                              <span
+                                className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold inline-flex items-center gap-1 ${
+                                  isHighPriority
+                                    ? "bg-amber-100 text-amber-800 dark:bg-amber-950/90 dark:text-amber-300 border border-amber-200 dark:border-amber-800/60"
+                                    : tool.badge === "Popular"
+                                    ? "bg-blue-100 text-blue-800 dark:bg-blue-950/90 dark:text-blue-300 border border-blue-200 dark:border-blue-800/60"
+                                    : "bg-purple-100 text-purple-800 dark:bg-purple-950/90 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60"
+                                }`}
+                              >
+                                {isHighPriority ? (
+                                  <Flame className="h-3 w-3 fill-amber-500 text-amber-500 shrink-0" />
+                                ) : (
+                                  <Sparkles className="h-3 w-3 text-blue-500 shrink-0" />
+                                )}
+                                <span>{tool.badge}</span>
                               </span>
                             )}
-                            <span className="rounded-md bg-[#F1F5F9] dark:bg-[#0F172A] px-2 py-0.5 text-[10px] font-medium text-[#64748B] dark:text-[#94A3B8]">
+                            <span className="rounded-lg bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 text-[10px] font-bold text-slate-600 dark:text-slate-400">
                               {tool.categoryLabel}
                             </span>
                           </div>
                         </div>
 
-                        <h3 className="text-base font-bold text-[#0F172A] dark:text-white group-hover:text-[#2563EB] dark:group-hover:text-[#38BDF8] transition-colors flex items-center justify-between">
+                        {/* Título da Ferramenta */}
+                        <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors flex items-center justify-between leading-snug">
                           <span>{tool.name}</span>
                           {isAvailable && (
-                            <ArrowUpRight className="h-4 w-4 text-emerald-600 dark:text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                            <ArrowUpRight className="h-4 w-4 text-emerald-600 dark:text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
                           )}
                         </h3>
 
-                        <p className="text-xs text-[#64748B] dark:text-[#94A3B8] leading-relaxed line-clamp-3">
+                        {/* Descrição com Alto Conforto de Leitura */}
+                        <p className="text-xs sm:text-[13px] text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
                           {tool.description}
                         </p>
                       </div>
 
-                      <div className="mt-4 pt-3 border-t border-[#F1F5F9] dark:border-[#334155]/60 flex items-center justify-between">
+                      {/* Rodapé do Card com Status */}
+                      <div className="mt-5 pt-3.5 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs">
                         {isAvailable ? (
-                          <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+                          <span className="inline-flex items-center gap-1.5 font-bold text-emerald-600 dark:text-emerald-400">
                             <CheckCircle2 className="h-3.5 w-3.5" />
                             <span>Usar agora</span>
                           </span>
                         ) : isInProgress ? (
-                          <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-600 dark:text-amber-400">
+                          <span className="inline-flex items-center gap-1.5 font-bold text-amber-600 dark:text-amber-400">
                             <Clock className="h-3.5 w-3.5 animate-spin" />
-                            <span>Em desenvolvimento</span>
+                            <span>Em produção</span>
                           </span>
                         ) : (
-                          <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#94A3B8] dark:text-[#64748B]">
+                          <span className="inline-flex items-center gap-1.5 font-medium text-slate-400 dark:text-slate-500">
                             <Sparkles className="h-3.5 w-3.5" />
                             <span>Planejada</span>
                           </span>
                         )}
 
-                        <span className="text-[10px] font-medium text-[#94A3B8]">
+                        <span className="text-[11px] font-mono text-slate-400 dark:text-slate-500">
                           100% Client-Side
                         </span>
                       </div>
@@ -1239,14 +1384,15 @@ export default function RoadmapView() {
           );
         })}
 
+        {/* Estado Vazio de Busca */}
         {filteredTools.length === 0 && (
-          <div className="text-center py-12 rounded-3xl border border-dashed border-[#E2E8F0] dark:border-[#334155] bg-white dark:bg-[#1E293B]/40 space-y-3">
-            <Search className="h-8 w-8 text-[#94A3B8] mx-auto" />
-            <p className="text-base font-semibold text-[#0F172A] dark:text-white">
+          <div className="text-center py-14 px-4 rounded-3xl border border-dashed border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900/50 space-y-4">
+            <Search className="h-10 w-10 text-slate-400 dark:text-slate-500 mx-auto animate-bounce" />
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white">
               Nenhuma ferramenta encontrada
-            </p>
-            <p className="text-xs text-[#64748B] dark:text-[#94A3B8] max-w-sm mx-auto">
-              Tente buscar por outros termos ou redefinir os filtros de categoria e status.
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-md mx-auto">
+              Não encontramos nenhuma ferramenta correspondente à sua busca. Tente buscar por termos mais genéricos ou redefinir os filtros.
             </p>
             <button
               onClick={() => {
@@ -1254,9 +1400,9 @@ export default function RoadmapView() {
                 setSelectedCategory("all");
                 setSelectedStatus("all");
               }}
-              className="mt-2 rounded-xl bg-[#2563EB] dark:bg-[#38BDF8] text-white dark:text-[#0F172A] px-4 py-2 text-xs font-semibold"
+              className="mt-2 rounded-xl bg-blue-600 dark:bg-blue-500 text-white dark:text-slate-950 px-5 py-2.5 text-xs font-bold shadow-xs hover:bg-blue-700 cursor-pointer"
             >
-              Limpar Filtros
+              Limpar Todos os Filtros
             </button>
           </div>
         )}

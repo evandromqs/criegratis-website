@@ -345,6 +345,366 @@ export const TOOLS: ToolInfo[] = [
         answer: "Jamais! Todo a análise de sintaxe e formatação é feita usando o motor JavaScript interno do seu próprio navegador."
       }
     ]
+  },
+  {
+    slug: "imagem-para-pdf",
+    name: "Converter Imagem para PDF",
+    shortDescription: "Transforme fotos JPG, PNG e WebP em um arquivo PDF organizado e leve.",
+    fullDescription: "Converta múltiplas imagens para PDF diretamente no navegador. Organize as páginas na ordem desejada, defina orientação (retrato/paisagem) e baixe seu documento PDF em segundos sem enviar arquivos para servidores.",
+    category: "imagens",
+    keywords: ["imagem para pdf", "jpg para pdf", "png para pdf", "converter foto em pdf", "juntar fotos em pdf"],
+    icon: "FileText",
+    href: "/imagem-para-pdf",
+    metaTitle: "Converter Imagem para PDF Grátis | CrieGrátis",
+    metaDescription: "Converta imagens JPG, PNG e WebP para PDF grátis no navegador. Junte várias fotos em um único arquivo PDF sem cadastro e com privacidade 100%.",
+    h1: "Converter Imagem para PDF Grátis",
+    badge: "Novo",
+    isPopular: true,
+    usageSteps: [
+      "Arraste ou selecione uma ou mais imagens (JPG, PNG ou WebP).",
+      "Reordene as fotos arrastando ou usando as setas para definir a sequência das páginas.",
+      "Ajuste a orientação da página (Retrato ou Paisagem) e as margens desejadas.",
+      "Clique em 'Gerar e Baixar PDF' para salvar seu arquivo imediatamente."
+    ],
+    features: [
+      "Suporte a múltiplos arquivos simultâneos (JPG, PNG, WebP)",
+      "Reordenação visual e intuitiva de páginas",
+      "Opções de margem (Sem margem, Pequena, Grande) e orientação de página",
+      "Processamento 100% no navegador (seus documentos são privados)"
+    ],
+    faqs: [
+      {
+        question: "Quantas imagens posso juntar em um único PDF?",
+        answer: "Não há limite fixo imposto pela plataforma. Você pode adicionar dezenas de fotos e documentos de uma só vez."
+      },
+      {
+        question: "Minhas fotos são enviadas para algum servidor?",
+        answer: "Não. A conversão é feita inteiramente na memória RAM do seu próprio dispositivo via biblioteca client-side."
+      }
+    ]
+  },
+  {
+    slug: "gerador-validador-cpf",
+    name: "Gerador e Validador de CPF",
+    shortDescription: "Gere CPFs válidos para testes e valide números com algoritmo oficial.",
+    fullDescription: "Ferramenta essencial para desenvolvedores e testers. Gere números de CPF válidos com ou sem pontuação (individual ou em lote) e valide qualquer CPF através do cálculo dos dígitos verificadores (Módulo 11).",
+    category: "desenvolvedor",
+    keywords: ["gerador de cpf", "validar cpf", "validador de cpf", "gerar cpf valido", "cpf para testes"],
+    icon: "CheckCircle",
+    href: "/gerador-validador-cpf",
+    metaTitle: "Gerador e Validador de CPF Grátis | CrieGrátis",
+    metaDescription: "Gere CPFs válidos para testes de software e valide dígitos de CPF com cálculo oficial. Rápido, seguro e sem armazenar dados.",
+    h1: "Gerador e Validador de CPF",
+    badge: "Novo",
+    isPopular: true,
+    usageSteps: [
+      "Para Gerar: escolha a quantidade de CPFs, opção de máscara (pontuação) e clique em 'Gerar CPF'.",
+      "Para Validar: digite ou cole um CPF no campo de validação e veja o resultado em tempo real.",
+      "Copie os números gerados individualmente ou em lote com 1 clique."
+    ],
+    features: [
+      "Geração individual e em lote (até 50 CPFs de uma vez)",
+      "Opção com máscara (000.000.000-00) ou apenas números",
+      "Identificação do estado/região fiscal brasileira de emissão",
+      "Algoritmo oficial de Módulo 11 da Receita Federal"
+    ],
+    faqs: [
+      {
+        question: "Os CPFs gerados são de pessoas reais?",
+        answer: "Não. Os números são gerados de forma puramente algorítmica seguindo as regras matemáticas de dígitos verificadores, destinados exclusivamente para testes de software e homologação de sistemas."
+      }
+    ]
+  },
+  {
+    slug: "gerador-link-whatsapp",
+    name: "Gerador de Link de WhatsApp",
+    shortDescription: "Crie links wa.me personalizados com mensagem e QR Code instantâneo.",
+    fullDescription: "Crie links diretos para conversas no WhatsApp com número e mensagem pré-formatada. Copie o link curto wa.me ou baixe o QR Code exclusivo para usar em redes sociais, cartões e banners.",
+    category: "qr-code",
+    keywords: ["link whatsapp", "gerador link whatsapp", "criar link zap", "link wa me", "qr code whatsapp"],
+    icon: "MessageSquare",
+    href: "/gerador-link-whatsapp",
+    metaTitle: "Gerador de Link de WhatsApp Grátis | CrieGrátis",
+    metaDescription: "Crie link direto para WhatsApp com mensagem personalizada e QR Code para download. Ideal para negócios, Instagram e marketing.",
+    h1: "Gerador de Link de WhatsApp",
+    badge: "Novo",
+    isPopular: true,
+    usageSteps: [
+      "Informe o número de telefone com DDD (ex: 11 99999-9999).",
+      "Escreva a mensagem inicial que você deseja que o cliente envie.",
+      "Visualize a prévia da mensagem no balão estilizado.",
+      "Clique em 'Copiar Link', 'Testar Link' ou 'Baixar QR Code'."
+    ],
+    features: [
+      "Formatação automática de DDI (+55 Brasil) e DDD",
+      "Preview visual em tempo real no estilo balão de mensagem do WhatsApp",
+      "Geração instantânea de QR Code PNG em alta resolução",
+      "Compatível com WhatsApp Web e aplicativo mobile"
+    ],
+    faqs: [
+      {
+        question: "O link gerado tem prazo de validade?",
+        answer: "Não! Os links wa.me utilizam o protocolo oficial do WhatsApp e nunca expiram."
+      }
+    ]
+  },
+  {
+    slug: "converter-maiusculas-minusculas",
+    name: "Conversor Maiúsculas e Minúsculas",
+    shortDescription: "Transforme textos em MAIÚSCULAS, minúsculas, camelCase, snake_case e mais.",
+    fullDescription: "Transforme qualquer texto instantaneamente. Converta entre MAIÚSCULAS, minúsculas, Primeira Letra Maiúscula (Title Case), Início de Frases, camelCase, snake_case, kebab-case e PascalCase com 1 clique.",
+    category: "texto",
+    keywords: ["converter maiusculas", "converter minusculas", "texto maiusculo", "title case", "camelcase"],
+    icon: "Type",
+    href: "/converter-maiusculas-minusculas",
+    metaTitle: "Conversor Maiúsculas e Minúsculas Online | CrieGrátis",
+    metaDescription: "Altere o formato de letras do seu texto online. Converta para maiúsculas, minúsculas, camelCase, snake_case e primeira letra em maiúscula.",
+    h1: "Conversor de Maiúsculas e Minúsculas",
+    badge: "Novo",
+    usageSteps: [
+      "Cole ou digite o texto na caixa de entrada.",
+      "Clique no botão do estilo desejado (ex: MAIÚSCULAS, minúsculas, Title Case, camelCase).",
+      "O texto é convertido instantaneamente na caixa de resultado.",
+      "Clique em 'Copiar' para colar onde precisar."
+    ],
+    features: [
+      "Mais de 9 modos de formatação de caixa de texto",
+      "Suporte completo a caracteres acentuados da língua portuguesa",
+      "Estatísticas em tempo real (palavras e caracteres)",
+      "Botão de troca rápida e cópia em 1 clique"
+    ],
+    faqs: [
+      {
+        question: "A ferramenta suporta textos longos?",
+        answer: "Sim! Não há limite de caracteres para conversão, e todo o processamento ocorre instantaneamente no seu navegador."
+      }
+    ]
+  },
+  {
+    slug: "juntar-pdf",
+    name: "Juntar PDF (Merge PDF)",
+    shortDescription: "Combine múltiplos arquivos PDF em um único documento no navegador.",
+    fullDescription: "Junte vários arquivos PDF em um único documento com facilidade. Arraste e solte seus PDFs, ordene as páginas como preferir e baixe o arquivo unificado com segurança e privacidade 100% client-side.",
+    category: "desenvolvedor",
+    keywords: ["juntar pdf", "mesclar pdf", "merge pdf", "combinar pdf", "unir pdf gratis"],
+    icon: "Files",
+    href: "/juntar-pdf",
+    metaTitle: "Juntar PDF Online Grátis — Mesclar Arquivos PDF | CrieGrátis",
+    metaDescription: "Junte múltiplos arquivos PDF em um só documento online e grátis. Rápido, seguro e processado 100% no seu navegador.",
+    h1: "Juntar PDF Online Grátis",
+    badge: "Novo",
+    isPopular: true,
+    usageSteps: [
+      "Selecione ou arraste dois ou mais arquivos PDF para a área de envio.",
+      "Ordene os arquivos na sequência desejada usando os botões de subir/descer.",
+      "Clique no botão 'Juntar e Baixar PDF'.",
+      "O novo arquivo combinado será gerado e baixado instantaneamente."
+    ],
+    features: [
+      "Combinação de múltiplos arquivos PDF de qualquer tamanho",
+      "Reordenação fácil da sequência dos documentos",
+      "Mantém resolução, qualidade e hiperlinks originais",
+      "Zero envio de dados para a nuvem (privacidade total)"
+    ],
+    faqs: [
+      {
+        question: "Existe limite no número de arquivos PDF que posso juntar?",
+        answer: "Não há limites artificiais de quantidade de arquivos ou de tamanho, dependendo apenas da memória do seu navegador."
+      }
+    ]
+  },
+  {
+    slug: "calculadora-juros-compostos",
+    name: "Calculadora de Juros Compostos",
+    shortDescription: "Simule rendimentos financeiros com aportes mensais e gráficos visuais.",
+    fullDescription: "Calcule a evolução dos seus investimentos com juros compostos. Insira valor inicial, aportes mensais, taxa de juros e prazo para visualizar o total acumulado, total investido e gráficos interativos de rendimento.",
+    category: "calculadoras",
+    keywords: ["calculadora juros compostos", "juros compostos", "simulador de investimento", "calcular rendimento"],
+    icon: "TrendingUp",
+    href: "/calculadora-juros-compostos",
+    metaTitle: "Calculadora de Juros Compostos Online | CrieGrátis",
+    metaDescription: "Calcule o rendimento de investimentos com juros compostos e aportes mensais. Veja tabela detalhada e gráfico visual de evolução patrimonial.",
+    h1: "Calculadora de Juros Compostos",
+    badge: "Novo",
+    isPopular: true,
+    usageSteps: [
+      "Informe o valor inicial do investimento (R$).",
+      "Digite o valor do aporte mensal recorrente (opcional).",
+      "Defina a taxa de juros (% ao mês ou % ao ano).",
+      "Escolha o período em meses ou anos e veja os resultados calculados automaticamente."
+    ],
+    features: [
+      "Simulação de juros mensais ou anuais com conversão automática",
+      "Detalhamento claro entre valor investido do próprio bolso e juros acumulados",
+      "Gráfico visual interativo de crescimento ano a ano",
+      "Tabela completa de evolução mês a mês para download ou consulta"
+    ],
+    faqs: [
+      {
+        question: "Qual a diferença entre juros simples e juros compostos?",
+        answer: "Nos juros compostos, os rendimentos de cada período são somados ao capital principal para render mais no período seguinte ('juros sobre juros'), multiplicando o patrimônio a longo prazo."
+      }
+    ]
+  },
+  {
+    slug: "webp-para-png-jpg",
+    name: "Converter WebP para PNG / JPG",
+    shortDescription: "Converta imagens WebP para formatos compatíveis JPG ou PNG em 1 clique.",
+    fullDescription: "Transforme imagens no formato WebP baixadas da internet para JPG ou PNG compatíveis com qualquer programa de edição ou visualizador. Rápido, nítido e direto no navegador.",
+    category: "imagens",
+    keywords: ["webp para png", "webp para jpg", "converter webp", "transformar webp em foto"],
+    icon: "Image",
+    href: "/webp-para-png-jpg",
+    metaTitle: "Converter WebP para PNG e JPG Grátis | CrieGrátis",
+    metaDescription: "Converta arquivos de imagem WebP para PNG ou JPG online e grátis. Conversão de alta qualidade no navegador sem cadastro.",
+    h1: "Converter WebP para PNG e JPG",
+    badge: "Novo",
+    usageSteps: [
+      "Arraste ou selecione os arquivos de imagem .webp do seu computador ou celular.",
+      "Escolha o formato de saída desejado: PNG (ideal para transparência) ou JPG.",
+      "Se escolher JPG, ajuste a barra de qualidade visual conforme preferir.",
+      "Baixe suas imagens convertidas individualmente ou em lote."
+    ],
+    features: [
+      "Conversão super rápida e direta no Canvas HTML5",
+      "Preservação de fundo transparente na conversão para PNG",
+      "Ajuste de qualidade e compressão para saída em JPG",
+      "Suporte a múltiplos arquivos simultâneos"
+    ],
+    faqs: [
+      {
+        question: "Por que converter WebP para JPG ou PNG?",
+        answer: "Embora o WebP seja muito leve na web, muitos editores clássicos, plataformas de envio de documentos e redes sociais ainda exigem o formato PNG ou JPG tradicional."
+      }
+    ]
+  },
+  {
+    slug: "cortar-imagem",
+    name: "Cortar Imagem (Crop Tool)",
+    shortDescription: "Recorte fotos em proporções livres ou presets para Stories e redes sociais.",
+    fullDescription: "Ferramenta visual e intuitiva para cortar imagens online. Escolha proporções livres ou presets consagrados (1:1 Quadrado, 9:16 Stories/Reels, 16:9 Vídeo, 4:5 Feed) e exporte sem perder qualidade.",
+    category: "imagens",
+    keywords: ["cortar imagem", "recortar foto", "crop image", "cortar foto para instagram", "cortar quadrado 1:1"],
+    icon: "Crop",
+    href: "/cortar-imagem",
+    metaTitle: "Cortar Imagem Online Grátis — Recorte de Fotos | CrieGrátis",
+    metaDescription: "Recorte fotos e imagens online com facilidade. Proporções para Instagram, Stories, TikTok e formatos personalizados no navegador.",
+    h1: "Cortar Imagem Online Grátis",
+    badge: "Novo",
+    usageSteps: [
+      "Envie a imagem que deseja recortar.",
+      "Selecione uma proporção pré-definida (1:1, 9:16, 16:9, etc.) ou escolha formato livre.",
+      "Arraste e redimensione a área de seleção sobre a imagem.",
+      "Clique em 'Recortar e Baixar' para salvar a imagem final."
+    ],
+    features: [
+      "Presets prontos para Instagram Feed, Stories, Reels, TikTok e YouTube",
+      "Ajuste interativo de corte com pré-visualização em tempo real",
+      "Exportação em alta resolução sem marcas d'água",
+      "Processamento 100% client-side (suas fotos não saem do dispositivo)"
+    ],
+    faqs: [
+      {
+        question: "Qual o tamanho recomendado para postar no Feed do Instagram?",
+        answer: "Para o feed quadrado use a proporção 1:1 (1080x1080px); para o feed vertical use 4:5 (1080x1350px); e para Stories/Reels use 9:16 (1080x1920px)."
+      }
+    ]
+  },
+  {
+    slug: "calculadora-regra-de-tres",
+    name: "Calculadora de Regra de Três",
+    shortDescription: "Calcule proporções diretas e inversas com explicação passo a passo.",
+    fullDescription: "Resolva qualquer problema de regra de três simples em segundos. Calcule proporções diretas ou inversamente proporcionais e veja a demonstração detalhada da equação passo a passo.",
+    category: "calculadoras",
+    keywords: ["regra de tres", "calculadora regra de tres", "regra de tres simples", "calcular proporcao"],
+    icon: "Percent",
+    href: "/calculadora-regra-de-tres",
+    metaTitle: "Calculadora de Regra de Três Simples Online | CrieGrátis",
+    metaDescription: "Calcule regra de três simples direta e inversa online. Veja a fórmula e resolução passo a passo de forma didática e instantânea.",
+    h1: "Calculadora de Regra de Três Simples",
+    badge: "Novo",
+    usageSteps: [
+      "Escolha entre 'Diretamente Proporcional' ou 'Inversamente Proporcional'.",
+      "Preencha os três valores conhecidos (A, B e C).",
+      "O valor da incógnita X é calculado automaticamente enquanto você digita.",
+      "Acompanhe a explicação passo a passo e copie o resultado com 1 clique."
+    ],
+    features: [
+      "Modo Direto (se um sobe, o outro sobe) e Inverso (se um sobe, o outro desce)",
+      "Cálculo instantâneo em tempo real",
+      "Demonstração didática de cada etapa da fórmula matemática",
+      "Exemplos práticos de uso do cotidiano carregáveis com 1 clique"
+    ],
+    faqs: [
+      {
+        question: "Quando usar regra de três inversa?",
+        answer: "Use quando o aumento de uma grandeza provoca a redução da outra. Exemplo: se 2 pedreiros levam 6 dias para construir um muro, 4 pedreiros levarão menos tempo (3 dias)."
+      }
+    ]
+  },
+  {
+    slug: "gerar-uuid",
+    name: "Gerador de UUID / GUID (v4)",
+    shortDescription: "Gere identificadores únicos universais aleatórios criptografados em lote.",
+    fullDescription: "Gere UUIDs (Universally Unique Identifiers) versão 4 em lote ou individualmente com base na API Web Crypto nativa do navegador. Configure maiúsculas, minúsculas, chaves e separadores com facilidade.",
+    category: "desenvolvedor",
+    keywords: ["gerar uuid", "uuid v4 generator", "guid generator", "gerador de guid", "identificador unico"],
+    icon: "Key",
+    href: "/gerar-uuid",
+    metaTitle: "Gerador de UUID / GUID v4 Online | CrieGrátis",
+    metaDescription: "Gere UUIDs versão 4 criptograficamente seguros em lote ou individualmente. Personalize maiúsculas, chaves e copie com 1 clique.",
+    h1: "Gerador de UUID / GUID v4",
+    badge: "Novo",
+    usageSteps: [
+      "Escolha a quantidade de UUIDs desejada (de 1 a 100).",
+      "Selecione as opções: letras maiúsculas/minúsculas, com ou sem hifens, e envolver em chaves.",
+      "Clique em 'Gerar Novos UUIDs'.",
+      "Copie a lista inteira ou copie os itens individualmente."
+    ],
+    features: [
+      "Geração criptograficamente segura via crypto.randomUUID",
+      "Geração em lote de até 100 identificadores por clique",
+      "Opções flexíveis de formatação (hifens, chaves {...}, maiúsculas)",
+      "Funciona totalmente offline no navegador"
+    ],
+    faqs: [
+      {
+        question: "O que é um UUID v4 e qual a chance de colisão?",
+        answer: "Um UUID v4 é um identificador de 128 bits gerado aleatoriamente. A probabilidade de gerar dois UUIDs iguais é astronomicamente baixa (praticamente impossível na prática)."
+      }
+    ]
+  },
+  {
+    slug: "base64-codificador-decodificador",
+    name: "Base64 Codificador e Decodificador",
+    shortDescription: "Codifique e decodifique textos em Base64 com suporte total a UTF-8.",
+    fullDescription: "Codifique textos simples para o formato Base64 ou decodifique sequências Base64 de volta para texto legível. Suporte avançado a caracteres especiais, acentuação em português e emojis com total privacidade.",
+    category: "desenvolvedor",
+    keywords: ["base64 decode", "base64 encode", "codificar base64", "decodificar base64", "base64 utf8"],
+    icon: "Binary",
+    href: "/base64-codificador-decodificador",
+    metaTitle: "Base64 Encoder e Decoder de Texto Online | CrieGrátis",
+    metaDescription: "Codifique e decodifique textos em Base64 online. Suporte completo a acentuação UTF-8 e caracteres especiais com 100% de privacidade.",
+    h1: "Base64 Codificador e Decodificador de Texto",
+    badge: "Novo",
+    usageSteps: [
+      "Escolha a aba 'Codificar (Texto → Base64)' ou 'Decodificar (Base64 → Texto)'.",
+      "Digite ou cole o conteúdo no campo de entrada.",
+      "O resultado correspondente é gerado instantaneamente no campo de saída.",
+      "Clique no botão 'Copiar Resultado' para utilizar."
+    ],
+    features: [
+      "Codificação e decodificação bidirecional instantânea",
+      "Suporte completo a UTF-8 (acentos, cedilha, símbolos e emojis)",
+      "Detecção e tratamento de erros de decodificação com alertas claros",
+      "100% client-side (seus dados nunca são enviados a servidores)"
+    ],
+    faqs: [
+      {
+        question: "Para que serve a codificação Base64?",
+        answer: "O Base64 é utilizado para transmitir dados binários ou caracteres especiais em meios que suportam apenas texto ASCII seguro (como cabeçalhos HTTP, e-mails e APIs)."
+      }
+    ]
   }
 ];
 

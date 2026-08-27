@@ -83,7 +83,7 @@ export default function RootLayout({
   const jsonLd = generateWebsiteSchema();
 
   return (
-    <html lang="pt-BR" className={inter.variable} suppressHydrationWarning>
+    <html lang="pt-BR" className={`${inter.variable} ${inter.className}`} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -107,7 +107,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans flex min-h-screen flex-col bg-[#F8FAFC] dark:bg-[#0B0F19] text-[#0F172A] dark:text-[#F1F5F9] transition-colors duration-200 antialiased overflow-x-clip">
+      <body className={`${inter.className} font-sans flex min-h-screen flex-col bg-[#F8FAFC] dark:bg-[#0B0F19] text-[#0F172A] dark:text-[#F1F5F9] transition-colors duration-200 antialiased overflow-x-clip`}>
         <Header />
         <main className="flex-1 w-full max-w-full overflow-x-clip">{children}</main>
         <Footer />
