@@ -13,6 +13,7 @@ import {
 import SearchBar from "@/components/SearchBar";
 import ToolGrid from "@/components/ToolGrid";
 import CategoryCard from "@/components/CategoryCard";
+import FavoritesSection from "@/components/FavoritesSection";
 import DollarBlockedIcon from "@/components/icons/DollarBlockedIcon";
 import { TOOLS } from "@/lib/tools";
 import { CATEGORIES } from "@/lib/categories";
@@ -247,6 +248,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* FERRAMENTAS FAVORITAS (ACESSO RÁPIDO) */}
+      <FavoritesSection />
 
       {/* CATEGORIAS */}
       <section id="categorias" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

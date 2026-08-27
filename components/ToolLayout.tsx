@@ -4,6 +4,7 @@ import { ChevronRight, ShieldCheck, CheckCircle2, HelpCircle } from "lucide-reac
 import { ToolInfo } from "@/lib/tools";
 import RelatedTools from "./RelatedTools";
 import SupportCard from "./SupportCard";
+import FavoriteButton from "./FavoriteButton";
 
 interface ToolLayoutProps {
   tool: ToolInfo;
@@ -36,10 +37,15 @@ export default function ToolLayout({ tool, children }: ToolLayoutProps) {
         </nav>
 
         {/* Header Compacto da Ferramenta */}
-        <div className="mb-4 sm:mb-6 text-center sm:text-left space-y-1 sm:space-y-1.5">
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#0F172A] dark:text-white">
-            {tool.h1}
-          </h1>
+        <div className="mb-4 sm:mb-6 text-center sm:text-left space-y-1.5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#0F172A] dark:text-white">
+              {tool.h1}
+            </h1>
+            <div className="self-center sm:self-auto">
+              <FavoriteButton slug={tool.slug} variant="full" />
+            </div>
+          </div>
           <p className="text-xs sm:text-sm text-[#475569] dark:text-[#94A3B8] leading-relaxed max-w-3xl">
             {tool.fullDescription}
           </p>

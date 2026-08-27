@@ -3,17 +3,19 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Search, Menu, X, Wrench, Grid2X2, Flame, Play, Pause } from "lucide-react";
+import { Search, Menu, X, Wrench, Grid2X2, Flame, Play, Pause, Star } from "lucide-react";
 import Logo from "./Logo";
 import SearchModal from "./SearchModal";
 import ThemeToggle from "./ThemeToggle";
 import PwaInstallButton from "./PwaInstallButton";
+import { useFavorites } from "@/hooks/useFavorites";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const [isPlayingVerse, setIsPlayingVerse] = useState(false);
   const pathname = usePathname();
+  const { favorites, isLoaded } = useFavorites();
 
   // Atalho de Teclado Ctrl+K / Cmd+K
   useEffect(() => {
@@ -80,6 +82,20 @@ export default function Header() {
               </Link>
             );
           })}
+
+          {/* Link Rápido de Favoritas */}
+          {isLoaded && favorites.length > 0 && (
+            <Link
+              href="/#favoritos"
+              className="flex items-center gap-1.5 rounded-xl px-3.5 py-2 text-sm font-bold bg-amber-50/80 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border border-amber-200/80 dark:border-amber-900/60 hover:bg-amber-100 transition-all duration-150 shadow-2xs"
+            >
+              <Star className="h-4 w-4 fill-amber-400 text-amber-500" />
+              <span>Favoritas</span>
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-amber-500 text-white text-[10px] font-black">
+                {favorites.length}
+              </span>
+            </Link>
+          )}
         </nav>
 
         {/* Action: Search Button + PWA Button + Theme Toggle */}
@@ -180,6 +196,22 @@ export default function Header() {
               );
             })}
             
+            {isLoaded && favorites.length > 0 && (
+              <Link
+                href="/#favoritos"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-between rounded-xl p-3 text-sm font-bold bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-900/60"
+              >
+                <div className="flex items-center gap-3">
+                  <Star className="h-5 w-5 fill-amber-400 text-amber-500" />
+                  <span>Suas Ferramentas Favoritas</span>
+                </div>
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500 text-white text-xs font-black">
+                  {favorites.length}
+                </span>
+              </Link>
+            )}
+
             {/* Botão de Atalho PWA no Menu Mobile */}
             <div className="pt-2 pb-1">
               <PwaInstallButton />
