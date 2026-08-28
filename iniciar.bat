@@ -1,12 +1,7 @@
 @echo off
 setlocal enableextensions enabledelayedexpansion
-title CrieGratis - Inicializador do Projeto
+title CrieGratis - Servidor Local
 color 0A
-
-echo ===================================================
-echo             PROJETO CRIEGRATIS
-echo ===================================================
-echo.
 
 cd /d "%~dp0"
 
@@ -28,7 +23,7 @@ echo.
 echo [2/3] Verificando dependencias do projeto...
 if not exist "node_modules\" (
     echo Dependencias nao encontradas. Instalando...
-    call npm install
+    call npm.cmd install
     if %errorlevel% neq 0 (
         color 0C
         echo.
@@ -42,16 +37,19 @@ if not exist "node_modules\" (
 )
 echo.
 
-echo [3/3] Iniciando servidor de desenvolvimento...
-echo Abrindo http://localhost:3000 no navegador em instantes...
+echo [3/3] Iniciando servidor do CrieGratis...
 echo.
 
-start "" cmd /c "timeout /t 4 /nobreak >nul & start http://localhost:3000"
+:: Exibe o QR Code e links de rede para acesso pelo celular
+node scripts/show-qr.js "Projeto CrieGratis"
+
+:: Aguarda o servidor responder na porta 3000 e abre o navegador do computador automaticamente
+start "" powershell -NoProfile -Command "for ($i=0; $i -lt 30; $i++) { Start-Sleep -Seconds 1; try { $res = Invoke-WebRequest -Uri 'http://localhost:3000' -UseBasicParsing -TimeoutSec 1; if ($res.StatusCode -eq 200) { Start-Process 'http://localhost:3000'; break; } } catch {} }"
 
 call npm.cmd run dev
 
 if %errorlevel% neq 0 (
     echo.
-    echo [AVISO] O servidor foi encerrado com erro ou finalizado pelo usuario.
+    echo [AVISO] O servidor foi encerrado ou finalizado pelo usuario.
     pause
 )
