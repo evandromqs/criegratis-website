@@ -73,6 +73,15 @@ export const metadata: Metadata = {
     title: "Crie Grátis — Ferramentas Gratuitas",
     description: DEFAULT_DESCRIPTION,
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/icon.svg" },
+    ],
+  },
 };
 
 export default function RootLayout({
