@@ -1,48 +1,44 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useCallback, useSyncExternalStore } from "react";
 
 const STORAGE_KEY = "criegratis-favorites";
 const EVENT_NAME = "criegratis-favorites-updated";
 
-export function useFavorites() {
-  const [favorites, setFavorites] = useState<string[]>([]);
-  const [isLoaded, setIsLoaded] = useState(false);
+let cachedRaw: string | null = null;
+let cachedParsed: string[] = [];
 
-  const loadFavorites = useCallback(() => {
-    if (typeof window === "undefined") return;
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        const parsed = JSON.parse(stored);
-        if (Array.isArray(parsed)) {
-          setFavorites(parsed);
-        }
-      } else {
-        setFavorites([]);
-      }
-    } catch (e) {
-      console.warn("Erro ao carregar favoritos do localStorage:", e);
-    } finally {
-      setIsLoaded(true);
+function getFavoritesSnapshot(): string[] {
+  if (typeof window === "undefined") return [];
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw === cachedRaw) {
+      return cachedParsed;
     }
-  }, []);
+    cachedRaw = raw;
+    cachedParsed = raw ? JSON.parse(raw) : [];
+    return cachedParsed;
+  } catch {
+    return [];
+  }
+}
 
-  useEffect(() => {
-    loadFavorites();
+function subscribeFavorites(callback: () => void) {
+  if (typeof window === "undefined") return () => {};
+  window.addEventListener("storage", callback);
+  window.addEventListener(EVENT_NAME, callback);
+  return () => {
+    window.removeEventListener("storage", callback);
+    window.removeEventListener(EVENT_NAME, callback);
+  };
+}
 
-    const handleStorageChange = () => {
-      loadFavorites();
-    };
-
-    window.addEventListener("storage", handleStorageChange);
-    window.addEventListener(EVENT_NAME, handleStorageChange);
-
-    return () => {
-      window.removeEventListener("storage", handleStorageChange);
-      window.removeEventListener(EVENT_NAME, handleStorageChange);
-    };
-  }, [loadFavorites]);
+export function useFavorites() {
+  const favorites = useSyncExternalStore(
+    subscribeFavorites,
+    getFavoritesSnapshot,
+    () => []
+  );
 
   const toggleFavorite = useCallback((slug: string) => {
     if (typeof window === "undefined") return;
@@ -58,7 +54,6 @@ export function useFavorites() {
       }
 
       localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
-      setFavorites(updated);
       window.dispatchEvent(new Event(EVENT_NAME));
     } catch (e) {
       console.error("Erro ao salvar favoritos no localStorage:", e);
@@ -69,7 +64,6 @@ export function useFavorites() {
     if (typeof window === "undefined") return;
     try {
       localStorage.removeItem(STORAGE_KEY);
-      setFavorites([]);
       window.dispatchEvent(new Event(EVENT_NAME));
     } catch (e) {
       console.error("Erro ao limpar favoritos:", e);
@@ -86,6 +80,6 @@ export function useFavorites() {
     isFavorite,
     toggleFavorite,
     clearAllFavorites,
-    isLoaded,
+    isLoaded: true,
   };
 }

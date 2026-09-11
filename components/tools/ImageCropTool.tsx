@@ -1,14 +1,11 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import {
-  Upload,
   Crop as CropIcon,
   RotateCw,
   Download,
   Trash2,
-  Check,
-  Maximize2,
 } from "lucide-react";
 
 interface AspectRatioPreset {
@@ -34,8 +31,6 @@ export default function ImageCropTool() {
 
   // Coordenadas de corte relativas (0 a 100%)
   const [cropBox, setCropBox] = useState({ x: 10, y: 10, width: 80, height: 80 });
-  const [isDragging, setIsDragging] = useState(false);
-  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
 
   const containerRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -50,15 +45,15 @@ export default function ImageCropTool() {
     setCropBox({ x: 10, y: 10, width: 80, height: 80 });
   };
 
-  // Ajusta proporção da cropBox quando o preset muda
-  useEffect(() => {
-    if (!selectedRatio) return;
+  const handleSelectRatio = (ratio: number | null) => {
+    setSelectedRatio(ratio);
+    if (!ratio) return;
     setCropBox((prev) => {
       let newW = prev.width;
-      let newH = newW / selectedRatio;
+      let newH = newW / ratio;
       if (newH > 90) {
         newH = 80;
-        newW = newH * selectedRatio;
+        newW = newH * ratio;
       }
       return {
         x: Math.max(0, Math.min(100 - newW, prev.x)),
@@ -67,7 +62,7 @@ export default function ImageCropTool() {
         height: Math.min(100, newH),
       };
     });
-  }, [selectedRatio]);
+  };
 
   const handleRotate = () => {
     setRotation((prev) => (prev + 90) % 360);
@@ -180,7 +175,7 @@ export default function ImageCropTool() {
               {PRESETS.map((preset, idx) => (
                 <button
                   key={idx}
-                  onClick={() => setSelectedRatio(preset.value)}
+                  onClick={() => handleSelectRatio(preset.value)}
                   className={`rounded-xl px-3 py-1.5 text-xs font-bold transition-all cursor-pointer ${
                     selectedRatio === preset.value
                       ? "bg-blue-600 text-white shadow-xs"

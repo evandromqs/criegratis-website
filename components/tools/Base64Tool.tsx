@@ -35,7 +35,7 @@ function base64ToUtf8(b64: string): { text: string; error?: string } {
     }
     const decoded = new TextDecoder().decode(bytes);
     return { text: decoded };
-  } catch (err: any) {
+  } catch {
     return { text: "", error: "Código Base64 inválido ou corrompido." };
   }
 }

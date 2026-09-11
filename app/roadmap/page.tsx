@@ -2,21 +2,16 @@ import React from "react";
 import { Metadata } from "next";
 import Link from "next/link";
 import {
-  Map,
   CheckCircle2,
   Clock,
   Sparkles,
-  ArrowRight,
   Lightbulb,
-  Heart,
   MessageSquarePlus,
-  ShieldCheck,
   Zap,
-  Wrench,
-  Flame,
   Layers,
 } from "lucide-react";
 import RoadmapView from "./RoadmapView";
+import RoadmapSupportSection from "./RoadmapSupportSection";
 
 export const metadata: Metadata = {
   title: "Roadmap Oficial — Rumo às 100 Ferramentas Gratuitas | CrieGrátis",
@@ -33,9 +28,7 @@ export const metadata: Metadata = {
 export default function RoadmapPage() {
   const totalTools = 100;
   const availableTools = 21;
-  const inProgressTools = 0;
   const plannedTools = 79;
-  const progressPercent = Math.round((availableTools / totalTools) * 100);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:py-12 sm:px-6 lg:px-8 space-y-10 sm:space-y-14">
@@ -177,25 +170,7 @@ export default function RoadmapPage() {
         </div>
 
         {/* Card de Apoio ao Desenvolvimento */}
-        <div className="rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-gradient-to-br from-white via-slate-50/50 to-rose-50/30 dark:from-slate-900 dark:via-slate-900/90 dark:to-rose-950/20 p-6 sm:p-8 shadow-sm space-y-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-100 dark:bg-rose-950/80 text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-800/60 shadow-2xs">
-            <Heart className="h-6 w-6 fill-rose-500 text-rose-500" />
-          </div>
-          <h2 className="text-xl font-bold text-slate-900 dark:text-white">
-            Apoie o Projeto CrieGrátis
-          </h2>
-          <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-            O CrieGrátis é mantido de forma independente, sem anúncios invasivos e sem cobrar assinaturas. Contribuições voluntárias via Pix ajudam a acelerar a chegada às 100 ferramentas.
-          </p>
-          <div className="pt-2">
-            <a
-              href="mailto:pix@criegratis.com.br"
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 px-5 py-2.5 text-sm font-semibold text-slate-900 dark:text-white transition-all shadow-2xs font-mono"
-            >
-              <span>Chave Pix: pix@criegratis.com.br</span>
-            </a>
-          </div>
-        </div>
+        <RoadmapSupportSection />
       </div>
     </div>
   );

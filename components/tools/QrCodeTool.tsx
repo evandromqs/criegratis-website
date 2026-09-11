@@ -551,7 +551,7 @@ export default function QrCodeTool() {
                 </label>
                 <select
                   value={errorCorrection}
-                  onChange={(e) => setErrorCorrection(e.target.value as any)}
+                  onChange={(e) => setErrorCorrection(e.target.value as "L" | "M" | "Q" | "H")}
                   className="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-2 text-xs font-semibold text-slate-800 dark:text-slate-200 outline-none"
                 >
                   <option value="L">L (7% de recuperação - mais simples)</option>

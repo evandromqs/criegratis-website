@@ -27,7 +27,7 @@ export default function CategoryCard({ category, toolCount }: CategoryCardProps)
       <div
         className={`flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-xl sm:rounded-2xl ${category.bgColor} dark:bg-opacity-20 ${category.textColor} ${category.borderColor} dark:border-opacity-30 border mb-3 sm:mb-4 group-hover:scale-105 transition-transform duration-200`}
       >
-        <IconComponent className="h-6 w-6 sm:h-8 sm:w-8" />
+        <IconComponent className="h-6 w-6 sm:h-8 sm:w-8" aria-hidden="true" />
       </div>
 
       <h3 className="text-xs sm:text-base font-bold text-[#0F172A] dark:text-white group-hover:text-[#2563EB] dark:group-hover:text-[#38BDF8] transition-colors">
@@ -35,7 +35,7 @@ export default function CategoryCard({ category, toolCount }: CategoryCardProps)
       </h3>
 
       {typeof toolCount === "number" && (
-        <span className="text-[11px] sm:text-xs text-[#64748B] dark:text-[#94A3B8] mt-1 font-medium">
+        <span className="text-[11px] sm:text-xs text-[#475569] dark:text-[#94A3B8] mt-1 font-medium">
           {toolCount} {toolCount === 1 ? "ferramenta" : "ferramentas"}
         </span>
       )}

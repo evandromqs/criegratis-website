@@ -98,14 +98,14 @@ export default function Header() {
             <button
               onClick={() => setSearchModalOpen(true)}
               type="button"
-              className="group relative flex items-center justify-center gap-2.5 rounded-xl border border-[#E2E8F0] dark:border-[#334155] bg-[#F8FAFC] dark:bg-[#1E293B] p-2.5 sm:px-3.5 sm:py-2 text-xs sm:text-sm text-[#64748B] dark:text-[#94A3B8] shadow-2xs hover:border-[#2563EB] dark:hover:border-[#38BDF8] hover:bg-white dark:hover:bg-[#0F172A] hover:text-[#0F172A] dark:hover:text-[#F1F5F9] transition-all duration-150 cursor-pointer"
+              className="group relative flex items-center justify-center min-h-[44px] min-w-[44px] gap-2.5 rounded-xl border border-[#E2E8F0] dark:border-[#334155] bg-[#F8FAFC] dark:bg-[#1E293B] p-2.5 sm:px-3.5 sm:py-2 text-xs sm:text-sm text-[#475569] dark:text-[#94A3B8] shadow-2xs hover:border-[#2563EB] dark:hover:border-[#38BDF8] hover:bg-white dark:hover:bg-[#0F172A] hover:text-[#0F172A] dark:hover:text-[#F1F5F9] transition-all duration-150 cursor-pointer"
               aria-label="Buscar ferramenta"
             >
-              <Search className="h-4 w-4 text-[#64748B] dark:text-[#94A3B8] group-hover:text-[#2563EB] dark:group-hover:text-[#38BDF8] transition-colors duration-150 shrink-0" />
+              <Search className="h-4 w-4 text-[#475569] dark:text-[#94A3B8] group-hover:text-[#2563EB] dark:group-hover:text-[#38BDF8] transition-colors duration-150 shrink-0" aria-hidden="true" />
               
               <span className="hidden sm:inline font-medium">Buscar ferramenta...</span>
               
-              <kbd className="hidden lg:inline-flex items-center rounded-md bg-white dark:bg-[#0F172A] px-1.5 py-0.5 text-[10px] font-semibold text-[#64748B] dark:text-[#94A3B8] border border-[#E2E8F0] dark:border-[#334155] group-hover:border-[#2563EB]/40 group-hover:text-[#2563EB] dark:group-hover:text-[#38BDF8] transition-colors duration-150">
+              <kbd className="hidden lg:inline-flex items-center rounded-md bg-white dark:bg-[#0F172A] px-1.5 py-0.5 text-[10px] font-semibold text-[#475569] dark:text-[#94A3B8] border border-[#E2E8F0] dark:border-[#334155] group-hover:border-[#2563EB]/40 group-hover:text-[#2563EB] dark:group-hover:text-[#38BDF8] transition-colors duration-150">
                 Ctrl K
               </kbd>
             </button>
@@ -123,10 +123,11 @@ export default function Header() {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             type="button"
-            className="md:hidden p-2 text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white rounded-xl hover:bg-[#F1F5F9] dark:hover:bg-[#1E293B] transition-colors"
-            aria-label="Abrir menu"
+            className="md:hidden flex items-center justify-center min-h-[44px] min-w-[44px] p-2 text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white rounded-xl hover:bg-[#F1F5F9] dark:hover:bg-[#1E293B] transition-colors cursor-pointer"
+            aria-label={mobileMenuOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
+            aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {mobileMenuOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
           </button>
         </div>
       </div>

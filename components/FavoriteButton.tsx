@@ -31,7 +31,7 @@ export default function FavoriteButton({
         onClick={handleClick}
         title={active ? "Remover dos favoritos" : "Adicionar aos favoritos"}
         aria-label={active ? "Remover dos favoritos" : "Adicionar aos favoritos"}
-        className={`group/fav relative flex h-8 w-8 items-center justify-center rounded-xl transition-all duration-200 cursor-pointer ${
+        className={`group/fav relative flex h-9 w-9 sm:h-8 sm:w-8 min-h-[36px] min-w-[36px] after:absolute after:-inset-2 after:content-[''] items-center justify-center rounded-xl transition-all duration-200 cursor-pointer ${
           active
             ? "bg-amber-50 dark:bg-amber-950/50 text-amber-500 dark:text-amber-400 border border-amber-200/80 dark:border-amber-800/60 hover:bg-amber-100 dark:hover:bg-amber-900/40 shadow-2xs scale-105"
             : "text-slate-400 dark:text-slate-500 hover:text-amber-500 dark:hover:text-amber-400 hover:bg-slate-100 dark:hover:bg-slate-800/80"
@@ -41,6 +41,7 @@ export default function FavoriteButton({
           className={`h-4 w-4 transition-transform duration-200 group-hover/fav:scale-110 ${
             active ? "fill-amber-400 text-amber-500 dark:fill-amber-400 dark:text-amber-400" : ""
           }`}
+          aria-hidden="true"
         />
       </button>
     );
@@ -50,7 +51,7 @@ export default function FavoriteButton({
     <button
       type="button"
       onClick={handleClick}
-      className={`inline-flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-bold transition-all duration-200 cursor-pointer shadow-2xs ${
+      className={`inline-flex min-h-[44px] items-center gap-1.5 rounded-xl border px-3.5 py-2 text-xs font-bold transition-all duration-200 cursor-pointer shadow-2xs ${
         active
           ? "border-amber-200/90 dark:border-amber-800/70 bg-amber-50/80 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 hover:bg-amber-100 dark:hover:bg-amber-900/40"
           : "border-[#E2E8F0] dark:border-[#334155] bg-white dark:bg-[#1E293B] text-[#475569] dark:text-[#94A3B8] hover:border-amber-300 hover:text-amber-600 dark:hover:border-amber-700/80 dark:hover:text-amber-300"
