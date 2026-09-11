@@ -31,6 +31,13 @@ import {
   RotateCw,
   ArrowUpDown,
   AlignJustify,
+  Building2,
+  Pilcrow,
+  Link2,
+  Fingerprint,
+  Database,
+  Share2,
+  Barcode,
 } from "lucide-react";
 import { ToolInfo } from "@/lib/tools";
 import FavoriteButton from "./FavoriteButton";
@@ -65,6 +72,13 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   RotateCw,
   ArrowUpDown,
   AlignJustify,
+  Building2,
+  Pilcrow,
+  Link2,
+  Fingerprint,
+  Database,
+  Share2,
+  Barcode,
 };
 
 interface ToolCardProps {

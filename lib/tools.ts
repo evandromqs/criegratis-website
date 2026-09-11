@@ -1092,6 +1092,274 @@ export const TOOLS: ToolInfo[] = [
         answer: "Uma linha é definida por qualquer quebra de linha individual (Enter). Já um parágrafo é identificado como um bloco contínuo de texto separado por uma ou mais linhas vazias."
       }
     ]
+  },
+  {
+    slug: "gerador-validador-cnpj",
+    name: "Gerador e Validador de CNPJ",
+    shortDescription: "Gere CNPJs válidos para testes ou valide números existentes com identificação de raiz e dígitos.",
+    fullDescription: "Ferramenta essencial para desenvolvedores e testers: gere números de CNPJ matematicamente válidos (com ou sem pontuação) ou valide CNPJs existentes com conferência dos dígitos verificadores pelo algoritmo oficial da Receita Federal.",
+    category: "desenvolvedor",
+    keywords: ["gerador de cnpj", "validador de cnpj", "gerar cnpj valido", "validar cnpj online", "cnpj teste"],
+    icon: "Building2",
+    href: "/gerador-validador-cnpj",
+    metaTitle: "Gerador e Validador de CNPJ Online e Grátis | CrieGrátis",
+    metaDescription: "Gere CNPJs válidos para testes de software ou valide dígitos verificadores online grátis. Com ou sem formatação, 100% no navegador.",
+    h1: "Gerador e Validador de CNPJ",
+    badge: "Novo",
+    isPopular: true,
+    usageSteps: [
+      "Na aba 'Gerador', selecione se deseja a pontuação (00.000.000/0001-00) ou apenas números.",
+      "Clique em 'Gerar Novo CNPJ' para criar um número matematicamente válido.",
+      "Na aba 'Validador', cole qualquer número de CNPJ para verificar se os dígitos estão corretos.",
+      "Copie o resultado com 1 clique para usar em testes de formulários e sistemas."
+    ],
+    features: [
+      "Algoritmo oficial de módulo 11 da Receita Federal",
+      "Geração instantânea com ou sem máscara de pontuação",
+      "Validador inteligente que aceita números com símbolos, espaços ou limpos",
+      "Aviso didático lembrando o uso exclusivo para testes de desenvolvimento"
+    ],
+    faqs: [
+      {
+        question: "Os CNPJs gerados são reais?",
+        answer: "Não. Os números gerados seguem as regras matemáticas de validação (módulo 11), mas destinam-se estritamente a testes de software e validação de formulários em ambiente de desenvolvimento."
+      },
+      {
+        question: "Como funciona a validação do CNPJ?",
+        answer: "O CNPJ possui 14 dígitos, onde os 12 primeiros representam a inscrição e filial, e os dois últimos são calculados a partir de somas ponderadas pelos pesos 5,4,3,2,9,8,7,6,5,4,3,2."
+      }
+    ]
+  },
+  {
+    slug: "gerador-lorem-ipsum",
+    name: "Gerador de Lorem Ipsum",
+    shortDescription: "Gere textos fictícios para mockups e layouts por parágrafos, frases ou palavras com tags HTML.",
+    fullDescription: "Crie textos de preenchimento Lorem Ipsum sob medida para protótipos de design, interfaces UI e diagramações editoriais. Personalize por número de parágrafos, frases ou palavras, e adicione tags HTML (<p>) com um clique.",
+    category: "desenvolvedor",
+    keywords: ["gerador lorem ipsum", "lorem ipsum generator", "texto ficticio", "gerar texto para teste", "texto para mockup"],
+    icon: "Pilcrow",
+    href: "/gerador-lorem-ipsum",
+    metaTitle: "Gerador de Lorem Ipsum Online e Grátis | CrieGrátis",
+    metaDescription: "Gere texto de preenchimento Lorem Ipsum grátis. Escolha por parágrafos, frases ou palavras com suporte a tags HTML para designers e devs.",
+    h1: "Gerador de Lorem Ipsum",
+    badge: "Novo",
+    usageSteps: [
+      "Escolha a unidade desejada: Parágrafos, Frases ou Palavras.",
+      "Defina a quantidade exata no controle numérico.",
+      "Marque se deseja iniciar com a expressão clássica 'Lorem ipsum dolor sit amet...' e se quer envolver em tags <p>.",
+      "Clique em 'Copiar Texto' para colar no Figma, Photoshop ou editor de código."
+    ],
+    features: [
+      "Vocabulário latino autêntico de Cícero (45 a.C.)",
+      "3 modos de contagem: Parágrafos, Frases ou Palavras",
+      "Opção de saída já formatada com tags HTML (<p>...</p>)",
+      "Cálculo instantâneo de caracteres e palavras no preview"
+    ],
+    faqs: [
+      {
+        question: "Qual a origem do texto Lorem Ipsum?",
+        answer: "O Lorem Ipsum é derivado de seções do tratado ético de Cícero, 'De Finibus Bonorum et Malorum', escrito em 45 a.C., sendo utilizado como padrão gráfico na indústria tipográfica desde o século XVI."
+      }
+    ]
+  },
+  {
+    slug: "url-encoder-decoder",
+    name: "URL Encoder e Decoder",
+    shortDescription: "Codifique e decodifique URLs, parâmetros de consulta (querystrings) e caracteres especiais.",
+    fullDescription: "Ferramenta para codificar caracteres especiais de endereços web no padrão percent-encoding (%20, %26, %3F) ou decodificar links codificados de volta para o formato legível. Suporta codificação de URL completa ou apenas de parâmetros de consulta.",
+    category: "desenvolvedor",
+    keywords: ["url encode", "url decode", "codificar url", "decodificar url", "percent encoding online"],
+    icon: "Link2",
+    href: "/url-encoder-decoder",
+    metaTitle: "URL Encoder e Decoder Online — Codificar URLs Grátis | CrieGrátis",
+    metaDescription: "Codifique e decodifique URLs e parâmetros online grátis. Converta espaços em %20 ou +, e decodifique URLs complexas com 100% de privacidade.",
+    h1: "URL Encoder e Decoder",
+    badge: "Novo",
+    usageSteps: [
+      "Escolha a aba 'Codificar (Encode)' ou 'Decodificar (Decode)'.",
+      "Cole o link, texto ou parâmetro que você deseja converter.",
+      "Selecione o modo: URL Completa ou Parâmetro de Query (encodeURIComponent).",
+      "Copie a URL resultante com 1 clique."
+    ],
+    features: [
+      "Suporte a encodeURI e encodeURIComponent",
+      "Decodificação inteligente com detecção de erros de sintaxe",
+      "Opção de substituir espaços por '+' ou '%20'",
+      "Visualizador de parâmetros de querystring decodificados"
+    ],
+    faqs: [
+      {
+        question: "Qual a diferença entre codificar URL completa e parâmetro?",
+        answer: "Ao codificar uma URL completa, caracteres estruturais como ':', '/' e '?' são preservados. Ao codificar um parâmetro (encodeURIComponent), todos os caracteres especiais são convertidos para garantir que não quebrem a URL pai."
+      }
+    ]
+  },
+  {
+    slug: "gerador-hash",
+    name: "Gerador de Hash (MD5, SHA-1, SHA-256, SHA-512)",
+    shortDescription: "Gere hashes criptográficos instantâneos de qualquer texto com Web Crypto API nativa.",
+    fullDescription: "Calcule resumos criptográficos (hashes) de senhas, textos ou códigos usando os algoritmos mais populares do mercado: MD5, SHA-1, SHA-256 e SHA-512. Ideal para verificação de integridade e testes de segurança.",
+    category: "desenvolvedor",
+    keywords: ["gerador de hash", "sha256 online", "gerar md5", "hash generator", "sha512 calculator"],
+    icon: "Fingerprint",
+    href: "/gerador-hash",
+    metaTitle: "Gerador de Hash Online — MD5, SHA-256, SHA-512 | CrieGrátis",
+    metaDescription: "Gere hashes criptográficos MD5, SHA-1, SHA-256 e SHA-512 online grátis. Cálculo seguro via Web Crypto API sem enviar dados a servidores.",
+    h1: "Gerador de Hash Criptográfico",
+    badge: "Novo",
+    isPopular: true,
+    usageSteps: [
+      "Digite ou cole o texto ou senha no campo de entrada.",
+      "Os hashes correspondentes (MD5, SHA-1, SHA-256, SHA-512) são calculados em tempo real.",
+      "Alterne entre formato minúsculo ou MAIÚSCULO conforme a necessidade da sua aplicação.",
+      "Clique no botão de cópia ao lado do hash desejado."
+    ],
+    features: [
+      "Cálculo simultâneo de 4 algoritmos em paralelo",
+      "Implementação segura baseada na API nativa crypto.subtle",
+      "Alternância rápida entre representação Hexadecimal minúscula e maiúscula",
+      "Zero transmissão de dados: seus textos e senhas nunca saem da máquina"
+    ],
+    faqs: [
+      {
+        question: "O que é um hash criptográfico?",
+        answer: "Um hash é uma função matemática unidirecional que transforma qualquer entrada de dados em uma sequência de caracteres de tamanho fixo. Não é possível 'descriptografar' um hash de volta para o texto original."
+      }
+    ]
+  },
+  {
+    slug: "formatar-sql",
+    name: "Formatador de SQL (SQL Beautifier)",
+    shortDescription: "Indente e formate consultas SQL automaticamente com palavras-chave em maiúsculas.",
+    fullDescription: "Organize consultas SQL desordenadas, compactas ou complexas em um layout legível e profissional. Aplique indentação consistente em cláusulas SELECT, FROM, WHERE, JOIN, GROUP BY e padronize palavras-chave em maiúsculas.",
+    category: "desenvolvedor",
+    keywords: ["formatar sql", "sql formatter", "beautify sql", "identar sql online", "organizar query sql"],
+    icon: "Database",
+    href: "/formatar-sql",
+    metaTitle: "Formatador de SQL Online — Indentar e Embelezar Queries | CrieGrátis",
+    metaDescription: "Formate e indente códigos SQL online grátis. Padronize cláusulas SELECT, JOIN e WHERE com palavras-chave em maiúsculas no navegador.",
+    h1: "Formatador de SQL Online",
+    badge: "Novo",
+    usageSteps: [
+      "Cole sua consulta SQL (MySQL, PostgreSQL, Oracle, SQL Server, SQLite) no editor.",
+      "Clique em 'Formatar SQL' ou use os atalhos de compactação.",
+      "Ajuste opções como tamanho da indentação (2 ou 4 espaços) e letras maiúsculas.",
+      "Copie o código SQL perfeitamente estruturado ou baixe em arquivo .sql."
+    ],
+    features: [
+      "Reconhecimento de dialetos SQL comuns (Postgres, MySQL, SQLite, T-SQL)",
+      "Opção de colocar palavras-chave reservadas em MAIÚSCULAS automaticamente",
+      "Modo Minificar para compactar a consulta em uma única linha",
+      "Processamento 100% local com segurança para queries de bancos de dados sensíveis"
+    ],
+    faqs: [
+      {
+        question: "Minhas consultas e nomes de tabelas ficam salvos em algum lugar?",
+        answer: "Não. A formatação ocorre inteiramente no seu navegador via JavaScript. Nenhuma linha de código ou informação sobre a estrutura do seu banco de dados é transmitida."
+      }
+    ]
+  },
+  {
+    slug: "formatar-xml",
+    name: "Formatador de XML (XML Beautifier)",
+    shortDescription: "Formate, indente e valide a sintaxe de documentos e arquivos XML com detecção de erros.",
+    fullDescription: "Ferramenta para identar, alinhar e validar a estrutura hierárquica de arquivos XML, feeds RSS e documentos fiscais (NFe, CTe). Identifica tags não fechadas ou erros de sintaxe com alertas detalhados.",
+    category: "desenvolvedor",
+    keywords: ["formatar xml", "xml formatter", "beautify xml", "validar xml online", "identar nfe xml"],
+    icon: "FileCode",
+    href: "/formatar-xml",
+    metaTitle: "Formatador e Validador de XML Online e Grátis | CrieGrátis",
+    metaDescription: "Formate e indente documentos XML online grátis. Valide sintaxe com alertas de erro e compacte arquivos sem enviar dados a servidores.",
+    h1: "Formatador de XML Online",
+    badge: "Novo",
+    usageSteps: [
+      "Cole o conteúdo XML ou carregue um arquivo .xml no editor.",
+      "Clique em 'Formatar XML' para aplicar a indentação hierárquica.",
+      "Se houver erros de sintaxe, consulte a linha e o motivo informado pelo validador.",
+      "Copie o XML limpo ou faça o download com 1 clique."
+    ],
+    features: [
+      "Validação de sintaxe em tempo real com motor DOMParser nativo",
+      "Indentação customizável (2 espaços, 4 espaços ou tabulação)",
+      "Modo Minificar para reduzir o tamanho de arquivos XML",
+      "Ideal para desenvolvedores que trabalham com APIs SOAP, NFe e feeds"
+    ],
+    faqs: [
+      {
+        question: "Esta ferramenta valida arquivos de Nota Fiscal Eletrônica (NFe)?",
+        answer: "Sim! Ela verifica se a sintaxe do XML está bem-formada e identa as tags para facilitar a leitura humana dos dados de emissão e produtos."
+      }
+    ]
+  },
+  {
+    slug: "gerador-metatags",
+    name: "Gerador de Meta Tags (Open Graph e SEO)",
+    shortDescription: "Crie tags Open Graph, Twitter Cards e SEO para seu site com visualização ao vivo de compartilhamento.",
+    fullDescription: "Gere o bloco completo de meta tags HTML para posicionar seu site no topo do Google e garantir prévias perfeitas ao compartilhar links no WhatsApp, Facebook, LinkedIn e Twitter. Acompanhe a prévia visual interativa em tempo real.",
+    category: "desenvolvedor",
+    keywords: ["gerador de meta tags", "meta tags seo", "open graph generator", "twitter card generator", "preview compartilhamento whatsapp"],
+    icon: "Share2",
+    href: "/gerador-metatags",
+    metaTitle: "Gerador de Meta Tags e Open Graph com Preview | CrieGrátis",
+    metaDescription: "Gere meta tags SEO, Open Graph e Twitter Cards grátis. Veja o preview do card do Google, WhatsApp e Twitter em tempo real no navegador.",
+    h1: "Gerador de Meta Tags e Open Graph",
+    badge: "Novo",
+    isPopular: true,
+    usageSteps: [
+      "Preencha o título da página, descrição, URL canônica e imagem de capa (og:image).",
+      "Escolha se a página deve ser indexável por robôs (robots index, follow).",
+      "Observe os simuladores visuais ao vivo para Google, WhatsApp e Twitter.",
+      "Copie o código HTML gerado e cole dentro da tag <head> do seu site."
+    ],
+    features: [
+      "Simulador visual em tempo real (Google SERP, card WhatsApp/Facebook e Twitter)",
+      "Contadores de caracteres recomendados para título e descrição de SEO",
+      "Tags Open Graph completas (og:title, og:description, og:image, og:url)",
+      "Suporte a Twitter Summary Large Image Card"
+    ],
+    faqs: [
+      {
+        question: "Qual o tamanho recomendado para a imagem Open Graph?",
+        answer: "A resolução ideal recomendada pelas redes sociais (Facebook, LinkedIn, Twitter, WhatsApp) é 1200 x 630 pixels na proporção 1.91:1."
+      }
+    ]
+  },
+  {
+    slug: "gerador-codigo-de-barras",
+    name: "Gerador de Código de Barras",
+    shortDescription: "Gere códigos de barras nos padrões Code 128 e EAN-13 para produtos e etiquetas em PNG e SVG.",
+    fullDescription: "Crie códigos de barras de alta resolução para impressão de etiquetas, identificação de produtos comerciais, patrimônio e logística. Suporta simbologias Code 128 (alfanumérico) e EAN-13 com cálculo automático de dígito verificador e download em vetor SVG e imagem PNG.",
+    category: "desenvolvedor",
+    keywords: ["gerador de codigo de barras", "gerar codigo de barras ean 13", "code 128 online", "codigo de barras etiquetas", "barcode generator svg"],
+    icon: "Barcode",
+    href: "/gerador-codigo-de-barras",
+    metaTitle: "Gerador de Código de Barras Online — Code 128 e EAN-13 | CrieGrátis",
+    metaDescription: "Gere códigos de barras Code 128 e EAN-13 grátis. Baixe em vetor SVG ou PNG de alta resolução para etiquetas e embalagens no navegador.",
+    h1: "Gerador de Código de Barras",
+    badge: "Novo",
+    isPopular: true,
+    usageSteps: [
+      "Escolha o padrão desejado: Code 128 (geral/alfanumérico) ou EAN-13 (produtos comerciais).",
+      "Digite o código ou use o botão 'Exemplo' para preenchimento rápido.",
+      "Ajuste a largura e altura das barras e escolha se deseja exibir a numeração abaixo.",
+      "Baixe em formato PNG para impressão ou em vetor SVG para gráficas."
+    ],
+    features: [
+      "Padrões industriais Code 128 e EAN-13 com cálculo de checksum oficial",
+      "Download em vetor SVG escalável e imagem PNG nítida",
+      "Customização de dimensões, cores das barras e cor de fundo",
+      "100% executado localmente no navegador sem envio a servidores"
+    ],
+    faqs: [
+      {
+        question: "Qual a diferença entre Code 128 e EAN-13?",
+        answer: "O Code 128 aceita letras, números e símbolos, sendo ideal para etiquetas de logística, estoque e crachás. O EAN-13 é estritamente numérico (13 dígitos) e é o padrão internacional obrigatório para produtos vendidos no varejo."
+      },
+      {
+        question: "Como funciona o 13º dígito do EAN-13?",
+        answer: "O último dígito do EAN-13 é um dígito verificador calculado automaticamente a partir dos 12 primeiros números usando uma soma com pesos alternados 1 e 3."
+      }
+    ]
   }
 ];
 
