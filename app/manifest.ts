@@ -2,19 +2,102 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Crie Grátis — Ferramentas Gratuitas",
+    name: "Crie Grátis — Ferramentas Gratuitas Online",
     short_name: "Crie Grátis",
-    description: "Ferramentas online gratuitas para criar, converter e resolver diretamente no navegador.",
+    description:
+      "Ferramentas online gratuitas para converter imagens, criar QR Code, gerar senhas fortes e calcular diretamente no navegador com privacidade total.",
     start_url: "/",
+    id: "/",
+    scope: "/",
     display: "standalone",
+    orientation: "any",
     background_color: "#0B0F19",
-    theme_color: "#0B0F19",
+    theme_color: "#2563EB",
+    lang: "pt-BR",
+    dir: "ltr",
+    categories: ["utilities", "productivity", "photo"],
     icons: [
       {
-        src: "/icon.svg",
+        src: "/favicon-96x96.png",
+        sizes: "96x96",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/web-app-manifest-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/web-app-manifest-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "maskable",
+      },
+      {
+        src: "/web-app-manifest-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/web-app-manifest-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable",
+      },
+      {
+        src: "/favicon.svg",
         sizes: "any",
         type: "image/svg+xml",
         purpose: "any",
+      },
+    ],
+    screenshots: [
+      {
+        src: "/screenshot-desktop.png",
+        sizes: "1280x720",
+        type: "image/png",
+        form_factor: "wide",
+        label: "Crie Grátis no Desktop",
+      },
+      {
+        src: "/screenshot-mobile.png",
+        sizes: "750x1334",
+        type: "image/png",
+        form_factor: "narrow",
+        label: "Crie Grátis no Celular",
+      },
+    ],
+    shortcuts: [
+      {
+        name: "Converter JPG para PNG",
+        short_name: "JPG p/ PNG",
+        description: "Converter imagens JPG para PNG sem perdas",
+        url: "/jpg-para-png",
+        icons: [{ src: "/web-app-manifest-192x192.png", sizes: "192x192" }],
+      },
+      {
+        name: "Criar QR Code",
+        short_name: "QR Code",
+        description: "Gerador de QR Code instantâneo e gratuito",
+        url: "/criar-qr-code",
+        icons: [{ src: "/web-app-manifest-192x192.png", sizes: "192x192" }],
+      },
+      {
+        name: "Gerar Senha Forte",
+        short_name: "Gerar Senha",
+        description: "Gerador de senhas seguras no seu navegador",
+        url: "/gerar-senha",
+        icons: [{ src: "/web-app-manifest-192x192.png", sizes: "192x192" }],
+      },
+      {
+        name: "Calculadora de Porcentagem",
+        short_name: "Calculadora %",
+        description: "Cálculos rápidos de descontos e aumentos",
+        url: "/calculadora-de-porcentagem",
+        icons: [{ src: "/web-app-manifest-192x192.png", sizes: "192x192" }],
       },
     ],
   };

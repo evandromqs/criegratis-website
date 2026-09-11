@@ -1,16 +1,22 @@
-// CrieGrátis Service Worker para PWA
-const CACHE_NAME = 'criegratis-v1';
+// Crie Grátis Service Worker para PWA
+const CACHE_NAME = 'criegratis-pwa-v2';
 const STATIC_ASSETS = [
   '/',
   '/manifest.webmanifest',
+  '/site.webmanifest',
   '/icon.svg',
+  '/favicon.svg',
+  '/favicon-96x96.png',
+  '/web-app-manifest-192x192.png',
+  '/web-app-manifest-512x512.png',
+  '/offline.html',
 ];
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(STATIC_ASSETS).catch(() => {});
+      return cache.addAll(STATIC_ASSETS);
     })
   );
 });
@@ -31,11 +37,25 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
-  
-  // Estratégia Network-First com fallback para cache
+
   event.respondWith(
-    fetch(event.request).catch(() => {
-      return caches.match(event.request);
-    })
+    fetch(event.request)
+      .then((response) => {
+        if (response && response.status === 200 && response.type === 'basic') {
+          const responseToCache = response.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseToCache);
+          });
+        }
+        return response;
+      })
+      .catch(() => {
+        return caches.match(event.request).then((cached) => {
+          if (cached) return cached;
+          if (event.request.mode === 'navigate') {
+            return caches.match('/offline.html');
+          }
+        });
+      })
   );
 });
