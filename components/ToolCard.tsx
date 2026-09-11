@@ -38,6 +38,16 @@ import {
   Database,
   Share2,
   Barcode,
+  Activity,
+  Calendar,
+  CalendarDays,
+  Cake,
+  Tag,
+  PieChart,
+  FolderArchive,
+  RotateCcw,
+  Lock,
+  Unlock,
 } from "lucide-react";
 import { ToolInfo } from "@/lib/tools";
 import FavoriteButton from "./FavoriteButton";
@@ -79,6 +89,16 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   Database,
   Share2,
   Barcode,
+  Activity,
+  Calendar,
+  CalendarDays,
+  Cake,
+  Tag,
+  PieChart,
+  FolderArchive,
+  RotateCcw,
+  Lock,
+  Unlock,
 };
 
 interface ToolCardProps {

@@ -1360,6 +1360,205 @@ export const TOOLS: ToolInfo[] = [
         answer: "O último dígito do EAN-13 é um dígito verificador calculado automaticamente a partir dos 12 primeiros números usando uma soma com pesos alternados 1 e 3."
       }
     ]
+  },
+  {
+    slug: "calculadora-imc",
+    name: "Calculadora de IMC (Índice de Massa Corporal)",
+    shortDescription: "Calcule seu IMC em segundos com classificação oficial da OMS, régua visual e peso ideal.",
+    fullDescription: "Calcule seu Índice de Massa Corporal (IMC) com base no seu peso e altura. Acompanhe a régua visual com faixas de classificação oficiais da Organização Mundial da Saúde (OMS), descubra sua faixa de peso ideal e veja dicas de saúde.",
+    category: "calculadoras",
+    keywords: ["calculadora de imc", "calcular imc online", "tabela imc oms", "peso ideal calculadora", "indice de massa corporal"],
+    icon: "Activity",
+    href: "/calculadora-imc",
+    metaTitle: "Calculadora de IMC Online — Calcular Índice de Massa Corporal | CrieGrátis",
+    metaDescription: "Calcule seu IMC online grátis. Classificação oficial da OMS, régua visual interativa e faixa de peso ideal recomendada para sua altura.",
+    h1: "Calculadora de IMC (Índice de Massa Corporal)",
+    badge: "Novo",
+    isPopular: true,
+    usageSteps: [
+      "Informe seu peso em quilogramas (ex: 70 kg).",
+      "Informe sua altura em centímetros ou metros (ex: 175 cm ou 1.75 m).",
+      "O IMC e a classificação da OMS são exibidos instantaneamente na régua colorida.",
+      "Consulte sua faixa de peso ideal e copie o resumo com 1 clique."
+    ],
+    features: [
+      "Fórmula oficial recomendada pela Organização Mundial da Saúde (OMS)",
+      "Régua colorida visual de 6 faixas (do abaixo do peso à obesidade grau III)",
+      "Cálculo automático da faixa de peso ideal saudável para sua altura",
+      "Diferença em quilos para alcançar a faixa de peso recomendada"
+    ],
+    faqs: [
+      {
+        question: "Como o IMC é calculado?",
+        answer: "A fórmula divide o peso (em quilos) pelo quadrado da altura (em metros): IMC = peso / (altura x altura)."
+      },
+      {
+        question: "O IMC é indicado para atletas?",
+        answer: "O IMC é um indicador populacional geral. Em praticantes intensos de musculação e atletas de alta performance, a grande quantidade de massa muscular pode elevar o IMC sem significar excesso de gordura corporal."
+      }
+    ]
+  },
+  {
+    slug: "calculadora-de-dias",
+    name: "Calculadora de Dias entre Datas",
+    shortDescription: "Calcule o intervalo exato em dias corridos, dias úteis, semanas e meses entre duas datas.",
+    fullDescription: "Descubra a quantidade exata de dias entre duas datas quaisquer. Ideal para contagem regressiva de viagens, prazos de contratos judiciais, metas de projetos e eventos. Inclui detalhamento de dias de semana e fins de semana.",
+    category: "calculadoras",
+    keywords: ["calculadora de dias", "dias entre datas", "quantos dias faltam", "contador de dias", "calcular diferenca de datas"],
+    icon: "Calendar",
+    href: "/calculadora-de-dias",
+    metaTitle: "Calculadora de Dias entre Duas Datas Online e Grátis | CrieGrátis",
+    metaDescription: "Calcule a diferença em dias entre duas datas grátis. Descubra dias corridos, dias úteis, semanas, meses e horas totais no navegador.",
+    h1: "Calculadora de Dias entre Datas",
+    badge: "Novo",
+    usageSteps: [
+      "Escolha a Data Inicial (ou clique em 'Definir Hoje').",
+      "Escolha a Data Final (ou use atalhos de +7d, +15d, +30d).",
+      "Marque se deseja incluir a data final na contagem total.",
+      "Visualize o total de dias corridos, fins de semana e horas totais."
+    ],
+    features: [
+      "Cálculo instantâneo de dias corridos com precisão de calendário gregoriano",
+      "Separação entre dias de semana (segunda a sexta) e fins de semana",
+      "Conversão automática em semanas completas, meses aproximados e horas totais",
+      "Opção de cálculo inclusivo ou exclusivo da data final"
+    ],
+    faqs: [
+      {
+        question: "O que é contagem inclusiva?",
+        answer: "Na contagem inclusiva, o dia de início e o dia de término contam como dias inteiros. Por exemplo: de segunda a quarta são 3 dias (seg, ter, qua), enquanto na contagem exclusiva são 2 dias de intervalo."
+      }
+    ]
+  },
+  {
+    slug: "calculadora-dias-uteis",
+    name: "Calculadora de Dias Úteis",
+    shortDescription: "Calcule prazos e dias úteis excluindo fins de semana e todos os feriados nacionais do Brasil.",
+    fullDescription: "Ferramenta indispensável para prazos contratuais, processos judiciais, compras no e-commerce e entregas empresariais. Exclui automaticamente sábados, domingos e feriados nacionais brasileiros (fixos e móveis como Carnaval e Corpus Christi).",
+    category: "calculadoras",
+    keywords: ["calculadora de dias uteis", "calcular dias uteis", "dias uteis entre datas", "prazo dias uteis correios", "feriados nacionais calculadora"],
+    icon: "CalendarDays",
+    href: "/calculadora-dias-uteis",
+    metaTitle: "Calculadora de Dias Úteis Online com Feriados Nacionais | CrieGrátis",
+    metaDescription: "Calcule dias úteis entre duas datas ou some dias úteis com exclusão automática de feriados nacionais brasileiros e fins de semana grátis.",
+    h1: "Calculadora de Dias Úteis no Brasil",
+    badge: "Novo",
+    isPopular: true,
+    usageSteps: [
+      "Selecione o modo: 'Dias Úteis Entre Duas Datas' ou 'Somar Dias Úteis a uma Data'.",
+      "Preencha as datas ou a quantidade de dias do prazo de entrega.",
+      "O sistema consulta o calendário oficial de feriados do Brasil e exclui fins de semana.",
+      "Consulte a lista de feriados identificados no período e a data final exata de vencimento."
+    ],
+    features: [
+      "Algoritmo astronômico de cálculo de Páscoa, Carnaval, Sexta-feira Santa e Corpus Christi",
+      "Inclusão de todos os 12 feriados nacionais oficiais da legislação brasileira",
+      "Modo soma de prazo: descubra o dia exato da semana em que um prazo de N dias úteis termina",
+      "Detalhamento nominal de cada feriado que cai em dia útil no intervalo"
+    ],
+    faqs: [
+      {
+        question: "Quais feriados são considerados no cálculo?",
+        answer: "Todos os feriados nacionais vigentes no Brasil: Confraternização Universal (01/01), Carnaval, Paixão de Cristo, Tiradentes (21/04), Dia do Trabalho (01/05), Corpus Christi, Independência (07/09), N. Sra Aparecida (12/10), Finados (02/11), Proclamação da República (15/11), Consciência Negra (20/11) e Natal (25/12)."
+      }
+    ]
+  },
+  {
+    slug: "calculadora-de-idade",
+    name: "Calculadora de Idade Exata",
+    shortDescription: "Descubra sua idade exata em anos, meses e dias, total de horas vividas e signo do zodíaco.",
+    fullDescription: "Calcule com exatidão quantos anos, meses e dias de vida você tem hoje. Descubra estatísticas fascinantes como total de dias vividos, contagem regressiva para seu próximo aniversário, signo do zodíaco e estimativa de batimentos cardíacos.",
+    category: "calculadoras",
+    keywords: ["calculadora de idade", "quantos anos eu tenho", "idade exata anos meses dias", "dias vividos calculadora", "contagem aniversario"],
+    icon: "Cake",
+    href: "/calculadora-de-idade",
+    metaTitle: "Calculadora de Idade Exata Online — Anos, Meses e Dias | CrieGrátis",
+    metaDescription: "Descubra sua idade exata em anos, meses e dias grátis. Veja quantos dias você já viveu, contagem regressiva para o aniversário e signo.",
+    h1: "Calculadora de Idade Exata",
+    badge: "Novo",
+    usageSteps: [
+      "Informe sua data de nascimento (dia, mês e ano).",
+      "Opcionalmente, informe o horário de nascimento aproximado.",
+      "Veja instantaneamente sua idade desmembrada em anos, meses e dias.",
+      "Confira a contagem regressiva de dias restantes para a sua próxima comemoração."
+    ],
+    features: [
+      "Decomposição precisa em anos, meses e dias considerando anos bissextos",
+      "Contador de dias totais e horas vividas desde o nascimento",
+      "Contagem regressiva automática para o próximo aniversário",
+      "Signo astrológico com elemento correspondente"
+    ],
+    faqs: [
+      {
+        question: "Como o cálculo considera os anos bissextos?",
+        answer: "O cálculo utiliza a representação do calendário gregoriano, compensando automaticamente os anos com 366 dias (como 2024 e 2028) na contagem dos dias vividos."
+      }
+    ]
+  },
+  {
+    slug: "calculadora-de-desconto",
+    name: "Calculadora de Desconto Comercial",
+    shortDescription: "Calcule preço com desconto, porcentagem real ou preço original antes da promoção.",
+    fullDescription: "Calcule descontos para compras, promoções da Black Friday e liquidações. Informe o valor original e a porcentagem para ver quanto vai pagar e economizar, ou calcule de forma reversa a porcentagem real aplicada sobre qualquer produto.",
+    category: "calculadoras",
+    keywords: ["calculadora de desconto", "calcular desconto porcentagem", "desconto black friday", "preco com desconto", "calcular promocao"],
+    icon: "Tag",
+    href: "/calculadora-de-desconto",
+    metaTitle: "Calculadora de Desconto Online — Calcular Porcentagem e Economia | CrieGrátis",
+    metaDescription: "Calcule preço com desconto e quanto você economiza online grátis. Botões de atalho de 5% a 70% e cálculo reverso no navegador.",
+    h1: "Calculadora de Desconto Comercial",
+    badge: "Novo",
+    isPopular: true,
+    usageSteps: [
+      "Escolha o modo de cálculo (Preço com Desconto, Descobrir % ou Preço Original).",
+      "Digite o preço do produto em Reais (R$).",
+      "Insira a porcentagem de desconto ou clique em um dos atalhos rápidos (10%, 20%, 50%).",
+      "Veja o valor final a pagar e a economia total em destaque imediato."
+    ],
+    features: [
+      "3 modos completos: direto, percentual reverso e preço original",
+      "Atalhos com 1 clique para porcentagens promocionais comuns",
+      "Cálculo monetário formatado no padrão brasileiro (R$ 0,00)",
+      "Comparador visual entre preço cheio e preço com desconto"
+    ],
+    faqs: [
+      {
+        question: "Como calcular 20% de desconto de cabeça?",
+        answer: "Para 20%, divida o valor original por 10 (encontrando 10%) e multiplique o resultado por 2. Em seguida, subtraia essa quantia do preço original."
+      }
+    ]
+  },
+  {
+    slug: "calculadora-divisao-lucros",
+    name: "Calculadora de Divisão de Lucros / Sociedade",
+    shortDescription: "Distribua lucros líquidos e dividendos entre sócios e parceiros com reserva da empresa.",
+    fullDescription: "Calcule a distribuição justa de lucros de projetos ou dividendos de empresas entre sócios conforme porcentagens acordadas ou cotas societárias. Permite deduzir percentual de reserva financeira de emergência antes do repasse aos parceiros.",
+    category: "calculadoras",
+    keywords: ["calculadora divisao de lucros", "distribuicao de lucros socios", "divisao de dividendos", "calculo quotas sociedade", "divisao lucros empresa"],
+    icon: "PieChart",
+    href: "/calculadora-divisao-lucros",
+    metaTitle: "Calculadora de Divisão de Lucros entre Sócios Online | CrieGrátis",
+    metaDescription: "Distribua lucros e dividendos entre sócios proporcionalmente grátis. Adicione múltiplos participantes com dedução de reserva no navegador.",
+    h1: "Calculadora de Divisão de Lucros entre Sócios",
+    badge: "Novo",
+    usageSteps: [
+      "Informe o lucro líquido total disponível para distribuição.",
+      "Defina a porcentagem de reserva que ficará retida na empresa para caixa ou reinvestimento.",
+      "Adicione os sócios ou parceiros com suas respectivas porcentagens ou cotas.",
+      "Visualize o valor exato em Reais a ser transferido para cada participante e o gráfico proporcional."
+    ],
+    features: [
+      "Adição e remoção dinâmica de sócios sem limites",
+      "Dedução configurável de reserva financeira da empresa",
+      "Normalização automática de frações para fechamento exato em 100%",
+      "Barra proporcional visual com as cores de cada sócio e exportação de relatório"
+    ],
+    faqs: [
+      {
+        question: "O que é reserva financeira da empresa na distribuição de lucros?",
+        answer: "É a parcela do lucro líquido mantida no caixa do negócio para capital de giro, pagamento de despesas emergenciais ou reinvestimentos antes de pagar os dividendos aos sócios."
+      }
+    ]
   }
 ];
 
