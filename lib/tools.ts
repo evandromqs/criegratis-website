@@ -923,6 +923,175 @@ export const TOOLS: ToolInfo[] = [
         answer: "Sim! Na sublimação em camisetas e canecas, a arte precisa ser espelhada antes da impressão para que textos e logos apareçam corretamente no produto final."
       }
     ]
+  },
+  {
+    slug: "remover-linhas-duplicadas",
+    name: "Remover Linhas Duplicadas",
+    shortDescription: "Elimine repetições de listas, e-mails ou cadastros com filtros inteligentes e ordenação.",
+    fullDescription: "Ferramenta rápida para remover linhas duplicadas e limpar listas de e-mails, cadastros, códigos ou dados exportados de planilhas. Configure diferenciação de maiúsculas/minúsculas, remoção de espaços em branco e ordenação de A-Z.",
+    category: "texto",
+    keywords: ["remover linhas duplicadas", "deduplicar lista", "tirar linhas repetidas", "limpar lista de emails", "remover duplicadas excel"],
+    icon: "ListFilter",
+    href: "/remover-linhas-duplicadas",
+    metaTitle: "Remover Linhas Duplicadas Online e Grátis | CrieGrátis",
+    metaDescription: "Remova linhas duplicadas de listas e textos grátis. Deduplicação inteligente com filtros de maiúsculas, espaços e ordenação no navegador.",
+    h1: "Remover Linhas Duplicadas de Texto",
+    badge: "Novo",
+    usageSteps: [
+      "Cole sua lista de itens ou linhas no campo da esquerda.",
+      "Ative opções opcionais: ignorar espaços, diferenciar maiúsculas ou ordenar de A-Z.",
+      "Acompanhe o total de linhas únicas e duplicadas removidas em tempo real.",
+      "Clique em 'Copiar Linhas Únicas' ou faça o download em arquivo .TXT."
+    ],
+    features: [
+      "Processamento instantâneo para milhares de linhas",
+      "Filtros de sensibilidade a maiúsculas e corte de espaços nas pontas",
+      "Contador comparativo de linhas originais vs. linhas únicas",
+      "Garantia de privacidade total: dados processados na memória local"
+    ],
+    faqs: [
+      {
+        question: "Como a ferramenta lida com espaços extras?",
+        answer: "Com a opção 'Ignorar Espaços' ativada, linhas como ' email@teste.com ' e 'email@teste.com' são identificadas como a mesma linha, garantindo uma lista perfeitamente limpa."
+      },
+      {
+        question: "Existe limite no número de linhas?",
+        answer: "Não! Como o algoritmo roda localmente no seu computador, ele é capaz de processar dezenas de milhares de linhas instantaneamente sem travar."
+      }
+    ]
+  },
+  {
+    slug: "comparar-textos",
+    name: "Comparador de Textos (Diff Checker)",
+    shortDescription: "Compare duas versões de um texto e veja as adições, remoções e alterações lado a lado.",
+    fullDescription: "Encontre rapidamente as diferenças entre dois textos, contratos, redações ou trechos de código. O comparador visual destaca linhas adicionadas em verde e linhas removidas em vermelho com contadores de alterações.",
+    category: "texto",
+    keywords: ["comparar textos", "diff checker online", "comparador de texto", "diferenca entre textos", "ver mudancas texto"],
+    icon: "GitCompare",
+    href: "/comparar-textos",
+    metaTitle: "Comparador de Textos Online — Diff Checker Grátis | CrieGrátis",
+    metaDescription: "Compare dois textos e veja diferenças lado a lado grátis. Destaque colorido para linhas adicionadas e removidas sem enviar dados para a internet.",
+    h1: "Comparador de Textos (Diff Checker)",
+    badge: "Novo",
+    isPopular: true,
+    usageSteps: [
+      "Cole o texto original no campo 'Texto Original (Antes)'.",
+      "Cole a versão revisada no campo 'Texto Modificado (Depois)'.",
+      "Veja instantaneamente o relatório colorido de adições e remoções.",
+      "Identifique alterações pontuais em contratos, códigos ou minutas."
+    ],
+    features: [
+      "Algoritmo de diff em tempo real com destaque visual claro",
+      "Numeração de linhas sincronizada entre os dois documentos",
+      "Contadores de linhas adicionadas e removidas",
+      "100% privado: seus contratos e documentos confidenciais nunca saem da sua máquina"
+    ],
+    faqs: [
+      {
+        question: "É seguro comparar contratos ou documentos confidenciais nesta ferramenta?",
+        answer: "Sim, 100% seguro. O algoritmo de comparação é executado puramente em JavaScript no seu navegador. Nenhum caractere é enviado ou armazenado em servidores externos."
+      },
+      {
+        question: "O comparador funciona para código de programação?",
+        answer: "Sim! É excelente para revisar alterações em scripts SQL, HTML, JSON, CSS, JavaScript e qualquer linguagem de programação."
+      }
+    ]
+  },
+  {
+    slug: "inverter-texto",
+    name: "Inverter Texto",
+    shortDescription: "Inverta caracteres, palavras, linhas inteiras ou vire o texto de cabeça para baixo.",
+    fullDescription: "Ferramenta divertida e prática para inverter texto de múltiplas maneiras: letra por letra (efeito espelho), ordem das palavras, linhas de trás para frente ou até virar o texto de ponta-cabeça usando caracteres especiais Unicode.",
+    category: "texto",
+    keywords: ["inverter texto", "texto invertido", "texto de cabeca para baixo", "inverter letras", "texto espelhado"],
+    icon: "RotateCw",
+    href: "/inverter-texto",
+    metaTitle: "Inverter Texto Online — Letras, Palavras e Cabeça p/ Baixo | CrieGrátis",
+    metaDescription: "Inverta textos grátis. Inversão de letras, ordem de palavras, linhas e texto de cabeça para baixo para redes sociais e brincadeiras.",
+    h1: "Inverter Texto Online",
+    badge: "Novo",
+    usageSteps: [
+      "Digite ou cole o texto na caixa de entrada.",
+      "Selecione o modo: Inverter Caracteres, Palavras, Linhas ou De Cabeça para Baixo.",
+      "Veja o resultado transformado imediatamente na caixa de saída.",
+      "Clique no botão 'Copiar Texto Invertido' para colar nas redes sociais ou mensagens."
+    ],
+    features: [
+      "4 modos completos de inversão em tempo real",
+      "Texto de cabeça para baixo compatível com WhatsApp, Instagram e Twitter",
+      "Preservação de quebras de linha e pontuações",
+      "Botão de cópia rápida com 1 clique"
+    ],
+    faqs: [
+      {
+        question: "O texto de cabeça para baixo funciona no WhatsApp e Instagram?",
+        answer: "Sim! Ele utiliza caracteres Unicode reais (como ɐ, q, ɔ), que são suportados por todos os aplicativos de mensagens e redes sociais modernos."
+      }
+    ]
+  },
+  {
+    slug: "ordenar-lista",
+    name: "Ordenar Lista Alfabética e Numérica",
+    shortDescription: "Classifique listas de A-Z, Z-A ou numérica com tratamento de acentos e numeração automática.",
+    fullDescription: "Organize listas desordenadas em ordem alfabética crescente (A-Z) ou decrescente (Z-A), ou por valor numérico. Trata acentos em português automaticamente e oferece opção para adicionar numeração sequencial (1., 2., 3.).",
+    category: "texto",
+    keywords: ["ordenar lista", "colocar em ordem alfabetica", "ordenar az", "organizar lista alfabetica", "ordenador de nomes"],
+    icon: "ArrowUpDown",
+    href: "/ordenar-lista",
+    metaTitle: "Ordenar Lista Alfabética e Numérica Online | CrieGrátis",
+    metaDescription: "Coloque listas em ordem alfabética (A-Z) ou numérica grátis. Ignore acentos, remova linhas vazias e adicione numeração com 1 clique.",
+    h1: "Ordenar Lista Alfabética e Numérica",
+    badge: "Novo",
+    usageSteps: [
+      "Cole sua lista de palavras, nomes ou números na caixa da esquerda.",
+      "Escolha o tipo de ordenação (A-Z, Z-A, Numérico ou Tamanho da Linha).",
+      "Marque opções complementares: ignorar acentos, remover vazios ou numerar itens.",
+      "Copie a lista perfeitamente organizada ou baixe em arquivo .TXT."
+    ],
+    features: [
+      "Ordenação alfabética natural em português (respeita acentuação)",
+      "Ordenação numérica inteligente (entende números em listas de preços e dados)",
+      "Opção de numeração sequencial automática (1., 2., 3.)",
+      "Download direto em arquivo .TXT limpo"
+    ],
+    faqs: [
+      {
+        question: "A ordenação trata letras com acento (como Á, É, Í) corretamente?",
+        answer: "Sim! Com a opção 'Ignorar Acentos' ativada, palavras como 'Árvore' e 'Amora' são organizadas de acordo com as normas alfabéticas da língua portuguesa."
+      }
+    ]
+  },
+  {
+    slug: "contador-de-linhas",
+    name: "Contador de Linhas e Parágrafos",
+    shortDescription: "Conte linhas totais, linhas com conteúdo, parágrafos, palavras e densidade de texto.",
+    fullDescription: "Ferramenta analítica para contagem precisa de linhas totais, linhas com texto, linhas em branco, parágrafos, palavras e caracteres. Ideal para redatores, programadores, advogados e estudantes analisarem a estrutura de seus documentos.",
+    category: "texto",
+    keywords: ["contador de linhas", "contar linhas texto", "contar paragrafos", "quantas linhas tem o texto", "medir tamanho texto"],
+    icon: "AlignJustify",
+    href: "/contador-de-linhas",
+    metaTitle: "Contador de Linhas e Parágrafos Online e Grátis | CrieGrátis",
+    metaDescription: "Conte linhas totais, linhas preenchidas, linhas vazias, parágrafos e caracteres em tempo real. Grátis e sem limites no navegador.",
+    h1: "Contador de Linhas e Parágrafos",
+    badge: "Novo",
+    usageSteps: [
+      "Cole ou digite o texto ou código no campo principal.",
+      "Visualize instantaneamente os contadores de linhas totais, preenchidas e vazias.",
+      "Consulte métricas complementares como média de caracteres por linha e parágrafos.",
+      "Clique em 'Copiar Relatório de Métricas' para compartilhar os dados."
+    ],
+    features: [
+      "Cálculo instantâneo sem recarregar a página",
+      "Diferenciação clara entre linhas totais, com texto e vazias",
+      "Estatísticas de parágrafos, caracteres e linha mais longa",
+      "Botão de cópia de relatório formatado para documentação"
+    ],
+    faqs: [
+      {
+        question: "Como a ferramenta diferencia uma linha de um parágrafo?",
+        answer: "Uma linha é definida por qualquer quebra de linha individual (Enter). Já um parágrafo é identificado como um bloco contínuo de texto separado por uma ou mais linhas vazias."
+      }
+    ]
   }
 ];
 

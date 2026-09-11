@@ -26,6 +26,11 @@ import {
   Eraser,
   Pipette,
   FlipHorizontal,
+  ListFilter,
+  GitCompare,
+  RotateCw,
+  ArrowUpDown,
+  AlignJustify,
 } from "lucide-react";
 import { ToolInfo } from "@/lib/tools";
 import FavoriteButton from "./FavoriteButton";
@@ -55,6 +60,11 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   Eraser,
   Pipette,
   FlipHorizontal,
+  ListFilter,
+  GitCompare,
+  RotateCw,
+  ArrowUpDown,
+  AlignJustify,
 };
 
 interface ToolCardProps {
