@@ -21,6 +21,11 @@ import {
   Crop,
   Key,
   Binary,
+  FileCode,
+  Sparkles,
+  Eraser,
+  Pipette,
+  FlipHorizontal,
 } from "lucide-react";
 import { ToolInfo } from "@/lib/tools";
 import FavoriteButton from "./FavoriteButton";
@@ -45,6 +50,11 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   Crop,
   Key,
   Binary,
+  FileCode,
+  Sparkles,
+  Eraser,
+  Pipette,
+  FlipHorizontal,
 };
 
 interface ToolCardProps {

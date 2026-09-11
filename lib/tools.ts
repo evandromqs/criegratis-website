@@ -705,6 +705,224 @@ export const TOOLS: ToolInfo[] = [
         answer: "O Base64 é utilizado para transmitir dados binários ou caracteres especiais em meios que suportam apenas texto ASCII seguro (como cabeçalhos HTTP, e-mails e APIs)."
       }
     ]
+  },
+  {
+    slug: "svg-para-png",
+    name: "Converter SVG para PNG",
+    shortDescription: "Converta arquivos vetoriais SVG para PNG em alta definição com fundo transparente ou sólido.",
+    fullDescription: "Ferramenta gratuita para converter arquivos vetoriais SVG para imagens PNG com fundo transparente ou cores sólidas. Escolha a escala de exportação (até 8x) para obter gráficos e logos super nítidos sem perda de qualidade.",
+    category: "imagens",
+    keywords: ["converter svg para png", "svg para png", "svg to png", "transformar svg em png", "vetor para imagem"],
+    icon: "FileCode",
+    href: "/svg-para-png",
+    metaTitle: "Converter SVG para PNG Grátis em Alta Resolução | CrieGrátis",
+    metaDescription: "Converta arquivos vetoriais SVG para PNG grátis. Escolha escalas até 8x para logos e ícones de altíssima definição com fundo transparente.",
+    h1: "Converter SVG para PNG em Alta Definição",
+    badge: "Novo",
+    isPopular: true,
+    usageSteps: [
+      "Selecione ou arraste seu arquivo .SVG para a área de upload.",
+      "Defina a resolução/escala desejada (1x, 2x Ideal, 4x ou 8x Ultra HD).",
+      "Escolha o fundo: transparente, branco ou preto.",
+      "Clique no botão 'Baixar Imagem em PNG' para salvar seu arquivo renderizado."
+    ],
+    features: [
+      "Renderização vetorial com antialiasing de alta qualidade",
+      "Multiplicador de resolução até 8x para impressão ou telas 4K",
+      "Suporte a fundo transparente nativo com canal alfa",
+      "Processamento 100% privado na memória do seu navegador"
+    ],
+    faqs: [
+      {
+        question: "Por que converter SVG para PNG?",
+        answer: "Embora o SVG seja perfeito para a web, muitos editores de imagem, redes sociais e ferramentas de apresentação aceitam apenas formatos rasterizados como PNG."
+      },
+      {
+        question: "A qualidade da imagem diminui ao converter?",
+        answer: "Não! Por ser um vetor, você pode escolher escalas maiores (como 2x ou 4x) para exportar uma imagem PNG nítida em altíssima resolução."
+      }
+    ]
+  },
+  {
+    slug: "converter-para-webp",
+    name: "Converter para WebP",
+    shortDescription: "Converta imagens PNG ou JPG para WebP e reduza o peso do seu site mantendo a qualidade.",
+    fullDescription: "Otimize suas imagens convertendo para o formato moderno WebP. Reduza o peso dos arquivos em até 80% mantendo alta fidelidade visual, ideal para acelerar o carregamento de sites e blogs.",
+    category: "imagens",
+    keywords: ["converter para webp", "imagem para webp", "jpg para webp", "png para webp", "otimizar webp"],
+    icon: "Sparkles",
+    href: "/converter-para-webp",
+    metaTitle: "Converter para WebP Online e Grátis | CrieGrátis",
+    metaDescription: "Converta PNG e JPG para WebP grátis. Reduza o tamanho de imagens em até 80% sem perder qualidade no navegador.",
+    h1: "Converter Imagens para WebP",
+    badge: "Novo",
+    isPopular: true,
+    usageSteps: [
+      "Selecione uma imagem nos formatos PNG, JPG, JPEG ou BMP.",
+      "Ajuste a porcentagem de qualidade no controle deslizante (recomendado: 85%).",
+      "Acompanhe a economia de espaço e o comparador de tamanho em tempo real.",
+      "Baixe a imagem otimizada em formato WebP imediatamente."
+    ],
+    features: [
+      "Economia expressiva de até 80% no tamanho dos arquivos",
+      "Slider de ajuste fino de compressão com preview ao vivo",
+      "Compatível com todos os navegadores modernos e motores de busca",
+      "Conversão rápida e 100% offline via HTML5 Canvas"
+    ],
+    faqs: [
+      {
+        question: "Quais as vantagens de usar WebP em vez de PNG ou JPG?",
+        answer: "O formato WebP foi criado pelo Google para oferecer arquivos significativamente menores com a mesma qualidade perceptível, tornando sites muito mais rápidos e bem ranqueados no SEO."
+      },
+      {
+        question: "O formato WebP suporta transparência?",
+        answer: "Sim! O WebP suporta transparência alfa (como o PNG) com um tamanho de arquivo muito menor."
+      }
+    ]
+  },
+  {
+    slug: "imagem-para-base64",
+    name: "Imagem para Base64",
+    shortDescription: "Converta qualquer imagem para código Base64 Data URI, tag <img> ou CSS background.",
+    fullDescription: "Ferramenta para converter imagens (PNG, JPG, SVG, WebP) em sequências de texto Base64. Obtenha o Data URI completo, tags HTML <img> ou regras CSS prontas para colar diretamente no seu código sem requisições HTTP adicionais.",
+    category: "imagens",
+    keywords: ["imagem para base64", "converter imagem base64", "image to base64", "data uri imagem", "base64 img"],
+    icon: "Binary",
+    href: "/imagem-para-base64",
+    metaTitle: "Converter Imagem para Base64 Online e Grátis | CrieGrátis",
+    metaDescription: "Converta imagens para Base64 e Data URI grátis. Gere tags HTML e CSS prontas para desenvolvedores sem enviar nada para servidores.",
+    h1: "Converter Imagem para Base64",
+    badge: "Novo",
+    usageSteps: [
+      "Arraste ou escolha qualquer arquivo de imagem no seu computador.",
+      "Veja o preview e as dimensões da imagem instantaneamente.",
+      "Escolha a aba desejada: Data URI, Tag <img> HTML, CSS Background ou Base64 Puro.",
+      "Clique em 'Copiar' para transferir o código ou baixe em arquivo .TXT."
+    ],
+    features: [
+      "Gera Data URI, tag <img> HTML e CSS background-image prontos",
+      "Calcula o tamanho exato da string Base64",
+      "Botão de cópia rápida com 1 clique e opção de download em .txt",
+      "Zero envio de arquivos para a nuvem (máxima segurança e privacidade)"
+    ],
+    faqs: [
+      {
+        question: "Quando vale a pena embutir imagens em Base64?",
+        answer: "O Base64 é recomendado para ícones pequenos e imagens decorativas leves, pois elimina requisições HTTP extras e evita que a imagem 'pisque' ao carregar."
+      },
+      {
+        question: "Existe limite de tamanho para converter em Base64?",
+        answer: "Não há limite no CrieGrátis porque o processamento ocorre no seu computador, mas é uma boa prática evitar imagens muito grandes para não sobrecarregar o CSS ou HTML."
+      }
+    ]
+  },
+  {
+    slug: "remover-fundo-branco",
+    name: "Remover Fundo Branco",
+    shortDescription: "Torne o fundo branco ou sólido de logos, assinaturas e fotos 100% transparente.",
+    fullDescription: "Remova fundos brancos e claros de logotipos, ícones, desenhos e assinaturas digitalizadas. Ajuste a tolerância de sensibilidade em tempo real para obter bordas perfeitas e salve o resultado em PNG com transparência total.",
+    category: "imagens",
+    keywords: ["remover fundo branco", "tirar fundo branco imagem", "remover fundo png", "fundo transparente logo", "assinatura sem fundo"],
+    icon: "Eraser",
+    href: "/remover-fundo-branco",
+    metaTitle: "Remover Fundo Branco de Imagem Grátis | CrieGrátis",
+    metaDescription: "Tire o fundo branco de logotipos, assinaturas e desenhos grátis. Salve em PNG transparente com controle de tolerância 100% no navegador.",
+    h1: "Remover Fundo Branco de Imagem",
+    badge: "Novo",
+    usageSteps: [
+      "Carregue a imagem (PNG, JPG, WebP) com fundo branco ou claro.",
+      "Ajuste a régua de tolerância para regular a precisão das bordas.",
+      "Veja o resultado em tempo real sobre a grade xadrez de transparência.",
+      "Clique em 'Baixar Imagem sem Fundo' para salvar em PNG transparente."
+    ],
+    features: [
+      "Remoção rápida de fundos brancos com suavização inteligente de bordas",
+      "Slider de sensibilidade para evitar apagar detalhes finos",
+      "Grade de preview com transparência alfa autêntica",
+      "Ideal para assinaturas de contratos, carimbos, logos e ilustrações"
+    ],
+    faqs: [
+      {
+        question: "Esta ferramenta funciona bem para assinaturas escaneadas?",
+        answer: "Sim! É uma das melhores aplicações: você faz o upload da foto do papel com a assinatura, ajusta a tolerância e obtém um arquivo PNG transparente pronto para assinar PDFs."
+      },
+      {
+        question: "Minha foto pessoal ou assinatura é enviada para algum servidor?",
+        answer: "Não! A remoção do fundo é feita pixel a pixel diretamente no processador da sua máquina via HTML5 Canvas."
+      }
+    ]
+  },
+  {
+    slug: "conta-gotas-imagem",
+    name: "Conta-gotas de Imagem (Color Picker)",
+    shortDescription: "Identifique e copie cores exatas de qualquer foto em HEX, RGB e HSL com 1 clique.",
+    fullDescription: "Extraia paletas de cores e códigos cromáticos de qualquer foto, arte ou print. Basta passar o mouse ou tocar na imagem para inspecionar pixels com zoom e copiar instantaneamente os códigos HEX, RGB e HSL.",
+    category: "imagens",
+    keywords: ["conta gotas imagem", "color picker imagem", "pegar cor de imagem", "extrair cor foto", "hex da imagem"],
+    icon: "Pipette",
+    href: "/conta-gotas-imagem",
+    metaTitle: "Conta-gotas de Imagem — Extrair Cores HEX e RGB | CrieGrátis",
+    metaDescription: "Identifique e copie cores de imagens grátis em HEX, RGB e HSL. Conta-gotas com lupa interativa e histórico de paleta no navegador.",
+    h1: "Conta-gotas de Imagem (Color Picker)",
+    badge: "Novo",
+    usageSteps: [
+      "Faça upload da foto, print de tela ou ilustração.",
+      "Mova o cursor do mouse sobre a área da imagem cuja cor você quer descobrir.",
+      "Clique para fixar a cor na paleta de histórico recente.",
+      "Clique no botão de cópia ao lado dos códigos HEX, RGB ou HSL."
+    ],
+    features: [
+      "Leitura precisa de pixels em tempo real sob o cursor",
+      "Códigos prontos nos formatos HEX (#FFFFFF), RGB e HSL",
+      "Histórico com as últimas 10 cores capturadas para fácil comparação",
+      "Não requer instalação de extensões de navegador ou softwares pesados"
+    ],
+    faqs: [
+      {
+        question: "O conta-gotas funciona com imagens de qualquer resolução?",
+        answer: "Sim! Ele lê as coordenadas exatas da imagem original, garantindo que você capture a cor autêntica do pixel mesmo em fotos de alta resolução."
+      },
+      {
+        question: "Como copio a cor para o Photoshop ou Figma?",
+        answer: "Basta clicar no ícone de cópia ao lado do código HEX (ex: #2563EB) e colar diretamente no seletor de cores do seu software favorito."
+      }
+    ]
+  },
+  {
+    slug: "espelhar-imagem",
+    name: "Espelhar Imagem (Flip)",
+    shortDescription: "Espelhe imagens horizontalmente ou verticalmente em segundos sem perder qualidade.",
+    fullDescription: "Inverta e espelhe fotos na horizontal (efeito espelho) ou vertical (de cabeça para baixo). Perfeito para corrigir fotos tiradas com a câmera frontal do celular, preparar artes para estamparia e sublimação ou composições criativas.",
+    category: "imagens",
+    keywords: ["espelhar imagem", "inverter foto", "flip image", "espelhar foto horizontal", "efeito espelho foto"],
+    icon: "FlipHorizontal",
+    href: "/espelhar-imagem",
+    metaTitle: "Espelhar Imagem Online — Inverter Horizontal e Vertical | CrieGrátis",
+    metaDescription: "Espelhe fotos na horizontal e vertical grátis. Corrija fotos de câmera frontal ou prepare artes de sublimação sem perder qualidade.",
+    h1: "Espelhar Imagem (Flip Horizontal e Vertical)",
+    badge: "Novo",
+    usageSteps: [
+      "Envie a foto ou arte que você deseja inverter.",
+      "Clique em 'Espelhar Horizontal' (efeito espelho) e/ou 'Espelhar Vertical' (de ponta-cabeça).",
+      "Confira a transformação no preview em tempo real.",
+      "Clique em 'Baixar Imagem Espelhada' para salvar no seu computador."
+    ],
+    features: [
+      "Espelhamento horizontal e vertical independente ou combinado",
+      "Preservação integral da resolução e nitidez original da foto",
+      "Botão de restauração rápida para comparar com o arquivo original",
+      "Processamento instantâneo e seguro sem upload externo"
+    ],
+    faqs: [
+      {
+        question: "Por que as fotos da câmera frontal saem invertidas?",
+        answer: "Muitos smartphones salvam a foto frontal como se alguém estivesse olhando para você, e não como você se enxerga no espelho. A ferramenta de espelhamento horizontal corrige isso em 1 segundo."
+      },
+      {
+        question: "Essa ferramenta serve para preparar artes para sublimação e estampas?",
+        answer: "Sim! Na sublimação em camisetas e canecas, a arte precisa ser espelhada antes da impressão para que textos e logos apareçam corretamente no produto final."
+      }
+    ]
   }
 ];
 

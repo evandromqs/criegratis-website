@@ -189,3 +189,209 @@ export function formatFileSize(bytes: number): string {
   const i = Math.floor(Math.log(bytes) / Math.log(k));
   return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
 }
+
+/**
+ * Converte arquivo SVG para PNG em alta definição com suporte a escala (1x, 2x, 4x).
+ */
+export async function convertSvgToPng(
+  file: File,
+  scale: number = 2,
+  backgroundColor: string = "transparent"
+): Promise<{ blob: Blob; url: string; width: number; height: number }> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        const w = (img.naturalWidth || 800) * scale;
+        const h = (img.naturalHeight || 800) * scale;
+
+        const canvas = document.createElement("canvas");
+        canvas.width = w;
+        canvas.height = h;
+
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return reject(new Error("Erro de contexto Canvas."));
+
+        if (backgroundColor && backgroundColor !== "transparent") {
+          ctx.fillStyle = backgroundColor;
+          ctx.fillRect(0, 0, w, h);
+        }
+
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = "high";
+        ctx.drawImage(img, 0, 0, w, h);
+
+        canvas.toBlob((blob) => {
+          if (!blob) return reject(new Error("Falha ao exportar SVG para PNG."));
+          const url = URL.createObjectURL(blob);
+          resolve({ blob, url, width: w, height: h });
+        }, "image/png");
+      };
+      img.onerror = () => reject(new Error("Não foi possível carregar o arquivo SVG."));
+      img.src = e.target?.result as string;
+    };
+    reader.onerror = () => reject(new Error("Falha ao ler o arquivo SVG."));
+    reader.readAsDataURL(file);
+  });
+}
+
+/**
+ * Converte qualquer imagem compatível (PNG, JPG, BMP) para o formato moderno WebP.
+ */
+export async function convertToWebp(
+  file: File,
+  qualityPercentage: number = 85
+): Promise<{ blob: Blob; url: string; originalSize: number; convertedSize: number; savedPercentage: number; width: number; height: number }> {
+  const { img, width, height } = await loadImageFromFile(file);
+
+  const canvas = document.createElement("canvas");
+  canvas.width = width;
+  canvas.height = height;
+
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("Erro de contexto Canvas.");
+
+  ctx.drawImage(img, 0, 0, width, height);
+
+  const quality = Math.max(0.1, Math.min(1, qualityPercentage / 100));
+
+  return new Promise((resolve, reject) => {
+    canvas.toBlob(
+      (blob) => {
+        if (!blob) return reject(new Error("Falha ao converter para WebP."));
+        const originalSize = file.size;
+        const convertedSize = blob.size;
+        const savedPercentage = Math.round(((originalSize - convertedSize) / originalSize) * 100);
+        const url = URL.createObjectURL(blob);
+
+        resolve({
+          blob,
+          url,
+          originalSize,
+          convertedSize,
+          savedPercentage,
+          width,
+          height,
+        });
+      },
+      "image/webp",
+      quality
+    );
+  });
+}
+
+/**
+ * Converte arquivo de imagem para Base64 Data URI e string limpa.
+ */
+export async function imageToBase64(
+  file: File
+): Promise<{ base64: string; dataUri: string; width: number; height: number; size: number }> {
+  const { img, width, height } = await loadImageFromFile(file);
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const dataUri = e.target?.result as string;
+      const base64 = dataUri.split(",")[1] || "";
+      resolve({
+        base64,
+        dataUri,
+        width,
+        height,
+        size: file.size,
+      });
+    };
+    reader.onerror = () => reject(new Error("Falha ao ler arquivo para Base64."));
+    reader.readAsDataURL(file);
+  });
+}
+
+/**
+ * Remove fundo branco ou sólido claro da imagem tornando os pixels transparentes.
+ */
+export async function removeWhiteBackground(
+  file: File,
+  tolerance: number = 30
+): Promise<{ blob: Blob; url: string; width: number; height: number }> {
+  const { img, width, height } = await loadImageFromFile(file);
+
+  const canvas = document.createElement("canvas");
+  canvas.width = width;
+  canvas.height = height;
+
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("Erro ao acessar contexto 2D do Canvas.");
+
+  ctx.drawImage(img, 0, 0, width, height);
+  const imageData = ctx.getImageData(0, 0, width, height);
+  const data = imageData.data;
+
+  // Threshold baseado na tolerância (0 a 100)
+  const threshold = (tolerance / 100) * 441.67; // sqrt(255^2 * 3) = 441.67
+
+  for (let i = 0; i < data.length; i += 4) {
+    const r = data[i];
+    const g = data[i + 1];
+    const b = data[i + 2];
+
+    // Distância até o branco puro (255, 255, 255)
+    const dist = Math.sqrt(
+      Math.pow(255 - r, 2) + Math.pow(255 - g, 2) + Math.pow(255 - b, 2)
+    );
+
+    if (dist <= threshold) {
+      // Se estiver dentro da tolerância, calcula fade out suave na borda
+      if (dist <= threshold * 0.7) {
+        data[i + 3] = 0; // 100% transparente
+      } else {
+        const factor = (dist - threshold * 0.7) / (threshold * 0.3);
+        data[i + 3] = Math.round(data[i + 3] * factor);
+      }
+    }
+  }
+
+  ctx.putImageData(imageData, 0, 0);
+
+  return new Promise((resolve, reject) => {
+    canvas.toBlob((blob) => {
+      if (!blob) return reject(new Error("Falha ao processar remoção de fundo."));
+      const url = URL.createObjectURL(blob);
+      resolve({ blob, url, width, height });
+    }, "image/png");
+  });
+}
+
+/**
+ * Espelha a imagem horizontalmente e/ou verticalmente.
+ */
+export async function flipImage(
+  file: File,
+  horizontal: boolean = true,
+  vertical: boolean = false
+): Promise<{ blob: Blob; url: string; width: number; height: number }> {
+  const { img, width, height } = await loadImageFromFile(file);
+
+  const canvas = document.createElement("canvas");
+  canvas.width = width;
+  canvas.height = height;
+
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("Erro de contexto Canvas.");
+
+  ctx.save();
+  ctx.translate(horizontal ? width : 0, vertical ? height : 0);
+  ctx.scale(horizontal ? -1 : 1, vertical ? -1 : 1);
+  ctx.drawImage(img, 0, 0, width, height);
+  ctx.restore();
+
+  const mime = file.type === "image/png" ? "image/png" : "image/jpeg";
+
+  return new Promise((resolve, reject) => {
+    canvas.toBlob((blob) => {
+      if (!blob) return reject(new Error("Falha ao espelhar imagem."));
+      const url = URL.createObjectURL(blob);
+      resolve({ blob, url, width, height });
+    }, mime);
+  });
+}
+
