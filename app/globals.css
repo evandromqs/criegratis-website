@@ -58,19 +58,19 @@
 
 @keyframes verseMarquee {
   0% {
-    transform: translateX(100%);
+    transform: translateX(70%);
   }
   100% {
     transform: translateX(-100%);
   }
 }
 
-/* Animação Contínua e Suave do Versículo com pausa ao passar o mouse */
+/* Animação Contínua e Suave do Versículo com pausa ao passar o mouse (20% mais rápida e execução única) */
 .animate-verse-marquee {
   display: inline-block;
   white-space: nowrap;
   will-change: transform;
-  animation: verseMarquee 15s linear infinite;
+  animation: verseMarquee 12s linear forwards;
 }
 
 .animate-verse-marquee:hover {
@@ -79,13 +79,13 @@
 
 @media (min-width: 640px) {
   .animate-verse-marquee {
-    animation-duration: 18s;
+    animation-duration: 14.4s;
   }
 }
 
 @media (min-width: 1024px) {
   .animate-verse-marquee {
-    animation-duration: 22s;
+    animation-duration: 17.5s;
   }
 }
 

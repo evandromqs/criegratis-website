@@ -150,16 +150,19 @@ export default function Header() {
             <span>João 3:16</span>
           </button>
 
-          {/* Container Responsivo com Início Imediato e Fade suave */}
+          {/* Container Responsivo Centralizado com Largura Menor e Fade nas Bordas */}
           <div
-            className={`overflow-hidden transition-all duration-300 ease-out flex items-center ${
+            className={`overflow-hidden transition-all duration-300 ease-out flex items-center justify-center [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] ${
               isPlayingVerse
-                ? "flex-1 max-w-[220px] xs:max-w-[280px] sm:max-w-xl md:max-w-2xl lg:max-w-4xl opacity-100"
+                ? "w-full max-w-[190px] xs:max-w-[240px] sm:max-w-md md:max-w-lg opacity-100"
                 : "max-w-0 opacity-0 pointer-events-none"
             }`}
           >
             {isPlayingVerse && (
-              <div className="animate-verse-marquee whitespace-nowrap text-[10.5px] sm:text-xs text-[#475569] dark:text-[#CBD5E1] font-medium tracking-wide">
+              <div
+                onAnimationEnd={() => setIsPlayingVerse(false)}
+                className="animate-verse-marquee whitespace-nowrap text-[10.5px] sm:text-xs text-[#475569] dark:text-[#CBD5E1] font-medium tracking-wide"
+              >
                 &ldquo;Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna.&rdquo;
               </div>
             )}
