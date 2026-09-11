@@ -1,12 +1,12 @@
 // Crie Grátis Service Worker para PWA
-const CACHE_NAME = 'criegratis-pwa-v2';
+const CACHE_NAME = 'criegratis-pwa-v3';
 const STATIC_ASSETS = [
   '/',
   '/manifest.webmanifest',
   '/site.webmanifest',
-  '/icon.svg',
   '/favicon.svg',
   '/favicon-96x96.png',
+  '/apple-touch-icon.png',
   '/web-app-manifest-192x192.png',
   '/web-app-manifest-512x512.png',
   '/offline.html',

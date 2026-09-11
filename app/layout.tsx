@@ -75,16 +75,16 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon-96x96.png?v=2", sizes: "96x96", type: "image/png" },
-      { url: "/favicon.svg?v=2", type: "image/svg+xml" },
-      { url: "/favicon.ico?v=2" },
+      { url: "/favicon-96x96.png?v=3", sizes: "96x96", type: "image/png" },
+      { url: "/favicon.svg?v=3", type: "image/svg+xml" },
+      { url: "/favicon.ico?v=3" },
     ],
-    shortcut: "/favicon.ico?v=2",
+    shortcut: "/favicon.ico?v=3",
     apple: [
-      { url: "/apple-touch-icon.png?v=2", sizes: "180x180" },
+      { url: "/apple-touch-icon.png?v=3", sizes: "180x180" },
     ],
   },
-  manifest: "/site.webmanifest",
+  manifest: "/manifest.webmanifest",
 };
 
 export default function RootLayout({
@@ -97,12 +97,12 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${inter.variable} ${inter.className}`} suppressHydrationWarning>
       <head>
-        <link rel="icon" type="image/png" href="/favicon-96x96.png?v=2" sizes="96x96" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
-        <link rel="shortcut icon" href="/favicon.ico?v=2" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2" />
+        <link rel="icon" type="image/png" href="/favicon-96x96.png?v=3" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3" />
+        <link rel="shortcut icon" href="/favicon.ico?v=3" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3" />
         <meta name="apple-mobile-web-app-title" content="Crie Grátis" />
-        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="manifest" href="/manifest.webmanifest" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
