@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import QRCode from "qrcode";
-import { Heart, Copy, Check, X, QrCode as QrIcon, Sparkles } from "lucide-react";
+import { Heart, Copy, Check, X, QrCode as QrIcon, ShieldCheck } from "lucide-react";
 
 interface SupportModalProps {
   isOpen: boolean;
@@ -14,6 +14,7 @@ interface SupportModalProps {
 interface DonationTier {
   id: "cafe" | "lanche" | "servidores" | "outro";
   label: string;
+  subLabel: string;
   badge?: string;
   icon: string;
   valueText: string;
@@ -25,7 +26,8 @@ interface DonationTier {
 const DONATION_TIERS: DonationTier[] = [
   {
     id: "cafe",
-    label: "Pagar um cafézinho",
+    label: "Pagar um café",
+    subLabel: "Café",
     icon: "☕",
     valueText: "R$ 5",
     phrase: "A energia necessária para transformar mais ideias em ferramentas gratuitas.",
@@ -35,7 +37,8 @@ const DONATION_TIERS: DonationTier[] = [
   {
     id: "lanche",
     label: "Pagar um lanche",
-    badge: "Mais Escolhido",
+    subLabel: "Lanche",
+    badge: "TOP",
     icon: "🍕",
     valueText: "R$ 15",
     phrase: "O combustível oficial da comunidade: pizza, foco e código livre para todo mundo!",
@@ -44,19 +47,21 @@ const DONATION_TIERS: DonationTier[] = [
   },
   {
     id: "servidores",
-    label: "Apoiar servidores & Novas Ferramentas",
+    label: "Apoiar servidores",
+    subLabel: "Servidores",
     icon: "🚀",
     valueText: "R$ 30",
-    phrase: "Contribuição de quem realmente acredita em uma internet mais aberta, rápida e sem pegadinhas.",
+    phrase: "Contribuição de quem realmente acredita em uma internet aberta, rápida e sem pegadinhas.",
     pixPayload:
       "00020126580014BR.GOV.BCB.PIX0136ef2848a5-ffbc-46ac-9bb1-5187d61d6946520400005303986540530.005802BR592548.434.238 EVANDRO MARQUE6009SAO PAULO6108054090006225052180mbhpBwS5wZybp101uzm6304129D",
   },
   {
     id: "outro",
     label: "Outro valor livre",
+    subLabel: "Livre",
     icon: "✨",
-    valueText: "Outro Valor",
-    phrase: "Contribua com qualquer quantia diretamente via chave Pix de e-mail no aplicativo do seu banco.",
+    valueText: "Outro",
+    phrase: "Contribua com qualquer quantia diretamente via chave de e-mail no aplicativo do seu banco.",
     pixPayload: "pix@criegratis.com.br",
     isEmailKey: true,
   },
@@ -81,7 +86,7 @@ export default function SupportModal({
   useEffect(() => {
     if (isOpen && currentTier.pixPayload) {
       QRCode.toDataURL(currentTier.pixPayload, {
-        width: 280,
+        width: 240,
         margin: 1,
         color: {
           dark: "#0F172A",
@@ -125,7 +130,7 @@ export default function SupportModal({
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4 bg-slate-950/75 dark:bg-black/85 backdrop-blur-xs overflow-y-auto w-screen max-w-full h-screen h-[100dvh] animate-in fade-in duration-150"
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4 bg-slate-950/75 dark:bg-black/85 backdrop-blur-xs w-screen max-w-full h-screen h-[100dvh] animate-in fade-in duration-150 overflow-y-auto scrollbar-none"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
@@ -133,180 +138,173 @@ export default function SupportModal({
       role="dialog"
       aria-labelledby="support-modal-title"
     >
-      <div className="relative w-full max-w-md sm:max-w-lg my-auto max-h-[calc(100dvh-1.5rem)] sm:max-h-[calc(100dvh-2.5rem)] flex flex-col rounded-3xl border border-[#E2E8F0] dark:border-[#334155] bg-white dark:bg-[#1E293B] shadow-2xl overflow-hidden">
-        {/* Botão de Fechar com Touch-Target Acessível (44x44px) */}
-        <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10">
-          <button
-            onClick={onClose}
-            type="button"
-            className="flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white transition-colors cursor-pointer"
-            aria-label="Fechar modal de doação Pix"
-          >
-            <X className="h-5 w-5" aria-hidden="true" />
-          </button>
-        </div>
+      <div className="relative w-full max-w-md sm:max-w-[500px] my-auto flex flex-col rounded-3xl border border-[#E2E8F0] dark:border-[#334155] bg-white dark:bg-[#1E293B] shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
+        {/* Botão de Fechar com Touch-Target Acessível */}
+        <button
+          onClick={onClose}
+          type="button"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white transition-colors cursor-pointer"
+          aria-label="Fechar modal de apoio"
+        >
+          <X className="h-5 w-5" aria-hidden="true" />
+        </button>
 
-        {/* Conteúdo com Scroll interno resiliente para mobile */}
-        <div className="overflow-y-auto p-4 sm:p-6 space-y-4 sm:space-y-5">
-          {/* Cabeçalho do Modal */}
-          <div className="text-center space-y-1.5 pt-1">
-            <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-rose-50 dark:bg-rose-950/50 text-rose-500 border border-rose-100 dark:border-rose-900/50 mb-0.5 shadow-2xs">
+        {/* Conteúdo Principal do Modal */}
+        <div className="p-4 sm:p-6 space-y-4">
+          {/* Cabeçalho */}
+          <div className="text-center space-y-1.5 pt-1 pr-6 pl-6 sm:pr-8 sm:pl-8">
+            <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-rose-50 dark:bg-rose-950/50 text-rose-500 border border-rose-100 dark:border-rose-900/50 mb-0.5 shadow-2xs">
               <Heart className="h-5 w-5 fill-rose-500" aria-hidden="true" />
             </div>
             <h2
               id="support-modal-title"
-              className="text-xl sm:text-2xl font-black text-[#0F172A] dark:text-white tracking-tight"
+              className="text-xl sm:text-2xl font-extrabold text-[#0F172A] dark:text-white tracking-tight"
             >
               {title}
             </h2>
-            <p className="text-xs sm:text-sm text-[#475569] dark:text-[#94A3B8] leading-relaxed max-w-sm mx-auto">
-              O Crie Grátis é 100% gratuito e livre de anúncios. Escolha um valor para apoiar a infraestrutura e acelerar novas ferramentas:
+            <p className="text-sm font-extrabold text-[#475569] dark:text-[#94A3B8] leading-relaxed max-w-sm mx-auto">
+              100% gratuito e livre de anúncios. Ajude a manter os servidores ativos:
             </p>
           </div>
 
-          {/* Seletor dos 3 Valores Prontos + Outro Valor */}
-          <div className="space-y-2">
-            <div className="grid grid-cols-3 gap-2">
-              {DONATION_TIERS.slice(0, 3).map((tier) => {
-                const isSelected = selectedTierId === tier.id;
-                return (
-                  <button
-                    key={tier.id}
-                    type="button"
-                    onClick={() => {
-                      setSelectedTierId(tier.id);
-                      setCopied(false);
-                    }}
-                    className={`relative flex flex-col items-center justify-center rounded-2xl p-2.5 sm:p-3 border text-center transition-all cursor-pointer min-h-[72px] ${
+          {/* Grid de 4 Valores Simétricos em 1 Linha (Fontes a partir de 14px bold 800) */}
+          <div className="grid grid-cols-4 gap-1.5 sm:gap-2 pt-1">
+            {DONATION_TIERS.map((tier) => {
+              const isSelected = selectedTierId === tier.id;
+              return (
+                <button
+                  key={tier.id}
+                  type="button"
+                  onClick={() => {
+                    setSelectedTierId(tier.id);
+                    setCopied(false);
+                    setShowQr(false);
+                  }}
+                  className={`relative flex flex-col items-center justify-center rounded-xl sm:rounded-2xl p-2 sm:p-2.5 border text-center transition-all cursor-pointer min-h-[72px] sm:min-h-[78px] ${
+                    isSelected
+                      ? "border-[#2563EB] dark:border-[#38BDF8] bg-blue-50/80 dark:bg-blue-950/50 shadow-xs ring-2 ring-[#2563EB]/20 dark:ring-[#38BDF8]/20 scale-[1.02]"
+                      : "border-[#E2E8F0] dark:border-[#334155] bg-[#F8FAFC] dark:bg-[#0F172A]/70 hover:border-slate-300 dark:hover:border-slate-600 hover:bg-white dark:hover:bg-[#1E293B]"
+                  }`}
+                  aria-pressed={isSelected}
+                >
+                  {tier.badge && (
+                    <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-full bg-rose-500 text-white px-2 py-0.5 text-sm font-extrabold uppercase tracking-wider shadow-2xs whitespace-nowrap">
+                      {tier.badge}
+                    </span>
+                  )}
+                  <span className="text-base sm:text-lg mb-0.5" aria-hidden="true">
+                    {tier.icon}
+                  </span>
+                  <span
+                    className={`text-sm sm:text-base font-extrabold leading-tight ${
                       isSelected
-                        ? "border-[#2563EB] dark:border-[#38BDF8] bg-blue-50/80 dark:bg-blue-950/50 shadow-xs ring-2 ring-[#2563EB]/20 dark:ring-[#38BDF8]/20 scale-[1.02]"
-                        : "border-[#E2E8F0] dark:border-[#334155] bg-[#F8FAFC] dark:bg-[#0F172A]/70 hover:border-slate-300 dark:hover:border-slate-600 hover:bg-white dark:hover:bg-[#1E293B]"
+                        ? "text-[#2563EB] dark:text-[#38BDF8]"
+                        : "text-[#0F172A] dark:text-white"
                     }`}
-                    aria-pressed={isSelected}
                   >
-                    {tier.badge && (
-                      <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-full bg-rose-500 text-white px-2 py-0.2 text-[9px] font-bold uppercase tracking-wider shadow-2xs whitespace-nowrap">
-                        {tier.badge}
-                      </span>
-                    )}
-                    <span className="text-base sm:text-lg mb-0.5" aria-hidden="true">
-                      {tier.icon}
-                    </span>
-                    <span
-                      className={`text-sm sm:text-base font-black ${
-                        isSelected
-                          ? "text-[#2563EB] dark:text-[#38BDF8]"
-                          : "text-[#0F172A] dark:text-white"
-                      }`}
-                    >
-                      {tier.valueText}
-                    </span>
-                    <span className="text-[10px] text-[#475569] dark:text-[#94A3B8] font-medium leading-tight truncate max-w-full">
-                      {tier.label.replace("Pagar um ", "").replace("Apoiar ", "")}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Opção 4: Outro Valor */}
-            <button
-              type="button"
-              onClick={() => {
-                setSelectedTierId("outro");
-                setCopied(false);
-              }}
-              className={`w-full flex items-center justify-between rounded-xl px-3 py-2 border text-xs font-semibold transition-all cursor-pointer ${
-                selectedTierId === "outro"
-                  ? "border-[#2563EB] dark:border-[#38BDF8] bg-blue-50/80 dark:bg-blue-950/50 text-[#2563EB] dark:text-[#38BDF8] ring-1 ring-[#2563EB]/30"
-                  : "border-[#E2E8F0] dark:border-[#334155] bg-[#F8FAFC] dark:bg-[#0F172A]/60 text-[#475569] dark:text-[#94A3B8] hover:bg-white dark:hover:bg-[#1E293B]"
-              }`}
-              aria-pressed={selectedTierId === "outro"}
-            >
-              <div className="flex items-center gap-2">
-                <Sparkles className="h-3.5 w-3.5 text-amber-500" aria-hidden="true" />
-                <span>Deseja apoiar com qualquer outro valor?</span>
-              </div>
-              <span className="font-bold underline text-[11px]">Chave E-mail</span>
-            </button>
+                    {tier.valueText}
+                  </span>
+                  <span className="text-sm font-extrabold text-[#475569] dark:text-[#94A3B8] leading-tight truncate w-full mt-0.5">
+                    {tier.subLabel}
+                  </span>
+                </button>
+              );
+            })}
           </div>
 
-          {/* Card Detalhado do Valor Selecionado */}
-          <div className="space-y-3 rounded-2xl border border-[#E2E8F0] dark:border-[#334155] bg-[#F8FAFC] dark:bg-[#0F172A] p-4 sm:p-5">
-            {/* Título e Frase Simpática */}
-            <div className="text-center space-y-1">
-              <div className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0F172A] dark:text-white">
+          {/* Box de Detalhes do Pagamento */}
+          <div className="rounded-2xl border border-[#E2E8F0] dark:border-[#334155] bg-[#F8FAFC] dark:bg-[#0F172A] p-4 sm:p-5 space-y-3.5">
+            {/* Título Limpo (Sem minibotões de abas ao lado) */}
+            <div className="text-center border-b border-[#E2E8F0] dark:border-[#334155]/80 pb-2.5">
+              <div className="inline-flex items-center gap-1.5 text-base sm:text-lg font-extrabold text-[#0F172A] dark:text-white">
                 <span aria-hidden="true">{currentTier.icon}</span>
-                <span>{currentTier.label} ({currentTier.valueText})</span>
+                <span>{currentTier.label}</span>
+                <span className="text-[#2563EB] dark:text-[#38BDF8]">({currentTier.valueText})</span>
               </div>
-              <p className="text-xs text-[#475569] dark:text-[#94A3B8] italic leading-relaxed">
-                &ldquo;{currentTier.phrase}&rdquo;
-              </p>
             </div>
 
-            {/* QR Code opcional para escanear */}
-            {showQr && qrDataUrl && (
-              <div className="flex flex-col items-center justify-center p-3 bg-white dark:bg-[#1E293B] rounded-2xl border border-[#E2E8F0] dark:border-[#334155] animate-in fade-in zoom-in-95 duration-150 shadow-xs">
-                <img
-                  src={qrDataUrl}
-                  alt={`QR Code Pix para doação de ${currentTier.valueText}`}
-                  className="h-44 w-44 rounded-xl object-contain"
-                />
-                <p className="text-[11px] font-medium text-[#475569] dark:text-[#94A3B8] mt-2 text-center">
-                  Abra o app do seu banco e escaneie o código Pix de {currentTier.valueText}
+            {/* Frase Simpática */}
+            <p className="text-sm font-extrabold italic text-center leading-relaxed text-[#475569] dark:text-[#94A3B8] px-1">
+              &ldquo;{currentTier.phrase}&rdquo;
+            </p>
+
+            {/* Campo Discreto do Código Pix */}
+            <div className="flex items-center justify-between rounded-xl bg-white dark:bg-[#1E293B] border border-[#E2E8F0] dark:border-[#334155] p-2 pl-3 gap-2">
+              <div className="flex-1 font-mono text-sm font-extrabold text-[#2563EB] dark:text-[#38BDF8] truncate select-all">
+                {currentTier.pixPayload}
+              </div>
+              <button
+                type="button"
+                onClick={() => handleCopy(currentTier.pixPayload)}
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-950/60 text-[#2563EB] dark:text-[#38BDF8] hover:bg-[#2563EB] hover:text-white dark:hover:bg-[#38BDF8] dark:hover:text-[#0F172A] transition-colors cursor-pointer"
+                aria-label="Copiar código Pix"
+              >
+                {copied ? <Check className="h-4 w-4 text-emerald-500" /> : <Copy className="h-4 w-4" />}
+              </button>
+            </div>
+
+            {/* Ações: Botão 1 Copiar Código + Botão 2 QR Code logo abaixo */}
+            <div className="space-y-2 pt-0.5">
+              {/* Botão Principal: Copiar Código */}
+              <button
+                onClick={() => handleCopy(currentTier.pixPayload)}
+                type="button"
+                className="w-full min-h-[46px] flex items-center justify-center gap-2 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] active:scale-[0.99] px-4 py-3 text-sm sm:text-base font-extrabold text-white transition-all cursor-pointer shadow-sm shadow-blue-500/20"
+                aria-live="polite"
+              >
+                {copied ? (
+                  <>
+                    <Check className="h-5 w-5 text-emerald-300" aria-hidden="true" />
+                    <span>{currentTier.isEmailKey ? "Chave E-mail Copiada!" : "Código Pix Copiado com Sucesso!"}</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="h-5 w-5" aria-hidden="true" />
+                    <span>{currentTier.isEmailKey ? "Copiar Chave Pix E-mail" : `Copiar Código Pix (${currentTier.valueText})`}</span>
+                  </>
+                )}
+              </button>
+
+              {/* Botão Secundário: QR Code Logo Abaixo do Copiar Código */}
+              <button
+                onClick={() => setShowQr((prev) => !prev)}
+                type="button"
+                className="w-full min-h-[44px] flex items-center justify-center gap-2 rounded-xl border border-[#CBD5E1] dark:border-[#334155] bg-white dark:bg-[#1E293B] hover:bg-slate-50 dark:hover:bg-[#0F172A] hover:border-[#2563EB] dark:hover:border-[#38BDF8] px-4 py-2.5 text-sm sm:text-base font-extrabold text-[#0F172A] dark:text-white transition-all cursor-pointer shadow-2xs"
+                aria-expanded={showQr}
+              >
+                <QrIcon className="h-4 w-4 text-[#2563EB] dark:text-[#38BDF8]" aria-hidden="true" />
+                <span>{showQr ? "Ocultar QR Code" : `Pagar via QR Code Pix (${currentTier.valueText})`}</span>
+              </button>
+            </div>
+
+            {/* Visualizador do QR Code quando acionado */}
+            {showQr && (
+              <div className="flex flex-col items-center justify-center space-y-2.5 pt-2 pb-1 animate-in fade-in zoom-in-95 duration-150">
+                {qrDataUrl ? (
+                  <div className="p-3 bg-white rounded-2xl border border-[#E2E8F0] shadow-sm">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={qrDataUrl}
+                      alt={`QR Code Pix para doação de ${currentTier.valueText}`}
+                      className="h-44 w-44 sm:h-48 sm:w-48 rounded-xl object-contain"
+                    />
+                  </div>
+                ) : (
+                  <div className="h-44 w-44 flex items-center justify-center text-sm font-extrabold text-[#64748B]">
+                    Gerando QR Code...
+                  </div>
+                )}
+                <p className="text-sm font-extrabold text-[#475569] dark:text-[#94A3B8] text-center max-w-xs leading-relaxed">
+                  Abra o aplicativo do seu banco e aponte a câmera para pagar {currentTier.valueText}
                 </p>
               </div>
             )}
-
-            {/* Prévia do Código ou Chave */}
-            <div className="space-y-1">
-              <div className="flex items-center justify-between text-[11px] font-bold text-[#475569] dark:text-[#94A3B8]">
-                <span>{currentTier.isEmailKey ? "Chave Pix (E-mail):" : "Código Pix Copia e Cola:"}</span>
-                <button
-                  type="button"
-                  onClick={() => setShowQr((prev) => !prev)}
-                  className="inline-flex items-center gap-1 text-[#2563EB] dark:text-[#38BDF8] hover:underline cursor-pointer min-h-[28px] px-1"
-                  aria-label={showQr ? "Ocultar QR Code" : "Ver QR Code para escanear"}
-                >
-                  <QrIcon className="h-3 w-3" aria-hidden="true" />
-                  <span>{showQr ? "Ocultar QR Code" : "Ver QR Code"}</span>
-                </button>
-              </div>
-
-              <div className="font-mono text-xs text-[#2563EB] dark:text-[#38BDF8] bg-white dark:bg-[#1E293B] p-2.5 rounded-xl border border-[#E2E8F0] dark:border-[#334155] select-all break-all max-h-16 overflow-y-auto leading-relaxed">
-                {currentTier.pixPayload}
-              </div>
-            </div>
-
-            {/* Botão de Cópia Principal (Touch-Target >= 44px) */}
-            <button
-              onClick={() => handleCopy(currentTier.pixPayload)}
-              type="button"
-              className="w-full min-h-[46px] flex items-center justify-center gap-2 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] active:scale-[0.99] px-4 py-3 text-xs sm:text-sm font-bold text-white transition-all cursor-pointer shadow-xs"
-              aria-live="polite"
-            >
-              {copied ? (
-                <>
-                  <Check className="h-4 w-4 text-emerald-300" aria-hidden="true" />
-                  <span>{currentTier.isEmailKey ? "Chave E-mail Copiada!" : "Código Pix Copiado com Sucesso!"}</span>
-                </>
-              ) : (
-                <>
-                  <Copy className="h-4 w-4" aria-hidden="true" />
-                  <span>{currentTier.isEmailKey ? "Copiar Chave Pix E-mail" : `Copiar Código Pix (${currentTier.valueText})`}</span>
-                </>
-              )}
-            </button>
           </div>
 
-          {/* Rodapé do Modal */}
-          <div className="text-center space-y-1 pt-1">
-            <p className="text-[11px] sm:text-xs text-[#475569] dark:text-[#94A3B8]">
-              Pagamento processado 100% no seu banco com segurança pelo Banco Central do Brasil.
-            </p>
-            <p className="text-[11px] sm:text-xs font-semibold text-[#0F172A] dark:text-[#F1F5F9]">
-              Muito obrigado pelo carinho e por apoiar o Crie Grátis! ❤️
-            </p>
+          {/* Rodapé Compacto (14px font-extrabold) */}
+          <div className="flex items-center justify-center gap-2 text-center text-sm font-extrabold text-[#64748B] dark:text-[#94A3B8] pt-1">
+            <ShieldCheck className="h-4 w-4 text-[#10B981] shrink-0" aria-hidden="true" />
+            <span>Processado pelo Banco Central • Obrigado pelo carinho! ❤️</span>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
-import { ArrowRight, Sparkles, Filter } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import ToolCard from "./ToolCard";
 import { ToolInfo } from "@/lib/tools";
 import { CATEGORIES } from "@/lib/categories";

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ShieldCheck, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
 import Logo from "./Logo";
 import FooterPixButton from "./FooterPixButton";
 import { CATEGORIES } from "@/lib/categories";
@@ -9,27 +9,6 @@ import { CATEGORIES } from "@/lib/categories";
 export default function Footer() {
   return (
     <footer className="border-t border-[#E2E8F0] dark:border-[#1E293B] bg-[#0F172A] text-[#94A3B8]">
-      {/* Banner de Privacidade */}
-      <div className="border-b border-[#1E293B] bg-[#020617]/50 py-6">
-        <div className="mx-auto flex max-w-7xl flex-col sm:flex-row items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 text-center sm:text-left">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 text-[#10B981] border border-emerald-500/20">
-              <ShieldCheck className="h-5 w-5" />
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-white">100% Client-Side & Privado</p>
-              <p className="text-xs text-[#94A3B8]">Seus arquivos e textos são processados inteiramente no seu próprio navegador.</p>
-            </div>
-          </div>
-          <Link
-            href="/privacidade"
-            className="rounded-xl border border-[#334155] bg-[#1E293B] px-4 py-2 text-xs font-semibold text-white hover:border-[#2563EB] hover:bg-[#2563EB] transition-colors shrink-0"
-          >
-            Saber mais
-          </Link>
-        </div>
-      </div>
-
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:grid-cols-5">
           {/* Coluna 1: Marca & Apoio Pix */}
@@ -49,7 +28,7 @@ export default function Footer() {
               </div>
               
               <p className="text-xs leading-relaxed text-[#94A3B8]">
-                O Crie Grátis é gratuito para todos. Se alguma ferramenta te ajudou, você pode contribuir voluntariamente para ajudar a manter o projeto, servidores e novas ferramentas.
+                Gostou do projeto? Apoie a manter os servidores rápidos e livres de anúncios.
               </p>
 
               <FooterPixButton />
@@ -170,15 +149,15 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://www.threads.com/@evandromqs"
+              href="https://www.threads.net/@evandromqs"
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl bg-[#1E293B] text-[#CBD5E1] border border-[#334155] hover:border-white hover:bg-white/10 hover:text-white transition-all duration-200 shadow-xs"
               aria-label="Threads de Evandro Mqs"
               title="Threads @evandromqs"
             >
-              <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 192 192" aria-hidden="true">
-                <path d="M141.537 88.9883C140.71 88.5919 139.87 88.2109 139.019 87.8451C137.537 60.5382 122.616 44.905 97.5619 44.745C97.4484 44.7443 97.3355 44.7443 97.222 44.7443C82.2364 44.7443 69.7731 51.1409 62.102 62.7807L75.921 72.2999C81.4116 63.9723 90.3168 60.9168 97.2025 60.9168C110.155 60.9168 119.824 69.9678 120.915 88.6209C114.739 88.0834 107.962 88.0494 100.869 88.5199C71.3654 90.4764 54.764 107.411 55.7005 129.569C56.637 151.728 74.453 166.425 99.418 165.733C117.842 165.223 130.824 156.402 136.784 140.428C142.148 152.923 153.228 160.05 167.925 159.643C185.074 159.168 196.223 147.214 196.223 129.213C196.223 125.753 195.344 97.2345 141.537 88.9883ZM101.409 148.065C87.498 148.451 77.2035 140.835 76.671 128.219C76.1385 115.603 85.6415 105.109 101.761 104.04C108.647 103.583 115.19 104.225 121.177 105.518C119.508 139.117 110.603 147.811 101.409 148.065Z"/>
+              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18.263 11.097c-.03-3.486-1.92-5.586-5.111-5.586-2.13 0-3.922.963-4.863 2.499l2.062 1.438c.535-.843 1.272-1.543 2.628-1.543 1.528 0 2.318.85 2.544 2.431a15 15 0 0 0-2.236-.173c-4.125 0-6.068 1.867-6.068 4.336s1.943 3.99 4.804 3.99c3.139 0 5.013-2.115 5.781-4.735.798.361 1.348 1.204 1.348 2.47 0 3.387-3.907 5.232-7.22 5.232-4.885 0-8.077-3.207-8.077-8.424 0-6.392 4.223-10.487 9.9-10.487 3.808 0 5.69 1.671 6.97 3.914l2.108-1.475C21.44 2.078 18.331 0 13.663 0 6.227 0 1.168 5.277 1.168 12.934c0 7 4.953 11.066 10.856 11.066 4.878 0 9.809-2.846 9.809-7.716 0-2.545-1.46-4.231-3.569-5.187m-6.33 4.855c-1.077 0-2.026-.512-2.026-1.453 0-1.483 1.822-1.934 3.606-1.934.678 0 1.34.045 1.927.173-.422 1.927-1.671 3.215-3.508 3.214Z" />
               </svg>
             </a>
           </div>

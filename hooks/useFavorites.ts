@@ -5,21 +5,27 @@ import { useCallback, useSyncExternalStore } from "react";
 const STORAGE_KEY = "criegratis-favorites";
 const EVENT_NAME = "criegratis-favorites-updated";
 
+const EMPTY_FAVORITES: string[] = [];
+
 let cachedRaw: string | null = null;
-let cachedParsed: string[] = [];
+let cachedParsed: string[] = EMPTY_FAVORITES;
+
+function getServerSnapshot(): string[] {
+  return EMPTY_FAVORITES;
+}
 
 function getFavoritesSnapshot(): string[] {
-  if (typeof window === "undefined") return [];
+  if (typeof window === "undefined") return EMPTY_FAVORITES;
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw === cachedRaw) {
       return cachedParsed;
     }
     cachedRaw = raw;
-    cachedParsed = raw ? JSON.parse(raw) : [];
+    cachedParsed = raw ? JSON.parse(raw) : EMPTY_FAVORITES;
     return cachedParsed;
   } catch {
-    return [];
+    return EMPTY_FAVORITES;
   }
 }
 
@@ -37,7 +43,7 @@ export function useFavorites() {
   const favorites = useSyncExternalStore(
     subscribeFavorites,
     getFavoritesSnapshot,
-    () => []
+    getServerSnapshot
   );
 
   const toggleFavorite = useCallback((slug: string) => {
