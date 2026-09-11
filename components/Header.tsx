@@ -135,19 +135,19 @@ export default function Header() {
       {/* Linha fina interativa com Início e Tempo de Animação Responsivos */}
       <div className="border-t border-[#E2E8F0]/80 dark:border-[#1E293B]/80 bg-[#F8FAFC]/90 dark:bg-[#0B0F19]/90 py-1.5 px-3 sm:px-4 overflow-hidden">
         <div className="mx-auto max-w-7xl flex items-center justify-center gap-2 sm:gap-3">
-          {/* Botão Play/Pause com Texto Efésios 2:8 */}
+          {/* Botão Play/Pause com Texto João 3:16 */}
           <button
             onClick={() => setIsPlayingVerse((prev) => !prev)}
             type="button"
             className="inline-flex items-center gap-1.5 rounded-full bg-blue-50/90 dark:bg-blue-950/70 border border-blue-100 dark:border-blue-900/50 px-2.5 py-0.5 text-[10px] sm:text-[11px] font-bold text-[#2563EB] dark:text-[#38BDF8] hover:bg-[#2563EB] hover:text-white dark:hover:bg-[#38BDF8] dark:hover:text-[#0F172A] transition-all duration-150 cursor-pointer shrink-0 shadow-2xs"
-            aria-label={isPlayingVerse ? "Pausar versículo" : "Tocar animação do versículo Efésios 2:8"}
+            aria-label={isPlayingVerse ? "Pausar versículo" : "Tocar animação do versículo João 3:16"}
           >
             {isPlayingVerse ? (
               <Pause className="h-3 w-3 fill-current" />
             ) : (
               <Play className="h-3 w-3 fill-current" />
             )}
-            <span>Efésios 2:8</span>
+            <span>João 3:16</span>
           </button>
 
           {/* Container Responsivo com Início Imediato e Fade suave */}
@@ -160,7 +160,7 @@ export default function Header() {
           >
             {isPlayingVerse && (
               <div className="animate-verse-marquee whitespace-nowrap text-[10.5px] sm:text-xs text-[#475569] dark:text-[#CBD5E1] font-medium tracking-wide">
-                &ldquo;Porque pela graça sois salvos, por meio da fé; e isto não vem de vós, é dom de Deus.&rdquo;
+                &ldquo;Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna.&rdquo;
               </div>
             )}
           </div>
