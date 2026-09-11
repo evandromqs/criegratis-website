@@ -16,9 +16,9 @@ import RoadmapSupportSection from "./RoadmapSupportSection";
 export const metadata: Metadata = {
   title: "Roadmap Oficial — Rumo às 100 Ferramentas Gratuitas | CrieGrátis",
   description:
-    "Acompanhe o desenvolvimento público do CrieGrátis. Veja as 10 ferramentas lançadas, as 11 em desenvolvimento ativo (Fase 2) e as próximas novidades rumo às 100 ferramentas 100% privadas no navegador.",
+    "Acompanhe o desenvolvimento público do CrieGrátis. Veja as 50 ferramentas lançadas (50% da meta alcançada!) e as próximas novidades rumo às 100 ferramentas 100% privadas no navegador.",
   openGraph: {
-    title: "Roadmap CrieGrátis — Rumo às 100 Ferramentas Gratuitas",
+    title: "Roadmap CrieGrátis — 50 Ferramentas Lançadas Rumo às 100",
     description:
       "Acompanhe as próximas ferramentas gratuitas, rápidas e 100% client-side que estamos construindo.",
     url: "https://criegratis.com.br/roadmap",
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
 
 export default function RoadmapPage() {
   const totalTools = 100;
-  const availableTools = 21;
-  const plannedTools = 79;
+  const availableTools = 50;
+  const plannedTools = 50;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:py-12 sm:px-6 lg:px-8 space-y-10 sm:space-y-14">
@@ -101,7 +101,7 @@ export default function RoadmapPage() {
               </div>
             </div>
             <p className="mt-2 text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">{availableTools}</p>
-            <p className="text-[11px] text-emerald-700 dark:text-emerald-300 font-medium">Fases 1 & 2 (Lançadas)</p>
+            <p className="text-[11px] text-emerald-700 dark:text-emerald-300 font-medium">Fases 1, 2 & 3 (Lançadas)</p>
           </div>
 
           {/* Card Próximas */}
@@ -112,8 +112,8 @@ export default function RoadmapPage() {
                 <Clock className="h-4 w-4" />
               </div>
             </div>
-            <p className="mt-2 text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">19</p>
-            <p className="text-[11px] text-sky-700 dark:text-sky-300 font-medium">Fase 3 (v1.2)</p>
+            <p className="mt-2 text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">20</p>
+            <p className="text-[11px] text-sky-700 dark:text-sky-300 font-medium">Fase 4 (v1.3)</p>
           </div>
 
           {/* Card Planejadas */}
@@ -125,7 +125,7 @@ export default function RoadmapPage() {
               </div>
             </div>
             <p className="mt-2 text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">{plannedTools}</p>
-            <p className="text-[11px] text-purple-700 dark:text-purple-300 font-medium">Fases 3 a 6</p>
+            <p className="text-[11px] text-purple-700 dark:text-purple-300 font-medium">Fases 4 a 6</p>
           </div>
 
           {/* Card Meta Final */}
