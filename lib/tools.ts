@@ -1559,6 +1559,141 @@ export const TOOLS: ToolInfo[] = [
         answer: "É a parcela do lucro líquido mantida no caixa do negócio para capital de giro, pagamento de despesas emergenciais ou reinvestimentos antes de pagar os dividendos aos sócios."
       }
     ]
+  },
+  {
+    slug: "dividir-pdf",
+    name: "Dividir PDF (Extrair Páginas)",
+    shortDescription: "Divida arquivos PDF e extraia páginas individuais ou intervalos específicos em segundos.",
+    fullDescription: "Separe contratos extensos, faturas e relatórios extraindo apenas as páginas necessárias. Permite selecionar intervalos (ex: 1-3, 5, 8-10), páginas ímpares, pares ou páginas avulsas com 100% de privacidade no navegador.",
+    category: "desenvolvedor",
+    keywords: ["dividir pdf", "extrair paginas pdf", "separar pdf online", "recortar paginas pdf", "split pdf gratis"],
+    icon: "FolderArchive",
+    href: "/dividir-pdf",
+    metaTitle: "Dividir PDF Online — Extrair Páginas de PDF Grátis | CrieGrátis",
+    metaDescription: "Divida arquivos PDF e extraia páginas ou intervalos específicos grátis. Separe contratos e relatórios sem enviar arquivos a servidores.",
+    h1: "Dividir PDF e Extrair Páginas",
+    badge: "Novo",
+    isPopular: true,
+    usageSteps: [
+      "Carregue seu arquivo PDF pelo botão de upload ou arrastando para a tela.",
+      "Digite os números das páginas ou intervalos desejados (ex: 1-3, 5).",
+      "Use os atalhos de seleção rápida se preferir (1ª metade, páginas pares, etc.).",
+      "Clique em 'Dividir e Baixar Novo PDF' para fazer o download imediato."
+    ],
+    features: [
+      "Sintaxe flexível de intervalos múltiplos (ex: 1-5, 8, 12-15)",
+      "Seleção rápida com 1 clique para metades, pares e ímpares",
+      "Preservação integral da formatação original e vetores do documento",
+      "Processamento 100% no navegador (seus documentos nunca sobem para a nuvem)"
+    ],
+    faqs: [
+      {
+        question: "Como indicar as páginas que quero extrair?",
+        answer: "Basta digitar os números separados por vírgula para páginas isoladas (ex: 1, 4, 7) ou com hífen para intervalos contínuos (ex: 2-6)."
+      },
+      {
+        question: "Meus documentos confidenciais estão seguros?",
+        answer: "Sim! Toda a leitura, separação e regravação do PDF ocorrem localmente no seu navegador através do WebAssembly/JavaScript. Nenhum dado sai do seu computador."
+      }
+    ]
+  },
+  {
+    slug: "girar-pdf",
+    name: "Girar PDF (Rotacionar Páginas)",
+    shortDescription: "Gire páginas de PDF deitadas ou de ponta-cabeça 90°, 180° ou 270° em lote ou individualmente.",
+    fullDescription: "Corrija documentos escaneados na orientação errada. Gire todas as páginas do PDF de uma só vez (90° no sentido horário ou anti-horário) ou ajuste a rotação de páginas avulsas com pré-visualização interativa.",
+    category: "desenvolvedor",
+    keywords: ["girar pdf", "rotacionar pdf online", "desvirar pdf", "girar pagina pdf", "corrigir orientacao pdf"],
+    icon: "RotateCcw",
+    href: "/girar-pdf",
+    metaTitle: "Girar PDF Online — Rotacionar Páginas de PDF Grátis | CrieGrátis",
+    metaDescription: "Gire páginas de PDF 90°, 180° ou 270° grátis. Corrija documentos digitalizados invertidos em lote ou individualmente no navegador.",
+    h1: "Girar PDF e Rotacionar Páginas",
+    badge: "Novo",
+    usageSteps: [
+      "Selecione o arquivo PDF que deseja desvirar.",
+      "Gire todas as páginas com os botões rápidos (+90°, -90°, 180°).",
+      "Ou gire páginas específicas individualmente nos controles de cada cartão.",
+      "Clique em 'Salvar e Baixar PDF Rotacionado' para obter o novo arquivo corrigido."
+    ],
+    features: [
+      "Controles de rotação global (todas as páginas) e individual por página",
+      "Suporte a ângulos de 90°, 180° e 270° nos dois sentidos",
+      "Miniaturas indicativas da orientação angular de cada página",
+      "Sem perda de resolução ou compressão destrutiva do documento"
+    ],
+    faqs: [
+      {
+        question: "Posso girar apenas uma página que foi digitalizada errada?",
+        answer: "Sim! Você pode manter as outras páginas intactas e girar apenas a página que precisa de ajuste."
+      }
+    ]
+  },
+  {
+    slug: "proteger-pdf",
+    name: "Proteger PDF com Senha",
+    shortDescription: "Criptografe seus arquivos PDF com senha e proteção militar AES contra acessos não autorizados.",
+    fullDescription: "Proteja contratos, demonstrativos financeiros, termos de confidencialidade e dados pessoais (LGPD). Adicione uma senha forte para bloquear a abertura e visualização do PDF em qualquer dispositivo ou leitor.",
+    category: "desenvolvedor",
+    keywords: ["proteger pdf com senha", "criptografar pdf online", "colocar senha em pdf", "bloquear pdf gratis", "seguranca pdf lgpd"],
+    icon: "Lock",
+    href: "/proteger-pdf",
+    metaTitle: "Proteger PDF com Senha Online e Grátis | CrieGrátis",
+    metaDescription: "Coloque senha em arquivos PDF online grátis. Criptografia AES militar no navegador para proteger contratos e relatórios confidenciais.",
+    h1: "Proteger PDF com Senha",
+    badge: "Novo",
+    isPopular: true,
+    usageSteps: [
+      "Envie o arquivo PDF que deseja proteger.",
+      "Digite a senha desejada e confirme no segundo campo.",
+      "Clique em 'Proteger e Baixar PDF' para aplicar a criptografia.",
+      "Abra o novo PDF e comprove que ele agora exige a senha para ser lido."
+    ],
+    features: [
+      "Criptografia nativa AES padrão internacional de segurança",
+      "Compatibilidade universal (abre com senha no Chrome, Edge, Adobe Acrobat, iPhone e Android)",
+      "Zero envio de senha ou documento a servidores terceiros",
+      "Ideal para cumprimento das exigências de segurança da LGPD"
+    ],
+    faqs: [
+      {
+        question: "Se eu esquecer a senha, é possível recuperar o PDF?",
+        answer: "Não. Como a criptografia é real e executada localmente sem armazenamento em servidores, não existe cópia de recuperação da sua senha. Guarde-a com cuidado."
+      }
+    ]
+  },
+  {
+    slug: "desproteger-pdf",
+    name: "Desproteger PDF (Remover Senha)",
+    shortDescription: "Remova a senha e as travas de restrição de documentos PDF para leitura e impressão livre.",
+    fullDescription: "Remova senhas de abertura e restrições de impressão ou cópia de arquivos PDF dos quais você tem a senha. Salve uma cópia livre e desprotegida para não precisar digitar a senha toda vez que for consultar o documento.",
+    category: "desenvolvedor",
+    keywords: ["desproteger pdf", "remover senha pdf", "desbloquear pdf online", "tirar senha pdf gratis", "unlock pdf"],
+    icon: "Unlock",
+    href: "/desproteger-pdf",
+    metaTitle: "Desproteger PDF Online — Remover Senha de PDF Grátis | CrieGrátis",
+    metaDescription: "Remova senhas e restrições de PDF online grátis. Desbloqueie documentos para ler e imprimir sem restrições com total privacidade.",
+    h1: "Desproteger PDF e Remover Senha",
+    badge: "Novo",
+    isPopular: true,
+    usageSteps: [
+      "Faça upload do arquivo PDF protegido.",
+      "Digite a senha correta de abertura do documento (se houver).",
+      "Clique em 'Desproteger e Baixar PDF Livre'.",
+      "O documento é regravado sem criptografia e baixado imediatamente."
+    ],
+    features: [
+      "Elimina a necessidade de redigitar a senha a cada abertura",
+      "Libera permissões de cópia de texto, anotações e impressão",
+      "Processamento 100% privado no navegador",
+      "Detecção automática de senhas válidas"
+    ],
+    faqs: [
+      {
+        question: "Preciso saber a senha do PDF para desbloqueá-lo?",
+        answer: "Sim. Se o PDF possui uma senha de abertura criptografada, é necessário digitá-la uma única vez para autenticar o documento e gerar a cópia limpa desprotegida."
+      }
+    ]
   }
 ];
 
