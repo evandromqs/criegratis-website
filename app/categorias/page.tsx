@@ -7,9 +7,19 @@ import CategoryCard from "@/components/CategoryCard";
 import ToolGrid from "@/components/ToolGrid";
 import { ArrowRight } from "lucide-react";
 
+import { SITE_URL } from "@/lib/seo";
+
 export const metadata: Metadata = {
   title: "Categorias de Ferramentas Gratuitas | Crie Grátis",
   description: "Navegue pelas ferramentas do Crie Grátis organizadas por categoria: Imagens, Texto, Calculadoras, Desenvolvedor e QR Code.",
+  alternates: {
+    canonical: `${SITE_URL}/categorias`,
+  },
+  openGraph: {
+    title: "Categorias de Ferramentas Gratuitas | Crie Grátis",
+    description: "Navegue pelas ferramentas do Crie Grátis organizadas por categoria: Imagens, Texto, Calculadoras, Desenvolvedor e QR Code.",
+    url: `${SITE_URL}/categorias`,
+  },
 };
 
 export default function CategoriasPage() {

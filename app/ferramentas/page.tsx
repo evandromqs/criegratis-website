@@ -5,9 +5,19 @@ import { TOOLS } from "@/lib/tools";
 import { CATEGORIES } from "@/lib/categories";
 import ToolGrid from "@/components/ToolGrid";
 
+import { SITE_URL } from "@/lib/seo";
+
 export const metadata: Metadata = {
   title: "Todas as Ferramentas Gratuitas | Crie Grátis",
   description: "Explore nosso catálogo completo de ferramentas gratuitas para imagens, calculadoras, edição de texto, utilitários para desenvolvedores e QR Code.",
+  alternates: {
+    canonical: `${SITE_URL}/ferramentas`,
+  },
+  openGraph: {
+    title: "Todas as Ferramentas Gratuitas | Crie Grátis",
+    description: "Explore nosso catálogo completo de ferramentas gratuitas para imagens, calculadoras, edição de texto, utilitários para desenvolvedores e QR Code.",
+    url: `${SITE_URL}/ferramentas`,
+  },
 };
 
 export default function AllToolsPage() {

@@ -3,9 +3,19 @@ import { Metadata } from "next";
 import { ShieldCheck, Zap, Info } from "lucide-react";
 import DollarBlockedIcon from "@/components/icons/DollarBlockedIcon";
 
+import { SITE_URL } from "@/lib/seo";
+
 export const metadata: Metadata = {
   title: "Sobre o Crie Grátis — Ferramentas Gratuitas",
   description: "Conheça a missão do Crie Grátis: oferecer ferramentas web ultra-rápidas, 100% gratuitas e com total privacidade no navegador.",
+  alternates: {
+    canonical: `${SITE_URL}/sobre`,
+  },
+  openGraph: {
+    title: "Sobre o Crie Grátis — Ferramentas Gratuitas",
+    description: "Conheça a missão do Crie Grátis: oferecer ferramentas web ultra-rápidas, 100% gratuitas e com total privacidade no navegador.",
+    url: `${SITE_URL}/sobre`,
+  },
 };
 
 export default function AboutPage() {

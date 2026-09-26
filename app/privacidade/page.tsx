@@ -2,9 +2,19 @@ import React from "react";
 import { Metadata } from "next";
 import { ShieldCheck } from "lucide-react";
 
+import { SITE_URL } from "@/lib/seo";
+
 export const metadata: Metadata = {
   title: "Política de Privacidade | Crie Grátis",
   description: "Entenda como o Crie Grátis protege seus dados com processamento 100% client-side no seu navegador.",
+  alternates: {
+    canonical: `${SITE_URL}/privacidade`,
+  },
+  openGraph: {
+    title: "Política de Privacidade | Crie Grátis",
+    description: "Entenda como o Crie Grátis protege seus dados com processamento 100% client-side no seu navegador.",
+    url: `${SITE_URL}/privacidade`,
+  },
 };
 
 export default function PrivacyPage() {

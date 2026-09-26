@@ -31,6 +31,9 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description: DEFAULT_DESCRIPTION,
+  alternates: {
+    canonical: "./",
+  },
   keywords: [
     "crie gratis",
     "ferramentas gratuitas",

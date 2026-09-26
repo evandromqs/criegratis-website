@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   title: "Roadmap Oficial — Rumo às 100 Ferramentas Gratuitas | CrieGrátis",
   description:
     "Acompanhe o desenvolvimento público do CrieGrátis. Veja as 50 ferramentas lançadas (50% da meta alcançada!) e as próximas novidades rumo às 100 ferramentas 100% privadas no navegador.",
+  alternates: {
+    canonical: "https://criegratis.com.br/roadmap",
+  },
   openGraph: {
     title: "Roadmap CrieGrátis — 50 Ferramentas Lançadas Rumo às 100",
     description:

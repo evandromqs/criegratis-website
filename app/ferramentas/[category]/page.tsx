@@ -7,6 +7,8 @@ import { getToolsByCategory } from "@/lib/tools";
 import ToolGrid from "@/components/ToolGrid";
 import { Image, Type, Calculator, Code2, QrCode } from "lucide-react";
 
+import { SITE_URL, SITE_NAME } from "@/lib/seo";
+
 interface CategoryPageProps {
   params: Promise<{ category: string }>;
 }
@@ -30,9 +32,23 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   const cat = CATEGORIES.find((c) => c.slug === catSlug);
   if (!cat) return {};
 
+  const pageUrl = `${SITE_URL}/ferramentas/${cat.slug}`;
+  const title = `Ferramentas de ${cat.name} Gratuitas | Crie Grátis`;
+
   return {
-    title: `Ferramentas de ${cat.name} Gratuitas | Crie Grátis`,
+    title,
     description: cat.description,
+    alternates: {
+      canonical: pageUrl,
+    },
+    openGraph: {
+      title,
+      description: cat.description,
+      url: pageUrl,
+      siteName: SITE_NAME,
+      locale: "pt_BR",
+      type: "website",
+    },
   };
 }
 

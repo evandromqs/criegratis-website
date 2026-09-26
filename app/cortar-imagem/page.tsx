@@ -2,7 +2,7 @@ import React from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getToolBySlug } from "@/lib/tools";
-import { generateToolSchema } from "@/lib/seo";
+import { generateToolSchema, generateToolMetadata } from "@/lib/seo";
 import ToolLayout from "@/components/ToolLayout";
 import ImageCropTool from "@/components/tools/ImageCropTool";
 
@@ -11,11 +11,7 @@ const SLUG = "cortar-imagem";
 export async function generateMetadata(): Promise<Metadata> {
   const tool = getToolBySlug(SLUG);
   if (!tool) return {};
-  return {
-    title: tool.metaTitle,
-    description: tool.metaDescription,
-    keywords: tool.keywords,
-  };
+  return generateToolMetadata(tool);
 }
 
 export default function ImageCropPage() {

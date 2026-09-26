@@ -1,9 +1,19 @@
 import React from "react";
 import { Metadata } from "next";
 
+import { SITE_URL } from "@/lib/seo";
+
 export const metadata: Metadata = {
   title: "Termos de Uso | Crie Grátis",
   description: "Leia os Termos de Uso e condições para utilização das ferramentas do Crie Grátis.",
+  alternates: {
+    canonical: `${SITE_URL}/termos`,
+  },
+  openGraph: {
+    title: "Termos de Uso | Crie Grátis",
+    description: "Leia os Termos de Uso e condições para utilização das ferramentas do Crie Grátis.",
+    url: `${SITE_URL}/termos`,
+  },
 };
 
 export default function TermsPage() {
