@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { TOOLS } from "@/lib/tools";
 import { CATEGORIES } from "@/lib/categories";
+import { BLOG_POSTS } from "@/lib/posts";
 import { SITE_URL } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -22,6 +23,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.8,
     },
     {
       url: `${SITE_URL}/roadmap`,
@@ -78,6 +85,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
+    });
+  });
+
+  // Artigos do Blog
+  BLOG_POSTS.forEach((post) => {
+    routes.push({
+      url: `${SITE_URL}/blog/${post.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
     });
   });
 

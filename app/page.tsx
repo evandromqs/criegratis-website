@@ -18,6 +18,8 @@ import FavoritesSection from "@/components/FavoritesSection";
 import HomeToolFilter from "@/components/HomeToolFilter";
 import FaqAccordion from "@/components/FaqAccordion";
 import DollarBlockedIcon from "@/components/icons/DollarBlockedIcon";
+import HomeBlogSection from "@/components/HomeBlogSection";
+import MicrosoftStoreSection from "@/components/MicrosoftStoreSection";
 import { TOOLS } from "@/lib/tools";
 import { SITE_URL, SITE_NAME } from "@/lib/seo";
 
@@ -325,7 +327,7 @@ export default function HomePage() {
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-purple-50 dark:bg-purple-950/50 text-[#8B5CF6] dark:text-[#A78BFA] border border-purple-100 dark:border-purple-900/50">
                 <Sparkles className="h-5 w-5" />
               </div>
-              <h3 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-white">50+ Ferramentas</h3>
+              <h3 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-white">70+ Ferramentas</h3>
               <p className="text-xs text-[#475569] dark:text-[#94A3B8] leading-relaxed">
                 Catálogo completo para converter imagens, manipular texto, gerar códigos e calcular.
               </p>
@@ -343,6 +345,12 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* SEÇÃO DE GUIAS & BLOG */}
+      <HomeBlogSection />
+
+      {/* SEÇÃO MICROSOFT STORE PARA DESKTOP */}
+      <MicrosoftStoreSection />
 
       {/* SEÇÃO DE PERGUNTAS FREQUENTES (FAQ) */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

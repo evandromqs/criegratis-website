@@ -82,6 +82,22 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/blog" className="hover:text-white transition-colors">Blog & Tutoriais</Link>
+              </li>
+              <li>
+                <a
+                  href="https://apps.microsoft.com/detail/9pfbgktpt934?hl=pt-BR&gl=BR"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors flex items-center gap-1.5 text-blue-400 hover:text-blue-300"
+                >
+                  <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" />
+                  </svg>
+                  <span>App Windows (Microsoft Store)</span>
+                </a>
+              </li>
+              <li>
                 <Link href="/sobre" className="hover:text-white transition-colors">Sobre Nós</Link>
               </li>
               <li>
