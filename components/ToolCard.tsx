@@ -48,6 +48,18 @@ import {
   RotateCcw,
   Lock,
   Unlock,
+  PenTool,
+  EyeOff,
+  Shield,
+  User,
+  Globe,
+  Palette,
+  Grid3X3,
+  Gamepad2,
+  Focus,
+  Sliders,
+  Smartphone,
+  Grid,
 } from "lucide-react";
 import { ToolInfo } from "@/lib/tools";
 import FavoriteButton from "./FavoriteButton";
@@ -99,6 +111,18 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   RotateCcw,
   Lock,
   Unlock,
+  PenTool,
+  EyeOff,
+  Shield,
+  User,
+  Globe,
+  Palette,
+  Grid3X3,
+  Gamepad2,
+  Focus,
+  Sliders,
+  Smartphone,
+  Grid,
 };
 
 interface ToolCardProps {

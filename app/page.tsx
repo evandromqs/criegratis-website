@@ -19,20 +19,21 @@ import HomeToolFilter from "@/components/HomeToolFilter";
 import FaqAccordion from "@/components/FaqAccordion";
 import DollarBlockedIcon from "@/components/icons/DollarBlockedIcon";
 import { TOOLS } from "@/lib/tools";
+import { SITE_URL, SITE_NAME } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Crie Grátis — Ferramentas Gratuitas Online e 100% no Navegador",
+  title: "Crie Grátis — 70+ Ferramentas Gratuitas Online e 100% no Navegador",
   description:
-    "Ferramentas online gratuitas para converter JPG para PNG, PNG para JPG, redimensionar e comprimir imagens, criar QR Code, gerar senhas fortes e calcular com privacidade total.",
+    "Mais de 70 ferramentas online gratuitas para editar imagens, assinar e juntar PDFs, criar QR Code, gerar senhas fortes e calcular com privacidade 100% no seu navegador.",
   alternates: {
-    canonical: "https://criegratis.com.br",
+    canonical: SITE_URL,
   },
   openGraph: {
     title: "Crie Grátis — Ferramentas Gratuitas Online",
     description:
-      "Tudo o que você precisa no dia a dia: conversão de imagens, gerador de senhas, QR code e calculadoras. Rápido, seguro e 100% no navegador.",
-    url: "https://criegratis.com.br",
-    siteName: "Crie Grátis",
+      "Mais de 70 ferramentas no seu dia a dia: edição de imagens, suíte de PDFs, gerador de senhas, QR code e calculadoras. Rápido, seguro e 100% no navegador.",
+    url: SITE_URL,
+    siteName: SITE_NAME,
     locale: "pt_BR",
     type: "website",
   },
@@ -62,7 +63,7 @@ const HOME_FAQS = [
   {
     question: "Como posso sugerir novas ferramentas para a plataforma?",
     answer:
-      "A comunidade é o coração do projeto! Você pode acessar nossa página de Roadmap para acompanhar o lançamento das 50 ferramentas planejadas e sugerir novas ideias na página de contato.",
+      "A comunidade é o coração do projeto! Você pode acessar nossa página de Roadmap para acompanhar as 70 ferramentas já lançadas e as próximas novidades rumo a 100, ou sugerir novas ideias na página de contato.",
   },
 ];
 

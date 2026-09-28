@@ -1694,6 +1694,646 @@ export const TOOLS: ToolInfo[] = [
         answer: "Sim. Se o PDF possui uma senha de abertura criptografada, é necessário digitá-la uma única vez para autenticar o documento e gerar a cópia limpa desprotegida."
       }
     ]
+  },
+  {
+    slug: "organizar-pdf",
+    name: "Organizar Páginas do PDF",
+    shortDescription: "Reordene, gire e exclua páginas de arquivos PDF no navegador.",
+    fullDescription: "Organize visualmente seus documentos PDF. Mude a ordem das páginas, gire páginas invertidas e elimine folhas desnecessárias com facilidade e privacidade 100% no seu dispositivo.",
+    category: "desenvolvedor",
+    keywords: ["organizar pdf", "reordenar paginas pdf", "mudar ordem pdf", "excluir paginas pdf", "organizador de pdf"],
+    icon: "Files",
+    href: "/organizar-pdf",
+    metaTitle: "Organizar Páginas de PDF Online Grátis | CrieGrátis",
+    metaDescription: "Mude a ordem das páginas do seu PDF, gire ou remova folhas indesejadas online e grátis. Processado 100% no seu computador sem upload.",
+    h1: "Organizar Páginas do PDF Online",
+    badge: "Novo",
+    usageSteps: [
+      "Selecione ou arraste seu arquivo PDF.",
+      "Use as setas para mover as páginas para a esquerda ou direita.",
+      "Gire ou exclua páginas específicas se necessário.",
+      "Clique em 'Salvar e Baixar PDF' para exportar o novo arquivo organizado."
+    ],
+    features: [
+      "Reordenação visual e intuitiva de páginas",
+      "Giro e rotação de 90° por página",
+      "Exclusão seletiva de folhas avulsas",
+      "Privacidade total sem envio de arquivos a servidores"
+    ],
+    faqs: [
+      {
+        question: "Meus arquivos são salvos na nuvem?",
+        answer: "Não. Todo o processo de reorganização é feito exclusivamente na memória do seu navegador web."
+      }
+    ]
+  },
+  {
+    slug: "assinar-pdf",
+    name: "Assinar PDF Online",
+    shortDescription: "Desenhe sua assinatura ou rubrica e carimbe documentos PDF grátis.",
+    fullDescription: "Assine contratos, procurações e termos em PDF diretamente pelo celular ou computador. Desenhe sua rubrica digital com touch ou mouse e aplique na página desejada.",
+    category: "desenvolvedor",
+    keywords: ["assinar pdf", "assinatura digital pdf", "assinar contrato online", "rubrica pdf", "assinar pdf gratis"],
+    icon: "PenTool",
+    href: "/assinar-pdf",
+    metaTitle: "Assinar PDF Online Grátis - Assinatura Digital | CrieGrátis",
+    metaDescription: "Assine documentos PDF online e grátis. Desenhe sua assinatura manuscrita ou rubrica e carimbe qualquer página com segurança e sigilo total.",
+    h1: "Assinar PDF Online Grátis",
+    badge: "Novo",
+    usageSteps: [
+      "Faça upload do contrato ou documento em PDF.",
+      "Desenhe sua assinatura na caixa de assinatura usando o mouse ou o dedo na tela.",
+      "Selecione a página e a posição onde a assinatura deve ser inserida.",
+      "Clique em 'Aplicar Assinatura no PDF' e baixe seu documento assinado."
+    ],
+    features: [
+      "Desenho fluido com caneta preta ou azul",
+      "Fundo 100% transparente para a assinatura",
+      "Seleção dinâmica da página e posicionamento na folha",
+      "Sigilo bancário e jurídico (nada sai do seu aparelho)"
+    ],
+    faqs: [
+      {
+        question: "A assinatura feita no navegador tem validade?",
+        answer: "Sim, para a maioria dos acordos particulares, declarações e contratos cíveis que aceitam assinatura eletrônica simples nos termos da legislação brasileira."
+      }
+    ]
+  },
+  {
+    slug: "preencher-formulario-pdf",
+    name: "Preencher Formulário PDF",
+    shortDescription: "Preencha campos de formulários PDF e achate o arquivo contra edições.",
+    fullDescription: "Preencha formulários interativos em PDF e faça o achatamento (flattening) para proteger o documento contra modificações posteriores por terceiros.",
+    category: "desenvolvedor",
+    keywords: ["preencher pdf", "formulario pdf online", "achatar pdf", "flatten pdf", "editar formulario pdf"],
+    icon: "FileText",
+    href: "/preencher-formulario-pdf",
+    metaTitle: "Preencher e Achatar Formulários PDF Online | CrieGrátis",
+    metaDescription: "Preencha campos interativos de formulários em PDF e achate (flatten) o documento para evitar alterações. 100% gratuito e privado.",
+    h1: "Preencher Formulário PDF Online",
+    badge: "Novo",
+    usageSteps: [
+      "Carregue seu formulário em formato PDF.",
+      "Preencha os valores nos campos detectados automaticamente.",
+      "Ative a opção de achatar campos (flatten) para torná-los permanentes.",
+      "Exporte e baixe o formulário preenchido com segurança."
+    ],
+    features: [
+      "Detecção automática de campos AcroForm",
+      "Opção de bloqueio definitivo (flatten) de respostas",
+      "Suporte a preenchimento rápido em celulares e computadores",
+      "Sem cadastro e sem envio de dados a servidores"
+    ],
+    faqs: [
+      {
+        question: "O que é achatar (flatten) um formulário PDF?",
+        answer: "É o processo de fundir os campos de texto preenchidos na própria página do documento, transformando formulários editáveis em texto fixo protegido."
+      }
+    ]
+  },
+  {
+    slug: "censurar-pdf",
+    name: "Censurar e Redigir PDF",
+    shortDescription: "Aplique tarjas pretas sobre CPFs, dados bancários e nomes em PDFs.",
+    fullDescription: "Proteja informações sensíveis antes de compartilhar documentos. Aplique tarjas de censura definitivas sobre números de documentos, valores, telefones e endereços confidenciais.",
+    category: "desenvolvedor",
+    keywords: ["censurar pdf", "tarja preta pdf", "redigir pdf", "ocultar dados pdf", "proteger dados sensiveis pdf"],
+    icon: "EyeOff",
+    href: "/censurar-pdf",
+    metaTitle: "Censurar Dados em PDF Online - Tarja Preta Grátis | CrieGrátis",
+    metaDescription: "Aplique tarjas pretas e oculte dados pessoais confidenciais (CPF, telefone, nomes) em PDFs de forma permanente e segura no seu navegador.",
+    h1: "Censurar e Redigir PDF Online",
+    badge: "Novo",
+    usageSteps: [
+      "Envie o arquivo PDF que contém dados confidenciais.",
+      "Adicione tarjas pretas ou brancas ajustando tamanho e posição.",
+      "Escolha a página específica onde cada informação deve ser ocultada.",
+      "Clique em 'Aplicar Censura e Salvar' para baixar o PDF protegido."
+    ],
+    features: [
+      "Tarjas opacas gravadas diretamente no arquivo vetorial",
+      "Suporte a múltiplas tarjas por página",
+      "Cores preta e branca para combinar com o fundo do documento",
+      "Garante conformidade com a LGPD sem risco de vazamentos"
+    ],
+    faqs: [
+      {
+        question: "Alguém consegue remover a tarja preta depois?",
+        answer: "Não. A ferramenta grava o bloco opaco diretamente na matriz do PDF, sobrepondo o conteúdo físico da página."
+      }
+    ]
+  },
+  {
+    slug: "ocr-pdf",
+    name: "Extrator de Texto e OCR de PDF",
+    shortDescription: "Extraia textos de arquivos PDF e documentos no navegador.",
+    fullDescription: "Extraia o conteúdo textual de arquivos PDF de forma rápida e precisa. Copie o texto completo com 1 clique ou faça download de um arquivo .TXT organizado.",
+    category: "desenvolvedor",
+    keywords: ["ocr pdf", "extrair texto pdf", "pdf para texto", "converter pdf em txt", "copiar texto de pdf"],
+    icon: "FileCode",
+    href: "/ocr-pdf",
+    metaTitle: "Extrair Texto de PDF Online Grátis - OCR Client-Side | CrieGrátis",
+    metaDescription: "Extraia todo o texto de documentos PDF com velocidade e precisão no seu navegador. Copie ou baixe o conteúdo em TXT sem limites.",
+    h1: "Extrator de Texto e OCR de PDF",
+    badge: "Novo",
+    usageSteps: [
+      "Carregue o arquivo PDF que você deseja ler.",
+      "A ferramenta analisa e extrai todos os fluxos de texto na memória.",
+      "Edite ou revise o texto na área de visualização integrada.",
+      "Copie para a área de transferência ou baixe como arquivo .TXT."
+    ],
+    features: [
+      "Extração ultrarrápida no próprio computador",
+      "Contagem em tempo real de palavras e caracteres",
+      "Editor integrado para ajuste imediato do texto",
+      "Download direto em arquivo .TXT"
+    ],
+    faqs: [
+      {
+        question: "Funciona com PDFs protegidos por cópia?",
+        answer: "Sim, a ferramenta lê os fluxos de texto na memória do arquivo e permite extrair conteúdos mesmo quando a seleção com o mouse está bloqueada pelo leitor tradicional."
+      }
+    ]
+  },
+  {
+    slug: "comparar-pdf",
+    name: "Comparar PDFs Lado a Lado",
+    shortDescription: "Compare duas versões de um PDF e identifique alterações.",
+    fullDescription: "Ferramenta essencial para advogados, engenheiros e revisores. Compare dois arquivos PDF (Versão A e Versão B), analise contagem de páginas, tamanho e metadados estruturais.",
+    category: "desenvolvedor",
+    keywords: ["comparar pdf", "pdf diff", "diferença entre pdfs", "comparador de contratos pdf", "comparar duas versoes pdf"],
+    icon: "GitCompare",
+    href: "/comparar-pdf",
+    metaTitle: "Comparar Arquivos PDF Online Grátis | CrieGrátis",
+    metaDescription: "Compare duas versões de um documento PDF lado a lado. Inspecione páginas, diferenças de tamanho e metadados no seu navegador.",
+    h1: "Comparar Arquivos PDF Online",
+    badge: "Novo",
+    usageSteps: [
+      "Carregue o primeiro arquivo PDF (Versão Original A).",
+      "Carregue o segundo arquivo PDF (Nova Versão B).",
+      "Consulte o relatório estrutural comparando páginas, peso e títulos.",
+      "Verifique instantaneamente se os arquivos são idênticos ou foram alterados."
+    ],
+    features: [
+      "Análise comparativa em tempo real",
+      "Detecção de diferenças no número de páginas e tamanho",
+      "Inspeção de títulos e autores originais",
+      "Segurança total para minutas e documentos confidenciais"
+    ],
+    faqs: [
+      {
+        question: "Posso comparar contratos sigilosos?",
+        answer: "Sim! Como o comparador roda 100% no seu dispositivo, nenhuma página de contrato é transmitida pela internet."
+      }
+    ]
+  },
+  {
+    slug: "pdf-preto-e-branco",
+    name: "Converter PDF para Preto e Branco",
+    shortDescription: "Transforme PDFs coloridos em escala de cinza para economizar tinta.",
+    fullDescription: "Converta documentos PDF coloridos em tons de cinza ou monocromático de alto contraste. Reduza o gasto de tinta de impressora e padronize arquivos para tribunais e cartórios.",
+    category: "desenvolvedor",
+    keywords: ["pdf preto e branco", "pdf escala de cinza", "grayscale pdf", "converter pdf para pb", "economizar tinta pdf"],
+    icon: "Printer",
+    href: "/pdf-preto-e-branco",
+    metaTitle: "Converter PDF para Preto e Branco Online Grátis | CrieGrátis",
+    metaDescription: "Converta PDFs coloridos para escala de cinza e preto e branco. Economize tinta de impressão e gere arquivos leves sem enviar dados para a nuvem.",
+    h1: "Converter PDF para Preto e Branco",
+    badge: "Novo",
+    usageSteps: [
+      "Selecione o arquivo PDF colorido que deseja converter.",
+      "Escolha entre o perfil de escala de cinza padrão ou alto contraste.",
+      "Clique em 'Converter para Preto & Branco'.",
+      "Baixe seu novo PDF monocromático otimizado."
+    ],
+    features: [
+      "Dois perfis de contraste para impressão ou leitura digital",
+      "Mantém a nitidez perfeita de textos e vetores",
+      "Economia expressiva de cartuchos e toners de impressora",
+      "Processamento local via WebAssembly sem filas"
+    ],
+    faqs: [
+      {
+        question: "Por que converter um PDF para escala de cinza?",
+        answer: "Economiza tinta colorida na impressão, reduz o peso do documento e atende às exigências de sistemas públicos que exigem peças em preto e branco."
+      }
+    ]
+  },
+  {
+    slug: "cortar-pdf",
+    name: "Cortar Margens de PDF",
+    shortDescription: "Remova bordas e margens brancas excessivas de páginas PDF.",
+    fullDescription: "Ajuste e corte margens de documentos PDF para facilitar a leitura em smartphones, tablets e leitores digitais como o Kindle, eliminando espaços vazios desnecessários.",
+    category: "desenvolvedor",
+    keywords: ["cortar pdf", "crop pdf", "cortar margem pdf", "remover bordas pdf", "ajustar pagina pdf"],
+    icon: "Crop",
+    href: "/cortar-pdf",
+    metaTitle: "Cortar Margens de PDF Online Grátis | CrieGrátis",
+    metaDescription: "Remova margens brancas e corte bordas de páginas PDF online. Ideal para ler em tablets e Kindles. 100% gratuito e processado no navegador.",
+    h1: "Cortar Margens de PDF Online",
+    badge: "Novo",
+    usageSteps: [
+      "Faça upload do documento PDF que deseja recortar.",
+      "Defina as margens em pontos a serem cortadas (topo, base, laterais).",
+      "Clique em 'Cortar Margens de Todas as Páginas'.",
+      "Faça o download do PDF com área de leitura maximizada."
+    ],
+    features: [
+      "Ajuste milimétrico de margens superior, inferior e laterais",
+      "Aplica o recorte em todas as páginas simultaneamente",
+      "Sem perda de qualidade vetorial ou das fontes",
+      "Execução 100% client-side"
+    ],
+    faqs: [
+      {
+        question: "O texto original perde qualidade ao ser recortado?",
+        answer: "Não. A ferramenta apenas reajusta a caixa visível (CropBox) da página, preservando a resolução nativa e a nitidez das fontes."
+      }
+    ]
+  },
+  {
+    slug: "folha-timbrada-pdf",
+    name: "Folha Timbrada / Sobrepor PDF",
+    shortDescription: "Aplique cabeçalho e papel timbrado corporativo sobre páginas de PDF.",
+    fullDescription: "Sobreponha papel timbrado com seu logotipo, cabeçalho e rodapé oficial em todas as páginas de propostas comerciais, orçamentos e relatórios em PDF com 1 clique.",
+    category: "desenvolvedor",
+    keywords: ["folha timbrada pdf", "papel timbrado pdf", "sobrepor pdf", "carimbar pdf", "adicionar cabecalho pdf"],
+    icon: "Layers",
+    href: "/folha-timbrada-pdf",
+    metaTitle: "Aplicar Folha Timbrada em PDF Online Grátis | CrieGrátis",
+    metaDescription: "Sobreponha papel timbrado corporativo e cabeçalhos em documentos PDF de forma automática e gratuita no seu navegador.",
+    h1: "Folha Timbrada em PDF Online",
+    badge: "Novo",
+    usageSteps: [
+      "Selecione o documento base (relatório ou proposta em PDF).",
+      "Selecione o PDF da folha timbrada contendo sua logomarca e rodapé.",
+      "Clique em 'Aplicar Folha Timbrada no Documento'.",
+      "Baixe seu relatório corporativo timbrado pronto para envio ao cliente."
+    ],
+    features: [
+      "Fusão gráfica em alta resolução de 2 arquivos PDF",
+      "Aplica o timbre em todas as páginas do documento",
+      "Mantém o conteúdo textual original intacto",
+      "Zero envio de documentos confidenciais para servidores externos"
+    ],
+    faqs: [
+      {
+        question: "Posso usar a mesma folha timbrada em relatórios com muitas páginas?",
+        answer: "Sim! A folha timbrada é clonada e sobreposta com precisão em cada uma das páginas do relatório base."
+      }
+    ]
+  },
+  {
+    slug: "metadados-pdf",
+    name: "Visualizador e Limpador de Metadados PDF",
+    shortDescription: "Inspecione e remova metadados ocultos de arquivos PDF.",
+    fullDescription: "Examine e remova dados ocultos de documentos PDF (autor original, software utilizado, data de criação, título e produtor) garantindo privacidade total antes do compartilhamento público.",
+    category: "desenvolvedor",
+    keywords: ["metadados pdf", "limpar metadados pdf", "remover autor pdf", "ver metadados pdf", "anonimizar pdf"],
+    icon: "Shield",
+    href: "/metadados-pdf",
+    metaTitle: "Ver e Limpar Metadados de PDF Online Grátis | CrieGrátis",
+    metaDescription: "Inspecione e remova títulos, nomes de autores e rastros de softwares de arquivos PDF. Anonimize seus documentos com segurança no navegador.",
+    h1: "Visualizador e Limpador de Metadados PDF",
+    badge: "Novo",
+    usageSteps: [
+      "Carregue o arquivo PDF para inspecionar seus metadados.",
+      "Visualize as informações de autor, software de criação e datas registradas.",
+      "Altere os campos que desejar ou clique em 'Limpar Todos os Rastros'.",
+      "Salve e baixe seu PDF higienizado e anônimo."
+    ],
+    features: [
+      "Inspeção completa de propriedades e dados XMP/Info",
+      "Opção de limpeza em lote de todos os identificadores em 1 clique",
+      "Permite alterar autor, título e palavras-chave",
+      "Processado inteiramente no navegador para privacidade garantida"
+    ],
+    faqs: [
+      {
+        question: "Por que é importante limpar metadados de PDFs?",
+        answer: "Arquivos PDF gravam automaticamente o nome do usuário do computador, caminho de pastas e programa utilizado. Limpá-los evita vazamentos de informações corporativas ou pessoais."
+      }
+    ]
+  },
+  {
+    slug: "foto-3x4",
+    name: "Criador de Foto 3x4 para Documentos",
+    shortDescription: "Enquadre selfies e fotos com guia biométrica e gere folha 10x15 pronta para imprimir.",
+    fullDescription: "Crie fotos 3x4 profissionais para RG, CNH, carteira de trabalho e passaporte. Enquadre seu rosto na proporção biométrica correta e gere folhas 10x15cm com 6 fotos em alta resolução (300 DPI) para impressão caseira econômica.",
+    category: "imagens",
+    keywords: ["foto 3x4", "foto 3x4 online", "foto documento rg", "folha 10x15 foto 3x4", "como fazer foto 3x4"],
+    icon: "User",
+    href: "/foto-3x4",
+    metaTitle: "Criador de Foto 3x4 Online Grátis - RG e Documentos | CrieGrátis",
+    metaDescription: "Faça fotos 3x4 para documentos online e grátis. Guia biométrica para enquadrar o rosto e folha 10x15 com 6 fotos pronta para impressão econômica.",
+    h1: "Criador de Foto 3x4 para Documentos",
+    badge: "Novo",
+    usageSteps: [
+      "Envie uma selfie ou foto com boa iluminação.",
+      "Ajuste os controles de zoom e posição alinhando os olhos com as guias biométricas.",
+      "Escolha a cor de fundo (branco puro ou azul claro para documentos oficiais).",
+      "Gere a folha 10x15cm com 6 fotos 3x4 e imprima em qualquer papel fotográfico."
+    ],
+    features: [
+      "Guia biométrica pontilhada para alinhamento dos olhos e queixo",
+      "Geração de folha 10x15cm padrão com 6 fotos 3x4 com linhas de corte",
+      "Opção de exportar foto 3x4 individual em 300 DPI para cadastros online",
+      "Ajuste instantâneo de cor de fundo sem precisar de Photoshop"
+    ],
+    faqs: [
+      {
+        question: "Qual o tamanho exato de uma foto 3x4 em pixels?",
+        answer: "No padrão profissional de 300 DPI para impressão nítida, a foto 3x4 possui 354 x 472 pixels."
+      }
+    ]
+  },
+  {
+    slug: "inverter-cores-imagem",
+    name: "Inverter Cores de Imagem (Negativo)",
+    shortDescription: "Inverta cores de fotos ou transforme fundos escuros em claros para impressão.",
+    fullDescription: "Inverta as cores de imagens instantaneamente. Revele filmes e negativos de fotos analógicas ou inverta esquemas e plantas de fundo preto para economizar tinta ao imprimir.",
+    category: "imagens",
+    keywords: ["inverter cores", "negativo de foto", "foto negativa para positiva", "inverter cores imagem online", "reverter cores"],
+    icon: "Sliders",
+    href: "/inverter-cores-imagem",
+    metaTitle: "Inverter Cores de Imagem Online Grátis - Negativo para Positivo | CrieGrátis",
+    metaDescription: "Inverta as cores de qualquer foto no navegador. Transforme negativos em fotos positivas ou inverta diagramas para impressão econômica.",
+    h1: "Inverter Cores de Imagem Online",
+    badge: "Novo",
+    usageSteps: [
+      "Selecione a foto ou imagem com negativo a ser invertida.",
+      "Escolha o modo de inversão: todas as cores (negativo RGB) ou luminosidade.",
+      "Visualize o resultado transformado em tempo real.",
+      "Baixe a imagem invertida em alta qualidade."
+    ],
+    features: [
+      "Manipulação direta de canais de cor RGB no Canvas",
+      "Modo negativo fotográfico e modo inversão de luz preto/branco",
+      "Pré-visualização lado a lado instantânea",
+      "Download em resolução total sem compressão"
+    ],
+    faqs: [
+      {
+        question: "Como funciona a revelação de negativos antigos?",
+        answer: "Basta fotografar o negativo antigo contra uma fonte de luz branca (ou tela de tablet) e carregar a foto aqui: as cores serão invertidas restaurando a imagem positiva original."
+      }
+    ]
+  },
+  {
+    slug: "ajustar-foto",
+    name: "Ajuste de Brilho, Contraste e Nitidez",
+    shortDescription: "Melhore a iluminação e aplique nitidez em fotos desbotadas ou escuras.",
+    fullDescription: "Editor fotográfico rápido e leve no navegador. Ajuste brilho, contraste, saturação de cores e aplique filtro de nitidez (unsharp mask) para recuperar fotos apagadas.",
+    category: "imagens",
+    keywords: ["ajustar foto", "aumentar nitidez foto", "clarear foto escura", "aumentar contraste", "editor de foto online"],
+    icon: "Sliders",
+    href: "/ajustar-foto",
+    metaTitle: "Ajuste de Brilho, Contraste e Nitidez de Fotos | CrieGrátis",
+    metaDescription: "Ajuste brilho, contraste, cores e nitidez de suas fotos online e grátis. Melhore fotos escuras em tempo real direto no seu navegador.",
+    h1: "Ajuste de Brilho, Contraste e Nitidez",
+    badge: "Novo",
+    usageSteps: [
+      "Envie a foto que você deseja retocar.",
+      "Mova os controles deslizantes de brilho, contraste, saturação e nitidez.",
+      "Acompanhe o resultado renderizado a 60 FPS na tela.",
+      "Clique em 'Baixar Foto' para salvar a imagem tratada."
+    ],
+    features: [
+      "Controle fino de exposição e nitidez em tempo real",
+      "Filtro de convolução Unsharp Mask para recuperar detalhes desfocados",
+      "Sem perda de fidelidade ou marca d'água",
+      "Privacidade absoluta sem envio de fotos para a nuvem"
+    ],
+    faqs: [
+      {
+        question: "O ajuste de nitidez melhora fotos borradas?",
+        answer: "Sim! O algoritmo Unsharp Mask realça as bordas e contornos dos objetos, trazendo maior definição visual a fotos com foco suave."
+      }
+    ]
+  },
+  {
+    slug: "mockup-dispositivos",
+    name: "Gerador de Mockup de Telas e Dispositivos",
+    shortDescription: "Emoldure prints e fotos em smartphones e janelas de navegadores elegantes.",
+    fullDescription: "Crie mockups profissionais para portfólios, apresentações e redes sociais. Encaixe seus prints de tela dentro de molduras de smartphones modernos ou janelas minimalistas de navegador com sombras suaves e gradientes.",
+    category: "imagens",
+    keywords: ["gerador mockup", "mockup iphone", "mockup navegador", "mockup telas gratis", "device mockup generator"],
+    icon: "Globe",
+    href: "/mockup-dispositivos",
+    metaTitle: "Gerador de Mockup de Dispositivos Online Grátis | CrieGrátis",
+    metaDescription: "Crie mockups incríveis de celulares e navegadores para suas fotos e prints. Adicione fundos modernos e sombras elegantes em 1 clique.",
+    h1: "Gerador de Mockup de Dispositivos Online",
+    badge: "Novo",
+    usageSteps: [
+      "Envie o print da tela do seu app ou site.",
+      "Selecione o dispositivo desejado: Janela de Navegador ou Smartphone.",
+      "Escolha o estilo de cenário de fundo (gradientes modernos ou PNG transparente).",
+      "Baixe a imagem final em alta resolução pronta para divulgar."
+    ],
+    features: [
+      "Molduras elegantes de navegador com botões e barra de URL",
+      "Moldura de celular moderno com Dynamic Island e acabamento metálico",
+      "Fundos gradientes contemporâneos e suporte a transparência",
+      "Exportação em PNG cristalino para apresentações"
+    ],
+    faqs: [
+      {
+        question: "Posso exportar o mockup com fundo transparente?",
+        answer: "Sim! Basta selecionar a opção 'Transparente (PNG)' para sobrepor seu mockup em qualquer slide ou design no Canva/Photoshop."
+      }
+    ]
+  },
+  {
+    slug: "colagem-de-fotos",
+    name: "Criador de Colagem de Fotos",
+    shortDescription: "Monte colagens e grades com 2, 3 ou 4 fotos lado a lado.",
+    fullDescription: "Junte várias fotos em uma só imagem com facilidade. Escolha entre modelos lado a lado, verticais, trípticos e grade 2x2 com controle de espaçamento e cantos arredondados.",
+    category: "imagens",
+    keywords: ["colagem de fotos", "juntar fotos", "grade de fotos", "foto lado a lado", "montagem de fotos"],
+    icon: "Grid",
+    href: "/colagem-de-fotos",
+    metaTitle: "Criador de Colagem de Fotos Online Grátis | CrieGrátis",
+    metaDescription: "Faça montagens e colagens com 2, 3 ou 4 fotos online e grátis. Ajuste espaçamentos e cantos arredondados no seu navegador.",
+    h1: "Criador de Colagem de Fotos Online",
+    badge: "Novo",
+    usageSteps: [
+      "Selecione de 2 a 4 imagens para compor sua montagem.",
+      "Escolha o modelo de grade desejado (lado a lado, vertical, 3 fotos ou 2x2).",
+      "Personalize o espaçamento entre as imagens e o raio dos cantos.",
+      "Baixe sua colagem finalizada em alta definição."
+    ],
+    features: [
+      "Enquadramento automático proporcional de cada foto",
+      "Espaçamento e bordas arredondadas customizáveis",
+      "Cores de fundo personalizadas para a moldura",
+      "Sem marcas d'água e sem necessidade de cadastro"
+    ],
+    faqs: [
+      {
+        question: "As fotos perdem qualidade na colagem?",
+        answer: "Não. A ferramenta gera um canvas em alta definição (1200x900px ou superior) preservando a nitidez de cada foto original."
+      }
+    ]
+  },
+  {
+    slug: "paleta-de-cores-imagem",
+    name: "Extrator de Paleta de Cores de Imagem",
+    shortDescription: "Descubra e copie as cores dominantes de qualquer foto com códigos HEX e CSS.",
+    fullDescription: "Analise qualquer imagem e descubra sua paleta de cores dominante. Copie códigos de cores em HEX e RGB com um clique e exporte variáveis CSS prontas para projetos de design e web.",
+    category: "imagens",
+    keywords: ["paleta de cores imagem", "extrair cores da foto", "color palette extractor", "pegar cores de imagem", "hex da foto"],
+    icon: "Palette",
+    href: "/paleta-de-cores-imagem",
+    metaTitle: "Extrator de Paleta de Cores de Fotos Online | CrieGrátis",
+    metaDescription: "Extraia as cores principais de qualquer foto ou logotipo. Obtenha códigos HEX, RGB e variáveis CSS prontas no seu navegador.",
+    h1: "Extrator de Paleta de Cores de Imagem",
+    badge: "Novo",
+    usageSteps: [
+      "Envie a foto, paisagem ou logotipo que deseja analisar.",
+      "O algoritmo quantiza e identifica as 6 cores predominantes.",
+      "Clique em qualquer amostra para copiar o código HEX instantaneamente.",
+      "Copie as variáveis CSS prontas para colar na folha de estilos do seu site."
+    ],
+    features: [
+      "Algoritmo de quantização e agrupamento de cores ultrarrápido",
+      "Cartões visuais com amostras, códigos HEX e RGB",
+      "Geração automática de variáveis CSS (:root)",
+      "Copiar com 1 clique para a área de transferência"
+    ],
+    faqs: [
+      {
+        question: "Como funciona a detecção das cores?",
+        answer: "A ferramenta analisa os pixels da imagem no Canvas do seu navegador e agrupa as tonalidades mais frequentes em níveis representativos."
+      }
+    ]
+  },
+  {
+    slug: "remover-exif",
+    name: "Remover Dados EXIF e Localização de Fotos",
+    shortDescription: "Apague GPS, modelo do celular e data de fotos antes de publicar.",
+    fullDescription: "Proteja sua privacidade e anonimize suas fotos. Limpe coordenadas de GPS, modelo da câmera ou smartphone, datas de captura e perfis de cor antes de postar imagens em classificados ou redes sociais.",
+    category: "imagens",
+    keywords: ["remover exif", "apagar gps de foto", "limpar metadados foto", "privacidade foto", "remover dados de foto"],
+    icon: "Shield",
+    href: "/remover-exif",
+    metaTitle: "Remover Dados EXIF e GPS de Fotos Online | CrieGrátis",
+    metaDescription: "Apague coordenadas de GPS, modelo do celular e data de fotos online e grátis. Anonimize suas imagens antes de compartilhar na internet.",
+    h1: "Remover Dados EXIF e Localização de Fotos",
+    badge: "Novo",
+    usageSteps: [
+      "Faça upload da foto que deseja anonimizar.",
+      "A ferramenta recria a matriz de pixels descartando blocos EXIF sensíveis.",
+      "Confira os alertas de localização GPS e dados ocultados.",
+      "Baixe a nova foto 100% limpa e segura."
+    ],
+    features: [
+      "Eliminação completa de rastreamento por geolocalização GPS",
+      "Remove modelo da câmera, abertura, ISO e timestamp",
+      "Mantém resolução e fidelidade visual originais",
+      "Processamento estritamente local no seu computador ou celular"
+    ],
+    faqs: [
+      {
+        question: "Por que devo remover o EXIF antes de vender produtos online?",
+        answer: "Fotos tiradas em casa com smartphones contêm a latitude e longitude exatas de onde você mora. Limpar o EXIF protege sua residência e família contra rastreamento de terceiros."
+      }
+    ]
+  },
+  {
+    slug: "pixel-art",
+    name: "Conversor de Imagem para Pixel Art",
+    shortDescription: "Transforme fotos em ilustrações retrô 8-bit com controle de blocos.",
+    fullDescription: "Converta qualquer foto em uma arte estilo retrô 8-bit ou arcade vintage. Ajuste o tamanho dos blocos de pixels e limite os níveis de cores para criar avatares e ilustrações nostálgicas.",
+    category: "imagens",
+    keywords: ["pixel art", "converter foto para pixel art", "efeito 8 bit foto", "foto estilo videogame", "pixelar imagem"],
+    icon: "Gamepad2",
+    href: "/pixel-art",
+    metaTitle: "Conversor de Foto para Pixel Art 8-Bit Online | CrieGrátis",
+    metaDescription: "Transforme fotos em pixel art retrô e estilo videogame 8-bit online e grátis. Controle tamanho de pixels e paletas arcade no seu navegador.",
+    h1: "Conversor de Imagem para Pixel Art",
+    badge: "Novo",
+    usageSteps: [
+      "Selecione uma foto, avatar ou desenho.",
+      "Ajuste o controle de 'Tamanho do Pixel' para definir o nível de blocos retrô.",
+      "Escolha a paleta de cores (GameBoy 4 níveis, NES 8-bit ou Arcade).",
+      "Faça o download do seu Pixel Art em formato PNG cristalino."
+    ],
+    features: [
+      "Downsampling e upscaling com interpolação desativada para blocos perfeitos",
+      "Filtro de posterização para simular consoles clássicos",
+      "Pré-visualização dinâmica a 60 FPS",
+      "Exportação em PNG nítido sem borrões"
+    ],
+    faqs: [
+      {
+        question: "Quais fotos funcionam melhor no efeito Pixel Art?",
+        answer: "Retratos com bom contraste, fotos de bichos de estimação e paisagens com cores distintas geram os resultados mais impressionantes."
+      }
+    ]
+  },
+  {
+    slug: "grade-instagram",
+    name: "Divisor de Grid e Carrossel para Instagram",
+    shortDescription: "Divida fotos em carrossel contínuo de 3 partes ou grade 3x3 de feed.",
+    fullDescription: "Crie carrosséis panorâmicos contínuos e grades de fotos gigantes para o feed do Instagram. Fatie qualquer foto em 3 partes perfeitas ou 9 quadrados (grid 3x3) com numeração da ordem de postagem.",
+    category: "imagens",
+    keywords: ["grade instagram", "cortar foto carrossel instagram", "grid 3x3 instagram", "dividir foto instagram", "fatiar foto"],
+    icon: "Grid3X3",
+    href: "/grade-instagram",
+    metaTitle: "Divisor de Foto para Grid e Carrossel do Instagram | CrieGrátis",
+    metaDescription: "Fatie fotos panorâmicas em carrossel contínuo ou grade 3x3 para o feed do Instagram. Grátis, sem limites e com download em alta qualidade.",
+    h1: "Divisor de Grid e Carrossel para Instagram",
+    badge: "Novo",
+    usageSteps: [
+      "Envie a foto panorâmica ou imagem do seu feed.",
+      "Selecione o formato desejado: Carrossel Infinito (3 partes) ou Grade 3x3 (9 quadrados).",
+      "Acompanhe a ordem numerada recomendada para publicação.",
+      "Baixe cada fatia individualmente ou use o botão 'Baixar Todas as Fatias'."
+    ],
+    features: [
+      "Cálculo matemático exato de proporções para o feed do Instagram",
+      "Fatias numeradas na sequência correta de postagem",
+      "Botão de download de todas as fatias em sequência rápida",
+      "Preserva a resolução máxima original sem perda de qualidade"
+    ],
+    faqs: [
+      {
+        question: "Em qual ordem devo postar a grade 3x3 no Instagram?",
+        answer: "Poste da última fatia (#9) para a primeira (#1). Assim, à medida que você publica no Instagram, a foto gigante se forma perfeitamente na visualização do seu perfil."
+      }
+    ]
+  },
+  {
+    slug: "efeito-tilt-shift",
+    name: "Gerador de Efeito Tilt-Shift (Miniatura)",
+    shortDescription: "Simule lentes tilt-shift e transforme fotos reais em maquetes em miniatura.",
+    fullDescription: "Aplique o clássico efeito fotográfico de lente Tilt-Shift com foco seletivo horizontal e desfoque gradiente superior e inferior, criando a ilusão ótica de maquetes e cenários em miniatura.",
+    category: "imagens",
+    keywords: ["tilt shift", "efeito miniatura", "lente tilt shift", "efeito maquete foto", "foco seletivo foto"],
+    icon: "Focus",
+    href: "/efeito-tilt-shift",
+    metaTitle: "Gerador de Efeito Tilt-Shift (Miniatura) Online | CrieGrátis",
+    metaDescription: "Transforme fotos aéreas e paisagens urbanas em miniaturas com efeito de lente Tilt-Shift. Ajuste faixa de foco e desfoque no navegador.",
+    h1: "Gerador de Efeito Tilt-Shift (Miniatura)",
+    badge: "Novo",
+    usageSteps: [
+      "Carregue uma foto (preferencialmente tirada de um ângulo alto ou vista aérea).",
+      "Ajuste a posição vertical e a largura da faixa de foco nítida.",
+      "Ajuste a intensidade do desfoque (blur) e a saturação de cor.",
+      "Baixe sua foto com a fantástica ilusão de miniatura em alta resolução."
+    ],
+    features: [
+      "Máscara de gradiente óptico com transição suave e realista",
+      "Reforço automático de saturação característico de brinquedos e dioramas",
+      "Ajuste em tempo real de altura e largura do foco",
+      "Download em resolução total sem marcas d'água"
+    ],
+    faqs: [
+      {
+        question: "Por que as fotos parecem brinquedos no efeito Tilt-Shift?",
+        answer: "Nosso cérebro associa uma profundidade de campo muito estreita a objetos minúsculos vistos de perto. Ao desfocar o topo e a base da foto, simulamos essa mesma ilusão ótica de macrofotografia."
+      }
+    ]
   }
 ];
 
