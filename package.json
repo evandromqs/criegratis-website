@@ -12,6 +12,7 @@
     "@cantoo/pdf-lib": "^2.11.0",
     "@microsoft/clarity": "^1.0.2",
     "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "jspdf": "^4.2.1",
     "lucide-react": "^0.475.0",
     "nanoid": "^6.0.1",
