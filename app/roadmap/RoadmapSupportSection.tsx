@@ -25,7 +25,7 @@ export default function RoadmapSupportSection() {
           Apoie o Projeto CrieGrátis
         </h2>
         <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-          O CrieGrátis é mantido de forma independente, sem anúncios invasivos e sem cobrar assinaturas. Contribuições voluntárias via Pix ajudam a acelerar a chegada às 100 ferramentas.
+          O CrieGrátis é mantido de forma independente, sem anúncios invasivos e sem cobrar assinaturas. Contribuições voluntárias via Pix ou Cartão (Stripe) ajudam a acelerar a chegada às 100 ferramentas.
         </p>
 
         <div className="pt-2 flex flex-wrap items-center gap-3">
@@ -34,10 +34,10 @@ export default function RoadmapSupportSection() {
             onClick={() => setModalOpen(true)}
             type="button"
             className="min-h-[44px] inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white px-5 py-2.5 text-sm font-semibold shadow-xs hover:shadow-sm active:scale-95 transition-all cursor-pointer"
-            aria-label="Abrir modal para apoiar o projeto com doação Pix"
+            aria-label="Abrir modal para apoiar o projeto com Pix ou Stripe"
           >
             <Heart className="h-4 w-4 fill-white" aria-hidden="true" />
-            <span>Apoiar com Pix</span>
+            <span>Apoiar o Projeto</span>
           </button>
 
           {/* Botão Secundário: Copiar Chave */}

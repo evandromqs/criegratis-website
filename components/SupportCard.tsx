@@ -26,7 +26,7 @@ export default function SupportCard() {
               onClick={() => setModalOpen(true)}
               type="button"
               className="inline-flex min-h-[44px] items-center gap-2 rounded-xl bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white px-5 py-2.5 text-xs sm:text-sm font-semibold shadow-sm hover:shadow-md active:scale-95 transition-all duration-150 cursor-pointer"
-              aria-label="Abrir modal para apoiar o projeto com doação Pix"
+              aria-label="Abrir modal para apoiar o projeto com Pix ou Stripe"
             >
               <Heart className="h-4 w-4 fill-white" aria-hidden="true" />
               <span>Apoiar o projeto</span>

@@ -3,16 +3,18 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Search, Menu, X, Wrench, Grid2X2, Play, Pause, Star, BookOpen } from "lucide-react";
+import { Search, Menu, X, Wrench, Grid2X2, Play, Pause, Star, BookOpen, Heart } from "lucide-react";
 import Logo from "./Logo";
 import SearchModal from "./SearchModal";
 import ThemeToggle from "./ThemeToggle";
 import PwaInstallButton from "./PwaInstallButton";
+import SupportModal from "./SupportModal";
 import { useFavorites } from "@/hooks/useFavorites";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
+  const [supportModalOpen, setSupportModalOpen] = useState(false);
   const [isPlayingVerse, setIsPlayingVerse] = useState(false);
   const pathname = usePathname();
   const { favorites, isLoaded } = useFavorites();
@@ -118,6 +120,17 @@ export default function Header() {
             </button>
           )}
 
+          {/* Botão Apoiar (Discreto e Elegante) */}
+          <button
+            onClick={() => setSupportModalOpen(true)}
+            type="button"
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-xl border border-rose-200/80 dark:border-rose-900/60 bg-rose-50/80 dark:bg-rose-950/40 px-3 py-2 text-xs sm:text-sm font-bold text-rose-600 dark:text-rose-400 hover:bg-rose-100 dark:hover:bg-rose-900/60 shadow-2xs transition-all duration-150 cursor-pointer"
+            aria-label="Apoiar o projeto Crie Grátis"
+          >
+            <Heart className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-rose-500 text-rose-500" />
+            <span>Apoiar</span>
+          </button>
+
           {/* Botão PWA no Desktop */}
           <div className="hidden lg:block">
             <PwaInstallButton />
@@ -219,8 +232,23 @@ export default function Header() {
             )}
 
             {/* Botão de Atalho PWA no Menu Mobile */}
-            <div className="pt-2 pb-1">
+            <div className="pt-2 pb-1 space-y-2">
               <PwaInstallButton />
+
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setSupportModalOpen(true);
+                }}
+                type="button"
+                className="w-full flex items-center justify-between rounded-xl p-3 text-sm font-semibold text-rose-600 dark:text-rose-400 bg-rose-50/70 dark:bg-rose-950/30 hover:bg-rose-100/70 dark:hover:bg-rose-950/50 transition-colors cursor-pointer"
+              >
+                <div className="flex items-center gap-3">
+                  <Heart className="h-5 w-5 fill-rose-500 text-rose-500" />
+                  <span>Apoiar o Crie Grátis</span>
+                </div>
+                <span className="text-[11px] font-bold text-rose-500 uppercase tracking-wider">Pix / Stripe</span>
+              </button>
             </div>
 
             <hr className="my-2 border-[#E2E8F0] dark:border-[#1E293B]" />
@@ -246,6 +274,12 @@ export default function Header() {
       <SearchModal
         isOpen={searchModalOpen}
         onClose={() => setSearchModalOpen(false)}
+      />
+
+      {/* Modal de Apoio Global (Pix & Stripe) */}
+      <SupportModal
+        isOpen={supportModalOpen}
+        onClose={() => setSupportModalOpen(false)}
       />
     </header>
   );
