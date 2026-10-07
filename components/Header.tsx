@@ -7,9 +7,11 @@ import { Search, Menu, X, Wrench, Grid2X2, Play, Pause, Star, BookOpen, Heart } 
 import Logo from "./Logo";
 import SearchModal from "./SearchModal";
 import ThemeToggle from "./ThemeToggle";
+import LanguageSelector from "./LanguageSelector";
 import PwaInstallButton from "./PwaInstallButton";
 import SupportModal from "./SupportModal";
 import { useFavorites } from "@/hooks/useFavorites";
+import { TRANSLATIONS, Locale } from "@/lib/i18n";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,6 +20,15 @@ export default function Header() {
   const [isPlayingVerse, setIsPlayingVerse] = useState(false);
   const pathname = usePathname();
   const { favorites, isLoaded } = useFavorites();
+
+  let currentLocale: Locale = "pt";
+  if (pathname.startsWith("/es")) {
+    currentLocale = "es";
+  } else if (pathname.startsWith("/en")) {
+    currentLocale = "en";
+  }
+  const t = TRANSLATIONS[currentLocale];
+  const homeHref = currentLocale === "pt" ? "/" : `/${currentLocale}`;
 
   // Atalho de Teclado Ctrl+K / Cmd+K
   useEffect(() => {
@@ -34,21 +45,21 @@ export default function Header() {
   const navLinks = [
     {
       href: "/ferramentas",
-      label: "Ferramentas",
+      label: t.nav.tools,
       icon: Wrench,
       iconColor: "text-[#2563EB] dark:text-[#38BDF8]",
       activeBg: "bg-blue-50/80 dark:bg-blue-950/40 text-[#2563EB] dark:text-[#38BDF8]",
     },
     {
       href: "/categorias",
-      label: "Categorias",
+      label: t.nav.categories,
       icon: Grid2X2,
       iconColor: "text-[#06B6D4] dark:text-[#22D3EE]",
       activeBg: "bg-cyan-50/80 dark:bg-cyan-950/40 text-[#06B6D4] dark:text-[#22D3EE]",
     },
     {
       href: "/blog",
-      label: "Blog",
+      label: t.nav.blog,
       icon: BookOpen,
       iconColor: "text-[#8B5CF6] dark:text-[#A78BFA]",
       activeBg: "bg-purple-50/80 dark:bg-purple-950/40 text-[#8B5CF6] dark:text-[#A78BFA]",
@@ -59,7 +70,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 relative w-full border-b border-[#E2E8F0] dark:border-[#1E293B] bg-white/95 dark:bg-[#0F172A]/95 backdrop-blur-md transition-colors duration-200">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center group shrink-0">
+        <Link href={homeHref} className="flex items-center group shrink-0">
           <Logo size="md" />
         </Link>
 
@@ -92,7 +103,7 @@ export default function Header() {
               className="flex items-center gap-2 rounded-xl px-3.5 py-2 text-sm font-semibold text-[#475569] dark:text-[#94A3B8] hover:bg-amber-50/70 dark:hover:bg-amber-950/30 hover:text-amber-700 dark:hover:text-amber-300 transition-all duration-150"
             >
               <Star className="h-4 w-4 fill-amber-400 text-amber-500 shrink-0" />
-              <span>Favoritas</span>
+              <span>{t.nav.favorites}</span>
               <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 px-1.5 text-[11px] font-bold border border-amber-200/70 dark:border-amber-800/60">
                 {favorites.length}
               </span>
@@ -100,19 +111,19 @@ export default function Header() {
           )}
         </nav>
 
-        {/* Action: Search Button + PWA Button + Theme Toggle */}
-        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+        {/* Action: Search Button + PWA Button + Language + Theme Toggle */}
+        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
           {/* Botão de Busca (Oculto na Home pois já existe barra de busca destacada no Hero) */}
-          {pathname !== "/" && (
+          {pathname !== "/" && pathname !== "/es" && pathname !== "/en" && (
             <button
               onClick={() => setSearchModalOpen(true)}
               type="button"
               className="group relative flex items-center justify-center min-h-[44px] min-w-[44px] gap-2.5 rounded-xl border border-[#E2E8F0] dark:border-[#334155] bg-[#F8FAFC] dark:bg-[#1E293B] p-2.5 sm:px-3.5 sm:py-2 text-xs sm:text-sm text-[#475569] dark:text-[#94A3B8] shadow-2xs hover:border-[#2563EB] dark:hover:border-[#38BDF8] hover:bg-white dark:hover:bg-[#0F172A] hover:text-[#0F172A] dark:hover:text-[#F1F5F9] transition-all duration-150 cursor-pointer"
-              aria-label="Buscar ferramenta"
+              aria-label={t.nav.searchPlaceholder}
             >
               <Search className="h-4 w-4 text-[#475569] dark:text-[#94A3B8] group-hover:text-[#2563EB] dark:group-hover:text-[#38BDF8] transition-colors duration-150 shrink-0" aria-hidden="true" />
               
-              <span className="hidden sm:inline font-medium">Buscar ferramenta...</span>
+              <span className="hidden sm:inline font-medium">{t.nav.searchPlaceholder}</span>
               
               <kbd className="hidden lg:inline-flex items-center rounded-md bg-white dark:bg-[#0F172A] px-1.5 py-0.5 text-[10px] font-semibold text-[#475569] dark:text-[#94A3B8] border border-[#E2E8F0] dark:border-[#334155] group-hover:border-[#2563EB]/40 group-hover:text-[#2563EB] dark:group-hover:text-[#38BDF8] transition-colors duration-150">
                 Ctrl K
@@ -125,11 +136,14 @@ export default function Header() {
             onClick={() => setSupportModalOpen(true)}
             type="button"
             className="hidden sm:inline-flex items-center gap-1.5 rounded-xl border border-rose-200/80 dark:border-rose-900/60 bg-rose-50/80 dark:bg-rose-950/40 px-3 py-2 text-xs sm:text-sm font-bold text-rose-600 dark:text-rose-400 hover:bg-rose-100 dark:hover:bg-rose-900/60 shadow-2xs transition-all duration-150 cursor-pointer"
-            aria-label="Apoiar o projeto Crie Grátis"
+            aria-label={t.nav.support}
           >
             <Heart className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-rose-500 text-rose-500" />
-            <span>Apoiar</span>
+            <span>{t.nav.support}</span>
           </button>
+
+          {/* Seletor de Idioma (PT / ES / EN) */}
+          <LanguageSelector />
 
           {/* Botão PWA no Desktop */}
           <div className="hidden lg:block">

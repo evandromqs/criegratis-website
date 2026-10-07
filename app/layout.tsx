@@ -34,6 +34,12 @@ export const metadata: Metadata = {
   description: DEFAULT_DESCRIPTION,
   alternates: {
     canonical: "./",
+    languages: {
+      "pt-BR": "https://criegratis.com.br",
+      es: "https://criegratis.com.br/es",
+      en: "https://criegratis.com.br/en",
+      "x-default": "https://criegratis.com.br",
+    },
   },
   keywords: [
     "crie gratis",
