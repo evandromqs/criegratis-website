@@ -3,15 +3,15 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Search, Menu, X, Wrench, Grid2X2, Play, Pause, Star, BookOpen, Heart } from "lucide-react";
+import { Search, Menu, X, Wrench, Grid2X2, Play, Pause, Star, BookOpen, Heart, Globe } from "lucide-react";
 import Logo from "./Logo";
 import SearchModal from "./SearchModal";
 import ThemeToggle from "./ThemeToggle";
-import LanguageSelector from "./LanguageSelector";
 import PwaInstallButton from "./PwaInstallButton";
 import SupportModal from "./SupportModal";
 import { useFavorites } from "@/hooks/useFavorites";
-import { TRANSLATIONS, Locale } from "@/lib/i18n";
+import { useLanguage } from "@/hooks/useLanguage";
+import { LOCALES } from "@/lib/i18n";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,15 +20,8 @@ export default function Header() {
   const [isPlayingVerse, setIsPlayingVerse] = useState(false);
   const pathname = usePathname();
   const { favorites, isLoaded } = useFavorites();
-
-  let currentLocale: Locale = "pt";
-  if (pathname.startsWith("/es")) {
-    currentLocale = "es";
-  } else if (pathname.startsWith("/en")) {
-    currentLocale = "en";
-  }
-  const t = TRANSLATIONS[currentLocale];
-  const homeHref = currentLocale === "pt" ? "/" : `/${currentLocale}`;
+  const { locale, setLocale, t } = useLanguage();
+  const homeHref = locale === "pt" ? "/" : `/${locale}`;
 
   // Atalho de Teclado Ctrl+K / Cmd+K
   useEffect(() => {
@@ -142,9 +135,6 @@ export default function Header() {
             <span>{t.nav.support}</span>
           </button>
 
-          {/* Seletor de Idioma (PT / ES / EN) */}
-          <LanguageSelector />
-
           {/* Botão PWA no Desktop */}
           <div className="hidden lg:block">
             <PwaInstallButton />
@@ -153,12 +143,12 @@ export default function Header() {
           {/* Dark Mode Toggle */}
           <ThemeToggle />
 
-          {/* Mobile Menu Button */}
+          {/* Menu Drawer Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             type="button"
-            className="md:hidden flex items-center justify-center min-h-[44px] min-w-[44px] p-2 text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white rounded-xl hover:bg-[#F1F5F9] dark:hover:bg-[#1E293B] transition-colors cursor-pointer"
-            aria-label={mobileMenuOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
+            className="flex items-center justify-center min-h-[44px] min-w-[44px] p-2 text-[#475569] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-white rounded-xl hover:bg-[#F1F5F9] dark:hover:bg-[#1E293B] transition-colors cursor-pointer"
+            aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
@@ -204,30 +194,71 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-[#E2E8F0] dark:border-[#1E293B] bg-white dark:bg-[#0F172A] px-4 py-5 shadow-lg">
-          <div className="flex flex-col gap-2 font-medium text-[#0F172A] dark:text-[#F1F5F9]">
-            {navLinks.map((link) => {
-              const Icon = link.icon;
-              const isActive = pathname === link.href;
+        <div className="border-b border-[#E2E8F0] dark:border-[#1E293B] bg-white dark:bg-[#0F172A] px-4 py-5 shadow-xl animate-in slide-in-from-top-2 duration-150">
+          <div className="mx-auto max-w-7xl flex flex-col gap-3 font-medium text-[#0F172A] dark:text-[#F1F5F9]">
+            {/* Seletor de Idioma em Destaque no Drawer Lateral */}
+            <div className="rounded-2xl border border-[#E2E8F0] dark:border-[#334155] bg-[#F8FAFC] dark:bg-[#0B0F19] p-3 space-y-2">
+              <div className="flex items-center justify-between text-xs font-bold text-[#475569] dark:text-[#94A3B8] px-1">
+                <div className="flex items-center gap-1.5">
+                  <Globe className="h-4 w-4 text-[#2563EB] dark:text-[#38BDF8]" />
+                  <span>Idioma / Language</span>
+                </div>
+                <span className="text-[10px] uppercase font-extrabold px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-950 text-[#2563EB] dark:text-[#38BDF8]">
+                  {locale.toUpperCase()}
+                </span>
+              </div>
 
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-center gap-3 rounded-xl p-3 text-sm font-semibold transition-colors ${
-                    isActive
-                      ? link.activeBg
-                      : "hover:bg-[#F8FAFC] dark:hover:bg-[#1E293B]"
-                  }`}
-                >
-                  <Icon className={`h-5 w-5 ${link.iconColor}`} />
-                  <span>{link.label}</span>
-                </Link>
-              );
-            })}
+              <div className="grid grid-cols-3 gap-1.5 pt-0.5">
+                {LOCALES.map((l) => {
+                  const isSelected = l.code === locale;
+                  return (
+                    <button
+                      key={l.code}
+                      type="button"
+                      onClick={() => {
+                        setLocale(l.code);
+                        setMobileMenuOpen(false);
+                      }}
+                      className={`flex flex-col items-center justify-center py-2 px-1 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
+                        isSelected
+                          ? "bg-white dark:bg-[#1E293B] border-[#2563EB] dark:border-[#38BDF8] text-[#2563EB] dark:text-[#38BDF8] shadow-xs ring-2 ring-blue-500/10 scale-[1.02]"
+                          : "bg-white/70 dark:bg-[#1E293B]/60 border-slate-200 dark:border-slate-800 text-[#475569] dark:text-[#94A3B8] hover:bg-white dark:hover:bg-[#1E293B]"
+                      }`}
+                    >
+                      <span className="text-xl leading-none mb-1">{l.flag}</span>
+                      <span className="text-[11px] leading-tight font-semibold">
+                        {l.code === "pt" ? "Português" : l.code === "es" ? "Español" : "English"}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-1 pt-1">
+              {navLinks.map((link) => {
+                const Icon = link.icon;
+                const isActive = pathname === link.href;
+
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`flex items-center gap-3 rounded-xl p-3 text-sm font-semibold transition-colors ${
+                      isActive
+                        ? link.activeBg
+                        : "hover:bg-[#F8FAFC] dark:hover:bg-[#1E293B]"
+                    }`}
+                  >
+                    <Icon className={`h-5 w-5 ${link.iconColor}`} />
+                    <span>{link.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
             
             {isLoaded && favorites.length > 0 && (
               <Link

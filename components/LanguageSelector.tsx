@@ -4,20 +4,12 @@ import React, { useState, useRef, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Globe, Check, ChevronDown } from "lucide-react";
 import { LOCALES, Locale } from "@/lib/i18n";
+import { useLanguage } from "@/hooks/useLanguage";
 
 export default function LanguageSelector({ className = "" }: { className?: string }) {
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname();
-  const router = useRouter();
+  const { locale: currentLocale, setLocale } = useLanguage();
   const dropdownRef = useRef<HTMLDivElement>(null);
-
-  // Detecta o locale ativo pela rota atual
-  let currentLocale: Locale = "pt";
-  if (pathname.startsWith("/es")) {
-    currentLocale = "es";
-  } else if (pathname.startsWith("/en")) {
-    currentLocale = "en";
-  }
 
   const activeLocaleInfo = LOCALES.find((l) => l.code === currentLocale) || LOCALES[0];
 
@@ -43,21 +35,9 @@ export default function LanguageSelector({ className = "" }: { className?: strin
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen]);
 
-  const handleSelect = (locale: Locale) => {
+  const handleSelect = (selectedLocale: Locale) => {
     setIsOpen(false);
-    try {
-      localStorage.setItem("criegratis-lang", locale);
-    } catch {
-      // ignore
-    }
-
-    if (locale === "pt") {
-      router.push("/");
-    } else if (locale === "es") {
-      router.push("/es");
-    } else if (locale === "en") {
-      router.push("/en");
-    }
+    setLocale(selectedLocale);
   };
 
   return (
