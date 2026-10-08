@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PwaInstallBanner from "@/components/PwaInstallBanner";
 import MicrosoftClarity from "@/components/MicrosoftClarity";
+import GoogleTranslate from "@/components/GoogleTranslate";
 import { SITE_NAME, SITE_URL, DEFAULT_DESCRIPTION, generateWebsiteSchema } from "@/lib/seo";
 
 const inter = Inter({
@@ -156,6 +157,7 @@ export default function RootLayout({
         <PwaInstallBanner />
         <Analytics />
         <MicrosoftClarity />
+        <GoogleTranslate />
       </body>
     </html>
   );

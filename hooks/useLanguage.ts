@@ -65,6 +65,19 @@ export function useLanguage() {
       // ignore
     }
 
+    // Atualiza o cookie padrão de tradução do Google (googtrans: /origem/destino)
+    try {
+      if (newLocale === "pt") {
+        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${window.location.hostname};`;
+      } else {
+        document.cookie = `googtrans=/pt/${newLocale}; path=/;`;
+        document.cookie = `googtrans=/pt/${newLocale}; path=/; domain=.${window.location.hostname};`;
+      }
+    } catch {
+      // ignore
+    }
+
     // Se estiver na Home de algum idioma e trocar, redireciona para a Home correspondente
     if (pathname === "/" || pathname === "/es" || pathname === "/en") {
       if (newLocale === "pt") {
@@ -74,6 +87,9 @@ export function useLanguage() {
       } else if (newLocale === "en") {
         router.push("/en");
       }
+    } else {
+      // Se estiver em uma ferramenta (/criar-qr-code, /comprimir-imagem, etc), recarrega para aplicar a tradução instantânea em todos os elementos da página
+      window.location.reload();
     }
   };
 
