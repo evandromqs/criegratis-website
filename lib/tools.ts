@@ -1957,29 +1957,33 @@ export const TOOLS: ToolInfo[] = [
     shortDescription: "Aplique cabeçalho e papel timbrado corporativo sobre páginas de PDF.",
     fullDescription: "Sobreponha papel timbrado com seu logotipo, cabeçalho e rodapé oficial em todas as páginas de propostas comerciais, orçamentos e relatórios em PDF com 1 clique.",
     category: "desenvolvedor",
-    keywords: ["folha timbrada pdf", "papel timbrado pdf", "sobrepor pdf", "carimbar pdf", "adicionar cabecalho pdf"],
+    keywords: ["folha timbrada pdf", "papel timbrado pdf", "sobrepor pdf", "carimbar pdf", "adicionar cabecalho pdf", "colocar logo em pdf", "marca d agua pdf"],
     icon: "Layers",
     href: "/folha-timbrada-pdf",
-    metaTitle: "Aplicar Folha Timbrada em PDF Online Grátis | CrieGrátis",
-    metaDescription: "Sobreponha papel timbrado corporativo e cabeçalhos em documentos PDF de forma automática e gratuita no seu navegador.",
-    h1: "Folha Timbrada em PDF Online",
-    badge: "Novo",
+    metaTitle: "Aplicar Folha Timbrada ou Logotipo em PDF Online Grátis | CrieGrátis",
+    metaDescription: "Sobreponha papel timbrado corporativo ou o logotipo da sua empresa (PNG, JPG, PDF) em documentos PDF com pré-visualização em tempo real.",
+    h1: "Folha Timbrada e Logotipo em PDF Online",
+    badge: "Atualizado",
     usageSteps: [
-      "Selecione o documento base (relatório ou proposta em PDF).",
-      "Selecione o PDF da folha timbrada contendo sua logomarca e rodapé.",
-      "Clique em 'Aplicar Folha Timbrada no Documento'.",
-      "Baixe seu relatório corporativo timbrado pronto para envio ao cliente."
+      "Selecione o documento base (relatório, contrato ou proposta em PDF).",
+      "Envie o arquivo timbrado em PDF ou a imagem do seu logotipo (PNG transparente, JPG, WebP).",
+      "Personalize a posição, dimensões, opacidade e clique em 'Aplicar'.",
+      "Confira a pré-visualização em tempo real e baixe seu documento corporativo pronto para envio."
     ],
     features: [
-      "Fusão gráfica em alta resolução de 2 arquivos PDF",
-      "Aplica o timbre em todas as páginas do documento",
-      "Mantém o conteúdo textual original intacto",
-      "Zero envio de documentos confidenciais para servidores externos"
+      "Suporte a folhas timbradas em PDF ou logotipos em imagem (PNG transparente, JPG, WebP)",
+      "Pré-visualizador interativo do PDF gerado em tempo real",
+      "Posicionamento flexível (cabeçalho, rodapé ou marca d'água centralizada com transparência)",
+      "Processamento 100% privado no navegador sem envio de arquivos para a nuvem"
     ],
     faqs: [
       {
-        question: "Posso usar a mesma folha timbrada em relatórios com muitas páginas?",
-        answer: "Sim! A folha timbrada é clonada e sobreposta com precisão em cada uma das páginas do relatório base."
+        question: "Posso usar a mesma folha timbrada ou logotipo em documentos com muitas páginas?",
+        answer: "Sim! A folha timbrada ou logotipo é aplicado com precisão em todas as páginas ou apenas na primeira página, conforme você configurar."
+      },
+      {
+        question: "Posso usar uma imagem PNG com fundo transparente?",
+        answer: "Sim! O sistema preserva a transparência total de arquivos PNG, permitindo posicionar sua logomarca no cabeçalho ou como marca d'água suave no centro da página."
       }
     ]
   },
