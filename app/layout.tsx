@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -156,6 +157,7 @@ export default function RootLayout({
         <Footer />
         <PwaInstallBanner />
         <Analytics />
+        <GoogleAnalytics gaId="G-7G97SF97S2" />
         <MicrosoftClarity />
         <GoogleTranslate />
       </body>
