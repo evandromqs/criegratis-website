@@ -28,33 +28,33 @@ interface DonationTier {
 const DONATION_TIERS: DonationTier[] = [
   {
     id: "cafe",
-    label: "Contribuir com R$ 5",
-    subLabel: "R$ 5",
+    label: "Contribuir com R$ 2",
+    subLabel: "R$ 2",
     icon: "☕",
-    valueText: "R$ 5",
+    valueText: "R$ 2",
     phrase: "Uma contribuição para manter o projeto disponível.",
     pixPayload:
-      "00020126580014BR.GOV.BCB.PIX0136ef2848a5-ffbc-46ac-9bb1-5187d61d694652040000530398654045.005802BR592548.434.238 EVANDRO MARQUE6009SAO PAULO61080540900062250521TqzXesWSjVEK07m101uzm63045C3F",
+      "00020126580014BR.GOV.BCB.PIX0136ef2848a5-ffbc-46ac-9bb1-5187d61d694652040000530398654042.005802BR592548.434.238 EVANDRO MARQUE6009SAO PAULO61080540900062250521TqzXesWSjVEK07m101uzm6304B6FA",
   },
   {
     id: "lanche",
-    label: "Contribuir com R$ 15",
-    subLabel: "R$ 15",
+    label: "Contribuir com R$ 5",
+    subLabel: "R$ 5",
     icon: "🍕",
-    valueText: "R$ 15",
+    valueText: "R$ 5",
     phrase: "Ajude a melhorar as ferramentas existentes e criar novas.",
     pixPayload:
-      "00020126580014BR.GOV.BCB.PIX0136ef2848a5-ffbc-46ac-9bb1-5187d61d6946520400005303986540515.005802BR592548.434.238 EVANDRO MARQUE6009SAO PAULO61080540900062250521FaNctkuao8s1rfx101uzm6304AA4B",
+      "00020126580014BR.GOV.BCB.PIX0136ef2848a5-ffbc-46ac-9bb1-5187d61d694652040000530398654045.005802BR592548.434.238 EVANDRO MARQUE6009SAO PAULO61080540900062250521FaNctkuao8s1rfx101uzm63041493",
   },
   {
     id: "servidores",
-    label: "Contribuir com R$ 30",
-    subLabel: "R$ 30",
+    label: "Contribuir com R$ 10",
+    subLabel: "R$ 10",
     icon: "🚀",
-    valueText: "R$ 30",
+    valueText: "R$ 10",
     phrase: "Apoio voluntário para manter o Crie Grátis gratuito.",
     pixPayload:
-      "00020126580014BR.GOV.BCB.PIX0136ef2848a5-ffbc-46ac-9bb1-5187d61d6946520400005303986540530.005802BR592548.434.238 EVANDRO MARQUE6009SAO PAULO6108054090006225052180mbhpBwS5wZybp101uzm6304129D",
+      "00020126580014BR.GOV.BCB.PIX0136ef2848a5-ffbc-46ac-9bb1-5187d61d6946520400005303986540510.005802BR592548.434.238 EVANDRO MARQUE6009SAO PAULO6108054090006225052180mbhpBwS5wZybp101uzm6304A273",
   },
   {
     id: "outro",
@@ -135,7 +135,7 @@ export default function SupportModal({
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4 bg-slate-950/75 dark:bg-black/85 backdrop-blur-xs w-screen max-w-full h-screen h-[100dvh] animate-in fade-in duration-150 overflow-y-auto scrollbar-none"
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-2 sm:p-4 bg-slate-950/75 dark:bg-black/85 backdrop-blur-xs w-screen max-w-full h-[100dvh] animate-in fade-in duration-150 overflow-hidden"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
@@ -143,7 +143,7 @@ export default function SupportModal({
       role="dialog"
       aria-labelledby="support-modal-title"
     >
-      <div className="relative w-full max-w-md sm:max-w-[500px] my-auto flex flex-col rounded-3xl border border-[#E2E8F0] dark:border-[#334155] bg-white dark:bg-[#1E293B] shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
+      <div className="relative w-full max-w-md sm:max-w-[500px] max-h-[calc(100dvh-1rem)] sm:max-h-[calc(100dvh-2rem)] flex flex-col rounded-3xl border border-[#E2E8F0] dark:border-[#334155] bg-white dark:bg-[#1E293B] shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
         {/* Botão de Fechar com Touch-Target Acessível */}
         <button
           onClick={onClose}
@@ -155,7 +155,7 @@ export default function SupportModal({
         </button>
 
         {/* Conteúdo Principal do Modal */}
-        <div className="p-4 sm:p-6 space-y-4">
+        <div className="min-h-0 overflow-y-auto overscroll-contain p-4 sm:p-6 space-y-4">
           {/* Cabeçalho */}
           <div className="text-center space-y-1.5 pt-1 pr-6 pl-6 sm:pr-8 sm:pl-8">
             <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-rose-50 dark:bg-rose-950/50 text-rose-500 border border-rose-100 dark:border-rose-900/50 mb-0.5 shadow-2xs">
