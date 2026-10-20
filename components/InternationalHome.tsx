@@ -90,7 +90,7 @@ export default function InternationalHome({ locale }: InternationalHomeProps) {
   const faqs = locale === "es" ? FAQS_ES : FAQS_EN;
 
   return (
-    <div className="space-y-12 sm:space-y-16 pb-16">
+    <div lang={locale} className="space-y-12 sm:space-y-16 pb-16">
       {/* Hero Section */}
       <section className="relative overflow-hidden border-b border-[#E2E8F0] dark:border-[#1E293B] bg-gradient-to-b from-[#F8FAFC] via-white to-[#F8FAFC] dark:from-[#0B0F19] dark:via-[#0F172A] dark:to-[#0B0F19] py-14 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
@@ -151,7 +151,7 @@ export default function InternationalHome({ locale }: InternationalHomeProps) {
             href="/ferramentas"
             className="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-[#2563EB] dark:text-[#38BDF8] hover:underline shrink-0"
           >
-            <span>{t.topTools.seeAll} (70+)</span>
+            <span>{t.topTools.seeAll} (80+)</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

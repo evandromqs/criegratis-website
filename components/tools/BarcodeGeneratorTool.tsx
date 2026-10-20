@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { Copy, Download, Sparkles, Check, Barcode } from 'lucide-react';
 
 const CODE128_PATTERNS = [
@@ -46,7 +46,6 @@ export default function BarcodeGeneratorTool() {
   const [lineColor, setLineColor] = useState('#000000');
   const [bgColor, setBgColor] = useState('#ffffff');
   const [copied, setCopied] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
   const svgRef = useRef<SVGSVGElement>(null);
 
@@ -153,15 +152,11 @@ export default function BarcodeGeneratorTool() {
 
   const encoded = encodeBarcode();
 
-  useEffect(() => {
-    if (!text.trim()) {
-      setError('Insira um texto ou número para gerar o código.');
-    } else if (format === 'EAN13' && text.replace(/\D/g, '').length < 12) {
-      setError('EAN-13 requer no mínimo 12 dígitos numéricos.');
-    } else {
-      setError(null);
-    }
-  }, [text, format]);
+  const error = !text.trim()
+    ? 'Insira um texto ou número para gerar o código.'
+    : format === 'EAN13' && text.replace(/\D/g, '').length < 12
+      ? 'EAN-13 requer no mínimo 12 dígitos numéricos.'
+      : null;
 
   const totalWidth = encoded ? encoded.modules.length * barWidth : 300;
   const textHeight = showText ? 24 : 0;

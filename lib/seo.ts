@@ -7,7 +7,7 @@ export const DEFAULT_DESCRIPTION = "Ferramentas gratuitas para criar, converter,
 
 export function generateToolMetadata(tool: ToolInfo): Metadata {
   const canonicalUrl = `${SITE_URL}${tool.href}`;
-  const title = tool.metaTitle.replace(/\s*[|—-]\s*Crie\s?Grátis$/i, "");
+  const title = `${tool.metaTitle.replace(/\s*[|—-]\s*Crie\s?Grátis$/i, "")} | ${SITE_NAME}`;
   return {
     title,
     description: tool.metaDescription,
@@ -39,11 +39,6 @@ export function generateWebsiteSchema() {
     url: SITE_URL,
     description: DEFAULT_DESCRIPTION,
     inLanguage: "pt-BR",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${SITE_URL}/ferramentas?q={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
   };
 }
 

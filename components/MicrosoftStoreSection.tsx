@@ -32,7 +32,7 @@ export default function MicrosoftStoreSection({ className = "" }: MicrosoftStore
             </h2>
 
             <p className="text-sm sm:text-base text-[#475569] dark:text-[#94A3B8] max-w-2xl leading-relaxed">
-              Instale o aplicativo oficial no seu computador com Windows 10 ou 11. Acesse as 70+ ferramentas direto da sua barra de tarefas, com carregamento instantâneo e privacidade total garantida.
+              Instale o aplicativo oficial no seu computador com Windows 10 ou 11. Acesse as 80+ ferramentas direto da sua barra de tarefas, com carregamento instantâneo e privacidade total garantida.
             </p>
 
             {/* Destaques rápidos */}

@@ -26,7 +26,7 @@ export default function OverlayPdfPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
       />
-      <ToolLayout tool={tool}>
+      <ToolLayout tool={tool} showSupportCard={false}>
         <OverlayPdfTool />
       </ToolLayout>
     </>

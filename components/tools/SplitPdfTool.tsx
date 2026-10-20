@@ -33,7 +33,7 @@ export default function SplitPdfTool() {
       const count = pdf.getPageCount();
       setPageCount(count);
       setRangeInput(`1-${Math.min(count, 3)}`);
-    } catch (err: any) {
+    } catch (err: unknown) {
       setError('Não foi possível ler o arquivo PDF. Verifique se o arquivo não está corrompido.');
       setFile(null);
       setPageCount(null);
@@ -99,8 +99,8 @@ export default function SplitPdfTool() {
       URL.revokeObjectURL(url);
 
       setSuccess(true);
-    } catch (err: any) {
-      setError(err.message || 'Erro ao processar e extrair páginas do PDF.');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Erro ao processar e extrair páginas do PDF.');
     } finally {
       setIsProcessing(false);
     }

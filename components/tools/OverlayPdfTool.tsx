@@ -17,11 +17,10 @@ import {
   AlignLeft,
   AlignCenter,
   AlignRight,
-  Maximize2,
-  Trash2,
 } from "lucide-react";
 import { PDFDocument } from "pdf-lib";
 import { formatFileSize } from "@/lib/image-utils";
+import DownloadSuccessModal from "@/components/DownloadSuccessModal";
 
 type LogoPosition =
   | "top-left"
@@ -32,6 +31,18 @@ type LogoPosition =
   | "bottom-right";
 
 type ApplyTarget = "all" | "first-only";
+
+interface OverlayOptions {
+  docFile: File;
+  stampFile: File;
+  isImageStamp: boolean;
+  position: LogoPosition;
+  logoWidth: number;
+  logoOpacity: number;
+  margin: number;
+  applyTo: ApplyTarget;
+  previewOnly?: boolean;
+}
 
 // Converte qualquer imagem (PNG, JPG, WebP, etc.) em bytes PNG limpos e padronizados
 async function imageFileToPngData(
@@ -73,6 +84,69 @@ async function imageFileToPngData(
   });
 }
 
+async function createTimbradoPdf(options: OverlayOptions): Promise<Uint8Array> {
+  const source = await PDFDocument.load(await options.docFile.arrayBuffer(), { ignoreEncryption: true });
+  const mainPdf = options.previewOnly ? await PDFDocument.create() : source;
+  if (options.previewOnly) {
+    const [firstPage] = await mainPdf.copyPages(source, [0]);
+    mainPdf.addPage(firstPage);
+  }
+  const pages = mainPdf.getPages();
+
+  if (options.isImageStamp) {
+    const { bytes, width, height } = await imageFileToPngData(options.stampFile);
+    const embeddedImg = await mainPdf.embedPng(bytes);
+    const drawWidth = options.logoWidth;
+    const drawHeight = drawWidth * height / width;
+
+    pages.forEach((page, index) => {
+      if (options.applyTo === "first-only" && index > 0) return;
+      const { width: pageWidth, height: pageHeight } = page.getSize();
+      let x = options.margin;
+      let y = pageHeight - options.margin - drawHeight;
+
+      switch (options.position) {
+        case "top-center":
+          x = (pageWidth - drawWidth) / 2;
+          break;
+        case "top-right":
+          x = pageWidth - options.margin - drawWidth;
+          break;
+        case "center-watermark":
+          x = (pageWidth - drawWidth) / 2;
+          y = (pageHeight - drawHeight) / 2;
+          break;
+        case "bottom-center":
+          x = (pageWidth - drawWidth) / 2;
+          y = options.margin;
+          break;
+        case "bottom-right":
+          x = pageWidth - options.margin - drawWidth;
+          y = options.margin;
+          break;
+      }
+
+      page.drawImage(embeddedImg, {
+        x,
+        y,
+        width: drawWidth,
+        height: drawHeight,
+        opacity: Math.min(Math.max(options.logoOpacity / 100, 0.05), 1),
+      });
+    });
+  } else {
+    const stampPdf = await PDFDocument.load(await options.stampFile.arrayBuffer(), { ignoreEncryption: true });
+    const [embeddedStamp] = await mainPdf.embedPdf(stampPdf, [0]);
+    pages.forEach((page, index) => {
+      if (options.applyTo === "first-only" && index > 0) return;
+      const { width, height } = page.getSize();
+      page.drawPage(embeddedStamp, { x: 0, y: 0, width, height });
+    });
+  }
+
+  return mainPdf.save();
+}
+
 export default function OverlayPdfTool() {
   const [docFile, setDocFile] = useState<File | null>(null);
   const [docPageCount, setDocPageCount] = useState<number | null>(null);
@@ -90,18 +164,59 @@ export default function OverlayPdfTool() {
 
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [isPreviewing, setIsPreviewing] = useState(false);
+  const [downloadNoticeOpen, setDownloadNoticeOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const docInputRef = useRef<HTMLInputElement>(null);
   const stampInputRef = useRef<HTMLInputElement>(null);
 
+  const invalidateResult = () => {
+    setDownloadUrl(null);
+    setDownloadNoticeOpen(false);
+    setError(null);
+  };
+
   // Limpa URLs de objeto para evitar vazamentos de memória
   useEffect(() => {
+    return () => { if (imagePreviewUrl) URL.revokeObjectURL(imagePreviewUrl); };
+  }, [imagePreviewUrl]);
+
+  useEffect(() => {
+    return () => { if (downloadUrl) URL.revokeObjectURL(downloadUrl); };
+  }, [downloadUrl]);
+
+  useEffect(() => {
+    if (!docFile || !stampFile) return;
+    let cancelled = false;
+    let createdUrl: string | null = null;
+    const timer = window.setTimeout(async () => {
+      setIsPreviewing(true);
+      try {
+        const bytes = await createTimbradoPdf({
+          docFile, stampFile, isImageStamp, position, logoWidth,
+          logoOpacity, margin, applyTo, previewOnly: true,
+        });
+        if (cancelled) return;
+        createdUrl = URL.createObjectURL(new Blob([bytes as unknown as BlobPart], { type: "application/pdf" }));
+        setPreviewUrl(createdUrl);
+      } catch {
+        if (!cancelled) {
+          setPreviewUrl(null);
+          setError("Não foi possível criar a prévia. Verifique se os dois arquivos estão íntegros e sem senha.");
+        }
+      } finally {
+        if (!cancelled) setIsPreviewing(false);
+      }
+    }, 350);
+
     return () => {
-      if (imagePreviewUrl) URL.revokeObjectURL(imagePreviewUrl);
-      if (downloadUrl) URL.revokeObjectURL(downloadUrl);
+      cancelled = true;
+      window.clearTimeout(timer);
+      if (createdUrl) URL.revokeObjectURL(createdUrl);
     };
-  }, [imagePreviewUrl, downloadUrl]);
+  }, [docFile, stampFile, isImageStamp, position, logoWidth, logoOpacity, margin, applyTo]);
 
   // Manipulador para documento base PDF
   const handleDocSelect = async (file: File) => {
@@ -113,6 +228,8 @@ export default function OverlayPdfTool() {
     setDocFile(file);
     setError(null);
     setDownloadUrl(null);
+    setPreviewUrl(null);
+    setDownloadNoticeOpen(false);
 
     try {
       const buffer = await file.arrayBuffer();
@@ -120,7 +237,10 @@ export default function OverlayPdfTool() {
       setDocPageCount(pdf.getPageCount());
     } catch (err) {
       console.error(err);
+      setDocFile(null);
       setDocPageCount(null);
+      setError("Não foi possível ler este PDF. Escolha um documento válido e sem senha.");
+      if (docInputRef.current) docInputRef.current.value = "";
     }
   };
 
@@ -142,6 +262,8 @@ export default function OverlayPdfTool() {
     setIsImageStamp(isImg);
     setError(null);
     setDownloadUrl(null);
+    setPreviewUrl(null);
+    setDownloadNoticeOpen(false);
 
     if (isImg) {
       const preview = URL.createObjectURL(file);
@@ -161,6 +283,7 @@ export default function OverlayPdfTool() {
 
   // Troca de posição inteligente ajustando opacidade sugerida
   const handlePositionChange = (pos: LogoPosition) => {
+    invalidateResult();
     setPosition(pos);
     if (pos === "center-watermark") {
       if (logoOpacity === 100) setLogoOpacity(20);
@@ -179,85 +302,13 @@ export default function OverlayPdfTool() {
 
     setIsProcessing(true);
     setError(null);
+    setDownloadNoticeOpen(false);
 
     try {
-      const docBuffer = await docFile.arrayBuffer();
-      const mainPdf = await PDFDocument.load(docBuffer, { ignoreEncryption: true });
-      const pages = mainPdf.getPages();
-
-      if (isImageStamp) {
-        // --- Fluxo de Logotipo / Imagem (PNG com transparência, JPG, WebP) ---
-        const { bytes: pngBytes, width: imgW, height: imgH } = await imageFileToPngData(stampFile);
-        const embeddedImg = await mainPdf.embedPng(pngBytes);
-        const aspectRatio = imgH / imgW;
-        const drawWidth = logoWidth;
-        const drawHeight = logoWidth * aspectRatio;
-        const opacityVal = Math.min(Math.max(logoOpacity / 100, 0.05), 1.0);
-
-        pages.forEach((page, index) => {
-          if (applyTo === "first-only" && index > 0) return;
-
-          const { width, height } = page.getSize();
-          let x = margin;
-          let y = height - margin - drawHeight;
-
-          switch (position) {
-            case "top-left":
-              x = margin;
-              y = height - margin - drawHeight;
-              break;
-            case "top-center":
-              x = (width - drawWidth) / 2;
-              y = height - margin - drawHeight;
-              break;
-            case "top-right":
-              x = width - margin - drawWidth;
-              y = height - margin - drawHeight;
-              break;
-            case "center-watermark":
-              x = (width - drawWidth) / 2;
-              y = (height - drawHeight) / 2;
-              break;
-            case "bottom-center":
-              x = (width - drawWidth) / 2;
-              y = margin;
-              break;
-            case "bottom-right":
-              x = width - margin - drawWidth;
-              y = margin;
-              break;
-          }
-
-          page.drawImage(embeddedImg, {
-            x,
-            y,
-            width: drawWidth,
-            height: drawHeight,
-            opacity: opacityVal,
-          });
-        });
-      } else {
-        // --- Fluxo de Folha Timbrada Completa (PDF) ---
-        const stampBuffer = await stampFile.arrayBuffer();
-        const stampPdf = await PDFDocument.load(stampBuffer, { ignoreEncryption: true });
-
-        // Embebe a 1ª página da folha timbrada
-        const [embeddedStamp] = await mainPdf.embedPdf(stampPdf, [0]);
-
-        pages.forEach((page, index) => {
-          if (applyTo === "first-only" && index > 0) return;
-
-          const { width, height } = page.getSize();
-          page.drawPage(embeddedStamp, {
-            x: 0,
-            y: 0,
-            width,
-            height,
-          });
-        });
-      }
-
-      const pdfBytes = await mainPdf.save();
+      const pdfBytes = await createTimbradoPdf({
+        docFile, stampFile, isImageStamp, position, logoWidth,
+        logoOpacity, margin, applyTo,
+      });
       const blob = new Blob([pdfBytes as unknown as BlobPart], { type: "application/pdf" });
       const url = URL.createObjectURL(blob);
       setDownloadUrl(url);
@@ -278,6 +329,8 @@ export default function OverlayPdfTool() {
     setImagePreviewUrl(null);
     if (downloadUrl) URL.revokeObjectURL(downloadUrl);
     setDownloadUrl(null);
+    setPreviewUrl(null);
+    setDownloadNoticeOpen(false);
     setError(null);
   };
 
@@ -337,7 +390,8 @@ export default function OverlayPdfTool() {
                 onClick={() => {
                   setDocFile(null);
                   setDocPageCount(null);
-                  setDownloadUrl(null);
+                  invalidateResult();
+                  setPreviewUrl(null);
                   if (docInputRef.current) docInputRef.current.value = "";
                 }}
                 className="text-xs font-bold text-rose-600 hover:text-rose-700 hover:underline shrink-0 cursor-pointer"
@@ -386,6 +440,8 @@ export default function OverlayPdfTool() {
                 <div className="flex items-center gap-3 min-w-0">
                   {isImageStamp && imagePreviewUrl ? (
                     <div className="w-12 h-12 rounded-lg border border-slate-200 dark:border-slate-700 p-1 flex items-center justify-center bg-white dark:bg-slate-900 shrink-0 overflow-hidden relative">
+                      {/* Blob local criado pelo usuário; não há otimização remota para aplicar. */}
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={imagePreviewUrl}
                         alt="Pré-visualização do logotipo"
@@ -413,7 +469,8 @@ export default function OverlayPdfTool() {
                     setIsImageStamp(false);
                     if (imagePreviewUrl) URL.revokeObjectURL(imagePreviewUrl);
                     setImagePreviewUrl(null);
-                    setDownloadUrl(null);
+                    invalidateResult();
+                    setPreviewUrl(null);
                     if (stampInputRef.current) stampInputRef.current.value = "";
                   }}
                   className="text-xs font-bold text-rose-600 hover:text-rose-700 hover:underline shrink-0 cursor-pointer"
@@ -491,7 +548,7 @@ export default function OverlayPdfTool() {
                     }`}
                   >
                     <Sparkles className="w-3.5 h-3.5" />
-                    <span>Marca d'Água</span>
+                    <span>Marca d&apos;Água</span>
                   </button>
 
                   <button
@@ -523,7 +580,7 @@ export default function OverlayPdfTool() {
                     max="450"
                     step="10"
                     value={logoWidth}
-                    onChange={(e) => setLogoWidth(Number(e.target.value))}
+                    onChange={(e) => { invalidateResult(); setLogoWidth(Number(e.target.value)); }}
                     className="w-full accent-blue-600 cursor-pointer"
                   />
                   <div className="flex justify-between text-[10px] text-slate-400 mt-1">
@@ -545,11 +602,11 @@ export default function OverlayPdfTool() {
                     max="100"
                     step="5"
                     value={logoOpacity}
-                    onChange={(e) => setLogoOpacity(Number(e.target.value))}
+                    onChange={(e) => { invalidateResult(); setLogoOpacity(Number(e.target.value)); }}
                     className="w-full accent-blue-600 cursor-pointer"
                   />
                   <div className="flex justify-between text-[10px] text-slate-400 mt-1">
-                    <span>Marca d'água (~20%)</span>
+                    <span>Marca d&apos;água (~20%)</span>
                     <span>Total (100%)</span>
                   </div>
                 </div>
@@ -566,7 +623,7 @@ export default function OverlayPdfTool() {
                     max="70"
                     step="5"
                     value={margin}
-                    onChange={(e) => setMargin(Number(e.target.value))}
+                    onChange={(e) => { invalidateResult(); setMargin(Number(e.target.value)); }}
                     className="w-full accent-blue-600 cursor-pointer"
                   />
                   <div className="flex justify-between text-[10px] text-slate-400 mt-1">
@@ -594,7 +651,7 @@ export default function OverlayPdfTool() {
             <div className="flex items-center gap-2">
               <button
                 type="button"
-                onClick={() => setApplyTo("all")}
+                onClick={() => { invalidateResult(); setApplyTo("all"); }}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition-all cursor-pointer ${
                   applyTo === "all"
                     ? "border-blue-600 bg-blue-50 text-blue-700 dark:bg-blue-950/70 dark:text-blue-300 dark:border-blue-500 shadow-2xs"
@@ -605,7 +662,7 @@ export default function OverlayPdfTool() {
               </button>
               <button
                 type="button"
-                onClick={() => setApplyTo("first-only")}
+                onClick={() => { invalidateResult(); setApplyTo("first-only"); }}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition-all cursor-pointer ${
                   applyTo === "first-only"
                     ? "border-blue-600 bg-blue-50 text-blue-700 dark:bg-blue-950/70 dark:text-blue-300 dark:border-blue-500 shadow-2xs"
@@ -617,6 +674,47 @@ export default function OverlayPdfTool() {
             </div>
           </div>
         </div>
+      )}
+
+      {docFile && stampFile && (
+        <section className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm dark:border-slate-700 dark:bg-slate-950/60" aria-label="Prévia da primeira página">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 bg-white px-4 py-3 dark:border-slate-700 dark:bg-slate-900">
+            <div className="flex items-center gap-2 text-sm font-bold text-slate-800 dark:text-slate-100">
+              <Eye className="h-4 w-4 text-blue-600" aria-hidden="true" />
+              Prévia antes de baixar
+            </div>
+            <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
+              <span>Primeira página {docPageCount && docPageCount > 1 ? `de ${docPageCount}` : ""}</span>
+              {previewUrl && (
+                <a href={previewUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-600 hover:underline dark:text-blue-400">
+                  Abrir prévia
+                </a>
+              )}
+            </div>
+          </div>
+          <div className="relative mx-auto max-w-3xl p-3 sm:p-5">
+            {previewUrl ? (
+              <iframe
+                key={previewUrl}
+                src={`${previewUrl}#toolbar=0&navpanes=0&view=FitH`}
+                title="Prévia da primeira página com o timbre aplicado"
+                className="h-[400px] w-full rounded-lg border border-slate-200 bg-white sm:h-[560px] dark:border-slate-700"
+              />
+            ) : (
+              <div className="flex h-[400px] items-center justify-center rounded-lg border border-dashed border-slate-300 bg-white text-sm text-slate-500 sm:h-[560px] dark:border-slate-700 dark:bg-slate-900">
+                Preparando a prévia…
+              </div>
+            )}
+            {isPreviewing && (
+              <div className="absolute inset-3 flex items-center justify-center rounded-lg bg-white/75 text-sm font-semibold text-slate-700 sm:inset-5 dark:bg-slate-950/75 dark:text-slate-200" role="status">
+                Atualizando prévia…
+              </div>
+            )}
+          </div>
+          <p className="px-4 pb-4 text-center text-xs text-slate-500 dark:text-slate-400">
+            A prévia mostra a primeira página. O PDF final seguirá a opção de páginas selecionada.
+          </p>
+        </section>
       )}
 
       {/* Mensagem de Erro */}
@@ -677,7 +775,7 @@ export default function OverlayPdfTool() {
               </p>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <a
                 href={downloadUrl}
                 target="_blank"
@@ -691,6 +789,7 @@ export default function OverlayPdfTool() {
               <a
                 href={downloadUrl}
                 download={`timbrado_${docFile?.name || "documento.pdf"}`}
+                onClick={() => setDownloadNoticeOpen(true)}
                 className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-sm bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm transition-all"
               >
                 <Download className="w-4 h-4" />
@@ -743,6 +842,7 @@ export default function OverlayPdfTool() {
           <strong>Privacidade Total Garantida:</strong> Nenhum arquivo é enviado para servidores ou nuvem. O processamento vetorial e as imagens são renderizados 100% na memória do seu navegador.
         </p>
       </div>
+      <DownloadSuccessModal isOpen={downloadNoticeOpen} onClose={() => setDownloadNoticeOpen(false)} />
     </div>
   );
 }

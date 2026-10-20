@@ -25,8 +25,8 @@ export function useLanguage() {
 
   // Verifica se a rota atual é explicitamente /es ou /en
   const getRouteLocale = (path: string): Locale | null => {
-    if (path.startsWith("/es")) return "es";
-    if (path.startsWith("/en")) return "en";
+    if (path === "/es" || path.startsWith("/es/")) return "es";
+    if (path === "/en" || path.startsWith("/en/")) return "en";
     return null;
   };
 
@@ -37,9 +37,10 @@ export function useLanguage() {
   });
 
   useEffect(() => {
+    let active = true;
     const routeLoc = getRouteLocale(pathname);
     if (routeLoc) {
-      setLocaleState(routeLoc);
+      queueMicrotask(() => { if (active) setLocaleState(routeLoc); });
       try {
         localStorage.setItem(LANG_STORAGE_KEY, routeLoc);
         document.cookie = `criegratis-lang=${routeLoc}; path=/; max-age=31536000; SameSite=Lax`;
@@ -51,9 +52,10 @@ export function useLanguage() {
       // mantém e sincroniza o idioma salvo previamente sem resetar para português!
       const saved = getSavedLocale();
       if (saved && saved !== locale) {
-        setLocaleState(saved);
+        queueMicrotask(() => { if (active) setLocaleState(saved); });
       }
     }
+    return () => { active = false; };
   }, [pathname]);
 
   const setLocale = (newLocale: Locale) => {

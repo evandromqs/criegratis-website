@@ -1,3 +1,5 @@
+import { NEW_POSTS } from "./new-posts";
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -20,7 +22,34 @@ export interface BlogPost {
   content: string; // Markdown or rich HTML content
 }
 
+const MONTHS_PT_BR: Record<string, string> = {
+  Janeiro: "01",
+  Fevereiro: "02",
+  Março: "03",
+  Abril: "04",
+  Maio: "05",
+  Junho: "06",
+  Julho: "07",
+  Agosto: "08",
+  Setembro: "09",
+  Outubro: "10",
+  Novembro: "11",
+  Dezembro: "12",
+};
+
+export function getPostPublishedISO(post: BlogPost): string {
+  const match = /^(\d{1,2}) de (\p{L}+) de (\d{4})$/u.exec(post.publishedAt);
+  const month = match && MONTHS_PT_BR[match[2]];
+
+  if (!match || !month) {
+    throw new Error(`Data de publicação inválida: ${post.publishedAt}`);
+  }
+
+  return `${match[3]}-${month}-${match[1].padStart(2, "0")}T00:00:00.000Z`;
+}
+
 export const BLOG_POSTS: BlogPost[] = [
+  ...NEW_POSTS,
   {
     slug: "como-tirar-imprimir-foto-3x4-em-casa",
     title: "Como Tirar e Imprimir Foto 3x4 em Casa Dentro das Regras Oficiais",
@@ -141,8 +170,8 @@ Muitos sites de assinatura online enviam seu contrato confidencial para servidor
   },
   {
     slug: "como-censurar-dados-sensiveis-pdf-lgpd",
-    title: "Como Censurar e Ocultar Dados Pessoais em PDF para Conformidade LGPD",
-    description: "Saiba como aplicar tarja preta definitiva em CPF, endereços e contas bancárias em arquivos PDF antes de compartilhar documentos sensíveis.",
+    title: "Como Cobrir Dados Pessoais em PDF Antes de Compartilhar",
+    description: "Saiba como cobrir dados pessoais e criar uma cópia em PDF sem a camada de texto original antes de compartilhar documentos sensíveis.",
     publishedAt: "28 de Setembro de 2026",
     readTime: "4 min de leitura",
     category: "Segurança & Privacidade",
@@ -157,7 +186,7 @@ Muitos sites de assinatura online enviam seu contrato confidencial para servidor
       href: "/censurar-pdf",
       actionText: "Censurar Dados no PDF",
     },
-    summary: "Cuidado: pintar um texto de preto no Word ou desenhar uma linha por cima não remove o texto do arquivo! Veja como aplicar tarjas pretas verdadeiras e permanentes.",
+    summary: "Pintar um texto de preto pode deixá-lo acessível no arquivo. Veja como gerar uma cópia sem a camada de texto original.",
     content: `
 ## O Perigo Silencioso da 'Censura Falsa' em Documentos Digitais
 
@@ -174,14 +203,14 @@ Muitas pessoas cometem o erro grave de:
 
 ## O que a LGPD (Lei Geral de Proteção de Dados) Exige?
 
-A **LGPD (Lei nº 13.709/2018)** determina que dados pessoais desnecessários para a finalidade de um processo ou transação devem ser eliminados ou anonimizados.
+Ao compartilhar documentos, revise quais dados pessoais são necessários para a finalidade. A LGPD exige cuidado no tratamento dessas informações; uma ferramenta de tarja não garante, por si só, conformidade legal.
 
 Ao compartilhar documentos como:
 * Extratos bancários para comprovação de renda;
 * Petições judiciais e contratos de trabalho;
 * Diplomas e laudos médicos com histórico confidencial;
 
-É fundamental utilizar um processo de **Redaction (Redação/Censura Real)**, que sobrepõe vetores e queima as marcações de forma irreversível nas páginas.
+Uma tarja desenhada sobre o PDF original pode manter o texto escondido acessível. Gere uma nova cópia sem essa camada de texto e confira o resultado antes de enviar.
 
 ---
 
@@ -189,17 +218,17 @@ Ao compartilhar documentos como:
 
 1. **Acesse a ferramenta Censurar PDF:** No CrieGrátis, clique em "Censurar PDF".
 2. **Importe seu Documento:** Carregue o PDF que contém os dados a serem mascarados.
-3. **Selecione a Região de Censura:** Com o mouse ou dedo, arraste e crie uma caixa preta sobre o CPF, telefone, número de cartão ou qualquer dado sigiloso.
+3. **Defina a região de censura:** Adicione uma tarja e ajuste X, Y, largura e altura em pontos (pt), medidos a partir do canto inferior esquerdo da página.
 4. **Revise todas as páginas:** Você pode adicionar quantas caixas de censura quiser em qualquer página do documento.
-5. **Processamento Irreversível:** Ao clicar em "Salvar PDF Censurado", o motor do CrieGrátis redesenha o documento incorporando as tarjas pretas diretamente na estrutura gráfica do PDF.
+5. **Gere e confira a cópia:** Ao clicar em "Aplicar Censura e Salvar", o CrieGrátis cria um novo PDF com páginas convertidas em imagens e sem a camada de texto original. Abra a cópia e confira todas as páginas.
 
-Pronto! Seu documento fica 100% protegido contra vazamento de dados, cumprindo as melhores práticas de privacidade.
+Guarde o original com cuidado. Antes de compartilhar a cópia, confirme que nenhuma informação sensível continua visível.
     `,
   },
   {
     slug: "como-reduzir-tamanho-pdf-imagem-email-whatsapp",
     title: "Como Reduzir o Tamanho de PDFs e Imagens para Enviar no E-mail ou WhatsApp",
-    description: "Aprenda técnicas simples para comprimir fotos pesadas e documentos PDF sem perder a qualidade legível, respeitando o limite de 25MB do Gmail e Outlook.",
+    description: "Aprenda a reduzir o tamanho de imagens antes do envio e a identificar o que aumenta um PDF, sem prometer compressão que a ferramenta não oferece.",
     publishedAt: "28 de Setembro de 2026",
     readTime: "4 min de leitura",
     category: "Otimização & Performance",
@@ -210,46 +239,39 @@ Pronto! Seu documento fica 100% protegido contra vazamento de dados, cumprindo a
       avatar: "/evandromqs.png",
     },
     tool: {
-      name: "Comprimir PDF e Imagens",
-      href: "/comprimir-pdf",
-      actionText: "Comprimir PDF Agora",
+      name: "Comprimir Imagem",
+      href: "/comprimir-imagem",
+      actionText: "Comprimir Imagem Agora",
     },
-    summary: "Seu arquivo foi rejeitado porque ultrapassou o limite do Gmail (25MB) ou do portal do PJe? Veja como reduzir o tamanho mantendo o texto 100% nítido.",
+    summary: "Se uma foto ou PDF ficou grande demais para enviar, descubra a causa e reduza imagens antes de montar o documento.",
     content: `
 ## "O arquivo é muito grande para ser enviado": Como resolver esse erro
 
-Quem trabalha com envio de relatórios, apostilas, fotos de câmeras de alta resolução ou processos jurídicos já se deparou com estes limites chatos:
-* **Gmail e Outlook:** limite padrão de **25 MB** por e-mail;
-* **Portais Jurídicos (PJe, Projudi, e-SAJ):** frequentemente limitam anexos a **5 MB** ou **10 MB** por arquivo;
-* **WhatsApp:** comprime imagens agressivamente na conversa, mas como documento tem limites e consome dados móveis do destinatário.
-
-Quando um PDF ou imagem ultrapassa esses tamanhos, você não precisa pagar por softwares caros como Adobe Acrobat para diminuir o peso do arquivo.
+E-mail, mensagens e formulários podem recusar anexos grandes. O limite depende do serviço e pode mudar, então confira a mensagem exibida no momento do envio.
 
 ---
 
 ## O que faz um PDF ou imagem ficar tão pesado?
 
-Existem três motivos principais:
-1. **Resolução excessiva de imagens embutidas:** Imagens tiradas por celulares modernos têm 48MP ou mais e são inseridas no documento em tamanho gigantesco.
-2. **Metadados e históricos:** Softwares de edição acumulam histórico de alterações, perfis de cor e fontes inteiras desnecessárias dentro do arquivo.
-3. **Falta de compressão eficiente de vetores:** O documento não está otimizado para compactação de fluxos de dados.
+Fotos em resolução alta costumam ser a causa mais comum. Um PDF também pode guardar imagens grandes, fontes e outros dados. O tamanho final depende de como ele foi criado.
 
 ---
 
-## Como Comprimir sem Transformar o Texto em Borrão
+## Como Reduzir sem Prejudicar a Leitura
 
-Ao comprimir, o objetivo é reduzir os megabytes **sem que os números e letras fiquem ilegíveis**.
+Ao reduzir uma imagem, confira letras pequenas, números e rostos na prévia. Uma taxa de compressão maior pode diminuir a nitidez.
 
-### Para Documentos e Livros em PDF:
-1. Acesse o **Comprimir PDF** do CrieGrátis;
-2. Arraste seu arquivo (ex: um contrato de 30 MB);
-3. Escolha o nível de compressão desejado (Leve, Balanceado ou Forte);
-4. O motor analisa o documento no seu navegador e reduz o tamanho em até **70% a 90%**, preservando a legibilidade para leitura em telas e impressão.
+### Para um PDF ainda em preparação:
+1. Reduza as fotografias antes de inseri-las no documento.
+2. Ao exportar no editor original, procure as opções de tamanho de imagem e qualidade do PDF.
+3. Abra o arquivo exportado e confira se texto, assinatura e números continuam legíveis.
+
+O CrieGrátis ainda não oferece uma ferramenta específica para comprimir um PDF já pronto. Não há um percentual de redução garantido para todos os arquivos.
 
 ### Para Fotos e Imagens (PNG, JPG, WebP):
 1. Acesse o **Comprimir Imagem** do CrieGrátis;
-2. Ajuste o controle de qualidade visual (dica: qualidade entre **75% e 85%** costuma reduzir mais de 80% do peso do arquivo com diferença visual praticamente invisível ao olho humano);
-3. Baixe a imagem otimizada e envie instantaneamente pelo WhatsApp ou e-mail.
+2. Ajuste a qualidade e compare a imagem antes de baixar.
+3. Baixe a versão menor e confirme que ela atende ao limite informado pelo serviço de destino.
     `,
   },
   {
@@ -300,13 +322,13 @@ Com tecnologias como **WebAssembly (WASM)**, **HTML5 Canvas**, **Web Workers** e
 1. **Privacidade Absoluta (Zero Upload):** Nenhum arquivo, foto, senha ou texto é transmitido pela internet. Tudo é executado na memória RAM do seu navegador. Se você desligar o Wi-Fi após carregar a página, a maioria das ferramentas continuará funcionando perfeitamente!
 2. **Velocidade Instantânea:** Não há tempo de espera para enviar arquivos pesados pela internet e depois baixar novamente. O processamento inicia imediatamente.
 3. **Sem Filas e Sem Limites:** Em servidores de terceiros, usuários gratuitos sofrem com filas de espera para forçar a compra de assinaturas "Pro". No CrieGrátis, como o poder computacional utilizado é o do seu próprio dispositivo, não existem limites diários.
-4. **Conformidade Automática com a LGPD e GDPR:** Sua empresa não precisa se preocupar com termos de transferência internacional de dados ou armazenamento em nuvens não auditadas.
+4. **Menos envio de arquivos:** O processamento local reduz a necessidade de mandar o documento a um serviço de conversão. Ainda é preciso avaliar os demais cuidados de privacidade do seu caso.
 
 ---
 
 ## O Compromisso CrieGrátis
 
-Nascemos com a missão de democratizar ferramentas de alta utilidade, mantendo-as **100% gratuitas, rápidas e com privacidade total**. Conheça nosso catálogo com mais de 70 ferramentas prontas para o seu dia a dia!
+Nascemos com a missão de democratizar ferramentas de alta utilidade, mantendo-as **100% gratuitas, rápidas e com privacidade total**. Conheça nosso catálogo com mais de 80 ferramentas prontas para o seu dia a dia!
     `,
   },
   {

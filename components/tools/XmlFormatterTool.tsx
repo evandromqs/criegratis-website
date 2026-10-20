@@ -21,7 +21,7 @@ function formatXML(xml: string, indentSize: number = 2): { formatted: string; er
     // Algoritmo de formatação com recuo
     const PADDING = " ".repeat(indentSize);
     const reg = /(>)(<)(\/*)/g;
-    let formatted = xml.replace(/\r?\n/g, "").replace(reg, "$1\r\n$2$3");
+    const formatted = xml.replace(/\r?\n/g, "").replace(reg, "$1\r\n$2$3");
     let pad = 0;
 
     const lines = formatted.split("\r\n").map((node) => {

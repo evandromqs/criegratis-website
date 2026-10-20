@@ -9,9 +9,10 @@ import FavoriteButton from "./FavoriteButton";
 interface ToolLayoutProps {
   tool: ToolInfo;
   children: React.ReactNode;
+  showSupportCard?: boolean;
 }
 
-export default function ToolLayout({ tool, children }: ToolLayoutProps) {
+export default function ToolLayout({ tool, children, showSupportCard = true }: ToolLayoutProps) {
   return (
     <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#0B0F19] pb-16 transition-colors duration-200">
       {/* Container Principal */}
@@ -57,9 +58,11 @@ export default function ToolLayout({ tool, children }: ToolLayoutProps) {
         </div>
 
         {/* Card Discreto de Apoio ao Projeto (Logo após o uso da ferramenta) */}
-        <div className="mt-6">
-          <SupportCard />
-        </div>
+        {showSupportCard && (
+          <div className="mt-6">
+            <SupportCard />
+          </div>
+        )}
 
         {/* Conteúdo Informativo & SEO On-Page */}
         <div className="mt-10 space-y-8 text-[#0F172A] dark:text-[#F1F5F9]">

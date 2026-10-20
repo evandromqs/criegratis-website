@@ -43,7 +43,7 @@ export default function RotatePdfTool() {
         initial.push({ pageIndex: i, rotation: currentRot });
       }
       setPageRotations(initial);
-    } catch (err: any) {
+    } catch (err: unknown) {
       setError('Não foi possível ler o arquivo PDF.');
       setFile(null);
       setPageRotations([]);
@@ -98,7 +98,7 @@ export default function RotatePdfTool() {
       URL.revokeObjectURL(url);
 
       setSuccess(true);
-    } catch (err: any) {
+    } catch (err: unknown) {
       setError('Erro ao salvar o PDF rotacionado.');
     } finally {
       setIsProcessing(false);

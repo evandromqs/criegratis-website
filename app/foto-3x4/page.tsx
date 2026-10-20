@@ -26,7 +26,7 @@ export default function Photo3x4Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
       />
-      <ToolLayout tool={tool}>
+      <ToolLayout tool={tool} showSupportCard={false}>
         <Photo3x4Tool />
       </ToolLayout>
     </>

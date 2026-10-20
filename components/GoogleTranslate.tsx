@@ -5,7 +5,10 @@ import Script from "next/script";
 
 declare global {
   interface Window {
-    google?: any;
+    google?: { translate?: { TranslateElement?: {
+      new (options: { pageLanguage: string; includedLanguages: string; autoDisplay: boolean; layout?: string }, elementId: string): unknown;
+      InlineLayout?: { SIMPLE?: string };
+    } } };
     googleTranslateElementInit?: () => void;
   }
 }

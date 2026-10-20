@@ -81,7 +81,7 @@ export const TRANSLATIONS: Record<Locale, TranslationDictionary> = {
       appWindows: "App Windows",
     },
     hero: {
-      badge: "Mais de 70 ferramentas 100% no seu navegador",
+      badge: "Mais de 80 ferramentas 100% no seu navegador",
       titleStart: "Ferramentas gratuitas para",
       titleHighlight: "criar, converter e resolver.",
       titleEnd: "",
@@ -135,7 +135,7 @@ export const TRANSLATIONS: Record<Locale, TranslationDictionary> = {
       appWindows: "App Windows",
     },
     hero: {
-      badge: "Más de 70 herramientas 100% en tu navegador",
+      badge: "Más de 80 herramientas 100% en tu navegador",
       titleStart: "Herramientas gratuitas para",
       titleHighlight: "crear, convertir y resolver.",
       titleEnd: "",
@@ -189,7 +189,7 @@ export const TRANSLATIONS: Record<Locale, TranslationDictionary> = {
       appWindows: "Windows App",
     },
     hero: {
-      badge: "70+ free utility tools 100% in your browser",
+      badge: "80+ free utility tools 100% in your browser",
       titleStart: "Free web tools to",
       titleHighlight: "create, convert and solve.",
       titleEnd: "",
@@ -304,7 +304,7 @@ export const INTERNATIONAL_SHOWCASE_TOOLS: InternationalToolItem[] = [
     },
     description: {
       pt: "Desenhe sua assinatura touch ou insira imagem para assinar contratos sem imprimir papel.",
-      es: "Dibuja tu firma digital o inserta tu rúbrica para firmar contratos sin imprimir papel.",
+      es: "Dibuja tu firma manuscrita o inserta tu rúbrica en documentos sin imprimir papel.",
       en: "Draw your signature or upload initials to sign digital contracts without printing paper.",
     },
     actionText: {
@@ -326,7 +326,7 @@ export const INTERNATIONAL_SHOWCASE_TOOLS: InternationalToolItem[] = [
     description: {
       pt: "Reduza o peso de imagens JPG, PNG e WebP em até 90% mantendo máxima nitidez visual.",
       es: "Reduce el tamaño de imágenes JPG, PNG y WebP hasta un 90% preservando la calidad visual.",
-      en: "Reduce the file size of JPG, PNG and WebP images by up to 90% with zero quality loss.",
+      en: "Reduce the file size of JPG, PNG and WebP images while balancing size and visual quality.",
     },
     actionText: {
       pt: "Comprimir Agora",

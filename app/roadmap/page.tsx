@@ -17,12 +17,12 @@ import { SITE_URL } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Roadmap Oficial — Rumo às 100 Ferramentas Gratuitas | CrieGrátis",
   description:
-    "Acompanhe o desenvolvimento público do CrieGrátis. Veja as 70 ferramentas lançadas (70% da meta alcançada!) e as próximas novidades rumo às 100 ferramentas 100% privadas no navegador.",
+    "Acompanhe o desenvolvimento público do CrieGrátis. Veja as 80 ferramentas lançadas (80% da meta alcançada!) e as próximas novidades rumo às 100 ferramentas 100% privadas no navegador.",
   alternates: {
     canonical: `${SITE_URL}/roadmap`,
   },
   openGraph: {
-    title: "Roadmap CrieGrátis — 70 Ferramentas Lançadas Rumo às 100",
+    title: "Roadmap CrieGrátis — 80 Ferramentas Lançadas Rumo às 100",
     description:
       "Acompanhe as próximas ferramentas gratuitas, rápidas e 100% client-side que estamos construindo.",
     url: `${SITE_URL}/roadmap`,
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
 
 export default function RoadmapPage() {
   const totalTools = 100;
-  const availableTools = 70;
-  const plannedTools = 30;
+  const availableTools = 80;
+  const plannedTools = 20;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:py-12 sm:px-6 lg:px-8 space-y-10 sm:space-y-14">

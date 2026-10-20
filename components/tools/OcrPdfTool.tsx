@@ -2,16 +2,15 @@
 
 import React, { useState } from "react";
 import {
-  FileText,
   Copy,
   Check,
   Download,
-  RefreshCw,
   ShieldCheck,
   Sparkles,
   FileCode,
 } from "lucide-react";
 import FileDropzone from "@/components/FileDropzone";
+import DownloadSuccessModal from "@/components/DownloadSuccessModal";
 
 export default function OcrPdfTool() {
   const [file, setFile] = useState<File | null>(null);
@@ -19,6 +18,7 @@ export default function OcrPdfTool() {
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [notice, setNotice] = useState(false);
 
   const handleFile = async (selectedFile: File) => {
     setFile(selectedFile);
@@ -27,58 +27,26 @@ export default function OcrPdfTool() {
     setIsProcessing(true);
 
     try {
-      if (selectedFile.type === "application/pdf" || selectedFile.name.toLowerCase().endsWith(".pdf")) {
-        // Leitura do fluxo binário e extração das strings e blocos de texto
-        const buffer = await selectedFile.arrayBuffer();
-        const bytes = new Uint8Array(buffer);
-        const decoder = new TextDecoder("utf-8", { fatal: false });
-        const rawContent = decoder.decode(bytes);
-
-        // Regex inteligente para capturar fluxos de texto em PDFs (operadores TJ, Tj e blocos textuais)
-        const textMatches: string[] = [];
-        const regexBT = /\(([^)]+)\)\s*(?:Tj|'|")/g;
-        let match;
-        while ((match = regexBT.exec(rawContent)) !== null) {
-          if (match[1] && match[1].trim().length > 0) {
-            textMatches.push(match[1]);
-          }
+      if (selectedFile.type !== "application/pdf" && !selectedFile.name.toLowerCase().endsWith(".pdf")) throw new Error("file type");
+      const pdfjs = await import("pdfjs-dist");
+      pdfjs.GlobalWorkerOptions.workerSrc = "/vendor/pdf.worker.min.mjs";
+      const task = pdfjs.getDocument({ data: new Uint8Array(await selectedFile.arrayBuffer()) });
+      try {
+        const pdf = await task.promise;
+        const pages: string[] = [];
+        for (let index = 1; index <= pdf.numPages; index++) {
+          const page = await pdf.getPage(index);
+          const content = await page.getTextContent();
+          const pageText = content.items.map((item) => "str" in item ? item.str : "").join(" ").trim();
+          if (pageText) pages.push(`Página ${index}\n${pageText}`);
+          page.cleanup();
         }
-
-        // Se não achou com regex BT, procura por sequências de texto legíveis em streams
-        if (textMatches.length === 0) {
-          const readableStrings = rawContent
-            .replace(/[\r\n\t]+/g, " ")
-            .split(/[^a-zA-Z0-9À-ÿ\s.,;:?!@#$%\-_/\\()]/)
-            .filter((str) => str.trim().length > 3 && /\s/.test(str));
-
-          if (readableStrings.length > 0) {
-            textMatches.push(...readableStrings.slice(0, 100));
-          }
-        }
-
-        const cleanText = textMatches.join(" ").replace(/\\([()\\])/g, "$1").trim();
-
-        if (cleanText.length > 0) {
-          setExtractedText(cleanText);
-        } else {
-          setExtractedText(
-            `Arquivo: ${selectedFile.name}\n` +
-            `Tamanho: ${(selectedFile.size / 1024).toFixed(1)} KB\n\n` +
-            "Aviso: Este PDF aparenta ser uma imagem escaneada ou vetorizada sem camada de texto nativa embutida. " +
-            "Se for um documento escaneado, utilize a opção de extração direta de imagens para melhor legibilidade."
-          );
-        }
-      } else {
-        // Arquivo de imagem
-        setExtractedText(
-          `Arquivo de Imagem: ${selectedFile.name}\n` +
-          `Dimensões do arquivo: ${(selectedFile.size / 1024).toFixed(1)} KB\n\n` +
-          "Processamento concluído. O texto foi catalogado e está pronto para consulta e edição local."
-        );
-      }
+        if (pages.length === 0) setError("Este PDF não contém texto selecionável. A ferramenta não reconhece texto de páginas digitalizadas ou imagens.");
+        else setExtractedText(pages.join("\n\n"));
+      } finally { await task.destroy(); }
     } catch (err) {
       console.error(err);
-      setError("Erro ao processar e extrair o texto do arquivo.");
+      setError("Não foi possível ler o texto deste PDF. Confira se o arquivo está íntegro e sem senha.");
     } finally {
       setIsProcessing(false);
     }
@@ -99,6 +67,7 @@ export default function OcrPdfTool() {
     a.href = url;
     a.download = `texto_extraido_${file?.name.replace(/\.[^/.]+$/, "") || "documento"}.txt`;
     a.click();
+    setNotice(true);
     URL.revokeObjectURL(url);
   };
 
@@ -109,7 +78,7 @@ export default function OcrPdfTool() {
     <div className="space-y-6">
       {!file ? (
         <FileDropzone
-          accept="application/pdf,image/*"
+          accept="application/pdf"
           onFileSelect={handleFile}
           maxSizeMB={30}
         />
@@ -124,7 +93,7 @@ export default function OcrPdfTool() {
               <div>
                 <h4 className="text-sm font-bold text-slate-800 dark:text-slate-100 break-all">{file.name}</h4>
                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                  {wordCount} palavras • {charCount} caracteres
+                  {isProcessing ? "Lendo PDF…" : `${wordCount} palavras • ${charCount} caracteres`}
                 </p>
               </div>
             </div>
@@ -143,7 +112,7 @@ export default function OcrPdfTool() {
               <button
                 type="button"
                 onClick={handleCopy}
-                disabled={!extractedText}
+                disabled={!extractedText || isProcessing}
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 shadow-xs cursor-pointer"
               >
                 {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
@@ -152,7 +121,7 @@ export default function OcrPdfTool() {
               <button
                 type="button"
                 onClick={handleDownloadTxt}
-                disabled={!extractedText}
+                disabled={!extractedText || isProcessing}
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-xs cursor-pointer"
               >
                 <Download className="w-4 h-4" />
@@ -196,6 +165,7 @@ export default function OcrPdfTool() {
           </div>
         </div>
       )}
+      <DownloadSuccessModal isOpen={notice} onClose={() => setNotice(false)} />
     </div>
   );
 }

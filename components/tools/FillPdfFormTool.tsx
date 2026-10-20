@@ -10,7 +10,7 @@ import {
   Edit3,
   Layers,
 } from "lucide-react";
-import { PDFDocument } from "pdf-lib";
+import { PDFDocument, PDFTextField } from "pdf-lib";
 import FileDropzone from "@/components/FileDropzone";
 
 interface FormFieldItem {
@@ -50,8 +50,7 @@ export default function FillPdfFormTool() {
         const mapped = formFields.map((f) => {
           let val = "";
           try {
-            // @ts-ignore
-            val = f.getText?.() || "";
+            val = f instanceof PDFTextField ? f.getText() || "" : "";
           } catch (e) {}
 
           return {
@@ -98,9 +97,7 @@ export default function FillPdfFormTool() {
         fields.forEach((f) => {
           try {
             const field = form.getField(f.name);
-            // @ts-ignore
-            if (field && typeof field.setText === "function") {
-              // @ts-ignore
+            if (field instanceof PDFTextField) {
               field.setText(f.value);
             }
           } catch (e) {

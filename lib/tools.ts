@@ -1,3 +1,5 @@
+import { NEW_TOOLS } from "./new-tools";
+
 export interface FAQItem {
   question: string;
   answer: string;
@@ -1795,13 +1797,13 @@ export const TOOLS: ToolInfo[] = [
     slug: "censurar-pdf",
     name: "Censurar e Redigir PDF",
     shortDescription: "Aplique tarjas pretas sobre CPFs, dados bancários e nomes em PDFs.",
-    fullDescription: "Proteja informações sensíveis antes de compartilhar documentos. Aplique tarjas de censura definitivas sobre números de documentos, valores, telefones e endereços confidenciais.",
+    fullDescription: "Cubra informações sensíveis e gere um novo PDF com páginas convertidas em imagens, sem a camada de texto original. Confira cada tarja antes de compartilhar.",
     category: "desenvolvedor",
     keywords: ["censurar pdf", "tarja preta pdf", "redigir pdf", "ocultar dados pdf", "proteger dados sensiveis pdf"],
     icon: "EyeOff",
     href: "/censurar-pdf",
     metaTitle: "Censurar Dados em PDF Online - Tarja Preta Grátis | CrieGrátis",
-    metaDescription: "Aplique tarjas pretas e oculte dados pessoais confidenciais (CPF, telefone, nomes) em PDFs de forma permanente e segura no seu navegador.",
+    metaDescription: "Cubra dados pessoais no PDF e exporte páginas como imagens em um novo arquivo, sem manter o texto original sob as tarjas.",
     h1: "Censurar e Redigir PDF Online",
     badge: "Novo",
     usageSteps: [
@@ -1811,30 +1813,30 @@ export const TOOLS: ToolInfo[] = [
       "Clique em 'Aplicar Censura e Salvar' para baixar o PDF protegido."
     ],
     features: [
-      "Tarjas opacas gravadas diretamente no arquivo vetorial",
+      "Novo PDF com páginas convertidas em imagens",
       "Suporte a múltiplas tarjas por página",
       "Cores preta e branca para combinar com o fundo do documento",
-      "Garante conformidade com a LGPD sem risco de vazamentos"
+      "Processamento no navegador, sem envio do documento"
     ],
     faqs: [
       {
         question: "Alguém consegue remover a tarja preta depois?",
-        answer: "Não. A ferramenta grava o bloco opaco diretamente na matriz do PDF, sobrepondo o conteúdo físico da página."
+        answer: "O PDF exportado não inclui a camada de texto original. Ainda assim, confira visualmente todas as páginas e evite compartilhar o arquivo original."
       }
     ]
   },
   {
     slug: "ocr-pdf",
-    name: "Extrator de Texto e OCR de PDF",
+    name: "Extrair Texto de PDF",
     shortDescription: "Extraia textos de arquivos PDF e documentos no navegador.",
     fullDescription: "Extraia o conteúdo textual de arquivos PDF de forma rápida e precisa. Copie o texto completo com 1 clique ou faça download de um arquivo .TXT organizado.",
     category: "desenvolvedor",
-    keywords: ["ocr pdf", "extrair texto pdf", "pdf para texto", "converter pdf em txt", "copiar texto de pdf"],
+    keywords: ["extrair texto pdf", "pdf para texto", "converter pdf em txt", "copiar texto de pdf"],
     icon: "FileCode",
     href: "/ocr-pdf",
-    metaTitle: "Extrair Texto de PDF Online Grátis - OCR Client-Side | CrieGrátis",
+    metaTitle: "Extrair Texto de PDF Online Grátis | CrieGrátis",
     metaDescription: "Extraia todo o texto de documentos PDF com velocidade e precisão no seu navegador. Copie ou baixe o conteúdo em TXT sem limites.",
-    h1: "Extrator de Texto e OCR de PDF",
+    h1: "Extrair Texto de PDF",
     badge: "Novo",
     usageSteps: [
       "Carregue o arquivo PDF que você deseja ler.",
@@ -1850,8 +1852,8 @@ export const TOOLS: ToolInfo[] = [
     ],
     faqs: [
       {
-        question: "Funciona com PDFs protegidos por cópia?",
-        answer: "Sim, a ferramenta lê os fluxos de texto na memória do arquivo e permite extrair conteúdos mesmo quando a seleção com o mouse está bloqueada pelo leitor tradicional."
+        question: "Funciona com PDFs digitalizados ou imagens?",
+        answer: "Não. A ferramenta extrai a camada de texto existente no PDF. Páginas que são apenas imagens precisam de reconhecimento óptico de caracteres (OCR), que não está disponível aqui."
       }
     ]
   },
@@ -2338,7 +2340,8 @@ export const TOOLS: ToolInfo[] = [
         answer: "Nosso cérebro associa uma profundidade de campo muito estreita a objetos minúsculos vistos de perto. Ao desfocar o topo e a base da foto, simulamos essa mesma ilusão ótica de macrofotografia."
       }
     ]
-  }
+  },
+  ...NEW_TOOLS,
 ];
 
 export function getToolBySlug(slug: string): ToolInfo | undefined {

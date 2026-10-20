@@ -45,7 +45,7 @@ export default function ProfitSharingTool() {
     setPartners(partners.filter(p => p.id !== id));
   };
 
-  const handleUpdatePartner = (id: string, field: 'name' | 'shares', value: any) => {
+  const handleUpdatePartner = (id: string, field: 'name' | 'shares', value: string | number) => {
     setPartners(partners.map(p => {
       if (p.id === id) {
         return { ...p, [field]: value };

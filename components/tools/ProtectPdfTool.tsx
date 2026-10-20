@@ -65,7 +65,7 @@ export default function ProtectPdfTool() {
       URL.revokeObjectURL(url);
 
       setSuccess(true);
-    } catch (err: any) {
+    } catch (err: unknown) {
       setError('Erro ao criptografar o documento PDF. Verifique se o arquivo original já não está protegido.');
     } finally {
       setIsProcessing(false);

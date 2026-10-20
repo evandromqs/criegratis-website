@@ -2,19 +2,19 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BookOpen, Clock, ArrowRight, Sparkles, ChevronRight, Home, ShieldCheck } from "lucide-react";
-import { BLOG_POSTS } from "@/lib/posts";
+import { BLOG_POSTS, getPostPublishedISO } from "@/lib/posts";
 import { SITE_URL, SITE_NAME } from "@/lib/seo";
 import MicrosoftStoreSection from "@/components/MicrosoftStoreSection";
 
 export const metadata: Metadata = {
-  title: "Blog & Tutoriais — Guias Práticos para PDF, Imagens e Produtividade",
-  description: "Aprenda a assinar PDFs, criar fotos 3x4, censurar dados confidenciais com tarja preta e otimizar imagens com privacidade e segurança 100% no navegador.",
+  title: "Blog & Tutoriais — Guias de PDF, Fotos e Documentos",
+  description: "Tutoriais sobre PDFs, foto 3x4, assinaturas, papel timbrado e preparação de documentos com ferramentas gratuitas.",
   alternates: {
     canonical: `${SITE_URL}/blog`,
   },
   openGraph: {
     title: "Blog & Guias Práticos | CrieGrátis",
-    description: "Tutoriais passo a passo sobre edição de documentos, fotos, segurança de dados e uso eficiente de ferramentas online gratuitas.",
+    description: "Tutoriais práticos sobre documentos, PDFs, foto 3x4 e imagens com ferramentas online gratuitas.",
     url: `${SITE_URL}/blog`,
     siteName: SITE_NAME,
     locale: "pt_BR",
@@ -34,7 +34,7 @@ export default function BlogIndexPage() {
       headline: post.title,
       description: post.description,
       url: `${SITE_URL}/blog/${post.slug}`,
-      datePublished: "2026-09-28",
+      datePublished: getPostPublishedISO(post),
       author: {
         "@type": "Person",
         name: post.author.name,

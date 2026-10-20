@@ -29,19 +29,10 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: {
-    default: "Crie Grátis — Ferramentas Gratuitas",
-    template: `%s | ${SITE_NAME}`,
-  },
+  title: "Crie Grátis — Ferramentas Gratuitas",
   description: DEFAULT_DESCRIPTION,
   alternates: {
     canonical: "./",
-    languages: {
-      "pt-BR": SITE_URL,
-      es: `${SITE_URL}/es`,
-      en: `${SITE_URL}/en`,
-      "x-default": SITE_URL,
-    },
   },
   keywords: [
     "crie gratis",

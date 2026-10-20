@@ -4,7 +4,7 @@ import InternationalHome from "@/components/InternationalHome";
 import { SITE_URL, SITE_NAME } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Crie Grátis — Más de 70 Herramientas Online Gratuitas y 100% en el Navegador",
+  title: "Crie Grátis — Más de 80 Herramientas Online Gratuitas",
   description:
     "Herramientas gratuitas para unir y firmar PDF, generar códigos QR, comprimir imágenes, fotos para documentos y más. 100% en tu navegador con privacidad total.",
   alternates: {

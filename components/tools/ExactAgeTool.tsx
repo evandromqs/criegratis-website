@@ -40,13 +40,13 @@ export default function ExactAgeTool() {
     totalDays = Math.floor((now.getTime() - bDate.getTime()) / (1000 * 60 * 60 * 24));
     totalHours = Math.floor((now.getTime() - bDate.getTime()) / (1000 * 60 * 60));
 
-    let curYear = now.getFullYear();
-    let curMonth = now.getMonth();
-    let curDay = now.getDate();
+    const curYear = now.getFullYear();
+    const curMonth = now.getMonth();
+    const curDay = now.getDate();
 
-    let bYear = bDate.getFullYear();
-    let bMonth = bDate.getMonth();
-    let bDay = bDate.getDate();
+    const bYear = bDate.getFullYear();
+    const bMonth = bDate.getMonth();
+    const bDay = bDate.getDate();
 
     years = curYear - bYear;
     months = curMonth - bMonth;

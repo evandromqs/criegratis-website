@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useSyncExternalStore } from "react";
 
 export const STRIPE_DONATION_URL = "https://donate.stripe.com/eVq4gz6YG3f51tU9wB1kA01";
 
@@ -22,6 +22,7 @@ const BRAZILIAN_TIMEZONES = [
   "America/Santarem",
   "America/Eirunepe",
 ];
+const noSubscribe = () => () => {};
 
 export function checkBrowserIsInternational(): boolean {
   if (typeof window === "undefined") return false;
@@ -37,16 +38,13 @@ export function checkBrowserIsInternational(): boolean {
 }
 
 export function useIsInternational() {
-  const [isInternational, setIsInternational] = useState<boolean>(false);
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const browserInternational = useSyncExternalStore(noSubscribe, checkBrowserIsInternational, () => false);
+  const isLoaded = useSyncExternalStore(noSubscribe, () => true, () => false);
+  const [remoteInternational, setRemoteInternational] = useState<boolean | null>(null);
 
   useEffect(() => {
     // 1. Verificação instantânea local por Timezone do navegador
-    const browserSaysInternational = checkBrowserIsInternational();
-    setIsInternational(browserSaysInternational);
-    setIsLoaded(true);
-
-    // 2. Confirmação precisa via IP pelo cabeçalho da Vercel (/api/geo)
+    // Confirmação via IP pelo cabeçalho da Vercel (/api/geo)
     fetch("/api/geo")
       .then((res) => {
         if (!res.ok) throw new Error("Erro na rota geo");
@@ -54,7 +52,7 @@ export function useIsInternational() {
       })
       .then((data) => {
         if (typeof data.isInternational === "boolean") {
-          setIsInternational(data.isInternational);
+          setRemoteInternational(data.isInternational);
         }
       })
       .catch(() => {
@@ -63,7 +61,7 @@ export function useIsInternational() {
   }, []);
 
   return {
-    isInternational,
+    isInternational: remoteInternational ?? browserInternational,
     isLoaded,
     stripeUrl: STRIPE_DONATION_URL,
   };

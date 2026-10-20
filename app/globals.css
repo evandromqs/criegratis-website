@@ -137,3 +137,32 @@ body {
 .goog-te-balloon-frame {
   display: none !important;
 }
+@media (max-height: 480px) {
+  .download-success-card {
+    padding: 10px;
+  }
+
+  .download-success-icon {
+    display: none;
+  }
+
+  .download-success-message {
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  .download-success-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 8px;
+  }
+
+  .download-success-optional {
+    margin-top: 4px;
+  }
+
+  .download-success-dismiss {
+    margin-top: 0;
+    min-height: 32px;
+  }
+}

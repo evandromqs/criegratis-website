@@ -78,7 +78,7 @@ export default function BusinessDaysTool() {
 
   let totalCalendarDays = 0;
   let businessDaysCount = 0;
-  let holidaysList: { date: string; name: string }[] = [];
+  const holidaysList: { date: string; name: string }[] = [];
 
   if (isValidBetween && start <= end) {
     const years = new Set<number>();
@@ -109,7 +109,7 @@ export default function BusinessDaysTool() {
 
   // Calculation for mode "add"
   let targetDateStr = '';
-  let addHolidaysEncountered: { date: string; name: string }[] = [];
+  const addHolidaysEncountered: { date: string; name: string }[] = [];
   const numDaysToAdd = parseInt(daysToAdd) || 0;
 
   if (mode === 'add' && !isNaN(start.getTime()) && numDaysToAdd > 0) {

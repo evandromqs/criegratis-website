@@ -16,7 +16,7 @@ import {
   CheckCircle2,
   ShieldCheck,
 } from "lucide-react";
-import { BLOG_POSTS, getPostBySlug } from "@/lib/posts";
+import { BLOG_POSTS, getPostBySlug, getPostPublishedISO } from "@/lib/posts";
 import { SITE_URL, SITE_NAME } from "@/lib/seo";
 import MicrosoftStoreSection from "@/components/MicrosoftStoreSection";
 
@@ -47,7 +47,7 @@ export async function generateMetadata({
   const postUrl = `${SITE_URL}/blog/${post.slug}`;
 
   return {
-    title: `${post.title} | Blog CrieGrátis`,
+    title: `${post.title} | Crie Grátis`,
     description: post.description,
     alternates: {
       canonical: postUrl,
@@ -59,7 +59,7 @@ export async function generateMetadata({
       siteName: SITE_NAME,
       locale: "pt_BR",
       type: "article",
-      publishedTime: "2026-09-28T00:00:00.000Z",
+      publishedTime: getPostPublishedISO(post),
       authors: [post.author.name],
     },
     twitter: {
@@ -84,8 +84,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.description,
-    datePublished: "2026-09-28T00:00:00.000Z",
-    dateModified: "2026-09-28T00:00:00.000Z",
+    datePublished: getPostPublishedISO(post),
     author: {
       "@type": "Person",
       name: post.author.name,
@@ -362,7 +361,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             href="/ferramentas"
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#2563EB] dark:text-[#38BDF8] hover:underline"
           >
-            <span>Explorar 70+ ferramentas</span>
+            <span>Explorar 80+ ferramentas</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

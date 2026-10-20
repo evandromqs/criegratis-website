@@ -24,16 +24,22 @@ import { TOOLS } from "@/lib/tools";
 import { SITE_URL, SITE_NAME } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Crie Grátis — 70+ Ferramentas Gratuitas Online e 100% no Navegador",
+  title: "Crie Grátis — 80+ Ferramentas Gratuitas Online e 100% no Navegador",
   description:
-    "Mais de 70 ferramentas online gratuitas para editar imagens, assinar e juntar PDFs, criar QR Code, gerar senhas fortes e calcular com privacidade 100% no seu navegador.",
+    "Mais de 80 ferramentas online gratuitas para editar imagens, assinar e juntar PDFs, criar QR Code, gerar senhas fortes e calcular com privacidade 100% no seu navegador.",
   alternates: {
     canonical: SITE_URL,
+    languages: {
+      "pt-BR": SITE_URL,
+      es: `${SITE_URL}/es`,
+      en: `${SITE_URL}/en`,
+      "x-default": SITE_URL,
+    },
   },
   openGraph: {
     title: "Crie Grátis — Ferramentas Gratuitas Online",
     description:
-      "Mais de 70 ferramentas no seu dia a dia: edição de imagens, suíte de PDFs, gerador de senhas, QR code e calculadoras. Rápido, seguro e 100% no navegador.",
+      "Mais de 80 ferramentas no seu dia a dia: edição de imagens, suíte de PDFs, gerador de senhas, QR code e calculadoras. Rápido, seguro e 100% no navegador.",
     url: SITE_URL,
     siteName: SITE_NAME,
     locale: "pt_BR",
@@ -65,12 +71,12 @@ const HOME_FAQS = [
   {
     question: "Como posso sugerir novas ferramentas para a plataforma?",
     answer:
-      "A comunidade é o coração do projeto! Você pode acessar nossa página de Roadmap para acompanhar as 70 ferramentas já lançadas e as próximas novidades rumo a 100, ou sugerir novas ideias na página de contato.",
+      "A comunidade é o coração do projeto! Você pode acessar nossa página de Roadmap para acompanhar as 80 ferramentas já lançadas e as próximas novidades rumo a 100, ou sugerir novas ideias na página de contato.",
   },
 ];
 
 export default function HomePage() {
-  // Schema.org FAQPage para maximizar o ranqueamento orgânico no Google
+  // Dados estruturados das perguntas exibidas na página.
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -336,7 +342,7 @@ export default function HomePage() {
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-purple-50 dark:bg-purple-950/50 text-[#8B5CF6] dark:text-[#A78BFA] border border-purple-100 dark:border-purple-900/50">
                 <Sparkles className="h-5 w-5" />
               </div>
-              <h3 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-white">70+ Ferramentas</h3>
+              <h3 className="text-sm sm:text-base font-bold text-[#0F172A] dark:text-white">80+ Ferramentas</h3>
               <p className="text-xs text-[#475569] dark:text-[#94A3B8] leading-relaxed">
                 Catálogo completo para converter imagens, manipular texto, gerar códigos e calcular.
               </p>

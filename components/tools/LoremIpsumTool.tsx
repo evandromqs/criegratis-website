@@ -171,7 +171,7 @@ export default function LoremIpsumTool() {
                 onChange={(e) => setStartWithLorem(e.target.checked)}
                 className="rounded-md border-slate-300 text-blue-600 focus:ring-blue-500 h-4 w-4"
               />
-              <span>Iniciar com "Lorem ipsum"</span>
+              <span>Iniciar com &quot;Lorem ipsum&quot;</span>
             </label>
 
             {type === "paragraphs" && (

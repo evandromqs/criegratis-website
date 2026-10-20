@@ -41,8 +41,8 @@ export default function UnlockPdfTool() {
       let pdf: PDFDocument;
       try {
         pdf = await PDFDocument.load(buffer, { password: password || undefined });
-      } catch (err: any) {
-        if (err.message && err.message.toLowerCase().includes('password')) {
+      } catch (err: unknown) {
+        if (err instanceof Error && err.message.toLowerCase().includes('password')) {
           setError('Senha incorreta para este documento PDF. Verifique e tente novamente.');
           return;
         }
@@ -61,7 +61,7 @@ export default function UnlockPdfTool() {
       URL.revokeObjectURL(url);
 
       setSuccess(true);
-    } catch (err: any) {
+    } catch (err: unknown) {
       setError('Não foi possível desbloquear o PDF. Certifique-se de que a senha digitada é a correta.');
     } finally {
       setIsProcessing(false);

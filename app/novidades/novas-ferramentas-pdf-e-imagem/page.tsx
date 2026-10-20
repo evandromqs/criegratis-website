@@ -17,7 +17,7 @@ import { SITE_URL, SITE_NAME } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Lançamento: 20 Novas Ferramentas de PDF e Imagem 100% Client-Side | CrieGrátis",
-  description: "Conheça as 20 novas ferramentas gratuitas de PDF e edição de imagens lançadas no CrieGrátis: assinar PDF, foto 3x4, censura de dados, mockups, OCR e muito mais.",
+  description: "Conheça as 20 novas ferramentas gratuitas de PDF e edição de imagens lançadas no CrieGrátis: assinar PDF, foto 3x4, censura de dados, mockups e extração de texto.",
   alternates: {
     canonical: `${SITE_URL}/novidades/novas-ferramentas-pdf-e-imagem`,
   },
@@ -53,13 +53,13 @@ const PDF_TOOLS = [
   {
     name: "Censurar e Redigir PDF",
     href: "/censurar-pdf",
-    desc: "Aplique tarjas pretas sobre CPFs, dados bancários e nomes em conformidade estrita com a LGPD e privacidade.",
+    desc: "Cubra dados pessoais e gere uma cópia do PDF sem a camada de texto original. Confira o resultado antes de compartilhar.",
     badge: "Segurança",
   },
   {
-    name: "Extrator de Texto e OCR de PDF",
+    name: "Extrair Texto de PDF",
     href: "/ocr-pdf",
-    desc: "Extraia todos os fluxos de texto de documentos e apostilas e baixe um arquivo .TXT limpo e pronto para edição.",
+    desc: "Extraia a camada de texto de PDFs digitais e baixe um arquivo .TXT para edição. PDFs digitalizados exigem OCR.",
     badge: "Produtividade",
   },
   {
@@ -173,7 +173,7 @@ export default function ReleasePostPage() {
           </h1>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
-            O CrieGrátis atinge a marca histórica de <strong>70 ferramentas gratuitas ativas</strong>. Agora você pode assinar contratos, enquadrar fotos 3x4 com guias biométricas, ocultar dados confidenciais com tarjas pretas e criar mockups profissionais — tudo direto no seu navegador com privacidade absoluta.
+            Nesta atualização, o CrieGrátis atingiu <strong>70 ferramentas gratuitas ativas</strong>. Agora você pode assinar contratos, preparar fotos 3x4, cobrir dados em PDFs e criar mockups — com processamento no navegador.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-slate-500 dark:text-slate-400 pt-2">
