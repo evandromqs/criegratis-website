@@ -7,6 +7,22 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   outputFileTracingRoot: path.resolve(__dirname),
 
+  async redirects() {
+    return [
+      {
+        source: "/mais-usadas",
+        destination: "/ferramentas",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "criegratis.com.br" }],
+        destination: "https://www.criegratis.com.br/:path*",
+        permanent: true,
+      },
+    ];
+  },
+
   // Cabeçalhos de cache otimizados para alto desempenho no PageSpeed Insights
   async headers() {
     return [

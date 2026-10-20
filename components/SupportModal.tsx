@@ -28,32 +28,31 @@ interface DonationTier {
 const DONATION_TIERS: DonationTier[] = [
   {
     id: "cafe",
-    label: "Pagar um café",
-    subLabel: "Café",
+    label: "Contribuir com R$ 5",
+    subLabel: "R$ 5",
     icon: "☕",
     valueText: "R$ 5",
-    phrase: "A energia necessária para transformar mais ideias em ferramentas gratuitas.",
+    phrase: "Uma contribuição para manter o projeto disponível.",
     pixPayload:
       "00020126580014BR.GOV.BCB.PIX0136ef2848a5-ffbc-46ac-9bb1-5187d61d694652040000530398654045.005802BR592548.434.238 EVANDRO MARQUE6009SAO PAULO61080540900062250521TqzXesWSjVEK07m101uzm63045C3F",
   },
   {
     id: "lanche",
-    label: "Pagar um lanche",
-    subLabel: "Lanche",
-    badge: "TOP",
+    label: "Contribuir com R$ 15",
+    subLabel: "R$ 15",
     icon: "🍕",
     valueText: "R$ 15",
-    phrase: "O combustível oficial da comunidade: pizza, foco e código livre para todo mundo!",
+    phrase: "Ajude a melhorar as ferramentas existentes e criar novas.",
     pixPayload:
       "00020126580014BR.GOV.BCB.PIX0136ef2848a5-ffbc-46ac-9bb1-5187d61d6946520400005303986540515.005802BR592548.434.238 EVANDRO MARQUE6009SAO PAULO61080540900062250521FaNctkuao8s1rfx101uzm6304AA4B",
   },
   {
     id: "servidores",
-    label: "Apoiar servidores",
-    subLabel: "Servidores",
+    label: "Contribuir com R$ 30",
+    subLabel: "R$ 30",
     icon: "🚀",
     valueText: "R$ 30",
-    phrase: "Contribuição de quem realmente acredita em uma internet aberta, rápida e sem pegadinhas.",
+    phrase: "Apoio voluntário para manter o Crie Grátis gratuito.",
     pixPayload:
       "00020126580014BR.GOV.BCB.PIX0136ef2848a5-ffbc-46ac-9bb1-5187d61d6946520400005303986540530.005802BR592548.434.238 EVANDRO MARQUE6009SAO PAULO6108054090006225052180mbhpBwS5wZybp101uzm6304129D",
   },
@@ -63,7 +62,7 @@ const DONATION_TIERS: DonationTier[] = [
     subLabel: "Livre",
     icon: "✨",
     valueText: "Outro",
-    phrase: "Contribua com qualquer quantia diretamente via chave de e-mail no aplicativo do seu banco.",
+    phrase: "Escolha qualquer valor usando a chave Pix no aplicativo do seu banco.",
     pixPayload: "pix@criegratis.com.br",
     isEmailKey: true,
   },
@@ -78,21 +77,13 @@ export default function SupportModal({
   defaultMethod,
 }: SupportModalProps) {
   const { isInternational } = useIsInternational();
-  const [selectedMethod, setSelectedMethod] = useState<"pix" | "stripe">("pix");
+  const [selectedMethodOverride, setSelectedMethodOverride] = useState<"pix" | "stripe" | null>(null);
+  const selectedMethod = selectedMethodOverride ?? defaultMethod ?? (isInternational ? "stripe" : "pix");
   const [selectedTierId, setSelectedTierId] = useState<"cafe" | "lanche" | "servidores" | "outro">("lanche");
   const [copied, setCopied] = useState(false);
   const [qrDataUrl, setQrDataUrl] = useState<string>("");
   const [showQr, setShowQr] = useState(false);
   const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
-
-  // Define automaticamente o método inicial: se passado explicitamente ou se for acesso internacional
-  useEffect(() => {
-    if (defaultMethod) {
-      setSelectedMethod(defaultMethod);
-    } else if (isInternational) {
-      setSelectedMethod("stripe");
-    }
-  }, [defaultMethod, isInternational]);
 
   const currentTier = DONATION_TIERS.find((t) => t.id === selectedTierId) || DONATION_TIERS[1];
 
@@ -177,7 +168,7 @@ export default function SupportModal({
               {title}
             </h2>
             <p className="text-sm font-medium text-[#475569] dark:text-[#94A3B8] leading-relaxed max-w-sm mx-auto">
-              100% gratuito e livre de anúncios. Ajude a manter os servidores ativos:
+              O uso é gratuito. Se puder, contribua para manter e melhorar as ferramentas; o apoio é opcional.
             </p>
           </div>
 
@@ -186,7 +177,7 @@ export default function SupportModal({
             <button
               type="button"
               onClick={() => {
-                setSelectedMethod("pix");
+                setSelectedMethodOverride("pix");
                 setCopied(false);
               }}
               className={`flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all cursor-pointer ${
@@ -203,7 +194,7 @@ export default function SupportModal({
             <button
               type="button"
               onClick={() => {
-                setSelectedMethod("stripe");
+                setSelectedMethodOverride("stripe");
                 setCopied(false);
               }}
               className={`relative flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all cursor-pointer ${
@@ -237,7 +228,7 @@ export default function SupportModal({
                   Doação Segura via Stripe
                 </h3>
                 <p className="text-xs sm:text-sm font-medium text-[#475569] dark:text-[#94A3B8] leading-relaxed">
-                  Pague com Cartão de Crédito (Visa, Mastercard, Elo, Amex), Apple Pay ou Google Pay.
+                  Use as formas de pagamento disponíveis na página segura da Stripe.
                 </p>
               </div>
 
@@ -250,7 +241,7 @@ export default function SupportModal({
                   </span>
                 </div>
                 <p className="text-[11px] sm:text-xs text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
-                  ✨ <strong>Valor personalizável:</strong> você pode manter R$ 5 ou alterar livremente para qualquer quantia na tela de checkout da Stripe.
+                  <strong>Valor ajustável:</strong> confira o valor e altere-o na página de pagamento, se desejar.
                 </p>
               </div>
 

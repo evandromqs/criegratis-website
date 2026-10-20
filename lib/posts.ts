@@ -24,7 +24,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "como-tirar-imprimir-foto-3x4-em-casa",
     title: "Como Tirar e Imprimir Foto 3x4 em Casa Dentro das Regras Oficiais",
-    description: "Aprenda o passo a passo para fazer foto 3x4 no padrão oficial para RG, CNH, carteira de trabalho ou passaporte e monte a folha de impressão 10x15cm grátis.",
+    description: "Aprenda a enquadrar uma foto 3x4 e montar uma folha PDF 10x15cm para impressão. Confira os requisitos do documento com o órgão responsável.",
     publishedAt: "28 de Setembro de 2026",
     readTime: "4 min de leitura",
     category: "Guias & Tutoriais",
@@ -39,7 +39,7 @@ export const BLOG_POSTS: BlogPost[] = [
       href: "/foto-3x4",
       actionText: "Criar Foto 3x4 Agora",
     },
-    summary: "Descubra como economizar tempo e dinheiro tirando sua foto 3x4 com a câmera do celular e gerando uma folha 10x15cm com 8 fotos prontas para impressão.",
+    summary: "Descubra como tirar uma foto 3x4 com o celular e gerar uma folha 10x15cm com 6 fotos para impressão.",
     content: `
 ## Por que pagar por fotos 3x4 quando você pode fazer no celular?
 
@@ -68,7 +68,7 @@ Para garantir que sua foto seja aceita em órgãos públicos (Detran, Poupatempo
 3. **Ajuste o Enquadramento:** Use a grade guia para centralizar os olhos e queixo nas linhas pontilhadas.
 4. **Escolha o Formato de Saída:**
    * **Foto individual:** ideal para upload em formulários digitais e cadastros de faculdades ou empregos.
-   * **Gabarito de Impressão 10x15 cm (4x6 pol):** organiza automaticamente **8 fotos 3x4** lado a lado em uma folha fotográfica tradicional de alta resolução (300 DPI).
+   * **Gabarito de Impressão 10x15 cm:** organiza automaticamente **6 fotos 3x4** em um PDF com dimensões físicas definidas. Imprima em tamanho real.
 
 ---
 
@@ -76,7 +76,7 @@ Para garantir que sua foto seja aceita em órgãos públicos (Detran, Poupatempo
 
 Em vez de pedir para uma gráfica imprimir "foto para documento", leve o arquivo gerado (10x15 cm) e peça para **revelar uma foto comum 10x15cm em papel fotográfico brilhante ou fosco**.
 
-Uma revelação de foto 10x15 custa normalmente entre **R$ 1,50 e R$ 3,00**, e você sairá com **8 fotos 3x4 prontas** para recortar!
+Uma revelação de foto 10x15 custa normalmente entre **R$ 1,50 e R$ 3,00**, e você sairá com **6 fotos 3x4 prontas** para recortar!
     `,
   },
   {

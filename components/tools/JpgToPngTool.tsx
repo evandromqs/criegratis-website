@@ -5,6 +5,7 @@ import FileDropzone from "@/components/FileDropzone";
 import DownloadButton from "@/components/DownloadButton";
 import { convertJpgToPng, loadImageFromFile } from "@/lib/image-utils";
 import { Image as ImageIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function JpgToPngTool() {
   const [file, setFile] = useState<File | null>(null);
@@ -14,7 +15,10 @@ export default function JpgToPngTool() {
   const [error, setError] = useState<string | null>(null);
 
   const handleFileSelect = async (selectedFile: File) => {
+    if (pngUrl) URL.revokeObjectURL(pngUrl);
     setFile(selectedFile);
+    setPreviewUrl(null);
+    setPngUrl(null);
     setError(null);
     setIsConverting(true);
 
@@ -32,6 +36,7 @@ export default function JpgToPngTool() {
   };
 
   const handleClear = () => {
+    if (pngUrl) URL.revokeObjectURL(pngUrl);
     setFile(null);
     setPreviewUrl(null);
     setPngUrl(null);
@@ -67,8 +72,8 @@ export default function JpgToPngTool() {
                   <ImageIcon className="h-5 w-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-slate-900">Pronto para Download em PNG</h4>
-                  <p className="text-xs text-slate-500">Conversão realizada com 100% de preservação</p>
+                  <h4 className="text-sm font-bold text-slate-900">{isConverting ? "Convertendo imagem..." : error ? "Não foi possível converter" : "PNG pronto para baixar"}</h4>
+                  <p className="text-xs text-slate-500">O formato muda para PNG; a qualidade original do JPG e o fundo permanecem.</p>
                 </div>
               </div>
 
@@ -83,6 +88,7 @@ export default function JpgToPngTool() {
                   className="w-full"
                 />
               )}
+              <p className="text-xs text-slate-600">Precisa de fundo transparente? <Link href="/remover-fundo-branco" className="text-blue-700 underline">Remover fundo branco</Link>.</p>
             </div>
           </div>
 

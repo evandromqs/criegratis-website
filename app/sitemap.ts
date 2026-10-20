@@ -8,73 +8,61 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes: MetadataRoute.Sitemap = [
     {
       url: SITE_URL,
-      lastModified: new Date(),
       changeFrequency: "daily",
       priority: 1.0,
     },
     {
       url: `${SITE_URL}/es`,
-      lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.95,
     },
     {
       url: `${SITE_URL}/en`,
-      lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.95,
     },
     {
       url: `${SITE_URL}/ferramentas`,
-      lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.9,
     },
     {
       url: `${SITE_URL}/categorias`,
-      lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.9,
     },
     {
       url: `${SITE_URL}/blog`,
-      lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.8,
     },
     {
       url: `${SITE_URL}/roadmap`,
-      lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: `${SITE_URL}/novidades/novas-ferramentas-pdf-e-imagem`,
-      lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: `${SITE_URL}/sobre`,
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.5,
     },
     {
       url: `${SITE_URL}/privacidade`,
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.5,
     },
     {
       url: `${SITE_URL}/termos`,
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.5,
     },
     {
       url: `${SITE_URL}/contato`,
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.5,
     },
@@ -84,7 +72,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   CATEGORIES.forEach((cat) => {
     routes.push({
       url: `${SITE_URL}/ferramentas/${cat.slug}`,
-      lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     });
@@ -94,7 +81,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   TOOLS.forEach((tool) => {
     routes.push({
       url: `${SITE_URL}${tool.href}`,
-      lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
     });
@@ -104,7 +90,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   BLOG_POSTS.forEach((post) => {
     routes.push({
       url: `${SITE_URL}/blog/${post.slug}`,
-      lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     });

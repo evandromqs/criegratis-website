@@ -37,10 +37,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "./",
     languages: {
-      "pt-BR": "https://criegratis.com.br",
-      es: "https://criegratis.com.br/es",
-      en: "https://criegratis.com.br/en",
-      "x-default": "https://criegratis.com.br",
+      "pt-BR": SITE_URL,
+      es: `${SITE_URL}/es`,
+      en: `${SITE_URL}/en`,
+      "x-default": SITE_URL,
     },
   },
   keywords: [

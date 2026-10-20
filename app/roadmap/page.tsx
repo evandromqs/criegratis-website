@@ -12,19 +12,20 @@ import {
 } from "lucide-react";
 import RoadmapView from "./RoadmapView";
 import RoadmapSupportSection from "./RoadmapSupportSection";
+import { SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Roadmap Oficial — Rumo às 100 Ferramentas Gratuitas | CrieGrátis",
   description:
     "Acompanhe o desenvolvimento público do CrieGrátis. Veja as 70 ferramentas lançadas (70% da meta alcançada!) e as próximas novidades rumo às 100 ferramentas 100% privadas no navegador.",
   alternates: {
-    canonical: "https://criegratis.com.br/roadmap",
+    canonical: `${SITE_URL}/roadmap`,
   },
   openGraph: {
     title: "Roadmap CrieGrátis — 70 Ferramentas Lançadas Rumo às 100",
     description:
       "Acompanhe as próximas ferramentas gratuitas, rápidas e 100% client-side que estamos construindo.",
-    url: "https://criegratis.com.br/roadmap",
+    url: `${SITE_URL}/roadmap`,
   },
 };
 

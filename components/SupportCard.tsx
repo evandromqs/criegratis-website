@@ -13,12 +13,12 @@ export default function SupportCard() {
       <div className="rounded-2xl border border-rose-100 dark:border-rose-950/40 bg-gradient-to-r from-rose-50/50 via-white to-pink-50/50 dark:from-rose-950/20 dark:via-[#1E293B] dark:to-pink-950/20 p-5 sm:p-6 text-center shadow-2xs">
         <div className="max-w-md mx-auto space-y-2">
           <div className="flex items-center justify-center gap-1.5 text-sm sm:text-base font-bold text-[#0F172A] dark:text-white">
-            <span>Gostou do Crie Grátis?</span>
+            <span>Esta ferramenta foi útil?</span>
             <span className="text-rose-500 animate-pulse" aria-hidden="true">❤️</span>
           </div>
 
           <p className="text-xs sm:text-sm text-[#475569] dark:text-[#94A3B8] leading-relaxed">
-            Ajude a manter as ferramentas gratuitas, rápidas e sem anúncios abusivos para todos.
+            Seu apoio voluntário ajuda a manter o Crie Grátis disponível e a melhorar as ferramentas. Qualquer valor ajuda; o uso continua gratuito.
           </p>
 
           <div className="pt-2">
@@ -29,7 +29,7 @@ export default function SupportCard() {
               aria-label="Abrir modal para apoiar o projeto com Pix ou Stripe"
             >
               <Heart className="h-4 w-4 fill-white" aria-hidden="true" />
-              <span>Apoiar o projeto</span>
+              <span>Apoiar com Pix ou cartão</span>
             </button>
           </div>
         </div>

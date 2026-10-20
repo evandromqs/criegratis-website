@@ -25,7 +25,7 @@ export default function RoadmapSupportSection() {
           Apoie o Projeto CrieGrátis
         </h2>
         <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-          O CrieGrátis é mantido de forma independente, sem anúncios invasivos e sem cobrar assinaturas. Contribuições voluntárias via Pix ou Cartão (Stripe) ajudam a acelerar a chegada às 100 ferramentas.
+          As ferramentas continuam gratuitas para todos. Se puder, contribua via Pix ou cartão para ajudar a manter o projeto e melhorar as ferramentas.
         </p>
 
         <div className="pt-2 flex flex-wrap items-center gap-3">

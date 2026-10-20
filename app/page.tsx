@@ -96,7 +96,7 @@ export default function HomePage() {
       "@type": "ListItem",
       position: index + 1,
       name: tool.name,
-      url: `https://criegratis.com.br${tool.href}`,
+      url: `${SITE_URL}${tool.href}`,
       description: tool.shortDescription,
     })),
   };
@@ -143,6 +143,15 @@ export default function HomePage() {
                 {/* Sugestões Rápidas em Chips Clicáveis Baseados no Google Search Console */}
                 <div className="flex flex-wrap items-center justify-center lg:justify-start gap-1.5 text-xs text-[#64748B] dark:text-[#94A3B8]">
                   <span className="font-medium text-[#0F172A] dark:text-white mr-0.5">Mais buscadas:</span>
+                  {[
+                    { href: "/folha-timbrada-pdf", label: "Folha Timbrada" },
+                    { href: "/foto-3x4", label: "Foto 3x4" },
+                    { href: "/assinar-pdf", label: "Assinar PDF" },
+                  ].map((item) => (
+                    <Link key={item.href} href={item.href} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white dark:bg-[#1E293B] border border-[#E2E8F0] dark:border-[#334155] hover:border-[#2563EB] dark:hover:border-[#38BDF8] hover:text-[#2563EB] dark:hover:text-[#38BDF8] transition-colors">
+                      {item.label}
+                    </Link>
+                  ))}
                   <Link
                     href="/jpg-para-png"
                     className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white dark:bg-[#1E293B] border border-[#E2E8F0] dark:border-[#334155] hover:border-[#2563EB] dark:hover:border-[#38BDF8] hover:text-[#2563EB] dark:hover:text-[#38BDF8] transition-colors"

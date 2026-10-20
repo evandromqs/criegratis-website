@@ -1,12 +1,10 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import {
   FileText,
   PenTool,
-  Upload,
   Download,
-  Trash2,
   RefreshCw,
   ShieldCheck,
   Check,
@@ -20,7 +18,7 @@ export default function SignPdfTool() {
   const [targetPage, setTargetPage] = useState<number>(1);
   const [signaturePosition, setSignaturePosition] = useState<"bottom-right" | "bottom-left" | "bottom-center" | "top-right">("bottom-right");
   const [penColor, setPenColor] = useState<string>("#000000");
-  const [penWidth, setPenWidth] = useState<number>(2.5);
+  const penWidth = 2.5;
   const [hasDrawn, setHasDrawn] = useState<boolean>(false);
   const [isExporting, setIsExporting] = useState<boolean>(false);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
@@ -62,8 +60,8 @@ export default function SignPdfTool() {
     isDrawing.current = true;
     setHasDrawn(true);
     const rect = canvas.getBoundingClientRect();
-    const x = ("touches" in e ? e.touches[0].clientX : e.clientX) - rect.left;
-    const y = ("touches" in e ? e.touches[0].clientY : e.clientY) - rect.top;
+    const x = (("touches" in e ? e.touches[0].clientX : e.clientX) - rect.left) * canvas.width / rect.width;
+    const y = (("touches" in e ? e.touches[0].clientY : e.clientY) - rect.top) * canvas.height / rect.height;
 
     ctx.beginPath();
     ctx.moveTo(x, y);
@@ -81,8 +79,8 @@ export default function SignPdfTool() {
     if (!ctx) return;
 
     const rect = canvas.getBoundingClientRect();
-    const x = ("touches" in e ? e.touches[0].clientX : e.clientX) - rect.left;
-    const y = ("touches" in e ? e.touches[0].clientY : e.clientY) - rect.top;
+    const x = (("touches" in e ? e.touches[0].clientX : e.clientX) - rect.left) * canvas.width / rect.width;
+    const y = (("touches" in e ? e.touches[0].clientY : e.clientY) - rect.top) * canvas.height / rect.height;
 
     ctx.lineTo(x, y);
     ctx.stroke();
@@ -276,16 +274,16 @@ export default function SignPdfTool() {
                   Posicionamento na Folha:
                 </label>
                 <div className="grid grid-cols-2 gap-2 text-xs">
-                  {[
+                  {([
                     { id: "bottom-right", label: "Inferior Direito (Padrão)" },
                     { id: "bottom-left", label: "Inferior Esquerdo" },
                     { id: "bottom-center", label: "Inferior Central" },
                     { id: "top-right", label: "Superior Direito" },
-                  ].map((pos) => (
+                  ] as const).map((pos) => (
                     <button
                       key={pos.id}
                       type="button"
-                      onClick={() => setSignaturePosition(pos.id as any)}
+                      onClick={() => setSignaturePosition(pos.id)}
                       className={`p-2.5 rounded-lg border text-left font-semibold transition-all ${
                         signaturePosition === pos.id
                           ? "border-blue-600 bg-blue-50 text-blue-700 dark:bg-blue-950/60 dark:border-blue-500 dark:text-blue-300"

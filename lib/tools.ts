@@ -1736,8 +1736,8 @@ export const TOOLS: ToolInfo[] = [
     keywords: ["assinar pdf", "assinatura digital pdf", "assinar contrato online", "rubrica pdf", "assinar pdf gratis"],
     icon: "PenTool",
     href: "/assinar-pdf",
-    metaTitle: "Assinar PDF Online Grátis - Assinatura Digital | CrieGrátis",
-    metaDescription: "Assine documentos PDF online e grátis. Desenhe sua assinatura manuscrita ou rubrica e carimbe qualquer página com segurança e sigilo total.",
+    metaTitle: "Assinar PDF Online Grátis com Assinatura Desenhada",
+    metaDescription: "Desenhe sua assinatura ou rubrica e aplique em um PDF gratuitamente no navegador, pelo celular ou computador.",
     h1: "Assinar PDF Online Grátis",
     badge: "Novo",
     usageSteps: [
@@ -1755,7 +1755,7 @@ export const TOOLS: ToolInfo[] = [
     faqs: [
       {
         question: "A assinatura feita no navegador tem validade?",
-        answer: "Sim, para a maioria dos acordos particulares, declarações e contratos cíveis que aceitam assinatura eletrônica simples nos termos da legislação brasileira."
+        answer: "A ferramenta insere a imagem da assinatura desenhada no PDF. Ela não emite certificado digital nem comprova a identidade de quem assinou. Verifique com o destinatário qual tipo de assinatura ele exige."
       }
     ]
   },
@@ -2023,7 +2023,7 @@ export const TOOLS: ToolInfo[] = [
     slug: "foto-3x4",
     name: "Criador de Foto 3x4 para Documentos",
     shortDescription: "Enquadre selfies e fotos com guia biométrica e gere folha 10x15 pronta para imprimir.",
-    fullDescription: "Crie fotos 3x4 profissionais para RG, CNH, carteira de trabalho e passaporte. Enquadre seu rosto na proporção biométrica correta e gere folhas 10x15cm com 6 fotos em alta resolução (300 DPI) para impressão caseira econômica.",
+    fullDescription: "Enquadre sua foto na proporção 3x4 e gere uma folha PDF de 10x15cm com 6 fotos para imprimir em tamanho real. Confirme os requisitos do documento com o órgão responsável.",
     category: "imagens",
     keywords: ["foto 3x4", "foto 3x4 online", "foto documento rg", "folha 10x15 foto 3x4", "como fazer foto 3x4"],
     icon: "User",
@@ -2035,14 +2035,14 @@ export const TOOLS: ToolInfo[] = [
     usageSteps: [
       "Envie uma selfie ou foto com boa iluminação.",
       "Ajuste os controles de zoom e posição alinhando os olhos com as guias biométricas.",
-      "Escolha a cor de fundo (branco puro ou azul claro para documentos oficiais).",
-      "Gere a folha 10x15cm com 6 fotos 3x4 e imprima em qualquer papel fotográfico."
+      "Use uma foto com fundo adequado ao documento desejado.",
+      "Gere a folha PDF 10x15cm com 6 fotos 3x4 e imprima em tamanho real."
     ],
     features: [
       "Guia biométrica pontilhada para alinhamento dos olhos e queixo",
       "Geração de folha 10x15cm padrão com 6 fotos 3x4 com linhas de corte",
-      "Opção de exportar foto 3x4 individual em 300 DPI para cadastros online",
-      "Ajuste instantâneo de cor de fundo sem precisar de Photoshop"
+      "Opção de exportar foto 3x4 individual para cadastros online",
+      "Folha PDF com tamanho físico de 10x15cm"
     ],
     faqs: [
       {

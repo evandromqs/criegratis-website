@@ -11,24 +11,31 @@ function createRandomPassword(
   includeNumbers: boolean,
   includeSymbols: boolean
 ): string {
-  let chars = "";
-  if (includeUpper) chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  if (includeLower) chars += "abcdefghijklmnopqrstuvwxyz";
-  if (includeNumbers) chars += "0123456789";
-  if (includeSymbols) chars += "!@#$%^&*()_+-=[]{}|;:,.<>?";
+  const groups = [
+    includeUpper ? "ABCDEFGHIJKLMNOPQRSTUVWXYZ" : "",
+    includeLower ? "abcdefghijklmnopqrstuvwxyz" : "",
+    includeNumbers ? "0123456789" : "",
+    includeSymbols ? "!@#$%^&*()_+-=[]{}|;:,.<>?" : "",
+  ].filter(Boolean);
+  const chars = groups.join("");
 
   if (!chars || typeof window === "undefined" || !window.crypto) {
     return "";
   }
 
-  const array = new Uint32Array(len);
-  window.crypto.getRandomValues(array);
-
-  let res = "";
-  for (let i = 0; i < len; i++) {
-    res += chars[array[i] % chars.length];
+  const randomIndex = (size: number) => {
+    const value = new Uint32Array(1);
+    const limit = Math.floor(0x100000000 / size) * size;
+    do { window.crypto.getRandomValues(value); } while (value[0] >= limit);
+    return value[0] % size;
+  };
+  const result = groups.map((group) => group[randomIndex(group.length)]);
+  while (result.length < len) result.push(chars[randomIndex(chars.length)]);
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = randomIndex(i + 1);
+    [result[i], result[j]] = [result[j], result[i]];
   }
-  return res;
+  return result.join("");
 }
 
 export default function PasswordGeneratorTool() {

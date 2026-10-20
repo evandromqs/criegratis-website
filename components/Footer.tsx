@@ -28,7 +28,7 @@ export default function Footer() {
               </div>
               
               <p className="text-xs leading-relaxed text-[#94A3B8]">
-                Gostou do projeto? Apoie a manter os servidores rápidos e livres de anúncios.
+                Seu apoio voluntário ajuda a manter e melhorar as ferramentas. Elas continuam gratuitas para todos.
               </p>
 
               <FooterPixButton />

@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
 import { ToolInfo } from "./tools";
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://criegratis.com.br";
+export const SITE_URL = "https://www.criegratis.com.br";
 export const SITE_NAME = "Crie Grátis";
 export const DEFAULT_DESCRIPTION = "Ferramentas gratuitas para criar, converter, calcular, editar e resolver tarefas rapidamente.";
 
 export function generateToolMetadata(tool: ToolInfo): Metadata {
   const canonicalUrl = `${SITE_URL}${tool.href}`;
+  const title = tool.metaTitle.replace(/\s*[|—-]\s*Crie\s?Grátis$/i, "");
   return {
-    title: tool.metaTitle,
+    title,
     description: tool.metaDescription,
     keywords: tool.keywords,
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: tool.metaTitle,
+      title,
       description: tool.metaDescription,
       url: canonicalUrl,
       siteName: SITE_NAME,
@@ -24,7 +25,7 @@ export function generateToolMetadata(tool: ToolInfo): Metadata {
     },
     twitter: {
       card: "summary_large_image",
-      title: tool.metaTitle,
+      title,
       description: tool.metaDescription,
     },
   };

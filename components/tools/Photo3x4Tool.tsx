@@ -2,14 +2,9 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import {
-  Upload,
   User,
   Download,
-  RefreshCw,
   Printer,
-  Sparkles,
-  Layers,
-  ZoomIn,
 } from "lucide-react";
 import FileDropzone from "@/components/FileDropzone";
 
@@ -19,7 +14,7 @@ export default function Photo3x4Tool() {
   const [zoom, setZoom] = useState<number>(1);
   const [offsetX, setOffsetX] = useState<number>(0);
   const [offsetY, setOffsetY] = useState<number>(0);
-  const [bgColor, setBgColor] = useState<"white" | "light-blue" | "original">("white");
+  const [bgColor] = useState<"white" | "light-blue" | "original">("original");
   const [sheetMode, setSheetMode] = useState<"single" | "sheet6">("sheet6");
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
 
@@ -93,9 +88,11 @@ export default function Photo3x4Tool() {
     if (imageSrc) renderPreview();
   }, [zoom, offsetX, offsetY, bgColor]);
 
-  const generateOutput = () => {
+  const generateOutput = async () => {
     const img = imageElementRef.current;
     if (!img) return;
+    if (downloadUrl) URL.revokeObjectURL(downloadUrl);
+    setDownloadUrl(null);
 
     if (sheetMode === "single") {
       // 1 foto 3x4 individual em 300 DPI
@@ -140,8 +137,8 @@ export default function Photo3x4Tool() {
 
       // Foto individual
       const photo = document.createElement("canvas");
-      const pW = 354;
-      const pH = 472;
+      const pW = 360;
+      const pH = 480;
       photo.width = pW;
       photo.height = pH;
       const pCtx = photo.getContext("2d");
@@ -168,9 +165,9 @@ export default function Photo3x4Tool() {
       pCtx.strokeRect(0, 0, pW, pH);
 
       // Dispor 6 fotos (2 linhas de 3 colunas)
-      const startX = 200;
-      const startY = 100;
-      const gapX = 120;
+      const startX = 180;
+      const startY = 90;
+      const gapX = 180;
       const gapY = 60;
 
       for (let row = 0; row < 2; row++) {
@@ -184,11 +181,12 @@ export default function Photo3x4Tool() {
       // Adicionar linha de corte pontilhada sutil
       sCtx.fillStyle = "#666666";
       sCtx.font = "bold 20px sans-serif";
-      sCtx.fillText("CrieGrátis • Folha 10x15cm (6 Fotos 3x4 padrão 300 DPI)", 200, 1140);
+      sCtx.fillText("CrieGrátis • Folha 10x15cm (6 fotos 3x4). Imprima em tamanho real.", 180, 1170);
 
-      sheet.toBlob((blob) => {
-        if (blob) setDownloadUrl(URL.createObjectURL(blob));
-      }, "image/jpeg", 0.95);
+      const { jsPDF } = await import("jspdf");
+      const pdf = new jsPDF({ orientation: "landscape", unit: "mm", format: [150, 100] });
+      pdf.addImage(sheet.toDataURL("image/jpeg", 0.95), "JPEG", 0, 0, 150, 100);
+      setDownloadUrl(URL.createObjectURL(pdf.output("blob")));
     }
   };
 
@@ -207,7 +205,7 @@ export default function Photo3x4Tool() {
             <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
               <div>
                 <p className="text-sm font-bold text-slate-800 dark:text-slate-100 break-all">{file.name}</p>
-                <p className="text-xs text-slate-500 dark:text-slate-400">Padrão Biométrico 3x4 (300 DPI)</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Enquadramento para foto 3x4</p>
               </div>
               <button
                 type="button"
@@ -272,48 +270,6 @@ export default function Photo3x4Tool() {
                 />
               </div>
 
-              {/* Cor de Fundo */}
-              <div>
-                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2">
-                  Cor de Fundo da Foto:
-                </label>
-                <div className="grid grid-cols-3 gap-2 text-xs">
-                  <button
-                    type="button"
-                    onClick={() => setBgColor("white")}
-                    className={`p-2 rounded-lg border font-bold ${
-                      bgColor === "white"
-                        ? "border-blue-600 bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300"
-                        : "border-slate-200 bg-white dark:bg-slate-800 text-slate-600"
-                    }`}
-                  >
-                    Branco Puro
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setBgColor("light-blue")}
-                    className={`p-2 rounded-lg border font-bold ${
-                      bgColor === "light-blue"
-                        ? "border-blue-600 bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300"
-                        : "border-slate-200 bg-white dark:bg-slate-800 text-slate-600"
-                    }`}
-                  >
-                    Azul Claro
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setBgColor("original")}
-                    className={`p-2 rounded-lg border font-bold ${
-                      bgColor === "original"
-                        ? "border-blue-600 bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300"
-                        : "border-slate-200 bg-white dark:bg-slate-800 text-slate-600"
-                    }`}
-                  >
-                    Fundo Original
-                  </button>
-                </div>
-              </div>
-
               {/* Formato de Exportação */}
               <div>
                 <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2">
@@ -322,7 +278,7 @@ export default function Photo3x4Tool() {
                 <div className="grid grid-cols-2 gap-2 text-xs">
                   <button
                     type="button"
-                    onClick={() => setSheetMode("sheet6")}
+                    onClick={() => { setSheetMode("sheet6"); setDownloadUrl(null); }}
                     className={`p-2.5 rounded-lg border font-bold text-left ${
                       sheetMode === "sheet6"
                         ? "border-blue-600 bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300"
@@ -334,7 +290,7 @@ export default function Photo3x4Tool() {
                   </button>
                   <button
                     type="button"
-                    onClick={() => setSheetMode("single")}
+                    onClick={() => { setSheetMode("single"); setDownloadUrl(null); }}
                     className={`p-2.5 rounded-lg border font-bold text-left ${
                       sheetMode === "single"
                         ? "border-blue-600 bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300"
@@ -381,11 +337,11 @@ export default function Photo3x4Tool() {
                 </h4>
                 <a
                   href={downloadUrl}
-                  download={sheetMode === "sheet6" ? "folha_10x15_6_fotos_3x4.jpg" : "foto_3x4.jpg"}
+                  download={sheetMode === "sheet6" ? "folha_10x15_6_fotos_3x4.pdf" : "foto_3x4.jpg"}
                   className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-sm bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm transition-all"
                 >
                   <Download className="w-4 h-4" />
-                  Baixar Imagem em Alta Resolução (300 DPI)
+                  Baixar imagem em alta resolução
                 </a>
               </div>
             )}

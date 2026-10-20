@@ -345,7 +345,7 @@ export const INTERNATIONAL_SHOWCASE_TOOLS: InternationalToolItem[] = [
       en: "Passport & ID Photo Maker",
     },
     description: {
-      pt: "Enquadre fotos para documentos oficiais e monte a folha de impressão 10x15cm com 8 fotos.",
+      pt: "Enquadre fotos 3x4 e monte uma folha PDF 10x15cm com 6 fotos para impressão.",
       es: "Encuadra fotos para DNI, pasaporte y credenciales en hoja de impresión 10x15 cm.",
       en: "Crop and align ID, visa and passport photos ready to print on standard 4x6 photo paper.",
     },
