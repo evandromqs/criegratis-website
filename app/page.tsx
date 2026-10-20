@@ -294,10 +294,10 @@ export default function HomePage() {
       <section id="ferramentas" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6 sm:mb-8 border-b border-[#E2E8F0] dark:border-[#1E293B] pb-4">
           <h2 className="text-2xl font-bold tracking-tight text-[#0F172A] dark:text-white sm:text-3xl">
-            Ferramentas Disponíveis
+            Ferramentas em Destaque
           </h2>
           <p className="text-xs sm:text-sm text-[#475569] dark:text-[#94A3B8] mt-1">
-            Escolha uma ferramenta abaixo ou filtre por categoria para resolver tarefas em segundos.
+            Comece pelas mais procuradas ou escolha uma categoria. O catálogo completo reúne todas as ferramentas.
           </p>
         </div>
 

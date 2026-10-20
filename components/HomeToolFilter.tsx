@@ -11,16 +11,29 @@ interface HomeToolFilterProps {
   tools: ToolInfo[];
 }
 
+const FEATURED_SLUGS = [
+  "folha-timbrada-pdf",
+  "foto-3x4",
+  "assinar-pdf",
+  "gerar-senha",
+  "jpg-para-png",
+  "criar-qr-code",
+];
+const HOME_LIMIT = 6;
+
 export default function HomeToolFilter({ tools }: HomeToolFilterProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("todas");
 
   const filteredTools = useMemo(() => {
-    if (selectedCategory === "todas") {
-      // Ordena populares primeiro
-      return [...tools].sort((a, b) => (b.isPopular ? 1 : 0) - (a.isPopular ? 1 : 0));
-    }
-    return tools.filter((tool) => tool.category === selectedCategory);
+    const matching = selectedCategory === "todas" ? tools : tools.filter((tool) => tool.category === selectedCategory);
+    return [...matching].sort((a, b) => {
+      const aRank = FEATURED_SLUGS.indexOf(a.slug);
+      const bRank = FEATURED_SLUGS.indexOf(b.slug);
+      if (aRank !== -1 || bRank !== -1) return (aRank === -1 ? Infinity : aRank) - (bRank === -1 ? Infinity : bRank);
+      return Number(Boolean(b.isPopular)) - Number(Boolean(a.isPopular));
+    });
   }, [tools, selectedCategory]);
+  const visibleTools = filteredTools.slice(0, HOME_LIMIT);
 
   return (
     <div className="space-y-6">
@@ -80,7 +93,7 @@ export default function HomeToolFilter({ tools }: HomeToolFilterProps) {
 
       {/* Grid de Ferramentas */}
       <div className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {filteredTools.map((tool) => (
+        {visibleTools.map((tool) => (
           <ToolCard key={tool.slug} tool={tool} />
         ))}
       </div>
@@ -88,14 +101,14 @@ export default function HomeToolFilter({ tools }: HomeToolFilterProps) {
       {/* Rodapé da Seção com Link para Catálogo Completo */}
       <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#E2E8F0] dark:border-[#1E293B]">
         <p className="text-xs sm:text-sm text-[#64748B] dark:text-[#94A3B8] text-center sm:text-left">
-          Mostrando <span className="font-semibold text-[#0F172A] dark:text-white">{filteredTools.length}</span> de{" "}
-          <span className="font-semibold text-[#0F172A] dark:text-white">{tools.length}</span> ferramentas disponíveis
+          Mostrando <span className="font-semibold text-[#0F172A] dark:text-white">{visibleTools.length}</span> de{" "}
+          <span className="font-semibold text-[#0F172A] dark:text-white">{filteredTools.length}</span> ferramentas{selectedCategory === "todas" ? " disponíveis" : " nesta categoria"}
         </p>
         <Link
-          href="/ferramentas"
+          href={selectedCategory === "todas" ? "/ferramentas" : `/ferramentas/${selectedCategory}`}
           className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#2563EB] dark:text-[#38BDF8] hover:text-[#1D4ED8] dark:hover:text-[#7DD3FC] hover:gap-2.5 transition-all"
         >
-          Explorar catálogo completo de ferramentas
+          {selectedCategory === "todas" ? `Ver as ${tools.length} ferramentas` : "Ver todas desta categoria"}
           <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
