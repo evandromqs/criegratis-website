@@ -882,6 +882,128 @@ Hoje, você pode gerar tudo no próprio navegador em menos de 10 segundos!
 5. Clique em **Baixar Mockup em Alta Resolução**.
     `,
   },
+  {
+    slug: "como-converter-jpg-para-png-sem-perder-qualidade",
+    title: "Como Converter JPG para PNG Sem Perder Qualidade (e Quando Usar Cada Formato)",
+    description: "Aprenda a converter fotos JPG/JPEG para PNG grátis no navegador, sem marca d'água e entendendo quando vale a pena usar cada formato.",
+    publishedAt: "16 de Novembro de 2026",
+    readTime: "4 min de leitura",
+    category: "Imagens & Design",
+    badgeColor: "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300",
+    author: {
+      name: "Equipe Crie Grátis",
+      role: "Guias Práticos",
+      avatar: "CG",
+    },
+    tool: {
+      name: "Converter JPG para PNG",
+      href: "/jpg-para-png",
+      actionText: "Converter JPG para PNG Agora",
+    },
+    summary: "Guia rápido para transformar arquivos JPG em PNG sem instalar programas, mantendo a nitidez original da imagem.",
+    content: `
+Precisou enviar uma imagem em um sistema ou site que aceita apenas **PNG**, mas a sua foto está em **JPG/JPEG**? Essa é uma das situações mais comuns no dia a dia, especialmente em cadastros, documentos e uploads de logotipos.
+
+---
+
+## Qual é a diferença prática entre JPG e PNG?
+
+* **JPG (JPEG):** É o padrão para fotografias. Ele comprime a imagem para deixá-la leve, mas não suporta fundo transparente.
+* **PNG:** Usa compressão sem perdas (lossless), preserva textos e bordas nítidas e permite **transparência**.
+
+> **Importante:** Apenas converter JPG para PNG não apaga o fundo branco automaticamente. Se você precisa de fundo transparente, depois da conversão use também a ferramenta de [Remover Fundo Branco](/remover-fundo-branco).
+
+---
+
+## Como converter JPG para PNG em 3 passos
+
+1. Acesse o [Conversor de JPG para PNG Grátis](/jpg-para-png);
+2. Selecione ou arraste a foto JPG do seu celular ou computador;
+3. Confira a prévia na tela e clique em **Baixar Imagem em PNG**.
+
+Todo o processo acontece **localmente no seu navegador**, sem enviar suas fotos para servidores externos e sem marca d'água.
+    `,
+  },
+  {
+    slug: "como-montar-folha-10x15-com-6-fotos-3x4-para-imprimir",
+    title: "Como Montar Folha 10x15 com 6 Fotos 3x4 para Imprimir Barato",
+    description: "Saiba como juntar 6 fotos 3x4 em uma folha 10x15 cm pronta para imprimir em papel fotográfico e economizar na revelação.",
+    publishedAt: "16 de Novembro de 2026",
+    readTime: "4 min de leitura",
+    category: "Documentos & Fotos",
+    badgeColor: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300",
+    author: {
+      name: "Equipe Crie Grátis",
+      role: "Guias Práticos",
+      avatar: "CG",
+    },
+    tool: {
+      name: "Criador de Foto 3x4",
+      href: "/foto-3x4",
+      actionText: "Montar Folha 3x4 Agora",
+    },
+    summary: "Veja como gerar uma folha 10x15 cm com 6 fotos 3x4 alinhadas e com linhas de corte para imprimir em casa ou em loja fotográfica.",
+    content: `
+Imprimir uma única foto 3x4 em estúdio costuma sair caro. A alternativa mais econômica é montar uma **folha 10x15 cm com 6 fotos 3x4** e revelar ou imprimir como uma foto comum.
+
+---
+
+## Por que o formato 10x15 cm é o ideal?
+
+* É o tamanho padrão de **papel fotográfico** encontrado em qualquer papelaria ou quiosque de revelação;
+* Cabem exatamente **6 fotos 3x4** sem distorção e com espaço para recorte;
+* Você paga o preço de uma única impressão 10x15.
+
+---
+
+## Passo a passo para gerar sua folha 3x4
+
+1. Abra o [Criador de Foto 3x4 Online Grátis](/foto-3x4);
+2. Envie uma foto bem iluminada com fundo neutro;
+3. Alinhe os olhos e o queixo usando as guias biométricas na tela;
+4. Selecione **Folha 10x15cm (6 Fotos)** e clique em **Gerar folha 10x15 cm em PDF**;
+5. Na hora de imprimir, escolha **Tamanho Real** ou **Escala 100%** para manter os 3x4 cm exatos.
+    `,
+  },
+  {
+    slug: "como-deixar-fundo-imagem-transparente-png",
+    title: "Como Deixar o Fundo da Imagem Transparente (PNG) para Logotipos e Documentos",
+    description: "Aprenda a remover o fundo branco de assinaturas, carimbos e logotipos em segundos direto no navegador e salvar em PNG transparente.",
+    publishedAt: "16 de Novembro de 2026",
+    readTime: "3 min de leitura",
+    category: "Imagens & Design",
+    badgeColor: "bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300",
+    author: {
+      name: "Equipe Crie Grátis",
+      role: "Guias Práticos",
+      avatar: "CG",
+    },
+    tool: {
+      name: "Remover Fundo Branco",
+      href: "/remover-fundo-branco",
+      actionText: "Deixar Fundo Transparente",
+    },
+    summary: "Remova o fundo branco de logos, assinaturas digitalizadas e ícones para aplicar sobre PDFs, apresentações e sites.",
+    content: `
+Quando você coloca um logotipo ou uma assinatura escaneada em cima de um documento ou slide, aquele **quadrado branco** em volta estraga o visual. A solução é salvar a imagem em **PNG com fundo transparente**.
+
+---
+
+## Quando usar PNG transparente?
+
+* **Assinaturas e carimbos** para aplicar em contratos (veja também [Assinar PDF Online](/assinar-pdf));
+* **Logotipos** em papel timbrado e orçamentos (veja [Papel Timbrado em PDF](/folha-timbrada-pdf));
+* **Ícones e selos** para sites, apresentações e redes sociais.
+
+---
+
+## Como remover o fundo branco grátis
+
+1. Acesse a ferramenta [Remover Fundo Branco](/remover-fundo-branco);
+2. Envie sua imagem (se estiver em JPG, você também pode usar o [Conversor JPG para PNG](/jpg-para-png));
+3. Ajuste a tolerância se necessário e baixe o arquivo **PNG transparente** pronto para usar.
+    `,
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

@@ -266,9 +266,9 @@ export const TOOLS: ToolInfo[] = [
     keywords: ["jpg para png", "converter jpg em png", "transformar foto em png", "conversor jpg png"],
     icon: "Image",
     href: "/jpg-para-png",
-    metaTitle: "Converter JPG para PNG Grátis | CrieGrátis",
-    metaDescription: "Conversor JPG para PNG grátis. Transforme fotos JPEG em PNG instantaneamente no seu navegador sem instalar software.",
-    h1: "Converter JPG para PNG",
+    metaTitle: "Converter JPG para PNG Online Grátis (Sem Perder Qualidade)",
+    metaDescription: "Converta JPG para PNG online grátis, sem instalar nada e sem marca d'água. Processamento instantâneo direto no navegador com 100% de privacidade.",
+    h1: "Converter JPG para PNG Online Grátis",
     usageSteps: [
       "Selecione ou arraste o arquivo JPG/JPEG para o conversor.",
       "O preview da conversão é exibido na tela.",
@@ -283,6 +283,14 @@ export const TOOLS: ToolInfo[] = [
       {
         question: "Qual a diferença entre JPG e PNG?",
         answer: "O formato JPG utiliza compressão com perdas leve e é ideal para fotografias. O PNG utiliza compressão sem perdas e suporta fundos transparentes."
+      },
+      {
+        question: "Como converter JPG para PNG pelo celular?",
+        answer: "Basta abrir esta página no navegador do seu celular (Android ou iPhone), tocar na área de envio, escolher a foto da galeria e baixar o arquivo PNG pronto."
+      },
+      {
+        question: "Minhas fotos são enviadas para algum servidor?",
+        answer: "Não. Toda a conversão acontece localmente no seu navegador, garantindo privacidade total e velocidade instantânea."
       }
     ]
   },
@@ -1738,8 +1746,8 @@ export const TOOLS: ToolInfo[] = [
     keywords: ["assinar pdf", "assinatura digital pdf", "assinar contrato online", "rubrica pdf", "assinar pdf gratis"],
     icon: "PenTool",
     href: "/assinar-pdf",
-    metaTitle: "Assinar PDF Online Grátis com Assinatura Desenhada",
-    metaDescription: "Desenhe sua assinatura ou rubrica e aplique em um PDF gratuitamente no navegador, pelo celular ou computador.",
+    metaTitle: "Assinar PDF Online Grátis — Desenhe sua Assinatura ou Rubrica",
+    metaDescription: "Assine documentos e contratos em PDF grátis pelo celular ou PC. Desenhe sua assinatura com fundo transparente, sem cadastro e sem enviar arquivos.",
     h1: "Assinar PDF Online Grátis",
     badge: "Novo",
     usageSteps: [
@@ -1758,6 +1766,14 @@ export const TOOLS: ToolInfo[] = [
       {
         question: "A assinatura feita no navegador tem validade?",
         answer: "A ferramenta insere a imagem da assinatura desenhada no PDF. Ela não emite certificado digital nem comprova a identidade de quem assinou. Verifique com o destinatário qual tipo de assinatura ele exige."
+      },
+      {
+        question: "Posso assinar um PDF pelo celular?",
+        answer: "Sim! Você pode desenhar sua assinatura ou rubrica diretamente na tela do celular com o dedo e posicionar em qualquer página do documento."
+      },
+      {
+        question: "É seguro assinar contratos e documentos aqui?",
+        answer: "Sim. O processamento é 100% local no seu navegador — seu PDF e sua assinatura nunca são enviados para servidores externos."
       }
     ]
   },
@@ -1802,9 +1818,9 @@ export const TOOLS: ToolInfo[] = [
     keywords: ["censurar pdf", "tarja preta pdf", "redigir pdf", "ocultar dados pdf", "proteger dados sensiveis pdf"],
     icon: "EyeOff",
     href: "/censurar-pdf",
-    metaTitle: "Censurar Dados em PDF Online - Tarja Preta Grátis | CrieGrátis",
-    metaDescription: "Cubra dados pessoais no PDF e exporte páginas como imagens em um novo arquivo, sem manter o texto original sob as tarjas.",
-    h1: "Censurar e Redigir PDF Online",
+    metaTitle: "Censurar PDF Online Grátis — Tarja Preta para Ocultar Dados",
+    metaDescription: "Oculte CPFs, nomes e dados sensíveis em PDFs com tarja preta grátis. Exporta páginas sem camada de texto para ninguém copiar o conteúdo oculto.",
+    h1: "Censurar PDF Online Grátis (Tarja Preta)",
     badge: "Novo",
     usageSteps: [
       "Envie o arquivo PDF que contém dados confidenciais.",
@@ -1822,6 +1838,10 @@ export const TOOLS: ToolInfo[] = [
       {
         question: "Alguém consegue remover a tarja preta depois?",
         answer: "O PDF exportado não inclui a camada de texto original. Ainda assim, confira visualmente todas as páginas e evite compartilhar o arquivo original."
+      },
+      {
+        question: "É seguro censurar documentos com CPF e dados bancários aqui?",
+        answer: "Sim. Tudo é processado localmente no seu navegador — o arquivo não é enviado para nenhum servidor."
       }
     ]
   },
@@ -1962,9 +1982,9 @@ export const TOOLS: ToolInfo[] = [
     keywords: ["folha timbrada pdf", "papel timbrado pdf", "sobrepor pdf", "carimbar pdf", "adicionar cabecalho pdf", "colocar logo em pdf", "marca d agua pdf"],
     icon: "Layers",
     href: "/folha-timbrada-pdf",
-    metaTitle: "Aplicar Folha Timbrada ou Logotipo em PDF Online Grátis | CrieGrátis",
-    metaDescription: "Sobreponha papel timbrado corporativo ou o logotipo da sua empresa (PNG, JPG, PDF) em documentos PDF com pré-visualização em tempo real.",
-    h1: "Folha Timbrada e Logotipo em PDF Online",
+    metaTitle: "Papel Timbrado em PDF Online Grátis — Colocar Logo e Cabeçalho",
+    metaDescription: "Coloque papel timbrado ou logotipo (PNG, JPG, PDF) em todas as páginas do seu PDF grátis. Pré-visualização em tempo real, sem marca d'água.",
+    h1: "Colocar Papel Timbrado ou Logo em PDF Grátis",
     badge: "Atualizado",
     usageSteps: [
       "Selecione o documento base (relatório, contrato ou proposta em PDF).",
@@ -2030,9 +2050,9 @@ export const TOOLS: ToolInfo[] = [
     keywords: ["foto 3x4", "foto 3x4 online", "foto documento rg", "folha 10x15 foto 3x4", "como fazer foto 3x4"],
     icon: "User",
     href: "/foto-3x4",
-    metaTitle: "Criador de Foto 3x4 Online Grátis - RG e Documentos | CrieGrátis",
-    metaDescription: "Faça fotos 3x4 para documentos online e grátis. Guia biométrica para enquadrar o rosto e folha 10x15 com 6 fotos pronta para impressão econômica.",
-    h1: "Criador de Foto 3x4 para Documentos",
+    metaTitle: "Fazer Foto 3x4 Online Grátis — Pronta para RG, CPF e Imprimir (10x15)",
+    metaDescription: "Crie sua foto 3x4 grátis pelo celular ou PC! Enquadre com guia biométrica, baixe a foto individual ou a folha 10x15 com 6 fotos pronta para imprimir.",
+    h1: "Fazer Foto 3x4 Online Grátis",
     badge: "Novo",
     usageSteps: [
       "Envie uma selfie ou foto com boa iluminação.",
@@ -2050,6 +2070,14 @@ export const TOOLS: ToolInfo[] = [
       {
         question: "Qual o tamanho exato de uma foto 3x4 em pixels?",
         answer: "No padrão profissional de 300 DPI para impressão nítida, a foto 3x4 possui 354 x 472 pixels."
+      },
+      {
+        question: "Como imprimir a folha 10x15 com 6 fotos 3x4 no tamanho certo?",
+        answer: "Ao imprimir o PDF gerado, selecione a opção 'Tamanho Real' ou 'Escala 100%' nas configurações da impressora ou leve o arquivo a uma loja de revelação fotográfica no formato 10x15 cm."
+      },
+      {
+        question: "Posso fazer foto 3x4 usando uma selfie do celular?",
+        answer: "Sim! Tire uma selfie em um local bem iluminado, de frente para a câmera e com fundo neutro (parede clara). Depois, use as guias na tela para alinhar os olhos e o queixo."
       }
     ]
   },
