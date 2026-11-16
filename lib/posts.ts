@@ -1004,6 +1004,174 @@ Quando você coloca um logotipo ou uma assinatura escaneada em cima de um docume
 3. Ajuste a tolerância se necessário e baixe o arquivo **PNG transparente** pronto para usar.
     `,
   },
+  {
+    slug: "como-juntar-frente-e-verso-de-rg-ou-cnh-em-um-unico-pdf",
+    title: "Como Juntar Frente e Verso de RG ou CNH em Um Único PDF ou JPG",
+    description: "Aprenda a colocar a frente e o verso do seu RG, CNH ou documento em uma única folha A4 (PDF ou JPG) grátis pelo celular ou PC.",
+    publishedAt: "16 de Novembro de 2026",
+    readTime: "3 min de leitura",
+    category: "Documentos & Fotos",
+    badgeColor: "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300",
+    author: {
+      name: "Equipe Crie Grátis",
+      role: "Guias Práticos",
+      avatar: "CG",
+    },
+    tool: {
+      name: "Juntar Frente e Verso",
+      href: "/juntar-frente-verso-documento",
+      actionText: "Juntar Documento Agora",
+    },
+    summary: "Veja como unir frente e verso de documentos pessoais em uma única página A4 sem enviar suas fotos para servidores.",
+    content: `
+Bancos, faculdades e cadastros online quase sempre pedem a **frente e o verso do RG ou CNH em um único arquivo**. Em vez de montar isso manualmente no Word, você pode resolver em segundos no navegador.
+
+---
+
+## Como juntar frente e verso grátis
+
+1. Acesse a ferramenta [Juntar Frente e Verso de Documento](/juntar-frente-verso-documento);
+2. Envie a foto da **frente** e a foto do **verso** do documento;
+3. Escolha se prefere **um em cima do outro** ou **lado a lado** na folha A4;
+4. Selecione **PDF (A4)** ou **Imagem JPG** e clique em gerar.
+
+Todo o processo ocorre localmente no seu aparelho, garantindo sigilo total dos seus documentos.
+    `,
+  },
+  {
+    slug: "como-reduzir-tamanho-de-pdf-para-1mb-ou-2mb-gratis",
+    title: "Como Reduzir Tamanho de PDF para 1 MB ou 2 MB Grátis (Concursos e RH)",
+    description: "Descubra como comprimir arquivos PDF grandes para caber no limite de portais de governo, concursos, faculdades e vagas de emprego.",
+    publishedAt: "16 de Novembro de 2026",
+    readTime: "4 min de leitura",
+    category: "PDF & Produtividade",
+    badgeColor: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300",
+    author: {
+      name: "Equipe Crie Grátis",
+      role: "Guias Práticos",
+      avatar: "CG",
+    },
+    tool: {
+      name: "Reduzir Tamanho de PDF",
+      href: "/reduzir-pdf",
+      actionText: "Reduzir PDF Agora",
+    },
+    summary: "Guia prático para diminuir o peso de PDFs escaneados ou com fotos sem perder a legibilidade.",
+    content: `
+Portais de concursos, processos seletivos e sistemas de governo costumam travar o envio quando o arquivo passa de **1 MB ou 2 MB**.
+
+---
+
+## Como comprimir seu PDF sem instalar programas
+
+1. Abra o [Redutor de Tamanho de PDF Online](/reduzir-pdf);
+2. Selecione o arquivo PDF pesado;
+3. Escolha a meta ideal (**Até 1 MB**, **Até 2 MB** ou **Compressão Máxima**);
+4. Clique em **Reduzir Tamanho do PDF** e baixe o novo arquivo otimizado.
+
+Se o documento tiver dados sensíveis, você também pode ocultá-los antes usando [Censurar PDF Online](/censurar-pdf).
+    `,
+  },
+  {
+    slug: "como-fazer-foto-para-passaporte-visto-americano-e-oab",
+    title: "Como Fazer Foto para Passaporte, Visto Americano (5x5) e OAB Online",
+    description: "Saiba as medidas exatas (5x5 cm, 35x45 mm e 5x7 cm) e como enquadrar sua foto em casa para passaporte, visto EUA e conselhos.",
+    publishedAt: "16 de Novembro de 2026",
+    readTime: "4 min de leitura",
+    category: "Documentos & Fotos",
+    badgeColor: "bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300",
+    author: {
+      name: "Equipe Crie Grátis",
+      role: "Guias Práticos",
+      avatar: "CG",
+    },
+    tool: {
+      name: "Foto para Passaporte e Visto",
+      href: "/foto-passaporte-visto",
+      actionText: "Fazer Foto Agora",
+    },
+    summary: "Compare os tamanhos oficiais de foto para visto americano, passaporte e OAB e gere a folha 10x15 para imprimir.",
+    content: `
+Cada documento exige uma proporção específica:
+
+* **Visto Americano (EUA):** 5x5 cm (600x600 px) com fundo branco;
+* **Passaporte / Espaço Schengen:** 35x45 mm;
+* **OAB e Conselhos Regionais:** 5x7 cm.
+
+---
+
+## Passo a passo para gerar sua foto
+
+1. Acesse [Foto para Passaporte, Visto e OAB](/foto-passaporte-visto);
+2. Envie uma foto nítida com iluminação uniforme e fundo claro;
+3. Selecione o padrão desejado e alinhe o rosto na guia biométrica;
+4. Baixe em **JPG digital** ou em **Folha 10x15 cm (PDF)** para imprimir.
+    `,
+  },
+  {
+    slug: "como-fazer-orcamento-em-pdf-gratis-para-enviar-no-whatsapp",
+    title: "Como Fazer Orçamento em PDF Grátis para Enviar no WhatsApp",
+    description: "Crie orçamentos e propostas comerciais profissionais em PDF com seu logotipo, itens e valor total em segundos, direto pelo celular ou PC.",
+    publishedAt: "16 de Novembro de 2026",
+    readTime: "3 min de leitura",
+    category: "Negócios & Freelancers",
+    badgeColor: "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300",
+    author: {
+      name: "Equipe Crie Grátis",
+      role: "Guias Práticos",
+      avatar: "CG",
+    },
+    tool: {
+      name: "Gerador de Orçamento em PDF",
+      href: "/gerador-orcamento-pdf",
+      actionText: "Criar Orçamento Agora",
+    },
+    summary: "Monte propostas comerciais limpas em PDF com logotipo e cálculo automático para fechar mais serviços pelo WhatsApp.",
+    content: `
+Enviar um orçamento em **PDF organizado** transmite muito mais profissionalismo do que mandar apenas texto solto no WhatsApp.
+
+---
+
+## Como criar seu orçamento em 1 minuto
+
+1. Abra o [Gerador de Orçamento em PDF Grátis](/gerador-orcamento-pdf);
+2. Preencha o nome da sua empresa, contato e opcionalmente envie seu **logotipo**;
+3. Adicione os itens/serviços com quantidade e preço unitário;
+4. Clique em **Revisar e Baixar PDF** para conferir a prévia exata e baixar.
+    `,
+  },
+  {
+    slug: "como-gerar-recibo-declaracao-de-residencia-e-procuracao-pdf",
+    title: "Como Gerar Recibo Simples, Declaração de Residência e Procuração em PDF",
+    description: "Preencha modelos prontos de recibo de pagamento, declaração de residência e procuração simples e baixe em PDF pronto para imprimir ou assinar.",
+    publishedAt: "16 de Novembro de 2026",
+    readTime: "3 min de leitura",
+    category: "Documentos & Fotos",
+    badgeColor: "bg-rose-100 text-rose-800 dark:bg-rose-900/40 dark:text-rose-300",
+    author: {
+      name: "Equipe Crie Grátis",
+      role: "Guias Práticos",
+      avatar: "CG",
+    },
+    tool: {
+      name: "Gerador de Recibo e Declaração",
+      href: "/gerador-recibo-declaracao-pdf",
+      actionText: "Gerar Documento Agora",
+    },
+    summary: "Gere documentos rápidos em folha A4 sem precisar formatar texto no Word.",
+    content: `
+Precisa emitir um **recibo de pagamento**, uma **declaração de residência** ou uma **procuração simples** na hora?
+
+---
+
+## Como gerar e assinar no celular
+
+1. Acesse o [Gerador de Recibo, Declaração e Procuração em PDF](/gerador-recibo-declaracao-pdf);
+2. Escolha o modelo desejado e preencha os campos;
+3. Baixe o arquivo PDF formatado em A4;
+4. Se precisar assinar sem imprimir, use em seguida a ferramenta [Assinar PDF Online](/assinar-pdf).
+    `,
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

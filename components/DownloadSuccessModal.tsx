@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
-import { Check, CheckCircle2, Copy, CreditCard, Heart, X } from "lucide-react";
+import { CheckCircle2, CreditCard, Heart, HeartCrack, X } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { STRIPE_DONATION_URL } from "@/hooks/useIsInternational";
 import type { Locale } from "@/lib/i18n";
@@ -26,7 +26,7 @@ const COPY: Record<Locale, {
     optional: "A contribuição é opcional. O arquivo já está sendo baixado.",
     pix: "Copiar chave Pix",
     copied: "Chave Pix copiada",
-    card: "Apoiar com cartão",
+    card: "Quero apoiar com cartão",
     close: "Agora não",
     closeLabel: "Fechar aviso de download",
   },
@@ -127,11 +127,14 @@ export default function DownloadSuccessModal({
         <div className="download-success-actions mt-4 grid gap-2 sm:grid-cols-2">
           <button
             type="button"
-            onClick={copyPix}
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-rose-300 bg-rose-50 px-3 py-2 text-sm font-bold text-rose-700 hover:bg-rose-100 dark:border-rose-900 dark:bg-rose-950/40 dark:text-rose-300"
+            onClick={() => {
+              onClose();
+              window.dispatchEvent(new CustomEvent("open-support-modal"));
+            }}
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-rose-600 px-3 py-2 text-sm font-bold text-white hover:bg-rose-700 cursor-pointer"
           >
-            {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-            {copied ? copy.copied : copy.pix}
+            <Heart className="h-4 w-4" aria-hidden="true" />
+            Quero apoiar com pix
           </button>
           <a
             href={STRIPE_DONATION_URL}
@@ -147,9 +150,9 @@ export default function DownloadSuccessModal({
         <button
           type="button"
           onClick={close}
-          className="download-success-dismiss mt-2 inline-flex min-h-10 items-center justify-center gap-1.5 px-3 text-xs font-semibold text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white"
+          className="download-success-dismiss mt-2 inline-flex min-h-7 items-center justify-center gap-1 px-2.5 py-1 text-[11px] font-medium text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white cursor-pointer"
         >
-          <Heart className="h-3.5 w-3.5" aria-hidden="true" />
+          <HeartCrack className="h-3 w-3" aria-hidden="true" />
           {copy.close}
         </button>
       </div>

@@ -2369,6 +2369,157 @@ export const TOOLS: ToolInfo[] = [
       }
     ]
   },
+  {
+    slug: "juntar-frente-verso-documento",
+    name: "Juntar Frente e Verso de Documento (RG/CNH)",
+    shortDescription: "Coloque frente e verso do RG, CNH ou documento em uma única folha PDF ou JPG.",
+    fullDescription: "Junte as fotos da frente e do verso do seu RG, CNH ou comprovante em uma única página A4 (PDF ou JPG) pronto para enviar em cadastros, bancos e faculdades.",
+    category: "imagens",
+    keywords: ["juntar frente e verso rg", "frente e verso cnh pdf", "juntar duas fotos em uma folha", "rg frente e verso pdf"],
+    icon: "FileText",
+    href: "/juntar-frente-verso-documento",
+    metaTitle: "Juntar Frente e Verso de RG/CNH em 1 Folha (PDF ou JPG) Grátis",
+    metaDescription: "Coloque frente e verso do seu RG ou CNH em uma única folha A4 (PDF ou JPG) grátis no navegador. Ideal para cadastros, bancos e faculdades.",
+    h1: "Juntar Frente e Verso de Documento (RG/CNH)",
+    badge: "Novo",
+    usageSteps: [
+      "Envie a foto da frente do documento (RG, CNH ou cartão).",
+      "Envie a foto do verso do documento.",
+      "Escolha entre disposição vertical ou lado a lado e o formato (PDF ou JPG).",
+      "Clique em gerar e baixe o arquivo pronto."
+    ],
+    features: [
+      "Exportação em PDF (A4) ou Imagem JPG",
+      "Opção de layout um em cima do outro ou lado a lado",
+      "Processamento 100% local — seus documentos não saem do aparelho"
+    ],
+    faqs: [
+      {
+        question: "É seguro juntar meu RG ou CNH aqui?",
+        answer: "Sim. Todo o processamento acontece localmente no seu navegador; nenhuma imagem é enviada para servidores."
+      }
+    ]
+  },
+  {
+    slug: "reduzir-pdf",
+    name: "Reduzir Tamanho de PDF (Até 1MB / 2MB)",
+    shortDescription: "Comprima arquivos PDF grandes para caber no limite de portais, concursos e RH.",
+    fullDescription: "Diminua o peso de arquivos PDF diretamente no navegador com metas prontas (até 1 MB, até 2 MB ou compressão máxima) para enviar em sistemas de governo, faculdades e e-mails.",
+    category: "desenvolvedor",
+    keywords: ["reduzir pdf", "comprimir pdf 1mb", "diminuir tamanho pdf", "compactar pdf online gratis"],
+    icon: "Minimize2",
+    href: "/reduzir-pdf",
+    metaTitle: "Reduzir Tamanho de PDF Online Grátis (Até 1MB / 2MB)",
+    metaDescription: "Comprima arquivos PDF grandes grátis direto no navegador para enviar em concursos, RH e portais com limite de tamanho.",
+    h1: "Reduzir Tamanho de PDF Online Grátis",
+    badge: "Novo",
+    usageSteps: [
+      "Selecione o arquivo PDF que deseja diminuir.",
+      "Escolha a meta de compressão (Até 1 MB, Até 2 MB ou Máxima).",
+      "Clique em 'Reduzir Tamanho do PDF' e baixe o arquivo otimizado."
+    ],
+    features: [
+      "Metas práticas para limites de portais (1 MB e 2 MB)",
+      "Comparativo de tamanho original vs. reduzido",
+      "Sigilo total: o PDF não sai do seu computador ou celular"
+    ],
+    faqs: [
+      {
+        question: "O PDF reduzido funciona em portais de concurso e governo?",
+        answer: "Sim, o arquivo final é um PDF padrão compatível com qualquer navegador ou sistema de upload."
+      }
+    ]
+  },
+  {
+    slug: "foto-passaporte-visto",
+    name: "Foto para Passaporte, Visto e OAB",
+    shortDescription: "Enquadre fotos nos padrões 5x5 cm (Visto EUA), 35x45 mm (Passaporte/Schengen) e 5x7 cm.",
+    fullDescription: "Crie fotos biométricas para passaporte, visto americano (5x5 cm), espaço Schengen (35x45 mm) e OAB/conselhos (5x7 cm) com folha 10x15 pronta para imprimir.",
+    category: "imagens",
+    keywords: ["foto passaporte", "foto 5x5 visto eua", "foto 35x45mm", "foto 5x7 oab", "foto visto americano gratis"],
+    icon: "User",
+    href: "/foto-passaporte-visto",
+    metaTitle: "Foto para Passaporte, Visto EUA (5x5) e OAB (5x7) Grátis",
+    metaDescription: "Faça foto para passaporte (35x45mm), visto americano (5x5cm) ou OAB (5x7cm) grátis online. Baixe em JPG ou folha 10x15 PDF.",
+    h1: "Foto para Passaporte, Visto e OAB Online Grátis",
+    badge: "Novo",
+    usageSteps: [
+      "Envie uma foto bem iluminada com fundo branco/neutro.",
+      "Escolha o padrão desejado (5x5 cm, 35x45 mm ou 5x7 cm).",
+      "Alinhe o rosto na guia biométrica e baixe em JPG ou folha 10x15 PDF."
+    ],
+    features: [
+      "Padrões oficiais: 5x5 cm, 35x45 mm e 5x7 cm",
+      "Guia biométrica para alinhamento do rosto",
+      "Exportação em JPG individual ou folha 10x15 cm em PDF"
+    ],
+    faqs: [
+      {
+        question: "Qual tamanho escolher para Visto Americano (EUA)?",
+        answer: "O padrão exigido para o visto americano é 5x5 cm (600x600 pixels) com fundo branco."
+      }
+    ]
+  },
+  {
+    slug: "gerador-orcamento-pdf",
+    name: "Gerador de Orçamento em PDF",
+    shortDescription: "Crie orçamentos e propostas comerciais em PDF prontos para enviar no WhatsApp.",
+    fullDescription: "Monte orçamentos profissionais em PDF em segundos: adicione seus dados, cliente, itens com quantidade e valor, e baixe o documento pronto para enviar.",
+    category: "desenvolvedor",
+    keywords: ["gerador de orcamento pdf", "fazer orcamento online gratis", "modelo orcamento pdf", "proposta comercial pdf"],
+    icon: "FileText",
+    href: "/gerador-orcamento-pdf",
+    metaTitle: "Gerador de Orçamento Online Grátis em PDF (Pronto para WhatsApp)",
+    metaDescription: "Crie orçamentos e propostas comerciais em PDF grátis e sem cadastro. Adicione itens, valores, validade e baixe na hora.",
+    h1: "Gerador de Orçamento Online Grátis em PDF",
+    badge: "Novo",
+    usageSteps: [
+      "Preencha os dados da sua empresa/nome e do cliente.",
+      "Adicione os itens ou serviços com quantidade e valor unitário.",
+      "Clique em 'Baixar Orçamento em PDF' para salvar e enviar."
+    ],
+    features: [
+      "Cálculo automático do valor total em Reais (R$)",
+      "Layout limpo em folha A4 pronto para imprimir ou enviar no WhatsApp",
+      "Sem marca d'água e sem necessidade de login"
+    ],
+    faqs: [
+      {
+        question: "Posso gerar quantos orçamentos quiser?",
+        answer: "Sim, o gerador é 100% gratuito e ilimitado."
+      }
+    ]
+  },
+  {
+    slug: "gerador-recibo-declaracao-pdf",
+    name: "Gerador de Recibo, Declaração e Procuração PDF",
+    shortDescription: "Gere recibo simples, declaração de residência ou procuração particular em PDF grátis.",
+    fullDescription: "Crie documentos rápidos em PDF pronto para imprimir ou assinar digitalmente: Recibo de Pagamento, Declaração de Residência e Procuração Simples.",
+    category: "desenvolvedor",
+    keywords: ["gerador de recibo pdf", "declaracao de residencia pdf", "procuracao simples pdf", "recibo online gratis"],
+    icon: "FileText",
+    href: "/gerador-recibo-declaracao-pdf",
+    metaTitle: "Gerador de Recibo, Declaração de Residência e Procuração em PDF Grátis",
+    metaDescription: "Gere recibo simples, declaração de residência ou procuração em PDF grátis no navegador. Pronto para imprimir ou assinar online.",
+    h1: "Gerador de Recibo, Declaração e Procuração em PDF",
+    badge: "Novo",
+    usageSteps: [
+      "Escolha o tipo de documento (Recibo, Declaração de Residência ou Procuração).",
+      "Preencha os nomes, documentos e detalhes.",
+      "Baixe o PDF pronto e, se precisar, assine digitalmente."
+    ],
+    features: [
+      "3 modelos prontos em uma única ferramenta",
+      "Formatação padrão A4 pronta para impressão",
+      "Integração direta com a ferramenta de Assinar PDF Online"
+    ],
+    faqs: [
+      {
+        question: "Posso assinar o PDF gerado pelo celular?",
+        answer: "Sim! Após baixar o PDF, você pode usar nossa ferramenta Assinar PDF Online para desenhar sua assinatura na tela."
+      }
+    ]
+  },
   ...NEW_TOOLS,
 ];
 
