@@ -103,6 +103,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${inter.variable} ${inter.className}`} suppressHydrationWarning>
       <head>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4702187766740144"
+          crossOrigin="anonymous"
+        />
         <link rel="icon" type="image/png" href="/favicon-96x96.png?v=3" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3" />
         <link rel="shortcut icon" href="/favicon.ico?v=3" />
