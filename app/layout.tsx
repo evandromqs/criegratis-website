@@ -104,6 +104,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${inter.variable} ${inter.className}`} suppressHydrationWarning>
       <head>
+        <meta name="google-adsense-account" content="ca-pub-4702187766740144" />
         <Script
           id="google-adsense"
           strategy="lazyOnload"
