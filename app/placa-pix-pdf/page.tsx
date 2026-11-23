@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { jsPDF } from "jspdf";
 import QRCode from "qrcode";
 import { Download, QrCode } from "lucide-react";
-import EmbeddedUpgradeCard from "@/components/EmbeddedUpgradeCard";
 
 export default function PlacaPixPdfPage() {
   const [nome, setNome] = useState("");
@@ -126,46 +125,6 @@ export default function PlacaPixPdfPage() {
           <span>{gerando ? "Gerando PDF..." : "Baixar Placa Pix em PDF"}</span>
         </button>
       </form>
-
-      <EmbeddedUpgradeCard
-        toolSlug="placa-pix-pdf"
-        title="Kit Placa Pix Profissional (3 Formatos)"
-        description="Receba também a versão Adesivo de Caixa (A5), Cartão de Balcão Escuro e Arte para WhatsApp/Instagram."
-        priceLabel="R$ 4,90"
-        priceCents={490}
-        benefits={[
-          "Modelo Balcão Premium (fundo escuro)",
-          "Versão Adesivo A5 para caixa",
-          "Arte quadrada para WhatsApp",
-          "Gerado na hora sem marca d'água",
-        ]}
-        onBeforeCheckout={() => {
-          localStorage.setItem("placa_pix_draft", JSON.stringify({ nome, chave, banco, mensagem }));
-        }}
-        onUnlocked={async () => {
-          const saved = localStorage.getItem("placa_pix_draft");
-          if (!saved) return;
-          const data = JSON.parse(saved);
-          if (!data.chave) return;
-          const qrDataUrl = await QRCode.toDataURL(data.chave.trim(), { width: 600, margin: 2 });
-          const doc = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
-          doc.setFillColor(15, 23, 42);
-          doc.rect(0, 0, 210, 297, "F");
-          doc.setTextColor(16, 185, 129);
-          doc.setFont("helvetica", "bold");
-          doc.setFontSize(28);
-          doc.text("PAGUE COM PIX", 105, 34, { align: "center" });
-          doc.setTextColor(255, 255, 255);
-          doc.setFontSize(18);
-          doc.text(data.nome || "Recebedor", 105, 52, { align: "center" });
-          doc.setFillColor(255, 255, 255);
-          doc.roundedRect(45, 70, 120, 120, 6, 6, "F");
-          doc.addImage(qrDataUrl, "PNG", 50, 75, 110, 110);
-          doc.setFontSize(13);
-          doc.text(`Chave: ${data.chave}`, 105, 212, { align: "center" });
-          doc.save("kit-placa-pix-premium.pdf");
-        }}
-      />
     </div>
   );
 }

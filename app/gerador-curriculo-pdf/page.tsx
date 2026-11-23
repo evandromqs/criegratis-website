@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { jsPDF } from "jspdf";
 import { Download, FileText } from "lucide-react";
-import EmbeddedUpgradeCard from "@/components/EmbeddedUpgradeCard";
 
 export default function GeradorCurriculoPdfPage() {
   const [nome, setNome] = useState("");
@@ -90,66 +89,6 @@ export default function GeradorCurriculoPdfPage() {
           <span>Baixar Currículo em PDF</span>
         </button>
       </form>
-
-      <EmbeddedUpgradeCard
-        toolSlug="gerador-curriculo-pdf"
-        title="Currículo Executivo Premium (Layout Duas Colunas)"
-        description="Gere seu currículo com barra lateral executiva, tipografia refinada e destaque visual mantendo leitura ATS."
-        priceLabel="R$ 4,90"
-        priceCents={490}
-        benefits={[
-          "Layout Executivo com barra lateral",
-          "Mesmos dados já preenchidos",
-          "Texto 100% selecionável (ATS)",
-          "Download imediato em PDF",
-        ]}
-        onBeforeCheckout={() => {
-          localStorage.setItem(
-            "curriculo_draft",
-            JSON.stringify({ nome, cargo, contato, resumo, experiencia, formacao, habilidades })
-          );
-        }}
-        onUnlocked={() => {
-          const saved = localStorage.getItem("curriculo_draft");
-          if (!saved) return;
-          const d = JSON.parse(saved);
-          const doc = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
-          doc.setFillColor(15, 23, 42);
-          doc.rect(0, 0, 65, 297, "F");
-          doc.setTextColor(255, 255, 255);
-          doc.setFont("helvetica", "bold");
-          doc.setFontSize(14);
-          doc.text(doc.splitTextToSize(d.nome || "Seu Nome", 55), 8, 24);
-          doc.setFont("helvetica", "normal");
-          doc.setFontSize(9);
-          if (d.cargo) doc.text(doc.splitTextToSize(d.cargo, 55), 8, 42);
-          if (d.contato) doc.text(doc.splitTextToSize(d.contato, 55), 8, 58);
-          if (d.habilidades) {
-            doc.setFont("helvetica", "bold");
-            doc.text("HABILIDADES", 8, 95);
-            doc.setFont("helvetica", "normal");
-            doc.text(doc.splitTextToSize(d.habilidades, 55), 8, 102);
-          }
-          doc.setTextColor(15, 23, 42);
-          let y = 24;
-          const addMain = (t: string, b: string) => {
-            if (!b?.trim()) return;
-            doc.setFont("helvetica", "bold");
-            doc.setFontSize(11);
-            doc.text(t, 75, y);
-            y += 6;
-            doc.setFont("helvetica", "normal");
-            doc.setFontSize(10);
-            const lines = doc.splitTextToSize(b, 122);
-            doc.text(lines, 75, y);
-            y += lines.length * 5 + 8;
-          };
-          addMain("RESUMO PROFISSIONAL", d.resumo);
-          addMain("EXPERIÊNCIA", d.experiencia);
-          addMain("FORMAÇÃO", d.formacao);
-          doc.save("curriculo-executivo-premium.pdf");
-        }}
-      />
     </div>
   );
 }
