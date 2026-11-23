@@ -5,6 +5,7 @@ import { getToolBySlug } from "@/lib/tools";
 import { generateToolSchema, generateToolMetadata } from "@/lib/seo";
 import ToolLayout from "@/components/ToolLayout";
 import Photo3x4Tool from "@/components/tools/Photo3x4Tool";
+import Foto3x4UpgradeSection from "@/components/Foto3x4UpgradeSection";
 
 const SLUG = "foto-3x4";
 
@@ -28,6 +29,7 @@ export default function Photo3x4Page() {
       />
       <ToolLayout tool={tool} showSupportCard={false}>
         <Photo3x4Tool />
+        <Foto3x4UpgradeSection />
       </ToolLayout>
     </>
   );

@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import FileDropzone from "@/components/FileDropzone";
 import DownloadSuccessModal from "@/components/DownloadSuccessModal";
+import { trackClarityEvent } from "@/lib/clarity";
 
 function drawPhoto(
   ctx: CanvasRenderingContext2D,
@@ -50,12 +51,20 @@ export default function Photo3x4Tool() {
   const [offsetX, setOffsetX] = useState<number>(0);
   const [offsetY, setOffsetY] = useState<number>(0);
   const [sheetMode, setSheetMode] = useState<"single" | "sheet6">("sheet6");
+  const [isGenerating, setIsGenerating] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
   const [downloadNoticeOpen, setDownloadNoticeOpen] = useState(false);
 
   const previewCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const sheetPreviewRef = useRef<HTMLCanvasElement | null>(null);
   const imageElementRef = useRef<HTMLImageElement | null>(null);
+  const dragStateRef = useRef<{ active: boolean; startX: number; startY: number; origX: number; origY: number }>({
+    active: false,
+    startX: 0,
+    startY: 0,
+    origX: 0,
+    origY: 0,
+  });
 
   useEffect(() => {
     return () => { if (imageSrc) URL.revokeObjectURL(imageSrc); };
@@ -105,22 +114,26 @@ export default function Photo3x4Tool() {
     canvas.height = height;
     drawPhoto(ctx, img, width, height, zoom, offsetX, offsetY);
 
-    // Linha guia de enquadramento da cabeça
-    ctx.strokeStyle = "rgba(37, 99, 235, 0.4)";
-    ctx.lineWidth = 1;
-    ctx.setLineDash([4, 4]);
+    // Linhas guia de enquadramento da cabeça (alto contraste para qualquer foto)
+    ctx.save();
+    ctx.strokeStyle = "rgba(37, 99, 235, 0.85)";
+    ctx.shadowColor = "rgba(255, 255, 255, 0.85)";
+    ctx.shadowBlur = 3;
+    ctx.lineWidth = 2;
+    ctx.setLineDash([8, 6]);
 
     // Guia dos olhos (terço superior)
     ctx.beginPath();
-    ctx.moveTo(30, height * 0.35);
-    ctx.lineTo(width - 30, height * 0.35);
+    ctx.moveTo(24, height * 0.35);
+    ctx.lineTo(width - 24, height * 0.35);
     ctx.stroke();
 
     // Guia do queixo (terço inferior)
     ctx.beginPath();
-    ctx.moveTo(40, height * 0.75);
-    ctx.lineTo(width - 40, height * 0.75);
+    ctx.moveTo(36, height * 0.75);
+    ctx.lineTo(width - 36, height * 0.75);
     ctx.stroke();
+    ctx.restore();
 
     const sheetPreview = sheetPreviewRef.current;
     const sheetCtx = sheetPreview?.getContext("2d");
@@ -146,48 +159,59 @@ export default function Photo3x4Tool() {
 
   const generateOutput = async () => {
     const img = imageElementRef.current;
-    if (!img) return;
+    if (!img || isGenerating) return;
     invalidateResult();
+    setIsGenerating(true);
 
-    if (sheetMode === "single") {
-      // 1 foto 3x4 individual em 300 DPI
-      const canvas = document.createElement("canvas");
-      const width = 354;
-      const height = 472;
-      canvas.width = width;
-      canvas.height = height;
-      const ctx = canvas.getContext("2d");
-      if (!ctx) return;
+    // Libera a thread principal para pintar o estado de loading antes do processamento pesado (melhora INP)
+    await new Promise<void>((resolve) => requestAnimationFrame(() => setTimeout(resolve, 0)));
 
-      drawPhoto(ctx, img, width, height, zoom, offsetX, offsetY);
+    try {
+      if (sheetMode === "single") {
+        // 1 foto 3x4 individual em 300 DPI
+        const canvas = document.createElement("canvas");
+        const width = 354;
+        const height = 472;
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
 
-      canvas.toBlob((blob) => {
-        if (blob) setDownloadUrl(URL.createObjectURL(blob));
-      }, "image/jpeg", 0.95);
-    } else {
-      // Folha 10x15cm (1200 x 1800 px) com 6 fotos 3x4
-      const sheet = document.createElement("canvas");
-      sheet.width = 1800; // 15cm em 300 DPI
-      sheet.height = 1200; // 10cm em 300 DPI
-      const sCtx = sheet.getContext("2d");
-      if (!sCtx) return;
+        drawPhoto(ctx, img, width, height, zoom, offsetX, offsetY);
 
-      // Foto individual
-      const photo = document.createElement("canvas");
-      const pW = 360;
-      const pH = 480;
-      photo.width = pW;
-      photo.height = pH;
-      const pCtx = photo.getContext("2d");
-      if (!pCtx) return;
+        await new Promise<void>((resolve) => {
+          canvas.toBlob((blob) => {
+            if (blob) setDownloadUrl(URL.createObjectURL(blob));
+            resolve();
+          }, "image/jpeg", 0.95);
+        });
+      } else {
+        // Folha 10x15cm (1200 x 1800 px) com 6 fotos 3x4
+        const sheet = document.createElement("canvas");
+        sheet.width = 1800; // 15cm em 300 DPI
+        sheet.height = 1200; // 10cm em 300 DPI
+        const sCtx = sheet.getContext("2d");
+        if (!sCtx) return;
 
-      drawPhoto(pCtx, img, pW, pH, zoom, offsetX, offsetY);
-      drawSheet(sCtx, photo);
+        // Foto individual
+        const photo = document.createElement("canvas");
+        const pW = 360;
+        const pH = 480;
+        photo.width = pW;
+        photo.height = pH;
+        const pCtx = photo.getContext("2d");
+        if (!pCtx) return;
 
-      const { jsPDF } = await import("jspdf");
-      const pdf = new jsPDF({ orientation: "landscape", unit: "mm", format: [150, 100] });
-      pdf.addImage(sheet.toDataURL("image/jpeg", 0.95), "JPEG", 0, 0, 150, 100);
-      setDownloadUrl(URL.createObjectURL(pdf.output("blob")));
+        drawPhoto(pCtx, img, pW, pH, zoom, offsetX, offsetY);
+        drawSheet(sCtx, photo);
+
+        const { jsPDF } = await import("jspdf");
+        const pdf = new jsPDF({ orientation: "landscape", unit: "mm", format: [150, 100] });
+        pdf.addImage(sheet.toDataURL("image/jpeg", 0.95), "JPEG", 0, 0, 150, 100);
+        setDownloadUrl(URL.createObjectURL(pdf.output("blob")));
+      }
+    } finally {
+      setIsGenerating(false);
     }
   };
 
@@ -309,10 +333,15 @@ export default function Photo3x4Tool() {
             <button
               type="button"
               onClick={generateOutput}
-              className="w-full py-3 rounded-xl font-bold text-sm bg-blue-600 hover:bg-blue-700 text-white shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
+              disabled={isGenerating}
+              className="w-full py-3 rounded-xl font-bold text-sm bg-blue-600 hover:bg-blue-700 disabled:opacity-60 text-white shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <Printer className="w-4 h-4" />
-              {sheetMode === "sheet6" ? "Gerar folha 10x15 cm em PDF" : "Gerar foto 3x4 em JPG"}
+              {isGenerating
+                ? "Gerando arquivo..."
+                : sheetMode === "sheet6"
+                ? "Gerar folha 10x15 cm em PDF"
+                : "Gerar foto 3x4 em JPG"}
             </button>
           </div>
 
@@ -327,12 +356,34 @@ export default function Photo3x4Tool() {
               <div className="relative rounded-xl overflow-hidden border border-slate-300 dark:border-slate-700 shadow-md">
                 <canvas
                   ref={previewCanvasRef}
-                  className="w-[220px] h-[293px] bg-slate-100 dark:bg-slate-800"
-                  aria-label="Prévia do enquadramento da foto 3x4"
+                  onPointerDown={(e) => {
+                    e.currentTarget.setPointerCapture(e.pointerId);
+                    dragStateRef.current = {
+                      active: true,
+                      startX: e.clientX,
+                      startY: e.clientY,
+                      origX: offsetX,
+                      origY: offsetY,
+                    };
+                  }}
+                  onPointerMove={(e) => {
+                    if (!dragStateRef.current.active) return;
+                    const dx = e.clientX - dragStateRef.current.startX;
+                    const dy = e.clientY - dragStateRef.current.startY;
+                    const nextX = Math.max(-50, Math.min(50, Math.round(dragStateRef.current.origX + dx * 0.45)));
+                    const nextY = Math.max(-50, Math.min(50, Math.round(dragStateRef.current.origY + dy * 0.45)));
+                    setOffsetX(nextX);
+                    setOffsetY(nextY);
+                    invalidateResult();
+                  }}
+                  onPointerUp={() => { dragStateRef.current.active = false; }}
+                  onPointerCancel={() => { dragStateRef.current.active = false; }}
+                  className="w-[220px] h-[293px] bg-slate-100 dark:bg-slate-800 touch-none cursor-grab active:cursor-grabbing select-none"
+                  aria-label="Prévia do enquadramento da foto 3x4 — arraste para posicionar o rosto"
                 />
               </div>
               <p className="mt-3 text-center text-xs text-slate-500 dark:text-slate-400">
-                As linhas são apenas guias e não aparecem no arquivo baixado.
+                Arraste a foto na prévia ou use os controles. As linhas são apenas guias e não aparecem no arquivo baixado.
               </p>
             </div>
 
@@ -362,7 +413,10 @@ export default function Photo3x4Tool() {
                   <a
                     href={downloadUrl}
                     download={sheetMode === "sheet6" ? "folha_10x15_6_fotos_3x4.pdf" : "foto_3x4.jpg"}
-                    onClick={() => setDownloadNoticeOpen(true)}
+                    onClick={() => {
+                      trackClarityEvent(sheetMode === "sheet6" ? "download_foto_3x4_pdf" : "download_foto_3x4_jpg");
+                      setDownloadNoticeOpen(true);
+                    }}
                     className="inline-flex min-h-11 items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-sm bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm transition-all"
                   >
                     <Download className="w-4 h-4" />

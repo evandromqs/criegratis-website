@@ -1746,8 +1746,8 @@ export const TOOLS: ToolInfo[] = [
     keywords: ["assinar pdf", "assinatura digital pdf", "assinar contrato online", "rubrica pdf", "assinar pdf gratis"],
     icon: "PenTool",
     href: "/assinar-pdf",
-    metaTitle: "Assinar PDF Online Grátis — Desenhe sua Assinatura ou Rubrica",
-    metaDescription: "Assine documentos e contratos em PDF grátis pelo celular ou PC. Desenhe sua assinatura com fundo transparente, sem cadastro e sem enviar arquivos.",
+    metaTitle: "Assinar PDF Online Grátis pelo Celular ou PC — Sem Cadastro",
+    metaDescription: "Assine contratos e documentos PDF grátis pelo celular ou computador em segundos. Desenhe sua assinatura sem marca d'água e com privacidade total.",
     h1: "Assinar PDF Online Grátis",
     badge: "Novo",
     usageSteps: [
@@ -1886,8 +1886,8 @@ export const TOOLS: ToolInfo[] = [
     keywords: ["comparar pdf", "pdf diff", "diferença entre pdfs", "comparador de contratos pdf", "comparar duas versoes pdf"],
     icon: "GitCompare",
     href: "/comparar-pdf",
-    metaTitle: "Comparar Arquivos PDF Online Grátis | CrieGrátis",
-    metaDescription: "Compare duas versões de um documento PDF lado a lado. Inspecione páginas, diferenças de tamanho e metadados no seu navegador.",
+    metaTitle: "Comparar Dois PDFs Online Grátis Lado a Lado (Sem Cadastro)",
+    metaDescription: "Compare duas versões de um PDF grátis e descubra diferenças de páginas, tamanho e estrutura em segundos, sem enviar arquivos para servidores.",
     h1: "Comparar Arquivos PDF Online",
     badge: "Novo",
     usageSteps: [
@@ -2050,8 +2050,8 @@ export const TOOLS: ToolInfo[] = [
     keywords: ["foto 3x4", "foto 3x4 online", "foto documento rg", "folha 10x15 foto 3x4", "como fazer foto 3x4"],
     icon: "User",
     href: "/foto-3x4",
-    metaTitle: "Fazer Foto 3x4 Online Grátis — Pronta para RG, CPF e Imprimir (10x15)",
-    metaDescription: "Crie sua foto 3x4 grátis pelo celular ou PC! Enquadre com guia biométrica, baixe a foto individual ou a folha 10x15 com 6 fotos pronta para imprimir.",
+    metaTitle: "Foto 3x4 Online Grátis — Fazer pelo Celular e Imprimir (10x15 e A4)",
+    metaDescription: "Faça sua foto 3x4 grátis pelo celular em segundos! Enquadre com guia biométrica e baixe a foto individual ou folha 10x15 com 6 fotos pronta para imprimir.",
     h1: "Fazer Foto 3x4 Online Grátis",
     badge: "Novo",
     usageSteps: [

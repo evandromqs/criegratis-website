@@ -52,8 +52,8 @@ export const BLOG_POSTS: BlogPost[] = [
   ...NEW_POSTS,
   {
     slug: "como-tirar-imprimir-foto-3x4-em-casa",
-    title: "Como Tirar e Imprimir Foto 3x4 em Casa Dentro das Regras Oficiais",
-    description: "Aprenda a enquadrar uma foto 3x4 e montar uma folha PDF 10x15cm para impressão. Confira os requisitos do documento com o órgão responsável.",
+    title: "Como Tirar e Imprimir Foto 3x4 em Casa pelo Celular (Guia Completo)",
+    description: "Passo a passo para tirar foto 3x4 em casa pelo celular, ajustar o tamanho certo e montar folha 10x15 ou A4 para imprimir grátis.",
     publishedAt: "28 de Setembro de 2026",
     readTime: "4 min de leitura",
     category: "Guias & Tutoriais",

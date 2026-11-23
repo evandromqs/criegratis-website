@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { jsPDF } from "jspdf";
 import DownloadSuccessModal from "@/components/DownloadSuccessModal";
+import { trackClarityEvent } from "@/lib/clarity";
 
 const input = "min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 dark:border-slate-600 dark:bg-slate-900 dark:text-white";
 const button = "min-h-11 rounded-xl bg-blue-600 px-5 py-2 text-sm font-bold text-white disabled:opacity-50";
@@ -37,7 +38,7 @@ function useDownload() {
 }
 
 function Download({ state, filename, label = "Baixar arquivo" }: { state: ReturnType<typeof useDownload>; filename: string; label?: string }) {
-  return <>{state.url && <a href={state.url} download={filename} onClick={() => state.setNotice(true)} className={`${button} inline-flex items-center`}>{label}</a>}<DownloadSuccessModal isOpen={state.notice} onClose={() => state.setNotice(false)} /></>;
+  return <>{state.url && <a href={state.url} download={filename} onClick={() => { trackClarityEvent(`download_${filename.replace(/\.[^.]+$/, "")}`); state.setNotice(true); }} className={`${button} inline-flex items-center`}>{label}</a>}<DownloadSuccessModal isOpen={state.notice} onClose={() => state.setNotice(false)} /></>;
 }
 
 function canvasBlob(canvas: HTMLCanvasElement, format: string, quality?: number): Promise<Blob> {

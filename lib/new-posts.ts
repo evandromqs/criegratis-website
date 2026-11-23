@@ -160,6 +160,189 @@ Coloque o documento sobre uma superfície plana, com luz uniforme. Evite reflexo
 
 As imagens são combinadas no navegador. O arquivo gerado não substitui autenticação, reconhecimento ou outros requisitos formais. Por conter dados pessoais, revise o destinatário antes de compartilhar.`,
   },
+  {
+    slug: "como-fazer-placa-pix-para-imprimir",
+    title: "Como Fazer Placa Pix com QR Code para Imprimir Grátis",
+    description: "Aprenda a criar uma placa Pix profissional em PDF com seu QR Code para colocar no balcão da loja ou restaurante.",
+    category: "Negócios e vendas",
+    toolName: "Gerador de Placa Pix em PDF",
+    toolHref: "/placa-pix-pdf",
+    summary: "Facilite o pagamento no balcão gerando uma placa Pix legível e pronta para imprimir em folha A4.",
+    content: `## Por que ter uma Placa Pix no balcão?
+Digitar chave Pix no celular do cliente gera erros e filas. Uma placa impressa com QR Code e chave visível acelera o pagamento e passa mais profissionalismo.
+
+## O que colocar na placa
+- Nome do estabelecimento ou recebedor
+- Chave Pix visível (para quem preferir digitar)
+- QR Code grande e com bom contraste
+
+## Como criar grátis
+1. Acesse o Gerador de Placa Pix em PDF.
+2. Digite sua chave Pix e o nome que aparecerá na placa.
+3. Baixe o PDF e imprima em papel A4 ou papel fotográfico.`,
+  },
+  {
+    slug: "como-preencher-declaracao-conteudo-correios",
+    title: "Como Preencher Declaração de Conteúdo dos Correios em PDF",
+    description: "Vai enviar encomenda sem nota fiscal? Veja como preencher a Declaração de Conteúdo obrigatória e gerar o PDF pronto.",
+    category: "PDF e documentos",
+    toolName: "Declaração de Conteúdo Correios",
+    toolHref: "/declaracao-conteudo-correios",
+    summary: "Evite que sua encomenda seja barrada na agência gerando a Declaração de Conteúdo no padrão oficial.",
+    content: `## Quando a Declaração de Conteúdo é obrigatória?
+Sempre que você envia um produto pelos Correios ou transportadora sem Nota Fiscal (como vendas de desapego, presentes ou envios de pequenos vendedores).
+
+## Dados necessários
+- Nome, CPF/CNPJ e endereço completo do remetente e do destinatário.
+- Lista dos itens com quantidade e valor unitário.
+
+## Como gerar em 1 minuto
+1. Abra o Gerador de Declaração de Conteúdo.
+2. Preencha os campos e adicione os itens.
+3. Baixe o PDF, assine e cole na parte externa da embalagem.`,
+  },
+  {
+    slug: "como-fazer-curriculo-pdf-aprovado-ats",
+    title: "Como Fazer um Currículo em PDF Aprovado por Sistemas ATS",
+    description: "Entenda o que são sistemas ATS e como montar um currículo em PDF limpo, legível e sem erros de formatação.",
+    category: "Carreira e documentos",
+    toolName: "Gerador de Currículo em PDF",
+    toolHref: "/gerador-curriculo-pdf",
+    summary: "Layouts cheios de gráficos podem reprovar seu currículo antes mesmo de um humano ler. Veja como fazer do jeito certo.",
+    content: `## O que é um sistema ATS?
+ATS (Applicant Tracking System) é o software que empresas usam para filtrar currículos automaticamente. Tabelas complexas, ícones e texto em imagem dificultam a leitura.
+
+## Boas práticas
+- Use seções claras: Resumo, Experiência, Formação e Habilidades.
+- Exporte sempre em PDF com texto selecionável.
+- Destaque resultados com números sempre que possível.
+
+## Monte o seu grátis
+Use nosso Gerador de Currículo em PDF para preencher seus dados e baixar um modelo limpo e pronto para enviar.`,
+  },
+  {
+    slug: "como-fazer-contrato-prestacao-servicos-simples",
+    title: "Como Fazer um Contrato de Prestação de Serviços Simples em PDF",
+    description: "Proteja seu trabalho como autônomo ou MEI criando um contrato claro de prestação de serviços com valor, prazo e escopo.",
+    category: "Negócios e vendas",
+    toolName: "Contrato de Prestação de Serviços",
+    toolHref: "/gerador-contrato-prestacao-servicos",
+    summary: "Combinar tudo só por mensagem pode gerar dor de cabeça. Veja as cláusulas essenciais de um contrato simples.",
+    content: `## Por que formalizar mesmo serviços pequenos?
+Um contrato simples evita mal-entendidos sobre prazo de entrega, número de revisões e data de pagamento.
+
+## O que não pode faltar
+- Dados completos de quem contrata e de quem presta o serviço.
+- Descrição clara do que está incluso.
+- Valor total, forma de pagamento e prazo de entrega.
+
+## Gere em PDF
+Preencha nosso Gerador de Contrato de Prestação de Serviços, baixe o PDF e envie para assinatura.`,
+  },
+  {
+    slug: "como-fazer-capa-folha-rosto-abnt-pdf",
+    title: "Como Fazer Capa e Folha de Rosto ABNT em PDF sem Sofrer no Word",
+    description: "Gere capa e folha de rosto já com as margens e alinhamentos das normas ABNT e junte ao seu trabalho em PDF.",
+    category: "Estudos e acadêmico",
+    toolName: "Gerador de Capa ABNT",
+    toolHref: "/capa-abnt-pdf",
+    summary: "Economize tempo na formatação do TCC ou trabalho escolar gerando a capa ABNT pronta em PDF.",
+    content: `## Padrão básico da capa ABNT
+A norma pede margens de 3 cm (superior e esquerda) e 2 cm (inferior e direita), com nome da instituição, autor, título, cidade e ano centralizados.
+
+## Como fazer rápido
+1. Acesse o Gerador de Capa e Folha de Rosto ABNT.
+2. Preencha os campos do seu trabalho.
+3. Baixe o PDF e, se precisar, use o Juntar PDF para unir com o restante do arquivo.`,
+  },
+  {
+    slug: "qual-tamanho-foto-3x4-em-pixels-e-cm",
+    title: "Qual o Tamanho da Foto 3x4 em Pixels e Centímetros?",
+    description: "Descubra as medidas exatas da foto 3x4 em cm e pixels (300 DPI) para RG, CNH, concursos e impressão em folha A4.",
+    category: "Imagens e fotos",
+    toolName: "Gerador de Foto 3x4",
+    toolHref: "/foto-3x4",
+    summary: "Veja a conversão exata de 3x4 cm para pixels e como preparar sua foto pelo celular sem perder qualidade.",
+    content: `## Medidas oficiais da foto 3x4
+- **Em centímetros:** 3 cm de largura por 4 cm de altura.
+- **Em pixels (300 DPI para impressão):** 354 x 472 pixels.
+- **Para web/formulários:** proporção 3:4 (ex: 450 x 600 px).
+
+## Dicas para não ter a foto recusada
+- Use fundo claro e uniforme (preferencialmente branco).
+- Evite sombras fortes no rosto e mantenha expressão neutra.
+
+## Faça grátis no navegador
+Use nossa ferramenta de Foto 3x4 para recortar na proporção exata e baixar pronta para envio ou impressão.`,
+  },
+  {
+    slug: "como-colocar-papel-timbrado-em-pdf-pronto",
+    title: "Como Colocar Papel Timbrado em um PDF Já Pronto",
+    description: "Tem um documento pronto e precisa aplicar o cabeçalho e rodapé da sua empresa? Veja como sobrepor timbre em PDF.",
+    category: "PDF e documentos",
+    toolName: "Folha Timbrada em PDF",
+    toolHref: "/folha-timbrada-pdf",
+    summary: "Aplique sua marca em contratos, laudos e propostas já existentes sem precisar refazer o documento.",
+    content: `## Quando usar a sobreposição de timbre?
+Quando você já exportou um orçamento, laudo ou contrato de outro sistema e quer aplicar a identidade visual da sua empresa por cima ou por trás do texto.
+
+## Passo a passo
+1. Acesse a ferramenta Folha Timbrada em PDF.
+2. Envie seu documento PDF e a imagem do seu timbre/logo.
+3. Ajuste a posição e baixe o arquivo timbrado.`,
+  },
+  {
+    slug: "como-fazer-recibo-pagamento-simples-validade",
+    title: "Como Fazer um Recibo de Pagamento Simples com Validade",
+    description: "Saiba quais informações são obrigatórias em um recibo de pagamento e gere o PDF pronto para assinar.",
+    category: "Negócios e vendas",
+    toolName: "Gerador de Recibo PDF",
+    toolHref: "/gerador-recibo-declaracao-pdf",
+    summary: "Um recibo bem preenchido protege tanto quem paga quanto quem recebe. Veja o que incluir.",
+    content: `## O que torna um recibo válido?
+- Valor numérico e por extenso.
+- Nome completo e CPF/CNPJ de quem pagou e de quem recebeu.
+- Descrição clara do serviço ou produto pago.
+- Data, local e assinatura do recebedor.
+
+## Gere seu recibo agora
+Use o Gerador de Recibo em PDF para preencher tudo em segundos e baixar pronto para impressão ou envio digital.`,
+  },
+  {
+    slug: "como-fazer-orcamento-profissional-pdf-whatsapp",
+    title: "Como Fazer um Orçamento Profissional em PDF para Enviar no WhatsApp",
+    description: "Pare de mandar preços soltos em texto: aprenda a gerar orçamentos em PDF organizados que aumentam sua taxa de fechamento.",
+    category: "Negócios e vendas",
+    toolName: "Gerador de Orçamento PDF",
+    toolHref: "/gerador-orcamento-pdf",
+    summary: "Um orçamento em PDF com itens, validade e seus dados passa muito mais confiança para o cliente.",
+    content: `## Por que enviar orçamento em PDF?
+Mensagens de texto se perdem fácil e parecem informais. Um PDF organizado mostra profissionalismo e justifica melhor o seu preço.
+
+## O que incluir
+- Seus dados de contato e logo.
+- Lista detalhada de itens ou serviços.
+- Prazo de validade da proposta e condições de pagamento.
+
+## Crie grátis
+Use nosso Gerador de Orçamento em PDF e envie direto no WhatsApp do cliente.`,
+  },
+  {
+    slug: "como-assinar-pdf-pelo-celular-sem-imprimir",
+    title: "Como Assinar um PDF pelo Celular sem Precisar Imprimir",
+    description: "Veja como desenhar ou inserir sua assinatura em contratos e documentos PDF direto do celular em poucos segundos.",
+    category: "PDF e documentos",
+    toolName: "Assinar PDF Online",
+    toolHref: "/assinar-pdf",
+    summary: "Economize papel e tempo assinando documentos PDF diretamente na tela do seu celular ou computador.",
+    content: `## Como funciona a assinatura no navegador?
+Você carrega o PDF, desenha sua assinatura com o dedo ou mouse, posiciona no local indicado e baixa o novo PDF assinado. Tudo acontece no seu aparelho, sem enviar o documento para servidores.
+
+## Passo a passo
+1. Abra a ferramenta Assinar PDF.
+2. Selecione o documento e desenhe sua assinatura.
+3. Posicione na página desejada e clique em baixar.`,
+  },
 ];
 
 export const NEW_POSTS: BlogPost[] = drafts.map((post) => ({

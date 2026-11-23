@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { trackClarityEvent } from "@/lib/clarity";
 import {
   FileText,
   Layers,
@@ -789,7 +790,10 @@ export default function OverlayPdfTool() {
               <a
                 href={downloadUrl}
                 download={`timbrado_${docFile?.name || "documento.pdf"}`}
-                onClick={() => setDownloadNoticeOpen(true)}
+                onClick={() => {
+                  trackClarityEvent("download_folha_timbrada_pdf");
+                  setDownloadNoticeOpen(true);
+                }}
                 className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-sm bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm transition-all"
               >
                 <Download className="w-4 h-4" />

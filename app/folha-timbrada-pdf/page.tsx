@@ -5,6 +5,7 @@ import { getToolBySlug } from "@/lib/tools";
 import { generateToolSchema, generateToolMetadata } from "@/lib/seo";
 import ToolLayout from "@/components/ToolLayout";
 import OverlayPdfTool from "@/components/tools/OverlayPdfTool";
+import FolhaTimbradaUpgradeSection from "@/components/FolhaTimbradaUpgradeSection";
 
 const SLUG = "folha-timbrada-pdf";
 
@@ -28,6 +29,7 @@ export default function OverlayPdfPage() {
       />
       <ToolLayout tool={tool} showSupportCard={false}>
         <OverlayPdfTool />
+        <FolhaTimbradaUpgradeSection />
       </ToolLayout>
     </>
   );

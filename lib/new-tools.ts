@@ -72,6 +72,41 @@ const drafts: Draft[] = [
     usageSteps: ["Envie uma imagem da frente e outra do verso.", "Escolha a disposição e confira a prévia.", "Baixe o PDF A4."], features: ["Uma folha A4", "Duas imagens", "Prévia antes de baixar", "Arquivos ficam no dispositivo"],
     faqs: [{ question: "O PDF substitui uma cópia autenticada?", answer: "Não. Verifique o formato e os requisitos pedidos por quem receberá o documento." }],
   },
+  {
+    slug: "placa-pix-pdf", name: "Gerador de Placa Pix em PDF", category: "imagens", icon: "QrCode",
+    shortDescription: "Crie uma placa Pix com QR Code pronta para imprimir.", fullDescription: "Gere uma placa Pix personalizada em PDF A4 ou A5 com sua chave, nome do recebedor e QR Code para colocar no balcão da loja.",
+    keywords: ["placa pix pdf", "gerador placa pix imprimir", "qr code pix balcao"], metaTitle: "Gerador de Placa Pix em PDF para Imprimir Grátis", metaDescription: "Crie sua placa Pix com QR Code em PDF pronta para imprimir e colocar no balcão. Sem cadastro e direto no navegador.", h1: "Gerador de Placa Pix em PDF",
+    usageSteps: ["Informe sua chave Pix e nome do recebedor.", "Escolha o modelo e confira a prévia.", "Baixe o PDF pronto para imprimir."], features: ["QR Code automático", "Pronta para imprimir (A4)", "Nome e banco opcionais", "100% no navegador"],
+    faqs: [{ question: "Funciona com qualquer chave Pix?", answer: "Sim. Você pode usar CPF, CNPJ, e-mail, telefone ou chave aleatória." }],
+  },
+  {
+    slug: "declaracao-conteudo-correios", name: "Declaração de Conteúdo Correios PDF", category: "texto", icon: "FileText",
+    shortDescription: "Preencha e gere a Declaração de Conteúdo em PDF.", fullDescription: "Monte a Declaração de Conteúdo padrão para envios pelos Correios, Shopee ou Mercado Livre sem nota fiscal, pronta para imprimir.",
+    keywords: ["declaracao de conteudo correios pdf", "declaracao de conteudo online", "enviar encomenda sem nota fiscal"], metaTitle: "Gerador de Declaração de Conteúdo Correios PDF Grátis", metaDescription: "Preencha os dados do remetente, destinatário e itens e baixe a Declaração de Conteúdo em PDF pronta para imprimir.", h1: "Declaração de Conteúdo Correios em PDF",
+    usageSteps: ["Preencha remetente e destinatário.", "Adicione os itens, quantidades e valores.", "Baixe o PDF pronto para assinar e colar na caixa."], features: ["Modelo padrão Correios", "Cálculo automático de totais", "Pronto para imprimir", "Sem cadastro"],
+    faqs: [{ question: "Quando preciso da Declaração de Conteúdo?", answer: "Sempre que enviar uma encomenda pelos Correios ou transportadora sem Nota Fiscal." }],
+  },
+  {
+    slug: "gerador-curriculo-pdf", name: "Gerador de Currículo em PDF", category: "texto", icon: "FileText",
+    shortDescription: "Crie um currículo limpo e compatível com sistemas ATS.", fullDescription: "Monte seu currículo profissional em PDF com layout limpo, legível por recrutadores e sistemas ATS, sem precisar instalar programas.",
+    keywords: ["gerador de curriculo pdf", "fazer curriculo online gratis", "curriculo ats pdf"], metaTitle: "Gerador de Currículo em PDF Grátis Online", metaDescription: "Crie um currículo profissional em PDF compatível com sistemas ATS em minutos. Preencha, visualize e baixe grátis.", h1: "Gerador de Currículo em PDF",
+    usageSteps: ["Preencha seus dados, resumo, experiência e formação.", "Confira a prévia em tempo real.", "Baixe seu currículo em PDF."], features: ["Layout limpo (ATS-friendly)", "Prévia instantânea", "Exportação em PDF A4", "Dados ficam no seu navegador"],
+    faqs: [{ question: "O que é um currículo ATS-friendly?", answer: "É um currículo com estrutura clara e texto selecionável que softwares de recrutamento conseguem ler sem erros." }],
+  },
+  {
+    slug: "gerador-contrato-prestacao-servicos", name: "Contrato de Prestação de Serviços PDF", category: "texto", icon: "FileText",
+    shortDescription: "Gere um contrato simples de prestação de serviços em PDF.", fullDescription: "Preencha dados do contratante, contratado, objeto, valor e prazo para gerar um contrato de prestação de serviços em PDF pronto para assinar.",
+    keywords: ["contrato prestacao de servicos pdf", "modelo contrato simples", "gerador contrato freelancer"], metaTitle: "Gerador de Contrato de Prestação de Serviços PDF Grátis", metaDescription: "Crie um contrato simples de prestação de serviços em PDF com cláusulas essenciais para autônomos e MEIs.", h1: "Gerador de Contrato de Prestação de Serviços",
+    usageSteps: ["Informe os dados das partes e do serviço.", "Defina valor, forma de pagamento e prazo.", "Baixe o contrato em PDF pronto para assinatura."], features: ["Cláusulas essenciais", "Campos personalizáveis", "PDF pronto para assinar", "Privacidade total"],
+    faqs: [{ question: "O contrato tem validade jurídica?", answer: "Contratos particulares assinados pelas partes têm validade legal. Para casos complexos, consulte um advogado." }],
+  },
+  {
+    slug: "capa-abnt-pdf", name: "Gerador de Capa e Folha de Rosto ABNT", category: "texto", icon: "FileText",
+    shortDescription: "Gere capa e folha de rosto nas normas ABNT em PDF.", fullDescription: "Crie rapidamente a capa e a folha de rosto formatadas nas normas ABNT (margens, fonte e alinhamento) e baixe em PDF.",
+    keywords: ["capa abnt pdf", "gerador capa abnt", "folha de rosto abnt online"], metaTitle: "Gerador de Capa e Folha de Rosto ABNT em PDF Grátis", metaDescription: "Gere capa e folha de rosto nas normas ABNT com margens e espaçamento corretos e baixe em PDF.", h1: "Gerador de Capa e Folha de Rosto ABNT",
+    usageSteps: ["Preencha instituição, autor, título, cidade e ano.", "Escolha se deseja incluir folha de rosto.", "Baixe o PDF formatado."], features: ["Margens padrão ABNT", "Capa + Folha de Rosto", "Fonte e alinhamento corretos", "Download imediato"],
+    faqs: [{ question: "Posso juntar com o resto do meu trabalho?", answer: "Sim. Depois de baixar, use nossa ferramenta de Juntar PDF para unir a capa ao seu trabalho." }],
+  },
 ];
 
 export const NEW_TOOLS: ToolInfo[] = drafts.map((draft) => ({ ...draft, href: `/${draft.slug}`, badge: "Novo" }));

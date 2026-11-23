@@ -147,13 +147,15 @@ export default function ToolCard({ tool }: ToolCardProps) {
             <IconComponent className="h-6 w-6" aria-hidden="true" />
           </div>
 
-          <div className="flex items-center gap-1.5 shrink-0 pointer-events-auto">
+          <div className="flex items-center gap-1.5 shrink-0">
             {tool.badge && (
-              <span className="rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-900/50 px-2 py-0.5 text-[10px] font-semibold text-[#2563EB] dark:text-[#38BDF8]">
+              <span className="pointer-events-none rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-900/50 px-2 py-0.5 text-[10px] font-semibold text-[#2563EB] dark:text-[#38BDF8]">
                 {tool.badge}
               </span>
             )}
-            <FavoriteButton slug={tool.slug} variant="compact" />
+            <div className="pointer-events-auto">
+              <FavoriteButton slug={tool.slug} variant="compact" />
+            </div>
           </div>
         </div>
 
