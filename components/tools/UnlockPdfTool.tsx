@@ -152,7 +152,7 @@ export default function UnlockPdfTool() {
               </button>
             </div>
             <p className="text-xs text-neutral-500 mt-2">
-              Se o documento possuir apenas restrições de impressão/edição sem senha de abertura, basta deixar o campo em branco.
+              Se o documento possuir apenas restrições de impressão/edição sem senha de abertura, basta deixar o campo em branco. Utilize apenas em documentos de sua titularidade ou com autorização.
             </p>
           </div>
 

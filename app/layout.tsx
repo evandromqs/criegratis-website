@@ -7,6 +7,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PwaInstallBanner from "@/components/PwaInstallBanner";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
 import MicrosoftClarity from "@/components/MicrosoftClarity";
 import GoogleTranslate from "@/components/GoogleTranslate";
 import { SITE_NAME, SITE_URL, DEFAULT_DESCRIPTION, generateWebsiteSchema } from "@/lib/seo";
@@ -155,6 +156,7 @@ export default function RootLayout({
         <main className="flex-1 w-full max-w-full overflow-x-clip">{children}</main>
         <Footer />
         <PwaInstallBanner />
+        <CookieConsentBanner />
         <Analytics />
         <GoogleAnalytics gaId="G-7G97SF97S2" />
         <MicrosoftClarity />

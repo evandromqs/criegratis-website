@@ -43,7 +43,7 @@ export default function MicrosoftStoreSection({ className = "" }: MicrosoftStore
               </div>
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-                <span>Sem Anúncios</span>
+                <span>Sem Assinaturas</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />

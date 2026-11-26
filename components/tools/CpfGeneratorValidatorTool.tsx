@@ -264,6 +264,10 @@ export default function CpfGeneratorValidatorTool() {
               ))}
             </div>
           </div>
+
+          <p className="text-[11px] text-slate-500 dark:text-slate-400">
+            ⚠️ <strong>Aviso Legal:</strong> Os números de CPF gerados são matematicamente válidos segundo o algoritmo oficial e destinam-se exclusivamente para testes de sistemas e desenvolvimento de software.
+          </p>
         </div>
       )}
 

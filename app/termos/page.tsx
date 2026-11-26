@@ -23,7 +23,7 @@ export default function TermsPage() {
         <h1 className="text-3xl font-bold text-[#0F172A] sm:text-4xl">
           Termos de Uso
         </h1>
-        <p className="text-sm text-[#64748B]">Última atualização: Agosto de 2026</p>
+        <p className="text-sm text-[#64748B]">Última atualização: Novembro de 2026</p>
       </div>
 
       <div className="rounded-3xl border border-[#E2E8F0] bg-white p-8 shadow-sm space-y-6 text-[#0F172A] leading-relaxed text-sm sm:text-base">
@@ -35,9 +35,12 @@ export default function TermsPage() {
         </section>
 
         <section className="space-y-2 pt-4 border-t border-[#F1F5F9]">
-          <h2 className="text-lg font-bold text-[#0F172A]">2. Uso das Ferramentas</h2>
+          <h2 className="text-lg font-bold text-[#0F172A]">2. Uso das Ferramentas e Responsabilidade</h2>
           <p className="text-[#475569]">
-            Todas as ferramentas disponibilizadas no Crie Grátis são gratuitas para uso pessoal e comercial. Você é o único responsável pelos arquivos, conteúdos e textos inseridos nas ferramentas.
+            Todas as ferramentas disponibilizadas no Crie Grátis são gratuitas para uso pessoal, educacional e profissional legítimo. Você é o único responsável pelos arquivos, conteúdos e textos inseridos nas ferramentas.
+          </p>
+          <p className="text-[#475569]">
+            Ferramentas voltadas a desenvolvimento e testes de software (como geradores de dados matemáticos de CPF e CNPJ para validação de sistemas) devem ser utilizadas exclusivamente para fins de teste, homologação e estudo, sendo estritamente vedado qualquer uso fraudulento. Ferramentas de manipulação de PDF devem ser usadas apenas em documentos de sua titularidade ou para os quais você possua autorização legal.
           </p>
         </section>
 
