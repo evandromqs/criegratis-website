@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Download } from "lucide-react";
+import { unlockPwaInstall } from "@/hooks/usePwaUnlocked";
 
 interface DownloadButtonProps {
   href?: string;
@@ -36,6 +37,10 @@ export default function DownloadButton({
       <a
         href={href}
         download={downloadFileName}
+        onClick={() => {
+          unlockPwaInstall();
+          onClick?.();
+        }}
         className={`${baseStyles} ${sizeStyles[size]} ${disabled ? "opacity-50 pointer-events-none" : ""} ${className}`}
       >
         <Download className="h-4 w-4" />
@@ -46,7 +51,10 @@ export default function DownloadButton({
 
   return (
     <button
-      onClick={onClick}
+      onClick={() => {
+        unlockPwaInstall();
+        onClick?.();
+      }}
       disabled={disabled}
       className={`${baseStyles} ${sizeStyles[size]} ${disabled ? "opacity-50 cursor-not-allowed" : ""} ${className}`}
     >

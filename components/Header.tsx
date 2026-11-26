@@ -12,6 +12,7 @@ import SupportModal from "./SupportModal";
 import { useFavorites } from "@/hooks/useFavorites";
 import { useLanguage } from "@/hooks/useLanguage";
 import { LOCALES } from "@/lib/i18n";
+import { TOOLS } from "@/lib/tools";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -85,6 +86,11 @@ export default function Header() {
               >
                 <Icon className={`h-4 w-4 ${link.iconColor}`} />
                 <span>{link.label}</span>
+                {link.href === "/ferramentas" && (
+                  <span className="rounded-full bg-blue-100/80 dark:bg-blue-950/80 px-1.5 py-0.5 text-[10px] font-bold text-[#2563EB] dark:text-[#38BDF8]">
+                    {TOOLS.length}
+                  </span>
+                )}
               </Link>
             );
           })}
@@ -255,6 +261,11 @@ export default function Header() {
                   >
                     <Icon className={`h-5 w-5 ${link.iconColor}`} />
                     <span>{link.label}</span>
+                    {link.href === "/ferramentas" && (
+                      <span className="ml-auto rounded-full bg-blue-100 dark:bg-blue-950/80 px-2 py-0.5 text-[11px] font-bold text-[#2563EB] dark:text-[#38BDF8]">
+                        {TOOLS.length}
+                      </span>
+                    )}
                   </Link>
                 );
               })}

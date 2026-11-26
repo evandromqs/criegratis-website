@@ -4,16 +4,19 @@ import { ShieldCheck, Zap, Info } from "lucide-react";
 import DollarBlockedIcon from "@/components/icons/DollarBlockedIcon";
 
 import { SITE_URL } from "@/lib/seo";
+import { TOOLS } from "@/lib/tools";
+
+const TOOLS_COUNT = TOOLS.length;
 
 export const metadata: Metadata = {
-  title: "Sobre o Crie Grátis — +85 Ferramentas Gratuitas Rumo às 100",
-  description: "Conheça a missão do Crie Grátis: oferecer mais de 85 ferramentas web ultra-rápidas rumo às 100, 100% gratuitas e com total privacidade no navegador.",
+  title: `Sobre o Crie Grátis — +${TOOLS_COUNT} Ferramentas Gratuitas Rumo às 100`,
+  description: `Conheça a missão do Crie Grátis: oferecer mais de ${TOOLS_COUNT} ferramentas web ultra-rápidas rumo às 100, 100% gratuitas e com total privacidade no navegador.`,
   alternates: {
     canonical: `${SITE_URL}/sobre`,
   },
   openGraph: {
-    title: "Sobre o Crie Grátis — +85 Ferramentas Gratuitas Rumo às 100",
-    description: "Conheça a missão do Crie Grátis: oferecer mais de 85 ferramentas web ultra-rápidas rumo às 100, 100% gratuitas e com total privacidade no navegador.",
+    title: `Sobre o Crie Grátis — +${TOOLS_COUNT} Ferramentas Gratuitas Rumo às 100`,
+    description: `Conheça a missão do Crie Grátis: oferecer mais de ${TOOLS_COUNT} ferramentas web ultra-rápidas rumo às 100, 100% gratuitas e com total privacidade no navegador.`,
     url: `${SITE_URL}/sobre`,
   },
 };
@@ -82,7 +85,7 @@ export default function AboutPage() {
         <section className="space-y-3 pt-4 border-t border-[#F1F5F9]">
           <h2 className="text-xl font-bold text-[#0F172A]">Rumo às 100 Ferramentas</h2>
           <p className="text-[#475569]">
-            Hoje já reunimos <strong>85 ferramentas gratuitas</strong> nas áreas de PDF, Imagem e Foto (incluindo Foto 3x4 e Passaporte), Documentos e Negócios (como Folha Timbrada, Orçamentos e Recibos), Calculadoras e Utilitários para Desenvolvedores. Estamos expandindo para completar <strong>100 ferramentas</strong> com novos geradores para autônomos, lojistas, estudantes e profissionais.
+            Hoje já reunimos <strong>{TOOLS_COUNT} ferramentas gratuitas</strong> nas áreas de PDF, Imagem e Foto (incluindo Foto 3x4 e Passaporte), Documentos e Negócios (como Folha Timbrada, Orçamentos e Recibos), Calculadoras e Utilitários para Desenvolvedores. Estamos expandindo para completar <strong>100 ferramentas</strong> com novos geradores para autônomos, lojistas, estudantes e profissionais.
           </p>
         </section>
       </div>

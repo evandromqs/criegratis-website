@@ -13,26 +13,31 @@ import {
 import RoadmapView from "./RoadmapView";
 import RoadmapSupportSection from "./RoadmapSupportSection";
 import { SITE_URL } from "@/lib/seo";
+import { TOOLS } from "@/lib/tools";
+
+const AVAILABLE_TOOLS_COUNT = TOOLS.length;
+const TOTAL_GOAL_TOOLS = 100;
+const PLANNED_TOOLS_COUNT = Math.max(0, TOTAL_GOAL_TOOLS - AVAILABLE_TOOLS_COUNT);
 
 export const metadata: Metadata = {
   title: "Roadmap Oficial — Rumo às 100 Ferramentas Gratuitas | CrieGrátis",
   description:
-    "Acompanhe o desenvolvimento público do CrieGrátis. Veja as 85 ferramentas lançadas (85% da meta alcançada!) e as próximas 15 novidades rumo às 100 ferramentas 100% privadas no navegador.",
+    `Acompanhe o desenvolvimento público do CrieGrátis. Veja as ${AVAILABLE_TOOLS_COUNT} ferramentas lançadas (${AVAILABLE_TOOLS_COUNT}% da meta alcançada!) e as próximas ${PLANNED_TOOLS_COUNT} novidades rumo às 100 ferramentas 100% privadas no navegador.`,
   alternates: {
     canonical: `${SITE_URL}/roadmap`,
   },
   openGraph: {
-    title: "Roadmap CrieGrátis — 85 Ferramentas Lançadas Rumo às 100",
+    title: `Roadmap CrieGrátis — ${AVAILABLE_TOOLS_COUNT} Ferramentas Lançadas Rumo às 100`,
     description:
-      "Acompanhe as próximas 15 ferramentas gratuitas, rápidas e 100% client-side que estamos construindo para completar 100 utilitários.",
+      `Acompanhe as próximas ${PLANNED_TOOLS_COUNT} ferramentas gratuitas, rápidas e 100% client-side que estamos construindo para completar 100 utilitários.`,
     url: `${SITE_URL}/roadmap`,
   },
 };
 
 export default function RoadmapPage() {
-  const totalTools = 100;
-  const availableTools = 85;
-  const plannedTools = 15;
+  const totalTools = TOTAL_GOAL_TOOLS;
+  const availableTools = AVAILABLE_TOOLS_COUNT;
+  const plannedTools = PLANNED_TOOLS_COUNT;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:py-12 sm:px-6 lg:px-8 space-y-10 sm:space-y-14">
@@ -105,7 +110,7 @@ export default function RoadmapPage() {
               </div>
             </div>
             <p className="mt-2 text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">{availableTools}</p>
-            <p className="text-[11px] text-emerald-700 dark:text-emerald-300 font-medium">Fases 1 a 4 (Lançadas)</p>
+            <p className="text-[11px] text-emerald-700 dark:text-emerald-300 font-medium">Fases 1 a 5 (Lançadas)</p>
           </div>
 
           {/* Card Próximas */}
@@ -116,8 +121,8 @@ export default function RoadmapPage() {
                 <Clock className="h-4 w-4" />
               </div>
             </div>
-            <p className="mt-2 text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">15</p>
-            <p className="text-[11px] text-sky-700 dark:text-sky-300 font-medium">Fase 5 (v1.4)</p>
+            <p className="mt-2 text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">{plannedTools}</p>
+            <p className="text-[11px] text-sky-700 dark:text-sky-300 font-medium">Fase 6 (v2.0)</p>
           </div>
 
           {/* Card Planejadas */}
