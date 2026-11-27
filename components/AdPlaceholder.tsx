@@ -48,7 +48,7 @@ function AdUnit({
     <ins
       ref={insRef}
       className="adsbygoogle block w-full overflow-hidden text-center"
-      style={{ display: "block", minHeight: "90px" }}
+      style={{ display: "block" }}
       data-ad-client={ADSENSE_CLIENT_ID}
       data-ad-slot={slot}
       data-ad-format={format}
@@ -58,8 +58,10 @@ function AdUnit({
 }
 
 /**
- * Bloco responsivo de anúncio Google AdSense com reserva mínima de altura para evitar CLS
- * e isolamento por rota para funcionar corretamente na navegação SPA do Next.js.
+ * Bloco responsivo de anúncio Google AdSense:
+ * - Usa tag <ins> block com largura 100% para cálculo responsivo correto em desktop e mobile
+ * - Isolado por rota (usePathname) para funcionar na navegação SPA do Next.js
+ * - Oculta automaticamente o container inteiro caso o AdSense retorne data-ad-status="unfilled"
  */
 export default function AdPlaceholder({
   slot = DEFAULT_AD_SLOT,
@@ -72,12 +74,12 @@ export default function AdPlaceholder({
   return (
     <aside
       aria-label={label}
-      className={`w-full overflow-hidden rounded-2xl border border-[#E2E8F0]/80 dark:border-[#334155]/80 bg-white/70 dark:bg-[#1E293B]/50 px-3 py-3 sm:px-4 sm:py-4 text-center ${className}`}
+      className={`w-full overflow-hidden rounded-2xl border border-[#E2E8F0]/80 dark:border-[#334155]/80 bg-white/70 dark:bg-[#1E293B]/50 px-3 py-3 sm:px-4 sm:py-4 text-center has-[ins[data-ad-status='unfilled']]:hidden ${className}`}
     >
       <div className="mb-2 text-[10px] font-semibold uppercase tracking-widest text-[#94A3B8] dark:text-[#64748B] select-none">
         {label}
       </div>
-      <div className="min-h-[90px] w-full flex items-center justify-center">
+      <div className="w-full">
         <AdUnit key={`${slot}-${pathname}`} slot={slot} format={format} />
       </div>
     </aside>
