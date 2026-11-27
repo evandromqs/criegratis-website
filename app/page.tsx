@@ -20,6 +20,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import DollarBlockedIcon from "@/components/icons/DollarBlockedIcon";
 import HomeBlogSection from "@/components/HomeBlogSection";
 import MicrosoftStoreSection from "@/components/MicrosoftStoreSection";
+import AdPlaceholder from "@/components/AdPlaceholder";
 import { TOOLS } from "@/lib/tools";
 import { SITE_URL, SITE_NAME } from "@/lib/seo";
 
@@ -303,6 +304,11 @@ export default function HomePage() {
 
         {/* Componente Interativo com Abas de Categorias e Ordenação */}
         <HomeToolFilter tools={TOOLS} />
+      </section>
+
+      {/* ANÚNCIO DISPLAY RESPONSIVO */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <AdPlaceholder />
       </section>
 
       {/* SEÇÃO UNIFICADA DE DIFERENCIAIS E VANTAGENS */}

@@ -5,6 +5,7 @@ import { ToolInfo } from "@/lib/tools";
 import RelatedTools from "./RelatedTools";
 import SupportCard from "./SupportCard";
 import FavoriteButton from "./FavoriteButton";
+import AdPlaceholder from "./AdPlaceholder";
 
 interface ToolLayoutProps {
   tool: ToolInfo;
@@ -63,6 +64,11 @@ export default function ToolLayout({ tool, children, showSupportCard = true }: T
             <SupportCard />
           </div>
         )}
+
+        {/* Anúncio Display Responsivo (posicionado fora do widget para evitar cliques acidentais) */}
+        <div className="mt-6">
+          <AdPlaceholder />
+        </div>
 
         {/* Conteúdo Informativo & SEO On-Page */}
         <div className="mt-10 space-y-8 text-[#0F172A] dark:text-[#F1F5F9]">

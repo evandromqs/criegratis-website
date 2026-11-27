@@ -19,6 +19,7 @@ import {
 import { BLOG_POSTS, getPostBySlug, getPostPublishedISO } from "@/lib/posts";
 import { SITE_URL, SITE_NAME } from "@/lib/seo";
 import MicrosoftStoreSection from "@/components/MicrosoftStoreSection";
+import AdPlaceholder from "@/components/AdPlaceholder";
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -324,6 +325,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         {/* Artigo Estruturado */}
         <div className="prose prose-slate dark:prose-invert max-w-none text-[#334155] dark:text-[#CBD5E1]">
           {renderContent(post.content)}
+        </div>
+
+        {/* Anúncio Display Responsivo no final do artigo */}
+        <div className="mt-10">
+          <AdPlaceholder />
         </div>
 
         {/* Card Final de Ação da Ferramenta */}

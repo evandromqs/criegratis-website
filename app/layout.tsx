@@ -108,7 +108,7 @@ export default function RootLayout({
         <meta name="google-adsense-account" content="ca-pub-4702187766740144" />
         <Script
           id="google-adsense"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4702187766740144"
           crossOrigin="anonymous"
         />
